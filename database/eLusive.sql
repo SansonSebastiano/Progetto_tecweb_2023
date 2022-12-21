@@ -6,17 +6,18 @@ CREATE TABLE utente (
     email VARCHAR(255) NOT NULL,
     ruolo ENUM("user","writer","admin") NOT NULL,
     PRIMARY KEY(id)
-);
+);µ
 
 CREATE TABLE articolo (
     id INT NOT NULL,
     autore INT NOT NULL,
     titolo VARCHAR(255) NOT NULL,
-    data DATE NOT NULL,
+    data DATETIME NOT NULL,
     descrizione VARCHAR(255) NOT NULL,
     contenuto VARCHAR(2000) NOT NULL,
     image_path VARCHAR(1024)
     tag ENUM("scoperta","new-entry","avvistamento","comunicazione","none") NOT NULL,
+    featured BOOLEAN NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY (autore) REFERENCES utente(id)
 );
