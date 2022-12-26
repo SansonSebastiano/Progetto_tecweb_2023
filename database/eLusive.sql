@@ -1,8 +1,11 @@
 
+-- Tables creation
+
 CREATE TYPE role AS ENUM ('user','writer','admin');
+CREATE SEQUENCE utente_id_seq START 1 INCREMENT 1;
 
 CREATE TABLE utente (
-    id INT NOT NULL, 
+    id SERIAL, 
     nome VARCHAR(255) NOT NULL, 
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -11,9 +14,10 @@ CREATE TABLE utente (
 );
 
 CREATE TYPE tag AS ENUM ('scoperta','new-entry','avvistamento','comunicazione','none');
+CREATE SEQUENCE articolo_id_seq START 1 INCREMENT 1;
 
 CREATE TABLE articolo (
-    id INT NOT NULL,
+    id SERIAL,
     autore INT NOT NULL,
     titolo VARCHAR(255) NOT NULL,
     data TIMESTAMP NOT NULL,
@@ -45,8 +49,10 @@ CREATE TABLE articolo_animale (
     FOREIGN KEY(animale) REFERENCES animale(nome)
 );
 
+CREATE SEQUENCE commento_id_seq START 1 INCREMENT 1;
+
 CREATE TABLE commento (
-    id BIGINT NOT NULL,
+    id SERIAL,
     articolo INT NOT NULL,
     utente INT NOT NULL,
     contenuto VARCHAR(255) NOT NULL,
@@ -74,5 +80,3 @@ CREATE TABLE voto (
     FOREIGN KEY(utente) REFERENCES utente(id),
     FOREIGN KEY(animale) REFERENCES animale(nome)
 );
-
-
