@@ -1,0 +1,13 @@
+@media screen and (max-width:600px) {
+    #header-titling {
+        position: relative;
+    }
+    #header-titling p {
+        display: none;
+    }
+    #header-titling h1 {
+        position: absolute;
+        height:100%;
+        width: 100%;
+    }
+}
