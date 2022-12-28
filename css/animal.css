@@ -83,7 +83,7 @@ main{
 }
 
 
-.animalstats{
+#animal-info{
     display: flex;
     flex-direction: column;
     padding-left: 0;
@@ -92,29 +92,26 @@ main{
 ul.coloredlist{
     list-style: none outside;
 }
-.coloredlist li{
+
+#animal-stats{
+    border-collapse: collapse;
+}
+#animal-stats td, #animal-stats th{
+    padding: 1em 1em;
+}
+.coloredlist li, #animal-stats tr,#animal-stats{
     color: #fff;
     padding: 0.74em 0.1em;
     border: #000 solid 2px;
 }
 
-.coloredlist li:nth-child(even) {
+.coloredlist li:nth-child(even), #animal-stats tr:nth-child(even) {
     background-color: var(--color2);
 }
 
-.coloredlist li:nth-child(odd) {
+.coloredlist li:nth-child(odd) , #animal-stats tr:nth-child(odd){
     background-color: var(--color1);
 }
-
-
-.animalstats li:last-child{
-    border-bottom: #000 solid 2px;
-}
-
-.animalstats li:nth-child(n) {
-    border-bottom: none;
-}
-
 
 nav h2,nav .article{
     text-align: center;
