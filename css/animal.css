@@ -89,20 +89,20 @@ main{
     padding-left: 0;
     grid-area: e;
 }
-ul{
+ul.coloredlist{
     list-style: none outside;
 }
-li{
+.coloredlist li{
     color: #fff;
     padding: 0.74em 0.1em;
     border: #000 solid 2px;
 }
 
-li:nth-child(even) {
+.coloredlist li:nth-child(even) {
     background-color: var(--color2);
 }
 
-li:nth-child(odd) {
+.coloredlist li:nth-child(odd) {
     background-color: var(--color1);
 }
 
@@ -116,7 +116,7 @@ li:nth-child(odd) {
 }
 
 
-nav{
+nav h2,nav .article{
     text-align: center;
 }
 #related-articles{
