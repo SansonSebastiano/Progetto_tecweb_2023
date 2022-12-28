@@ -2,7 +2,7 @@ main{
     background-color: #fff;
 }
 
-.grid-wrapper{
+.main-wrapper{
     display: grid;
     grid-template-columns: 1fr 0.55fr;
     grid-gap: 2em;
@@ -39,7 +39,7 @@ main{
 #animal-voting button{
     width: 5%;
 }
-#animal img{
+.animalstats img{
     grid-area: d;
     width: 65%;
     margin: 1%;
@@ -124,22 +124,19 @@ nav{
 }
 #related-articles-list{
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     column-gap: 2em;
     row-gap: 2em;
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
-    justify-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 ul .article{
-    padding: 2%;
-}
-
-
-
-ul .article img{
-    width: 100%;
-    border: #000 2px solid;
+    padding: 2.5em;
+    height: 20%;
+    flex: 1 1 100px;
 }
