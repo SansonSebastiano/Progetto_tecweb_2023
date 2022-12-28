@@ -73,9 +73,9 @@ CREATE TABLE risposta (
 CREATE TYPE vote AS ENUM ('YES','NO');
 
 CREATE TABLE voto (
-    utente INT,
-    animale VARCHAR(255) UNIQUE,
-    voto vote,
+    utente INT NOT NULL,
+    animale VARCHAR(255) NOT NULL,
+    voto vote NOT NULL,
     PRIMARY KEY(utente,animale),
     FOREIGN KEY(utente) REFERENCES utente(id),
     FOREIGN KEY(animale) REFERENCES animale(nome)

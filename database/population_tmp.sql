@@ -35,7 +35,12 @@ INSERT INTO risposta VALUES (2,1),
 
     -- Voti
 INSERT INTO voto VALUES (1,'Animale di prova 1','YES'),
+                        (1, 'Animale di prova 2','YES'),
+                        (1, 'Animale di prova 3','NO'),
+                        (2,'Animale di prova 1','YES'),
                         (2,'Animale di prova 2','NO'),
+                        (2,'Animale di prova 3','YES'),
+                        (3,'Animale di prova 1','YES'),
+                        (3,'Animale di prova 2','NO'),
                         (3,'Animale di prova 3','YES');
-
-
+                        
