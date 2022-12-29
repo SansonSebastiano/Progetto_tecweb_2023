@@ -2,7 +2,7 @@
 
     -- create view with articolo and his author
 CREATE VIEW view_articolo_utente 
-AS SELECT articolo.id, utente.nome, articolo.titolo, articolo.data, articolo.descrizione, articolo.contenuto, articolo.image_path, articolo.tag, articolo.featured
+AS SELECT articolo.id, utente.nome, articolo.titolo, articolo.data, articolo.luogo, articolo.descrizione, articolo.contenuto, articolo.image_path, articolo.tag, articolo.featured
 FROM articolo INNER JOIN utente ON articolo.autore = utente.id;
     
     -- create view with articolo and his author and his animals 

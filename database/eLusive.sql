@@ -21,6 +21,7 @@ CREATE TABLE articolo (
     autore INT NOT NULL,
     titolo VARCHAR(255) NOT NULL,
     data TIMESTAMP NOT NULL,
+    luogo VARCHAR(255),
     descrizione VARCHAR(255) NOT NULL,
     contenuto VARCHAR(2000) NOT NULL,
     image_path VARCHAR(1024),
