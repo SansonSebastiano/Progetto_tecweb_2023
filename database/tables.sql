@@ -70,9 +70,11 @@ CREATE TABLE risposta (
     FOREIGN KEY(risposta) REFERENCES commento(id),
     FOREIGN KEY(padre) REFERENCES commento(id),
     CHECK (risposta <> padre),
-    -- check that the comment 'risposta' is not a reply of another comment 'risposta' in postgreSQL
-    CHECK (risposta NOT IN check_risposta(padre)),
-    CHECK (padre NOT IN check_risposta(risposta))
+    -- check that the comment 'risposta' is not a reply of another comment 'risposta' (no recursive replies)
+    CHECK (NOT EXISTS (SELECT * FROM risposta WHERE risposta = padre), 
+           NOT EXISTS (SELECT * FROM risposta WHERE risposta = risposta)),
+    --CHECK (risposta NOT IN (SELECT padre FROM risposta )),
+    --CHECK (padre NOT IN (SELECT risposta FROM risposta )),
 );
 
 CREATE TYPE vote AS ENUM ('YES','NO');
