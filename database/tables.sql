@@ -68,7 +68,11 @@ CREATE TABLE risposta (
     padre BIGINT NOT NULL,
     PRIMARY KEY(risposta, padre),
     FOREIGN KEY(risposta) REFERENCES commento(id),
-    FOREIGN KEY(padre) REFERENCES commento(id)
+    FOREIGN KEY(padre) REFERENCES commento(id),
+    CHECK (risposta <> padre),
+    -- check that the comment 'risposta' is not a reply of another comment 'risposta' in postgreSQL
+    CHECK (risposta NOT IN check_risposta(padre)),
+    CHECK (padre NOT IN check_risposta(risposta))
 );
 
 CREATE TYPE vote AS ENUM ('YES','NO');
