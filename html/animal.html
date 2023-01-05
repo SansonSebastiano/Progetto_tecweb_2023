@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/animal.css">
+    <link rel="stylesheet" type="text/css" href="../css/media.css">
+    <script src="../js/animal.js" defer></script>
     <title>Scimpassero - eLusive</title>
 </head>
 <body>
@@ -25,51 +27,64 @@
         </div>
         <div id="header-deco"></div>
     </header>
+    <nav id = "breadcrumb">
+        <ul class="breadcrumb-list">
+            <li><a href="index.html">Home</a>&gt;</li>
+            <li><a href="animali.html">Animali</a> &gt;</li>
+            <li>Scimpassero</li>
+        </ul>
+    </nav>
     <main class="main-wrapper">
             <div id="animal-voting">
                 <button>+</button><span id="green-space">Esiste </span><span id="red-space">Non esiste</span><button>-</button>
             </div>
+            <h2>Scimpassero</h2>
             <section id="animal-description">
-                <h1>Scimpassero</h1>
-                <p>Lo Scimpassero è un volatile piccolo con un muso da scimmia e un corpo da passero e ha una struttura agile e slanciata, con potenti zampe. Il Scimpassero, avvistato la prima volta il <time datetime="1914-12-20">27/12/2022</time>, predilige gli ambienti aperti e secchi, e con il suo Il suo pelo marrone chiaro si addatta perfettamente a questo tipo di habitat.</p>
-            </section>
-            <section id="main-article-section">
-                <div id = "main-article-div">
-                    <img src="../images/articles/1.jpg" />
-                    <div id="main-article-tag" class="tag">SCOPERTA</div>
-                    <div id = "main-article-text">
-                        <div id = "main-article-title">PRATERIA DI LEVI: SCOPERTO LO SCIMPASSERO</div>
-                        <div id = "main-article-subtitle">"Increddibbile!" dice R. Bandiera</div>
+                <div>
+                    <article>
+                        <p>Lo Scimpassero è un volatile piccolo con un muso da scimmia e un corpo da passero e ha una struttura agile e slanciata, con potenti zampe. Il Scimpassero, avvistato la prima volta il <time datetime="1914-12-20">27/12/2022</time>, predilige gli ambienti aperti e secchi, e con il suo Il suo pelo marrone chiaro si addatta perfettamente a questo tipo di habitat.</p>
+                    </article>
+                    <div id = "main-article-div">
+                        <img src="../images/articles/1.jpg" />
+                        <div id="main-article-tag" class="tag">SCOPERTA</div>
+                        <div id = "main-article-text">
+                            <div id = "main-article-title">PRATERIA DI LEVI: SCOPERTO LO SCIMPASSERO</div>
+                            <div id = "main-article-subtitle">"Increddibbile!" dice R. Bandiera</div>
+                        </div>
                     </div>
-                </div>
-           
+               </div>
+                
+                <aside id="animal-info">
+                    <div class="speech-help" id="table-summary">Dati informativi sulla data di ultimo 
+                        avvistamento, data di scoperta e stato corrente.</div>
+                        <table id="animal-stats" aria-describedby="table-summary">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Scimpassero</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2"><img src="../images/articles/1.jpg"  height="200"/></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Data di scoperta:</td>
+                                    <td><time datetime="1914-12-20">27/12/2022</time></td>
+                                </tr>
+                                <tr>
+                                    <td>Utlimo avvistamento:</td>
+                                    <td><time datetime="1914-12-20">27/12/2022</time></td>
+                                </tr>
+                                <tr>
+                                    <td>Stato:</td>
+                                    <td>Avvistato</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </aside>
+                
             </section>
-            <section id="animal-info">
-                    <table id="animal-stats">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Scimpassero</th>
-                            </tr>
-                            <tr>
-                                <th colspan="2"><img src="../images/articles/1.jpg"  height="200"/></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Data di scoperta:</td>
-                                <td><time datetime="1914-12-20">27/12/2022</time></td>
-                            </tr>
-                            <tr>
-                                <td>Utlimo avvistamento:</td>
-                                <td><time datetime="1914-12-20">27/12/2022</time></td>
-                            </tr>
-                            <tr>
-                                <td>Stato:</td>
-                                <td>Avvistato</td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
+            
         <nav id="related-articles">
             <h2>Articoli correlati:</h2>
     

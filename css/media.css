@@ -11,3 +11,15 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width:768px) {
+    #animal-description{
+        flex-direction: column-reverse;
+    }
+
+    #animal-description 
+    ul .article{
+        padding: 1.5em;
+    }
+}
+

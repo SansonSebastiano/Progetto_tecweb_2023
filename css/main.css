@@ -4,6 +4,8 @@
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
     --color4: rgb(200,200,200);
+    --unvisitedLinks: rgb(182, 251, 251);
+    --visitedLinks: rgb(79, 252, 252);
     --width-perc-global: 1400px;
     --width-perc-main: 75%;
     --margin-default: 3em;
@@ -24,6 +26,14 @@ html {
 img {
     box-shadow: var(--box-shadow-light);
 
+}
+
+a{
+    color: var(--unvisitedLinks);
+}
+
+a:visited{
+    color: var(--visitedLinks);
 }
 
 .tag {
@@ -121,6 +131,7 @@ header div {
     border-bottom: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
+    color: #fff;
 
     position: sticky;
     z-index: 1;
@@ -129,7 +140,13 @@ header div {
     box-shadow: 0px -1px 1px 1px black;
 }
 
+.breadcrumb-list{
+    list-style: none outside;
+}
 
+.breadcrumb-list li{
+    display: inline;
+}
 /* GOUP */
 
 #go-up-div {
@@ -157,6 +174,7 @@ footer {
     border-top: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
+    color: #fff;
 
     clear:both;
     background-color: var(--color2);
