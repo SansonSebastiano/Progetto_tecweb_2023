@@ -30,8 +30,9 @@ INSERT INTO commento VALUES (nextval('commento_id_seq') ,1,2,'Commento di prova 
                             (nextval('commento_id_seq') ,2,2,'Commento di prova 5','2021-01-01 00:00:00');
 
     -- Risposte
-INSERT INTO risposta VALUES (2,1),
-                            (3,2);
+INSERT INTO risposta (risposta, padre) VALUES (2,1),
+                                              (3,1),
+                                              (5,4);
 
     -- Voti
 INSERT INTO voto VALUES (1,'Animale di prova 1','YES'),
