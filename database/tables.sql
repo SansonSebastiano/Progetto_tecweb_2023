@@ -2,7 +2,7 @@
 -- Tables creation
 
 CREATE TYPE role AS ENUM ('user','writer','admin');
-CREATE SEQUENCE utente_id_seq START 1 INCREMENT 1;
+CREATE SEQUENCE utente_id_seq START 1 INCREMENT 1;      -- id starts from 1 and increments by 1
 
 CREATE TABLE utente (
     id SERIAL, 
@@ -14,7 +14,7 @@ CREATE TABLE utente (
 );
 
 CREATE TYPE tag AS ENUM ('scoperta','new-entry','avvistamento','comunicazione','none');
-CREATE SEQUENCE articolo_id_seq START 1 INCREMENT 1;
+CREATE SEQUENCE articolo_id_seq START 1 INCREMENT 1;    -- id starts from 1 and increments by 1
 
 CREATE TABLE articolo (
     id SERIAL,
@@ -50,7 +50,7 @@ CREATE TABLE articolo_animale (
     FOREIGN KEY(animale) REFERENCES animale(nome)
 );
 
-CREATE SEQUENCE commento_id_seq START 1 INCREMENT 1;
+CREATE SEQUENCE commento_id_seq START 1 INCREMENT 1;    -- id starts from 1 and increments by 1
 
 CREATE TABLE commento (
     id SERIAL,
