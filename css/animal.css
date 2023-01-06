@@ -1,12 +1,17 @@
+*{
+    margin: 0em;
+}
+/** MAIN **/
 main{
     background-color: #fff;
 }
 
-
-main section > *, main h1{
-    margin: 0.8em;
+main h2{
+    padding: 1em 1em 0em 1em;
 }
 
+
+/** TESTO NASCOSTO **/
 .speech-help{
     position: absolute;
     height: 1px;
@@ -14,26 +19,37 @@ main section > *, main h1{
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
 }
-
+/** VOTAZIONI **/
 #animal-voting{
-    display: flex;
-    height: 150%;
-    color: #FFFFFF;
-    flex-direction: row;
-    justify-content: center;
+    border: rgb(0, 165, 96) 10px solid;
+    border-radius: 20px;
+    background-color: rgba(3, 173, 102, 0.7);
+    margin: 2em 1.7em 0em;
+}
+#animal-voting > *{
+    padding: 0.7em;
 }
 
-#animal-voting #green-space{
-    width: 50%;
-    background-color: green;
-    padding-left: 1.5em;
+#animal-voting ul{
+    margin-left: 2em;
+}
+#animal-voting h2{
+    text-align: center;
 }
 
-#animal-voting #red-space{
-    background-color: red;
-    width: 50%;
-    text-align: end;
-    padding-right: 1.5em;
+#animal-voting ul li{
+    font-size: large;
+    list-style: none;
+}
+#animal-voting div{
+  display: flex;
+  flex-direction: row;
+}
+
+#colored-vote-area{
+    width: 100%;
+    background: linear-gradient(to right, #00FF00 30%, #FF0000 );
+    
 }
 
 #animal-voting span{
@@ -42,21 +58,51 @@ main section > *, main h1{
 #animal-voting button{
     width: 5%;
 }
-.animalstats img{
-    width: 65%;
-    margin: 1%;
-    align-self: center;
-    border: #000 2px solid;
+
+/** TABELLA ANIMALE **/
+#animal-info{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
 }
 
+#animal-stats{
+    border-collapse: collapse;
+}
+
+#animal-stats td, #animal-stats th{
+    padding: 1em 1em;
+}
+
+#animal-stats{
+    border-collapse: collapse;
+}
+
+#animal-stats td, #animal-stats th{
+    padding: 1em 1em;
+}
+
+.coloredlist li, #animal-stats tr,#animal-stats{
+    color: #fff;
+    padding: 0.74em 0.1em;
+    border: #000 solid 2px;
+}
+
+/** DESCRIZIONE ANIMALE **/
 #animal-description{
     display: flex;
     flex-direction: row;
+    
+}
+
+#animal-description > *{
+    margin: 1em;
 }
 
 #main-article-div {
     color:white;
     height: 25em;
+    margin: 1.7em 1em 0em 0em;
     position: relative;
 }
 
@@ -83,26 +129,9 @@ main section > *, main h1{
     font-size: 1em;
 }
 
-#animal-info{
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    grid-area: e;
-}
+/** LISTA COLORATA **/
 ul.coloredlist{
     list-style: none outside;
-}
-
-#animal-stats{
-    border-collapse: collapse;
-}
-#animal-stats td, #animal-stats th{
-    padding: 1em 1em;
-}
-.coloredlist li, #animal-stats tr,#animal-stats{
-    color: #fff;
-    padding: 0.74em 0.1em;
-    border: #000 solid 2px;
 }
 
 .coloredlist li:nth-child(even), #animal-stats tr:nth-child(even) {
@@ -117,9 +146,12 @@ nav h2,nav .article{
     text-align: center;
 }
 
+/** ARTICOLI CORRELLATI **/
 #related-articles{
-    grid-area: f;
     padding-bottom: 2em;
+}
+#related-articles h2{
+    margin-bottom: 0.9em;
 }
 
 #related-articles-list{
@@ -140,6 +172,7 @@ ul .article{
     flex: 1 1 10px;
 }
 
+/** FOOTER **/
 footer{
     padding: 1%;
 }

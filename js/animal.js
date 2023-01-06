@@ -1,9 +1,24 @@
-const greenSpace = document.getElementById("green-space")
-const redSpace = document.getElementById("red-space")
+const total = document.getElementById("total-votes")
+const exist = document.getElementById("exist-votes")
+const nonExist = document.getElementById("non-exist-votes")
 
-document.body.addEventListener("load",widthChangerDemo())
+document.body.addEventListener("load",getVotes())
 
-function widthChangerDemo(){
-    greenSpace.style.width = "50%"
-    redSpace.style.width = "50%"
+/*
+    Ottiene i valori di data-value per i voti, poi aggiorna l'HTML
+*/
+
+function getVotes(){
+    
+    let totalVotes = parseInt(total.dataset.value)
+    let existVotes = parseInt(exist.dataset.value)
+    let nonExistVotes = parseInt(nonExist.dataset.value)
+    
+    let percExist = Math.round((existVotes/totalVotes) * 100)
+    let percNonExist = 100 - percExist;
+
+    total.innerHTML = totalVotes
+    exist.innerHTML = existVotes + " (" + percExist + "%)"
+    nonExist.innerHTML = nonExistVotes + " (" + percNonExist + "%)"
+    
 }

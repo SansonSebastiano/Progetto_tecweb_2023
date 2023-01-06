@@ -31,14 +31,12 @@
         <ul class="breadcrumb-list">
             <li><a href="index.html">Home</a>&gt;</li>
             <li><a href="animali.html">Animali</a> &gt;</li>
-            <li>Scimpassero</li>
+            <li><span data-animal>Scimpassero</span></li>
         </ul>
     </nav>
     <main class="main-wrapper">
-            <div id="animal-voting">
-                <button>+</button><span id="green-space">Esiste </span><span id="red-space">Non esiste</span><button>-</button>
-            </div>
-            <h2>Scimpassero</h2>
+            
+            <h2><span data-animal>Scimpassero</span></h2>
             <section id="animal-description">
                 <div>
                     <article>
@@ -60,7 +58,7 @@
                         <table id="animal-stats" aria-describedby="table-summary">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Scimpassero</th>
+                                    <th colspan="2"><span data-animal>Scimpassero</span></th>
                                 </tr>
                                 <tr>
                                     <th colspan="2"><img src="../images/articles/1.jpg"  height="200"/></th>
@@ -82,9 +80,18 @@
                             </tbody>
                         </table>
                 </aside>
-                
-            </section>
             
+            </section>
+        <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
+        <section id="animal-voting">
+            <h2>Esprimi il tuo parere sull'esistenza del <span data-animal>Scimpassero</span></h2>
+               <div><button>Esiste</button><span id="colored-vote-area"></span><button>Non esiste</button></div>
+               <ul>
+                    <li>Voti totali:<span id="total-votes" data-value="1234"></span></li>
+                    <li>Esiste: <span id="exist-votes" data-value="980"></span></li>
+                    <li>Non esiste: <span id="non-exist-votes" data-value="254"></span></li>
+               </ul>
+        </section> 
         <nav id="related-articles">
             <h2>Articoli correlati:</h2>
     
