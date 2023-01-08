@@ -70,6 +70,7 @@ CREATE TABLE risposta (
     FOREIGN KEY(risposta) REFERENCES commento(id),
     FOREIGN KEY(padre) REFERENCES commento(id),
     CHECK (risposta <> padre),
+    -- TO TESTING
     -- check that the comment 'risposta' is not a reply of another comment 'risposta' (no recursive replies)
     CHECK (NOT EXISTS (SELECT * FROM risposta WHERE risposta = padre), 
            NOT EXISTS (SELECT * FROM risposta WHERE risposta = risposta)),
