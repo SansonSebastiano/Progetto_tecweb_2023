@@ -1,8 +1,8 @@
 // import config.js
 import { firebaseConfig } from './config.js';
 
-import { initializeApp } from 'firebase/app';
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
+import { getStorage, ref, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js';
 
 
 const app = initializeApp(firebaseConfig);
