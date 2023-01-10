@@ -18,4 +18,4 @@ const animalsRef = ref(storageRef, 'images/animals');
 // articlesRef now points to 'images/articles'
 const articlesRef = ref(storageRef, 'images/articles');
 
-export { ref, animalsRef, articlesRef, getDownloadURL, uploadBytes };
+export { ref, defaultStorage, animalsRef, articlesRef, getDownloadURL, uploadBytes };
