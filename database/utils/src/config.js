@@ -1,9 +1,9 @@
 // Your web app's Firebase configuration
 export const firebaseConfig = {
-    apiKey: "AIzaSyAyHYd_GhToXKpce9vFDh_UFbZoOuiKo9A",
-    authDomain: "elusive-6b545.firebaseapp.com",
-    projectId: "elusive-6b545",
-    storageBucket: "elusive-6b545.appspot.com",
-    messagingSenderId: "451106432639",
-    appId: "1:451106432639:web:6c11131e727ab1efaf814a"
-  };
+  apiKey: "AIzaSyBqkVhesuEyMshcBRKRv53g5d-j5FsUN1M",
+  authDomain: "elusive-f3c33.firebaseapp.com",
+  projectId: "elusive-f3c33",
+  storageBucket: "elusive-f3c33.appspot.com",
+  messagingSenderId: "1043131149537",
+  appId: "1:1043131149537:web:a9209b062d82545a3cdba0"
+};
