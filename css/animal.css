@@ -55,8 +55,7 @@ main h2{
 
 /** VOTAZIONI RADIO **/
 
-#animal-voting input {
-    appearance: none;
+#animal-voting button {
     cursor: pointer;
     border-radius: 2px;
     padding: 5px 10px;
@@ -67,16 +66,11 @@ main h2{
     transition: all 0.1s;
 }
 
-#animal-voting input:checked {
+#animal-voting button:hover{
     background: var(--color1);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     text-shadow: 0 1px 0px #808080;
 }
-
-#animal-voting input::before {
-    content: attr(label);
-    text-align: center;
- }
 
 /** TABELLA ANIMALE **/
 #animal-info{
