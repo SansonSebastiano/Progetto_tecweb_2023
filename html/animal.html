@@ -85,11 +85,17 @@
         <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
         <section id="animal-voting">
             <h2>Esprimi il tuo parere sull'esistenza del <span data-animal>Scimpassero</span></h2>
-               <div><button>Esiste</button><span id="colored-vote-area"></span><button>Non esiste</button></div>
+            <p id="vote-check"><!--Hai gia mandato il tuo voto--></p>
+               <form id="vote" action="animal.php" method="post">
+                <div>
+                    <button label="Esiste" type="submit" form="vote" name="vote" value="exist">Esiste</button><span id="colored-vote-area"></span><button type="submit" form="vote" name="vote" value="noExist">Non Esiste</button>
+                    <input type="text" hidden name="userId" value="">
+                </div>
+                </form>
                <ul>
-                    <li>Voti totali:<span id="total-votes" data-value="1234"></span></li>
-                    <li>Esiste: <span id="exist-votes" data-value="980"></span></li>
-                    <li>Non esiste: <span id="non-exist-votes" data-value="254"></span></li>
+                    <li>Voti totali: <span id="total-votes" data-value="1234"></span></li>
+                    <li>Esiste: <span id="exist-votes" data-value="224"></span></li>
+                    <li>Non esiste: <span id="non-exist-votes" data-value="1000"></span></li>
                </ul>
         </section> 
         <nav id="related-articles">

@@ -26,6 +26,7 @@ main h2{
     background-color: rgba(3, 173, 102, 0.7);
     margin: 2em 1.7em 0em;
 }
+
 #animal-voting > *{
     padding: 0.7em;
 }
@@ -42,21 +43,33 @@ main h2{
     list-style: none;
 }
 #animal-voting div{
+  height: 12%;
   display: flex;
   flex-direction: row;
 }
 
 #colored-vote-area{
     width: 100%;
-    background: linear-gradient(to right, #00FF00 30%, #FF0000 );
-    
+    background: linear-gradient(to right, #00FF00 26%, #FF0000 );
 }
 
-#animal-voting span{
-    padding: 0.4em;
+/** VOTAZIONI RADIO **/
+
+#animal-voting button {
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 5px 10px;
+    background: #808080;
+    color: #ececec;
+    font-size: 15px;
+    font-family: sans-serif;
+    transition: all 0.1s;
 }
-#animal-voting button{
-    width: 5%;
+
+#animal-voting button:hover{
+    background: var(--color1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0px #808080;
 }
 
 /** TABELLA ANIMALE **/
