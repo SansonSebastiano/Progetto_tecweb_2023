@@ -3,8 +3,9 @@ import { ref, animalsRef, uploadBytes} from './initDB.js';
 // PRE: web page with input image file and button (maybe change with submit button)
 // function to upload file called by button
 function uploadFile(e) {
-    // get file from input with id=#file
+    //rimuove la reazione base del form così da non sovrascrivere l'upload
     e.preventDefault();
+    // get file from input with id=#file
     let file = document.querySelector("#immagine").files[0];
 
     // set metadata for the file
