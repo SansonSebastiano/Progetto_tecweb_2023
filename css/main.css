@@ -21,6 +21,10 @@ html {
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
+h2 {
+    color:var(--color2);
+}
+
 img {
     box-shadow: var(--box-shadow-light);
 
@@ -28,11 +32,16 @@ img {
 
 .tag {
     box-shadow: var(--box-shadow-light);
-
+    text-transform: uppercase;
+    width: fit-content;
     background-color: red;
     color: white;
     padding: var(--margin-tag);
     border-radius: 10px;
+
+}
+
+.corner-tag {
     position: absolute;
     top: var(--margin-tag);
     left: var(--margin-tag);
@@ -52,11 +61,13 @@ body {
 #identification {
     border-radius: 0px 0px 20px 20px;
     border: 1px solid white;
+    border-top: none;
     padding: 10px;
     background-color: var(--color2);
     color: var(--color3);
     width: fit-content;
     margin: 0 auto 20px;
+    box-shadow: var(--box-shadow-light);
 }
 
 /* HEADER */
@@ -118,9 +129,6 @@ header div {
 
 #breadcrumb {
     background-color: var(--color2);
-    border-bottom: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
 
     position: sticky;
     z-index: 1;
@@ -154,10 +162,6 @@ header div {
 /* FOOTER */
 
 footer {
-    border-top: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-
     clear:both;
     background-color: var(--color2);
 }
