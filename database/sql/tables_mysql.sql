@@ -1,5 +1,12 @@
-
--- Tables creation
+--se esistono già cancella le tabelle
+DROP TABLE IF EXISTS voto;
+DROP TABLE IF EXISTS risposta;
+DROP TABLE IF EXISTS commento;
+DROP TABLE IF EXISTS articolo_animale;
+DROP TABLE IF EXISTS animale;
+DROP TABLE IF EXISTS articolo;
+DROP TABLE IF EXISTS utente;
+--creazione tabelle
 
 CREATE TABLE utente (
     id int NOT NULL AUTO_INCREMENT, 
@@ -55,13 +62,15 @@ CREATE TABLE commento (
 
 CREATE TABLE risposta (
     figlio BIGINT NOT NULL,
-    padre BIGINT NOT NULL CHECK (figlio <> padre),
+    padre BIGINT NOT NULL,
     PRIMARY KEY(figlio, padre),
     FOREIGN KEY(figlio) REFERENCES commento(id),
     FOREIGN KEY(padre) REFERENCES commento(id)
-);
+ );
 
-
+ALTER TABLE risposta
+    ADD CONSTRAINT CHECK (figlio <> padre);
+    
 CREATE TABLE voto (
     utente INT NOT NULL,
     animale VARCHAR(100) NOT NULL,
