@@ -9,5 +9,4 @@
     if($query)
     {
 	echo "Successo";}
-
 ?>
