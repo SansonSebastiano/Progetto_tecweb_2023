@@ -8,5 +8,6 @@
     $query = mysqli_query($connessione, $sql);
     if($query)
     {
-	echo "Successo";}
+        header("location: ../html/aggiunta_animale.html");
+        exit();}
 ?>
