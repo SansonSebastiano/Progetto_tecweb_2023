@@ -4,12 +4,12 @@
 /** MAIN **/
 main{
     background-color: #fff;
+    padding-bottom: 2em;
 }
 
 main h2{
     padding: 1em 1em 0em 1em;
 }
-
 
 /** TESTO NASCOSTO **/
 .speech-help{
@@ -95,12 +95,31 @@ main h2{
     padding: 1em 1em;
 }
 
-.coloredlist li, #animal-stats tr,#animal-stats{
+.coloredlist > li, #animal-stats tr,#animal-stats, .coloredlist .animal-entry{
     color: #fff;
     padding: 0.74em 0.1em;
     border: #000 solid 2px;
 }
 
+.animal-entry dt{
+    font-size: x-large;
+    padding: 0.5em;
+    padding-top: 0em;
+}
+
+.animal-entry{
+    
+}
+
+.animal-entry li{
+    inline-size: 19em;
+    overflow-wrap: break-word;
+}
+dl.coloredlist{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
 /** DESCRIZIONE ANIMALE **/
 #animal-description{
     display: flex;
@@ -143,16 +162,21 @@ main h2{
 }
 
 /** LISTA COLORATA **/
-ul.coloredlist{
+.coloredlist, .coloredlist ul{
     list-style: none outside;
 }
 
-.coloredlist li:nth-child(even), #animal-stats tr:nth-child(even) {
+.coloredlist > li:nth-child(even), #animal-stats tr:nth-child(even), .coloredlist .animal-entry:nth-child(even) {
     background-color: var(--color2);
 }
 
-.coloredlist li:nth-child(odd) , #animal-stats tr:nth-child(odd){
+.coloredlist > li:nth-child(odd) , #animal-stats tr:nth-child(odd), .coloredlist .animal-entry:nth-child(odd){
     background-color: var(--color1);
+}
+
+.coloredlist div dd{
+    display: flex;
+    flex-direction: row;
 }
 
 nav h2,nav .article{
@@ -172,8 +196,6 @@ nav h2,nav .article{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 2em;
-    row-gap: 2em;
     max-width: 80%;
     margin: auto;
     justify-content: center;
