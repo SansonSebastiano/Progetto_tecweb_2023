@@ -1,0 +1,128 @@
+main {
+    padding: var(--margin-default);
+    background-color: white;
+    color: black;
+}
+
+h2 {
+    display: inline-block;
+    font-size: 2em;
+    margin-right: 1em;
+}
+
+article{
+    margin-bottom: var(--margin-default);
+}
+
+#subtitle {
+    display: inline-block;
+    font-size: 1.1em;
+    color: var(--color2);
+    font-style: italic;
+    border-left: 0.5em dotted var(--color4);
+    padding-left: 1em;
+}
+
+article img {
+    width: 100%;
+    object-fit:cover;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow-light);
+}
+
+#text-div1 {
+    margin: 0 var(--margin-default) 0 var(--margin-default); 
+}
+
+#text-div2{
+    clear: none;
+    margin-right: 0;
+}
+
+#text {
+    text-align: justify;
+    text-justify:auto;
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+#location {
+    font-weight:bold;
+    text-transform: uppercase;
+    color: var(--color2);
+}
+
+aside {
+    padding: 2em;
+    margin: var(--margin-default);
+    margin-right: 0;
+    float: right;
+    background-color: var(--color1);
+    color: var(--color3);
+    border-radius: 30px;
+    box-shadow: var(--box-shadow-light);
+}
+
+dt {
+    font-weight:bold;
+}
+
+#shoutbox-section {
+    clear :both;
+}
+
+.comment-family {
+    margin-bottom: var(--margin-default);
+}
+
+.comment-details > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.comment-details {
+    width: fit-content;
+    background-color: var(--color2);
+    padding: 0 10px 0 10px;
+    border-radius: 20px 0 0 0;
+}
+
+.comment-content {
+    border: 1px solid var(--color4);
+    border-bottom: none;
+    border-radius: 0 10px 0 0;
+    margin-top: 0;
+    padding: 1em;
+}
+
+.comment-content button {
+    display: inline;
+}
+
+.comment-text {
+    overflow-wrap: break-word;
+    margin-top: 0;
+}
+.author {
+    color: var(--color3);
+    font-size: 1.1em;
+    font-weight: bolder;
+}
+.timestamp {
+    color: var(--color4);
+    padding-left: 2em;
+}
+.reply {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+hr {
+    border: none;
+    border-top: 0.5em dotted var(--color4);
+}
