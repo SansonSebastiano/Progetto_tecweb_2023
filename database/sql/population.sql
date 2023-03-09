@@ -45,3 +45,4 @@ INSERT INTO voto VALUES (1,'Animale di prova 1','YES'),
                         (3,'Animale di prova 2','NO'),
                         (3,'Animale di prova 3','YES');
                         
+
