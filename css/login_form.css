@@ -1,0 +1,83 @@
+*{
+    margin: 0em;
+}
+
+/** MAIN **/
+main{
+    background-color: #fff;
+    padding: 20px 300px;
+}
+
+.form-container{
+    border-radius: 10px;
+    max-width: 98%;
+    height: 100%;
+    display: grid;
+    padding: 10px 10px;
+    gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas:
+    'title'
+    'username'
+    'password'
+    'btn-submit';
+    background-color:  rgba(0, 85, 50, 0.8);
+}
+
+.form-container h2{
+    padding: 1em 1em 0em 1em;
+    text-align: center;
+    color: black;
+    grid-area: title;
+}
+
+.form-input-username{
+    background: rgb(34, 0, 88);
+    color: white;
+    border-radius: 10px;
+    grid-area: username;
+    padding-left: 2%;
+    justify-self: center;
+    font-size: small;
+}
+
+.form-input-username input{
+    width: 90%;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.form-input-password{
+    background: rgb(34, 0, 88);
+    color: white;
+    border-radius: 10px;
+    grid-area: password;
+    padding-left: 2%;
+    justify-self: center;
+    font-size: small;
+}
+
+.form-input-password input{
+    width: 90%;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.btn-submit{
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+    border-width: 1px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    justify-self: center;
+    background-color: rgb(0, 85, 50);
+    grid-area: btn-submit;
+}
+
+.btn-submit:hover{
+    background-color: rgb(3, 60, 37);
+}
