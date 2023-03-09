@@ -27,7 +27,7 @@ img {
     box-shadow: var(--box-shadow-light);
 
 }
-
+/*
 a{
     color: var(--unvisitedLinks);
 }
@@ -35,7 +35,7 @@ a{
 a:visited{
     color: var(--visitedLinks);
 }
-
+*/
 .tag {
     box-shadow: var(--box-shadow-light);
 

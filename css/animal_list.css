@@ -162,6 +162,31 @@ dl.coloredlist{
     background-color: var(--color1);
 }
 
+.inlinelist > li{
+    display: inline;
+}
+
+.content{
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 1em;
+    margin: 2em;
+    font-size: 95%;
+}
+
+.sectionTitle{
+    margin: 1em;
+    padding: 0.5em;
+    border-bottom: 1px solid #000;
+}
+
+.animalTable{
+    margin: 2em;
+    width: 95%;
+    background: #f9f9f9;
+    border: 1px #aaaaaa solid;
+    border-collapse: collapse;
+}
 .coloredlist div dd{
     display: flex;
     flex-direction: row;
