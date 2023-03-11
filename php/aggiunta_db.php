@@ -4,9 +4,14 @@
     $status = $_POST['status'];
     $descrizione = $_POST['descrizione'];
     $data = $_POST['data_scoperta'];
-    $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`) VALUES ('$nome', '$descrizione', '$status', '$data')";
-    $query = mysqli_query($connessione, $sql);
-    if($query)
-    {
-	echo "Successo";}
+
+    $query = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`) VALUES ('$nome', '$descrizione', '$status', '$data')";
+
+    if ($result = $mysqli -> query($query)) {
+        echo "Returned rows are: " . $result -> num_rows;
+        // Free result set
+        $result -> free_result();
+    }
+    
+    $mysqli->close();
 ?>
