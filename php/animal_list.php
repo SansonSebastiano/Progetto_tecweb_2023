@@ -29,6 +29,7 @@ if($query->num_rows > 0){
         $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry); 
         $animals .= $newEntry; 
     }
+    $query->free_result();
 }
 $final = str_replace("<animals/>",$animals,$final);
 
@@ -48,6 +49,7 @@ foreach($alphas as $letter){
         }
         $newTable = str_replace("<animals/>",$animals,$newTable);
         $final .= $newTable;
+        $query->free_result();
     }
 }
 $page = str_replace("<navigator/>",$navigator,$page);

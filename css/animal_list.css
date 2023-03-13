@@ -187,7 +187,7 @@ dl.coloredlist{
     background: #f9f9f9;
     border: 1px #aaaaaa solid;
     border-collapse: collapse;
-    margin: 2em;
+    margin: 0 auto;
 }
 
 .animalTable td, .animalTable th{
