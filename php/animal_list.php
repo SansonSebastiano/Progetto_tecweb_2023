@@ -10,8 +10,7 @@ $alphas = range('A', 'Z');
 $sql = "SELECT nome,descrizione,status FROM animale WHERE nome REGEXP '^[^a-zA-Z]' ORDER BY nome ASC;";
 $query = mysqli_query($connessione, $sql);
 $row = "";
-$i = 0;
-$newTab = true;
+
 if(is_null($query)){
     echo "<h1>Errore durante la connesione al server</h1>";
     die(1);
