@@ -67,6 +67,12 @@ dt {
     font-weight:bold;
 }
 
+#shoutbox {
+    position: relative;
+    height: 60vh;
+    overflow-y:scroll;
+}
+
 #shoutbox-section {
     clear :both;
 }
@@ -116,6 +122,29 @@ dt {
     font-size: 1.1em;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.shoutbox-button {
+    cursor: pointer;
+    position: absolute;
+    background-color: var(--color1);
+    font-size: 2em;
+    color: white;
+    right: 10px;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-light);
+    border: 1px solid white;
+}
+
+
+#go-top {
+    top: 10px;
+}
+
+#go-bottom {
+    bottom: 10px;
 }
 
 ul {

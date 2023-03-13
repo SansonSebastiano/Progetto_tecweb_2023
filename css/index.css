@@ -1,8 +1,13 @@
 main {
     background-color: white;
+    float: left;
     color: var(--color2);
-    float:left;
     max-width: var(--width-perc-main);
+    overflow: auto;
+}
+
+main img {
+    box-shadow: var(--box-shadow-light);
 }
 
 main p,h2 {
@@ -21,6 +26,11 @@ main p,h2 {
     height: 30em;
     margin: var(--margin-default);
     position: relative;
+    cursor: pointer;
+}
+
+#main-article-div a{
+    height: inherit;
 }
 
 #main-article-div img {
@@ -94,10 +104,20 @@ main p,h2 {
     display:block;
 }
 
-
 /* ========================= ASIDE ========================= */
 
 aside {
-    margin-left: var(--width-perc-main);
     background-color: var(--color1);
+    color: var(--color3);
+    height: inherit;
+}
+
+aside h2 {
+    text-shadow: 1px 0px 1px white, -1px 0 1px white, 0px 1px 1px white, 0px -1px 1px white;
+}
+
+/* ========================= SECTION ========================= */
+
+section h2 {
+    margin: 0;
 }
