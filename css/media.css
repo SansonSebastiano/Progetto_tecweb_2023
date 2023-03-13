@@ -21,5 +21,8 @@
     ul .article{
         padding: 1.5em;
     }
-}
 
+    .animalTable{
+        width: 90%;
+    }
+}

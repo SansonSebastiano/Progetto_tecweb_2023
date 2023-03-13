@@ -164,6 +164,7 @@ dl.coloredlist{
 
 .inlinelist > li{
     display: inline;
+    margin: 0em 0.2em;
 }
 
 .content{
@@ -177,15 +178,37 @@ dl.coloredlist{
 .sectionTitle{
     margin: 1em;
     padding: 0.5em;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #111;
+    font-style: italic;
 }
 
 .animalTable{
-    margin: 2em;
     width: 95%;
     background: #f9f9f9;
     border: 1px #aaaaaa solid;
     border-collapse: collapse;
+    margin: 2em;
+}
+
+.animalTable td, .animalTable th{
+    border: 2px #aaaaaa solid;
+}
+
+.animalTable th:first-child{
+    width: 30%;
+}
+
+.animalTable th:last-child{
+    width: 25%;
+}
+
+
+.animalTable thead th{
+    background-color: #c2c2c2;
+}
+
+.animalTable td{
+    background-color: #fff;
 }
 .coloredlist div dd{
     display: flex;
@@ -224,3 +247,4 @@ ul .article{
 footer{
     padding: 1%;
 }
+
