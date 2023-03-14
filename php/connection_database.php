@@ -1,24 +1,28 @@
 <?php
-    $host = "localhost";
-    $user = "elusive";
-    $password= "";
-    $db = "my_elusive";
-    $connessione = new mysqli($host,$user,$password,$db);
-    if($mysqli->connect_errno ) {
-        printf("Connect failed: %s<br />", $mysqli->connect_error);
-        exit();
-    } else {
-        printf("Connected successfully.<br />");
-    }
+  $db_host = 'localhost';
+  $db_user = 'root';
+  $db_password = 'root';
+  $db_db = 'my_elusive';
+ 
+  $mysqli = @new mysqli(
+    $db_host,
+    $db_user,
+    $db_password,
+    $db_db
+  );
+	
+  if ($mysqli->connect_error) {
+    echo 'Errno: '.$mysqli->connect_errno;
+    echo '<br>';
+    echo 'Error: '.$mysqli->connect_error;
+    exit();
+  }
 
-    // Perform query 
-/*
-    if ($result = $mysqli -> query("SELECT * FROM articolo")) {
-        echo "Returned rows are: " . $result -> num_rows;
-        // Free result set
-        $result -> free_result();
-    }
+  echo 'Success: A proper connection to MySQL eLusive was made.';
+  echo '<br>';
+  echo 'Host information: '.$mysqli->host_info;
+  echo '<br>';
+  echo 'Protocol version: '.$mysqli->protocol_version;
 
-    $mysqli->close();
-    */
+  //$mysqli->close();
 ?>
