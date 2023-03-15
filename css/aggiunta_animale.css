@@ -1,0 +1,130 @@
+*{
+    margin: 0em;
+}
+/** MAIN **/
+main{
+    background-color: #fff;
+    padding: 20px 20px;
+}
+
+.form-container h2{
+    padding: 1em 1em 0em 1em;
+    text-align: center;
+    color: black;
+    grid-area: title;
+}
+
+.form-container{
+    border-radius: 10px;
+    /*border: rgb(34, 0, 88) 5px solid;
+    background-color: rgb(0, 85, 50);*/
+    max-width: 98%;
+    height: 100%;
+    display: grid;
+    padding: 20px 10px;
+    gap: 10px;
+    grid-auto-rows: minmax(75px,auto);
+    grid-template-areas:
+    'title title' 
+    'name descrizione'
+    'status descrizione'
+    'data img'
+    'btn-submit btn-submit';
+}
+
+
+.form-input-name{
+    background: rgb(34, 0, 88);;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    grid-area: name;
+}
+
+
+.form-input-name input{
+    width: 90%;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.form-input-status{
+    background: rgb(34, 0, 88);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    grid-area: status;
+}
+
+.form-input-status select{
+    width: 90%;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.form-input-descrizione{
+    background: rgb(34, 0, 88);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    grid-area: descrizione;
+}
+
+.form-input-descrizione textarea{
+    width: 90%;
+    max-width: 90%;
+    height: 80px;
+    border-radius: 8px;
+    margin-left: 10px;
+    resize: vertical;
+}
+
+.form-input-data{
+    background: rgb(34, 0, 88);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    grid-area: data;
+}
+
+.form-input-data input{
+    width: 90%;
+    height: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.form-input-img{
+    background: rgb(34, 0, 88);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    grid-area: img;
+}
+
+.btn-submit{
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+    border-width: 1px;
+    color: white;
+    font-size: 1.75em;
+    cursor: pointer;
+    justify-self: center;
+    background-color: rgb(0, 85, 50);
+    grid-area: btn-submit;
+}
+
+.btn-submit:hover{
+    background-color: rgb(3, 60, 37);
+}
+
+.info{
+    font-size: large;
+    color: white;
+    margin-left: 15px;
+}
