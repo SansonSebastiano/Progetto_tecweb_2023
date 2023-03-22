@@ -90,6 +90,7 @@
                         } else {
                             // TODO: fix this: guest user should dont have a role
                             // GUEST USER
+                            
                             echo "USERNAME: " . $row["nome"] . "<br>";
                             echo "PASSWORD: " . $row["password"] . "<br>";
                             echo "EMAIL: " . $row["email"] . "<br>";
