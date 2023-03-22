@@ -1,20 +1,20 @@
--- visitors user type: only reader
-CREATE USER 'visitors'@'localhost' IDENTIFIED BY 'visitors';
-GRANT USAGE ON *.* TO 'visitors'@'localhost';
-GRANT SELECT ON `my_elusive`.* TO 'visitors'@'localhost';
+-- guest user type: only reader
+CREATE USER 'guest'@'localhost' IDENTIFIED BY 'guest';
+GRANT USAGE ON *.* TO 'guest'@'localhost';
+GRANT SELECT ON `my_elusive`.* TO 'guest'@'localhost';
 
 -- logged user type: also writer on specific tables
 CREATE USER 'logged'@'localhost' IDENTIFIED BY 'logged';
-GRANT USAGE ON *.* TO 'visitors'@'localhost';
+GRANT USAGE ON *.* TO 'logged'@'localhost';
 GRANT SELECT ON `my_elusive`.* TO 'logged'@'localhost';
 GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto TO 'logged'@'localhost';
 
 -- writers user type: also writer on specific tables
-CREATE USER 'writers'@'localhost' IDENTIFIED BY 'writers';
-GRANT USAGE ON *.* TO 'writers'@'localhost';
-GRANT SELECT ON `my_elusive`.* TO 'writers'@'localhost';
-GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto, `my_elusive`.articolo TO 'writers'@'localhost';
-GRANT DELETE ON `my_elusive`.view_articolo_utente TO 'writers'@'localhost';
+CREATE USER 'writer'@'localhost' IDENTIFIED BY 'writer';
+GRANT USAGE ON *.* TO 'writer'@'localhost';
+GRANT SELECT ON `my_elusive`.* TO 'writer'@'localhost';
+GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto, `my_elusive`.articolo TO 'writer'@'localhost';
+GRANT DELETE ON `my_elusive`.view_articolo_utente TO 'writer'@'localhost';
 
 -- admin user type: also writer on specific tables
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
