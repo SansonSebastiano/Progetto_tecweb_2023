@@ -9,5 +9,6 @@
     if($query)
     {
         header("location: ../html/aggiunta_animale.html");
-        exit();}
+        exit();
+    }
 ?>

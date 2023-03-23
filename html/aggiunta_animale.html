@@ -33,37 +33,40 @@
         </ul>
     </nav>
     <main class="main-wrapper">
-        <form action="../php/aggiunta_db.php" id="submit-form" method="post">
-            <div class="form-container">
-                <h2><span form-aggiunta>Form di aggiunta animale</span></h2>
-                <div class="form-input-name">
-                    <label class="info">Nome animale</label>
-                    <input type="text" name= "nome" id="nome" required>
-                </div>
-                <div class="form-input-status">
-                    <label class="info">Status animale</label>
+        <div class="form-container">
+            <h2><span form-aggiunta>Aggiungi un animale...</span></h2>
+            <form action="../php/aggiunta_db.php" id="submit-form" method="post" enctype="multipart/form-data">
+                <div class="form-info">
+                    <div class="form-box">
+                    <span class="info">Nome animale</span>
+                    <input type="text" name= "nome" id="nome" placeholder="Nome animale" required>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Status animale</span>
                     <select id="status" name= "status" required>
                         <option value="scoperto">Scoperto</option>
                         <option value="ipotizzato">Ipotizzato</option>
                         <option value="avvistato">Avvistato</option>
                     </select>
-                </div>
-                <div class="form-input-descrizione">
-                    <label class="info">Descrizione animale</label>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Descrizione animale</span>
                     <textarea id="descrizione" name= "descrizione" required></textarea>
-                </div>
-                <div class="form-input-data">
-                    <label class="info">Data scoperta</label>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Data scoperta</span>
                     <input type="date" name= "data_scoperta" id="data_scoperta" required>
-                </div>
-                <div class="form-input-img">
-                    <label class="info">Immagine animale</label>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Foto animale</span>
                     <input id="immagine" type="file" accept="image/*" required>
+                    <button id="load" class="btn-load">Carica immagine</button>
+                    </div>
+                    <button id="submit" class="btn-submit">Aggiungi</button>
                 </div>
-                    <button id="submit" class="btn-submit">Conferma</button>
-            </div>
-        </form>
-        <!--<script type="module" src="../js/uploadAnimal.js"></script>-->
+            </form>
+        </div>
+        <script type="module" src="../js/uploadAnimal.js"></script>
     </main>
 </body>
 </html>

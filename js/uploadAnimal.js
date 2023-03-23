@@ -20,11 +20,13 @@ function uploadFile(e) {
     uploadBytes(fileRef, file, metadata).then((snapshot) => {
         console.log(file.name  + ' uploaded');
     });
-    //document.getElementById('submit-form').reset();
+    document.getElementById("submit").style.visibility="visible";
+
 
 }
 // POST: file uploaded to firebase storage
 
 // add event listener to button with id=#submit
-document.getElementById('submit').addEventListener('submit', uploadFile);
+document.getElementById('load').addEventListener('click', uploadFile);
+
 //document.getElementById('form-aggiunta-animale').addEventListener("submit", uploadFile);
