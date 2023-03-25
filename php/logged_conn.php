@@ -1,7 +1,7 @@
 <?php
   $db_host = 'localhost';
-  $db_user = 'admin';
-  $db_password = 'admin';
+  $db_user = 'logged';
+  $db_password = 'logged';
   $db_db = 'my_elusive';
  
   $mysqli = @new mysqli($db_host, $db_user, $db_password, $db_db);

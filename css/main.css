@@ -37,6 +37,8 @@ img {
     box-shadow: var(--box-shadow-light);
     text-transform: uppercase;
     width: fit-content;
+}
+
 a{
     color: var(--unvisitedLinks);
 }
@@ -51,8 +53,6 @@ a:visited{
     color: white;
     padding: var(--margin-tag);
     border-radius: 10px;
-}
-
     position: absolute;
     top: var(--margin-tag);
     left: var(--margin-tag);

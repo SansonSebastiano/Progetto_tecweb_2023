@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require ('./php/guest_conn.php'); ?>
 <html lang="it">
     <head>
         <meta charset="utf-8">
@@ -17,9 +18,9 @@
             Ciao,
             <span id="username">
                 <img src="./images/icons/icon-user.png" height="20px" alt = "utente"/>
-                Kikkoceccato.
+                <!-- username -->
             </span>
-            <a href="PAGINA DI LOGIN">Non sei tu?</a>
+            <a href="./html/login_form.html">Non sei tu?</a>
         </div>
 
         <header>
@@ -27,7 +28,7 @@
                 <h1>
                     <span lang="en">eLusive</span>
                 </h1>
-                <p>comunichiamo avvistamenti, dal 2022</p>
+                <p>Comunichiamo avvistamenti, dal 2022</p>
             </div>
             <div id ="header-deco"></div>
         </header>

@@ -4,7 +4,7 @@
     const WRITER_ROLE = "writer";
 
     // import the connection script
-    require_once('connection_database.php');
+    require_once('admin_conn.php');
     // import input cleaner script
     include('input_cleaner.php');
 
@@ -14,25 +14,25 @@
         if (isset($_POST['submit'])) {
             if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
                 // get the data from the form:
-
+                // username
                 $username = clearInput($_POST['username']);
                 if (empty($username)) {
                     echo "<li>Username is required<li>";
                 }
-
+                // password
                 $password = clearInput($_POST['password']);
                 if (empty($password)) {
                     echo "<li>Password is required<li>";
                 }
-
                 // create a query
                 $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
                 // execute the query
                 $result = $mysqli->query($query);
-
-                // check if the query was executed successfully
-                if (!$result) {
-                    echo "Error: " . $mysqli->error;
+                // check if the query was executed successfully and if the result is not empty
+                if ($result->num_rows == 0) {
+                    echo '<br>';
+                    echo '<br>';
+                    echo "Error: " . 'the query to MySQL eLusive was not executed successfully or the result is empty.';
                     exit();
                 } else {
                     echo '<br>';
@@ -43,15 +43,13 @@
                     echo '<br>';
                     echo '<br>';
 
-                     // iterate over the result set
+                    // iterate over the result set
                     // fetch each row as an associative array
                     while ($row = $result->fetch_assoc()) {
                         if ($row["ruolo"] == ADMIN_ROLE) {
                             $_SESSION["ruolo"] = ADMIN_ROLE;
                             $_SESSION["username"] = $row["nome"];
                             $_SESSION["id"] = $row["id"];
-
-
 
                             echo "USERNAME: " . $_SESSION["username"] . "<br>";
                             echo "PASSWORD: " . $row["password"] . "<br>";
@@ -88,15 +86,10 @@
 
                             // header("Location: user.php");
                         } else {
-                            // TODO: fix this: guest user should dont have a role
-                            // GUEST USER
-                            
-                            echo "USERNAME: " . $row["nome"] . "<br>";
-                            echo "PASSWORD: " . $row["password"] . "<br>";
-                            echo "EMAIL: " . $row["email"] . "<br>";
-                            echo "RUOLO: " . $row["ruolo"] . "<br>";
-                            echo "-----------------<br>";
-                            echo "GRANT: " . $db_user . "<br>";
+                            echo "Error: no role found for the user.";
+                            // TODO: redirect to the login page
+
+                            // header("Location: login.php");
                         }
                     }
 
