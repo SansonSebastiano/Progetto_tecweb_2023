@@ -4,9 +4,15 @@ main {
     color: black;
 }
 
-main p,h2 {
+main img {
+    border-radius: 0 0 var(--image-radius-corner) 0;
+}
+
+h2 {
     text-align: center;
 }
+
+/* ========================= ARTICLE GRID ========================= */
 
 #article-grid-div {
     display: grid;
@@ -33,6 +39,8 @@ main p,h2 {
     display:block;
 }
 
+/* ========== SLIDER ========== */
+
 #page-slider {
     display: block;
     margin: auto;
@@ -50,4 +58,67 @@ main p,h2 {
 #page-slider #button-current {
     color:var(--color1);
     font-size:2em;
+}
+
+/* ============= SEARCH BOX ============= */
+
+#search-box {
+    border: 1px solid var(--color2);
+    border-radius: var(--image-radius-corner);
+    color: var(--color2);
+    margin: auto;
+    padding: 1em;
+    width: 70%;
+
+    display:grid;
+    grid-template-areas: 
+    "ct ct ct ct"
+    "it it it bt"
+    ". . cc cc"
+    ". . ic bc";
+    column-gap: 0px;
+}
+
+#search-box button {
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background-color: var(--color1);
+    color: var(--color3);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#search-box select {
+    cursor: pointer;
+}
+
+#caption-by-title {
+    grid-area: ct;
+}
+#caption-by-cat {
+    grid-area: cc;
+}
+#input-by-title {
+    grid-area: it;
+    box-sizing: border-box;
+    border-radius: 20px 0 0 20px;
+    padding-left: 1em;
+}
+#input-by-cat {
+    grid-area: ic;
+    border: none;
+    text-align: center;
+    border-radius: 20px 0 0 20px;
+    text-transform: uppercase;
+
+}
+#button-by-title {
+    grid-area: bt;
+}
+#button-by-cat {
+    grid-area: bc;
+}
+
+.paired {
+    font-size: 1.2em;
 }
