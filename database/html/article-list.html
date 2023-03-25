@@ -10,8 +10,8 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
             $(function(){
-              $("#header").load("modules/header.html"); 
-              $("#footer").load("modules/footer.html"); 
+              $("#header").load("html/modules/header.html"); 
+              $("#footer").load("html/modules/footer.html"); 
             });
         </script> 
 
@@ -33,7 +33,7 @@
         <header id="header"></header>
 
         <nav id = "breadcrumb">
-            <a href="../index.html">Homepage</a> 🢚 Tutti gli articoli
+            <a href="index.html">Homepage</a> 🢚 Tutti gli articoli
         </nav>
 
         <main>
@@ -42,16 +42,20 @@
             </h2>
 
             <div id = "search-box">
-                    <p id="caption-by-title">Ricerca in base al titolo</p>
-                    <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
-                    <button id="button-by-title" class="paired">CERCA</button>
-                    <p id="caption-by-cat">Ricerca in base al tag</p>
-                    <select id="input-by-cat" class="paired">
+                <div>
+                    <p>Ricerca in base al titolo</p>
+                    <input id="by-title" type="text"/>
+                    <button>CERCA</button>
+                </div>
+                <div>
+                    <p>Ricerca in base al tag</p>
+                    <select>
                         <option>scoperta</option>
                         <option>avvistamento</option>
                         <option>miscellanea</option>
                     </select>
-                    <button id = "button-by-cat" class="paired">CERCA</button>
+                    <button>CERCA</button>
+                </div>
             </div>
 
             <div id = "article-grid-div">

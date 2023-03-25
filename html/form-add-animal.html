@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
-    <link rel="stylesheet" type="text/css" href="../css/aggiunta_animale.css">
+    <link rel="stylesheet" type="text/css" href="../css/form-add-animal.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script> 
+        $(function(){
+          $("#header").load("modules/header.html"); 
+          $("#footer").load("modules/footer.html"); 
+        });
+    </script> 
+    
     <title>Form aggiunta animale - eLusive</title>
 </head>
 <body>
@@ -17,23 +26,18 @@
         </span>
         <a href="PAGINA DI LOGIN">Non sei tu?</a>
     </div>
-    <header>
-        <div id="header-titling">
-            <h1>
-                <span lang="en">eLusive</span>
-            </h1>
-            <p>comunichiamo avvistamenti, dal 2022</p>
-        </div>
-        <div id="header-deco"></div>
-    </header>
+
+    <header id="header"></header>
+
     <nav id = "breadcrumb">
         <ul class="breadcrumb-list">
-            <li><a href="../index.html">Home</a>&gt;</li>
+            <li><a href="index.html">Home</a>&gt;</li>
             <li><span form>Aggiunta animale</span></li>
         </ul>
     </nav>
+    
     <main class="main-wrapper">
-        <form action="../php/aggiunta_animale.php" id="submit-form" method="post">
+        <form action="../php/aggiunta_db.php" id="submit-form" method="post">
             <div class="form-container">
                 <h2><span form-aggiunta>Form di aggiunta animale</span></h2>
                 <div class="form-input-name">
@@ -63,7 +67,7 @@
                     <button id="submit" class="btn-submit">Conferma</button>
             </div>
         </form>
-       <!-- <script type="module" src="../js/uploadAnimal.js"></script>  -->
+        <script type="module" src="../js/uploadAnimal.js"></script>
     </main>
 </body>
 </html>

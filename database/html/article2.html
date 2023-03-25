@@ -7,14 +7,6 @@
 
         <link rel="stylesheet" type="text/css" href="../css/article.css" />
 
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script> 
-            $(function(){
-              $("#header").load("modules/header.html"); 
-              $("#footer").load("modules/footer.html"); 
-            });
-        </script> 
-
         <title>
             Step to the Rhythm - eLusive
         </title>
@@ -30,7 +22,15 @@
             <a href="PAGINA DI LOGIN">Non sei tu?</a>
         </div>
 
-        <header id="header"></header>
+        <header>
+            <div id="header-titling">
+                <h1>
+                    <span lang="en">eLusive</span>
+                </h1>
+                <p>comunichiamo avvistamenti, dal 2022</p>
+            </div>
+            <div id ="header-deco"></div>
+        </header>
 
         <nav id = "breadcrumb">
             <a href="index.html">Homepage</a> ⮚ Articolo
@@ -151,8 +151,10 @@
             </section>
         </main>
 
-        <footer id="footer"></footer>
 
+        <footer>
+            Copyright 2022 Il Gruppo Fantàsia.
+        </footer>
     </body>
 
 </html>

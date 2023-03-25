@@ -3,19 +3,20 @@ main {
     float: left;
     color: var(--color2);
     max-width: var(--width-perc-main);
-    overflow: auto;
+    overflow: auto;    
 }
 
 main img {
-    box-shadow: var(--box-shadow-light);
+    border-radius: 0 0 var(--image-radius-corner) 0;
 }
 
-main p,h2 {
+h2 {
     text-align: center;
 }
 
 #last-update {
     font-style: italic;
+    text-align: center;
 }
 
 /* ========================= MAIN ARTICLE ========================= */
@@ -47,9 +48,9 @@ main p,h2 {
     border: none;
     cursor: pointer;
     text-shadow: 2px 2px 8px black;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
+    font-size: 3em;
+    width: 1em;
+    height: 1em;
 }
 
 #main-article-text {
@@ -84,8 +85,8 @@ main p,h2 {
     margin: var(--margin-default);
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    row-gap: var(--margin-default);;
-    column-gap: var(--margin-default);;
+    row-gap: var(--margin-default);
+    column-gap: var(--margin-default);
 }
 
 #article-grid-section > a {
@@ -104,20 +105,22 @@ main p,h2 {
     display:block;
 }
 
+.article-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 /* ========================= ASIDE ========================= */
 
 aside {
     background-color: var(--color1);
     color: var(--color3);
-    height: inherit;
+    overflow: hidden;
+    padding: 1em;
+    position: relative;
+    z-index: 2;
 }
 
 aside h2 {
     text-shadow: 1px 0px 1px white, -1px 0 1px white, 0px 1px 1px white, 0px -1px 1px white;
-}
-
-/* ========================= SECTION ========================= */
-
-section h2 {
-    margin: 0;
 }

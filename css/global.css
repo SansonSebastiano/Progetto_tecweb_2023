@@ -4,13 +4,14 @@
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
     --color4: rgb(200,200,200);
-    --unvisited-links: rgb(0, 80, 4);
-    --visited-links: rgb(79, 252, 252);
+    --unvisited-links: rgb(34, 0, 88);
+    --visited-links: rgb(158, 142, 0);
     --width-perc-main: 70%;
     --margin-default: 3em;
     --margin-tag: 5px;
     --box-shadow-huge: -1px 0px 100px 5px black, 1px 0px 100px 5px black;
     --box-shadow-light: 0px 1px 1px 1px black;
+    --image-radius-corner: 25px;
 }
 
 
@@ -26,12 +27,9 @@ h2 {
     color:var(--color2);
 }
 
-
 img {
     box-shadow: var(--box-shadow-light);
-
 }
-
 
 a{
     color: var(--unvisited-links);
@@ -50,6 +48,10 @@ body {
     box-shadow: var(--box-shadow-huge);
 }
 
+main {
+    position: relative;
+    z-index: 2;
+}
 
 /* ID */
 
@@ -61,8 +63,16 @@ body {
     background-color: var(--color2);
     color: var(--color3);
     width: fit-content;
-    margin: 0 auto 20px;
+    margin: 0 auto;
     box-shadow: var(--box-shadow-light);
+}
+
+.profile-pic {
+    box-shadow: none;
+}
+
+#username img {
+    height: 20px;
 }
 
 /* HEADER */
@@ -76,6 +86,10 @@ header {
     grid-gap:0px;
     margin: var(--margin-default);
     box-shadow: var(--box-shadow-light);
+
+    position: sticky;
+    z-index: 1;
+    top: 0px;
 }
 
 header div {
@@ -98,7 +112,7 @@ header div {
     overflow:hidden;
     white-space: nowrap;
     text-indent: 100%;
-    margin: 5px 0 0 15px;
+    margin: 10px 0 0 15px;
 }
 
 #header-titling p {
@@ -128,10 +142,10 @@ header div {
     color: var(--color3);
 
     font-size: 1.2em;
-    position: sticky;
     padding:0px;
 
-    z-index: 1;
+    position: sticky;
+    z-index: 3;
     top: 0px;
 
     box-shadow: 0px -1px 1px 1px black;
@@ -144,20 +158,24 @@ header div {
 .breadcrumb-list li{
     display: inline;
 }
+
 /* GOUP */
 
 #go-up-div {
     margin: var(--margin-default);
 }
 
+#go-up-div p {
+    text-align: center;
+}
+
 #go-up {
     display: block;
     margin: auto;
-
     cursor: pointer;
     background-color: var(--color1);
     color: var(--color3);
-    font-size: 40px;
+    font-size: 2.5em;
     height: 1.5em;
     width: 1.5em;
     box-shadow: var(--box-shadow-light);
@@ -205,6 +223,7 @@ hr {
 
 
 /* PROFILE-PIC */
+
 .profile-pic {
     display: inline-block;
     vertical-align: middle;
