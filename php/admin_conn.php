@@ -8,8 +8,6 @@
 	
   if ($mysqli->connect_error) {
     echo "<script>console.log('Admin connection failed.');</script>";
-    echo "<script>console.log('Errno: '.$mysqli->connect_errno');</script>";
-    echo "<script>console.log('Error: '.$mysqli->connect_error');</script>";
     exit();
   }
 
