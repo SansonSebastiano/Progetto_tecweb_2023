@@ -112,7 +112,6 @@ dl.coloredlist{
 #animal-description{
     display: flex;
     flex-direction: row;
-    
 }
 
 #animal-description > *{
@@ -175,12 +174,16 @@ dl.coloredlist{
     font-size: 95%;
 }
 
-.sectionTitle{
+.sectionTitle, .mainTitle{
     margin: 1em;
     padding: 0.5em;
+}
+
+.sectionTitle{
     border-bottom: 1px solid #111;
     font-style: italic;
 }
+
 
 .animalTable{
     width: 95%;
@@ -196,19 +199,24 @@ dl.coloredlist{
 
 .animalTable th:first-child{
     width: 30%;
+    word-break: break-all;
+    padding: 1%;
 }
 
 .animalTable th:last-child{
     width: 25%;
 }
 
-
 .animalTable thead th{
     background-color: #c2c2c2;
 }
 
-.animalTable td{
-    background-color: #fff;
+.animalTable tr:nth-child(even){
+    background-color: #ddd;
+}
+
+.tabContainer{
+    overflow-x:auto;
 }
 .coloredlist div dd{
     display: flex;

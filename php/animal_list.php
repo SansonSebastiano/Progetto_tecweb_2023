@@ -16,12 +16,12 @@ if(is_null($query)){
     die(1);
 }
 
-$final = str_replace("Animali che iniziano con <letter/>","Animali che iniziano con caratteri non alfabetici",$table);
-$final = str_replace("<letter/>","hash",$final);
-$final = str_replace("<letterTitle/>","#",$final);
 $navigator = "";
 $animals = "";
 if($query->num_rows > 0){
+    $final = str_replace("Animali che iniziano con <letter/>","Animali che iniziano con caratteri non alfabetici",$table);
+    $final = str_replace("<letter/>","hash",$final);
+    $final = str_replace("<letterTitle/>","#",$final);
     $navigator .= '<li><a href="#hash">#</a></li>';
     while($row = mysqli_fetch_assoc($query)){
         $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
