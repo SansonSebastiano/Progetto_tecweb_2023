@@ -17,9 +17,9 @@ FROM articolo INNER JOIN commento ON articolo.id = commento.articolo INNER JOIN 
     
     -- create view with articolo, his comments and his answers
 CREATE VIEW view_articolo_commento_risposta
-AS SELECT view_articolo_commento.articolo, view_articolo_commento.commento, view_articolo_commento.nome, view_articolo_commento.contenuto, view_articolo_commento.data, risposta.risposta, utente.nome as nome_risposta, commento.contenuto as contenuto_risposta, commento.data as data_risposta
+AS SELECT view_articolo_commento.articolo, view_articolo_commento.commento, view_articolo_commento.nome, view_articolo_commento.contenuto, view_articolo_commento.data, risposta.figlio, utente.nome as nome_risposta, commento.contenuto as contenuto_risposta, commento.data as data_risposta
 FROM view_articolo_commento INNER JOIN risposta ON view_articolo_commento.commento = risposta.padre 
-INNER JOIN commento ON risposta.risposta = commento.id INNER JOIN utente ON commento.utente = utente.id;
+INNER JOIN commento ON risposta.figlio = commento.id INNER JOIN utente ON commento.utente = utente.id;
 
     -- create view with animals and his votes
 CREATE VIEW view_animale_voto
