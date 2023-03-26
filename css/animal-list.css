@@ -19,88 +19,6 @@ main h2{
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
 }
-/** VOTAZIONI **/
-#animal-voting{
-    border: rgb(0, 165, 96) 10px solid;
-    border-radius: 20px;
-    background-color: rgba(3, 173, 102, 0.7);
-    margin: 2em 1.7em 0em;
-}
-
-#animal-voting > *{
-    padding: 0.7em;
-}
-
-#animal-voting ul{
-    margin-left: 2em;
-}
-#animal-voting h2{
-    text-align: center;
-}
-
-#animal-voting ul li{
-    font-size: large;
-    list-style: none;
-}
-#animal-voting div{
-  height: 12%;
-  display: flex;
-  flex-direction: row;
-}
-
-#colored-vote-area{
-    width: 100%;
-    background: linear-gradient(to right, #00FF00 26%, #FF0000 );
-}
-
-/** VOTAZIONI RADIO **/
-
-#animal-voting button {
-    cursor: pointer;
-    border-radius: 2px;
-    padding: 5px 10px;
-    background: #808080;
-    color: #ececec;
-    font-size: 15px;
-    font-family: sans-serif;
-    transition: all 0.1s;
-}
-
-#animal-voting button:hover{
-    background: var(--color1);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    text-shadow: 0 1px 0px #808080;
-}
-
-/** TABELLA ANIMALE **/
-#animal-info{
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-}
-
-#animal-stats{
-    border-collapse: collapse;
-}
-
-#animal-stats td, #animal-stats th{
-    padding: 1em;
-}
-
-#animal-stats{
-    border-collapse: collapse;
-}
-
-.coloredlist > li, #animal-stats tr,#animal-stats, .coloredlist .animal-entry{
-    color: #fff;
-    padding: 0.74em 0.1em;
-    border: #000 solid 2px;
-}
-
-
-main > form{
-    margin: 3em;
-}
 /*
 dl.coloredlist{
     display: grid;
@@ -109,57 +27,6 @@ dl.coloredlist{
 }
 */
 /** DESCRIZIONE ANIMALE **/
-#animal-description{
-    display: flex;
-    flex-direction: row;
-}
-
-#animal-description > *{
-    margin: 1em;
-}
-
-#main-article-div {
-    color:white;
-    height: 25em;
-    margin: 1.7em 1em 0em 0em;
-    position: relative;
-}
-
-#main-article-div img {
-    width: 100%;
-    height: inherit;
-    object-fit: cover;
-    border: #000 solid 2px;
-}
-
-#main-article-text {
-    position: absolute;
-    bottom:0%;
-    text-shadow: 2px 2px 2px black;
-    margin: 10px;
-}
-
-#main-article-title {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-}
-
-#main-article-subtitle {
-    font-size: 1em;
-}
-
-/** LISTA COLORATA **/
-.coloredlist, .coloredlist ul{
-    list-style: none outside;
-}
-
-.coloredlist > li:nth-child(even), #animal-stats tr:nth-child(even), .coloredlist .animal-entry:nth-child(even) {
-    background-color: var(--color2);
-}
-
-.coloredlist > li:nth-child(odd) , #animal-stats tr:nth-child(odd), .coloredlist .animal-entry:nth-child(odd){
-    background-color: var(--color1);
-}
 
 .inlinelist > li{
     display: inline;
@@ -168,7 +35,8 @@ dl.coloredlist{
 
 .content{
     border: 1px solid #a2a9b1;
-    background-color: #f8f9fa;
+    border-radius: 20px 0px 20px 0px;
+    background-color: #73d694;
     padding: 1em;
     margin: 2em;
     font-size: 95%;
@@ -189,12 +57,13 @@ dl.coloredlist{
     width: 95%;
     background: #f9f9f9;
     border: 1px #aaaaaa solid;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-radius: 40px 0px 40px 0px;
     margin: 0 auto;
 }
 
-.animalTable td, .animalTable th{
-    border: 2px #aaaaaa solid;
+.animalTable tbody tr:last-of-type td:last-of-type{
+    border-bottom-right-radius: 40px;
 }
 
 .animalTable th:first-child{
@@ -208,47 +77,28 @@ dl.coloredlist{
 }
 
 .animalTable thead th{
-    background-color: #c2c2c2;
+    background-color: #aaaaaa ;
 }
 
-.animalTable tr:nth-child(even){
-    background-color: #ddd;
+.animalTable thead th:first-of-type{
+    border-top-left-radius: 40px;
+}
+
+.animalTable tr:nth-child(even) *{
+    background-color: #c2c2c2;
+}
+/*
+.animalTable tr:nth-child(odd) *{
+    background-color: var(--color1);
+}
+*/
+
+.animalTable td:first-child, .animalTable th:first-child {
+    border-left: none;
 }
 
 .tabContainer{
     overflow-x:auto;
-}
-.coloredlist div dd{
-    display: flex;
-    flex-direction: row;
-}
-
-nav h2,nav .article{
-    text-align: center;
-}
-
-/** ARTICOLI CORRELLATI **/
-#related-articles{
-    padding-bottom: 2em;
-}
-#related-articles h2{
-    margin-bottom: 0.9em;
-}
-
-#related-articles-list{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 80%;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-ul .article{
-    padding: 2.5em;
-    flex: 1 1 10px;
 }
 
 /** FOOTER **/

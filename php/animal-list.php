@@ -1,9 +1,9 @@
 <?php
 
 require_once("." . DIRECTORY_SEPARATOR . "connection_database.php");
-$table = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "letter_table.html");
-$animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal_entry.html");
-$page = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal_list.html");
+$table = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "letter-table.html");
+$animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-entry.html");
+$page = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-list.html");
 
 $alphas = range('A', 'Z');
 
