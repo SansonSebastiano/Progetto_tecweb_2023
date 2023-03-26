@@ -30,7 +30,7 @@ h2 {
 img {
     box-shadow: var(--box-shadow-light);
 }
-
+/*
 a{
     color: var(--unvisited-links);
 }
@@ -38,7 +38,18 @@ a{
 a:visited{
     color: var(--visited-links);
 }
+*/
+.tag {
+    box-shadow: var(--box-shadow-light);
 
+    background-color: red;
+    color: white;
+    padding: var(--margin-tag);
+    border-radius: 10px;
+    position: absolute;
+    top: var(--margin-tag);
+    left: var(--margin-tag);
+}
 
 /* BODY */
 
