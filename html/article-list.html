@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/global.css" />
+        <link rel="stylesheet" type="text/css" href="../css/media.css" />
+
+        <link rel="stylesheet" type="text/css" href="../css/article-list.css" />
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> 
+            $(function(){
+              $("#header").load("modules/header.html"); 
+              $("#footer").load("modules/footer.html"); 
+            });
+        </script> 
+
+        <title>
+            Storico articoli | 1 - Elusive
+        </title>
+    </head>
+
+    <body>
+        <div id="identification">
+            Ciao,
+            <span id="username">
+                <img src="../images/icons/icon-user.png" height="20px" class = "profile-pic" alt = "utente"/>
+                Kikkoceccato.
+            </span>
+            <a href="PAGINA DI LOGIN">Non sei tu?</a>
+        </div>
+
+        <header id="header"></header>
+
+        <nav id = "breadcrumb">
+            <a href="../index.html">Homepage</a> 🢚 Tutti gli articoli
+        </nav>
+
+        <main>
+            <h2>
+                Gli articoli di eLusive
+            </h2>
+
+            <div id = "search-box">
+                    <p id="caption-by-title">Ricerca in base al titolo</p>
+                    <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
+                    <button id="button-by-title" class="paired">CERCA</button>
+                    <p id="caption-by-cat">Ricerca in base al tag</p>
+                    <select id="input-by-cat" class="paired">
+                        <option>scoperta</option>
+                        <option>avvistamento</option>
+                        <option>miscellanea</option>
+                    </select>
+                    <button id = "button-by-cat" class="paired">CERCA</button>
+            </div>
+
+            <div id = "article-grid-div">
+                <div class="article">
+                    <img src = "../images/articles/2.jpg"/>
+                    <div class="tag corner-tag sighting">AVVISTAMENTO</div>
+                    <div>
+                        Articolo Mock 1
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg"/>
+                    <div>
+                        Articolo Mock 2
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg"/>
+                        Articolo Mock 3
+                        <a href="MOCK">Leggi...</a>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg"/>
+                    <div>
+                        Articolo Mock 4
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg"/>
+                    <div>
+                        Articolo Mock 5
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg"/>
+                    <div>
+                        Articolo Mock 6
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+            </div>
+            <div id = "page-slider">
+                <hr>
+                <button id="button-current">1</button>
+                <button>2</button>
+                <button>3</button>
+                …
+                <hr>
+            </div>
+            <div id="go-up-div">
+                <button id="go-up">⮉</button>
+                <p>VAI SU</p>
+            </div>
+        </main>
+
+        <footer id="footer"></footer>
+
+    </body>
+</html>

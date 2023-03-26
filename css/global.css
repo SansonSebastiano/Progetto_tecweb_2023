@@ -4,14 +4,14 @@
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
     --color4: rgb(200,200,200);
-    --unvisitedLinks: rgb(182, 251, 251);
-    --visitedLinks: rgb(79, 252, 252);
-    --width-perc-global: 1400px;
-    --width-perc-main: 75%;
+    --unvisited-links: rgb(34, 0, 88);
+    --visited-links: rgb(158, 142, 0);
+    --width-perc-main: 70%;
     --margin-default: 3em;
     --margin-tag: 5px;
     --box-shadow-huge: -1px 0px 100px 5px black, 1px 0px 100px 5px black;
     --box-shadow-light: 0px 1px 1px 1px black;
+    --image-radius-corner: 25px;
 }
 
 
@@ -23,17 +23,20 @@ html {
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
+h2 {
+    color:var(--color2);
+}
+
 img {
     box-shadow: var(--box-shadow-light);
-
 }
 /*
 a{
-    color: var(--unvisitedLinks);
+    color: var(--unvisited-links);
 }
 
 a:visited{
-    color: var(--visitedLinks);
+    color: var(--visited-links);
 }
 */
 .tag {
@@ -51,22 +54,36 @@ a:visited{
 /* BODY */
 
 body {
-    max-width: var(--width-perc-global);
+    max-width: var(--width-perc-main);
     margin: auto;
     box-shadow: var(--box-shadow-huge);
 }
 
+main {
+    position: relative;
+    z-index: 2;
+}
 
 /* ID */
 
 #identification {
     border-radius: 0px 0px 20px 20px;
     border: 1px solid white;
+    border-top: none;
     padding: 10px;
     background-color: var(--color2);
     color: var(--color3);
     width: fit-content;
-    margin: 0 auto 20px;
+    margin: 0 auto;
+    box-shadow: var(--box-shadow-light);
+}
+
+.profile-pic {
+    box-shadow: none;
+}
+
+#username img {
+    height: 20px;
 }
 
 /* HEADER */
@@ -80,6 +97,10 @@ header {
     grid-gap:0px;
     margin: var(--margin-default);
     box-shadow: var(--box-shadow-light);
+
+    position: sticky;
+    z-index: 1;
+    top: 0px;
 }
 
 header div {
@@ -100,8 +121,9 @@ header div {
     background-position-y: center;
     /*RENDI TESTO NON VISIBILE A SCHERMO*/
     overflow:hidden;
+    white-space: nowrap;
     text-indent: 100%;
-    margin: 5px 0 0 15px;
+    margin: 10px 0 0 15px;
 }
 
 #header-titling p {
@@ -128,13 +150,13 @@ header div {
 
 #breadcrumb {
     background-color: var(--color2);
-    border-bottom: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    color: #fff;
+    color: var(--color3);
+
+    font-size: 1.2em;
+    padding:0px;
 
     position: sticky;
-    z-index: 1;
+    z-index: 3;
     top: 0px;
 
     box-shadow: 0px -1px 1px 1px black;
@@ -147,20 +169,24 @@ header div {
 .breadcrumb-list li{
     display: inline;
 }
+
 /* GOUP */
 
 #go-up-div {
     margin: var(--margin-default);
 }
 
+#go-up-div p {
+    text-align: center;
+}
+
 #go-up {
     display: block;
     margin: auto;
-
     cursor: pointer;
     background-color: var(--color1);
-    color: var(--color4);
-    font-size: 40px;
+    color: var(--color3);
+    font-size: 2.5em;
     height: 1.5em;
     width: 1.5em;
     box-shadow: var(--box-shadow-light);
@@ -171,11 +197,45 @@ header div {
 /* FOOTER */
 
 footer {
-    border-top: 1px solid white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
     color: #fff;
-
     clear:both;
     background-color: var(--color2);
+}
+
+/* HR */
+
+hr {
+    border: none;
+    border-top: 0.5em dotted var(--color4);
+}
+
+/* TAG */
+
+.tag {
+    box-shadow: var(--box-shadow-light);
+    text-transform: uppercase;
+    width: fit-content;
+    color: white;
+    padding: var(--margin-tag);
+    border-radius: 10px;
+}
+
+.tag.discovery {
+    background-color: red;
+}
+.tag.sighting {
+    background-color: darkgoldenrod;
+}
+.corner-tag {
+    position: absolute;
+    top: var(--margin-tag);
+    left: var(--margin-tag);
+}
+
+
+/* PROFILE-PIC */
+
+.profile-pic {
+    display: inline-block;
+    vertical-align: middle;
 }
