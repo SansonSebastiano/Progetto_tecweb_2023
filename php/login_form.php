@@ -30,66 +30,59 @@
                 $result = $mysqli->query($query);
                 // check if the query was executed successfully and if the result is not empty
                 if ($result->num_rows == 0) {
-                    echo '<br>';
-                    echo '<br>';
-                    echo "Error: " . 'the query to MySQL eLusive was not executed successfully or the result is empty.';
+                    echo "<script>console.log('Error: the query to MySQL eLusive was not executed successfully or the result is empty.');</script>";
                     exit();
                 } else {
-                    echo '<br>';
-                    echo '<br>';
-                    echo 'Success: A proper query to MySQL eLusive was made.';
-                    echo '<br>';
-                    echo 'Number of rows: '.$result->num_rows;
-                    echo '<br>';
-                    echo '<br>';
+                    echo "<script>console.log('Success: A proper query to MySQL eLusive was made.');</script>";
+                    echo "<script>console.log('Number of rows: " . $result->num_rows . "');</script>";
 
                     // iterate over the result set
                     // fetch each row as an associative array
                     while ($row = $result->fetch_assoc()) {
                         if ($row["ruolo"] == ADMIN_ROLE) {
+
+                            echo "<script>console.log('ADMIN SECTION');</script>";
+
                             $_SESSION["ruolo"] = ADMIN_ROLE;
                             $_SESSION["username"] = $row["nome"];
                             $_SESSION["id"] = $row["id"];
 
-                            echo "USERNAME: " . $_SESSION["username"] . "<br>";
-                            echo "PASSWORD: " . $row["password"] . "<br>";
-                            echo "EMAIL: " . $row["email"] . "<br>";
-                            echo "RUOLO: " . $_SESSION["ruolo"] . "<br>";
-                            echo "-----------------<br>";
-                            echo "GRANT: " . $db_user . "<br>"; // TODO: fix this: it should be the role of the user
+                            echo "<script>console.log('USERNAME: " . $_SESSION["username"] . "');</script>";
+                            echo "<script>console.log('PASSWORD: " . $row["password"] . "');</script>";
+                            echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
+                            echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            // header("Location: admin.php");
+                            header("Location: ../index.php");
                         } elseif ($row["ruolo"] == WRITER_ROLE) {
+                            echo "<script>console.log('WRITER SECTION');</script>";
+
                             $_SESSION["ruolo"] = WRITER_ROLE;
                             $_SESSION["username"] = $row["nome"];
                             $_SESSION["id"] = $row["id"];
 
-                            echo "USERNAME: " . $_SESSION["username"] . "<br>";
-                            echo "PASSWORD: " . $row["password"] . "<br>";
-                            echo "EMAIL: " . $row["email"] . "<br>";
-                            echo "RUOLO: " . $row["ruolo"] . "<br>";
-                            echo "-----------------<br>";
-                            echo "GRANT: " . $db_user . "<br>"; // TODO: fix this: it should be the role of the user
+                            echo "<script>console.log('USERNAME: " . $_SESSION["username"] . "');</script>";
+                            echo "<script>console.log('PASSWORD: " . $row["password"] . "');</script>";
+                            echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
+                            echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            // header("Location: writer.php");
+                            header("Location: ../index.php");
                         } elseif ($row["ruolo"] == USER_ROLE) {
-                            $_SESSION["username"] = USER_ROLE;
+                            echo "<script>console.log('LOGGED SECTION');</script>";
+
+                            $_SESSION["ruolo"] = USER_ROLE;
                             $_SESSION["username"] = $row["nome"];
                             $_SESSION["id"] = $row["id"];
 
-                            echo "USERNAME: " . $_SESSION["username"] . "<br>";
-                            echo "PASSWORD: " . $row["password"] . "<br>";
-                            echo "EMAIL: " . $row["email"] . "<br>";
-                            echo "RUOLO: " . $_SESSION["username"] . "<br>";
-                            echo "-----------------<br>";
-                            echo "GRANT: " . $db_user . "<br>"; // TODO: fix this: it should be the role of the user
+                            echo "<script>console.log('USERNAME: " . $_SESSION["username"] . "');</script>";
+                            echo "<script>console.log('PASSWORD: " . $row["password"] . "');</script>";
+                            echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
+                            echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            // header("Location: user.php");
+                            header("Location: ../index.php");
                         } else {
                             echo "Error: no role found for the user.";
                             // TODO: redirect to the login page
-
-                            // header("Location: login.php");
+                            //header("Location: ../html/login_form.html");
                         }
                     }
 
