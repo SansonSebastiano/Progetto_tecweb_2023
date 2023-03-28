@@ -8,7 +8,7 @@ $page = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARA
 $alphas = range('A', 'Z');
 
 $sql = "SELECT nome,descrizione,status FROM animale WHERE nome REGEXP '^[^a-zA-Z]' ORDER BY nome ASC;";
-$query = mysqli_query($connessione, $sql);
+$query = mysqli_query($mysqli, $sql);
 $row = "";
 
 if(is_null($query)){
@@ -35,7 +35,7 @@ $final = str_replace("<animals/>",$animals,$final);
 
 foreach($alphas as $letter){
     $sql = "SELECT nome,descrizione,status FROM animale WHERE LOWER(nome) REGEXP '^" . $letter . "' ORDER BY nome ASC;";
-    $query = mysqli_query($connessione, $sql);
+    $query = mysqli_query($mysqli, $sql);
     $animals = "";
     if($query->num_rows > 0){
         $newTable = str_replace("<letter/>",$letter,$table);
@@ -54,6 +54,6 @@ foreach($alphas as $letter){
 }
 $page = str_replace("<navigator/>",$navigator,$page);
 $page = str_replace("<ToFill/>",$final,$page);
-$connessione->close();
+$mysqli->close();
 echo $page;
 ?>
