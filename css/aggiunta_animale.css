@@ -78,7 +78,7 @@ form .form-box input{
 }
 
 .btn-submit{
-    width: 250px;
+    width: 100px;
     height: 100px;
     border-radius: 10px;
     border-width: 1px;
@@ -88,6 +88,8 @@ form .form-box input{
     justify-self: center;
     background-color: rgb(34, 0, 88);
     grid-area: btn-submit;
+    background-image: url('../images/icons/add.png');
+    background-size: 100px;
     /**visibility: hidden;**/
 }
 
@@ -97,10 +99,13 @@ form .form-box input{
 
 .btn-load{
     max-width: 200px;
+    width: 77px;
     height: 50px;
     margin-top: 10px;
     border-radius: 10px;
     background-color: rgb(3, 60, 37,0.8);
     color: #fff;
     border-width: 1px;
+    background-image: url('../images/icons/upload.png');
+    background-size: 75px;
 }
