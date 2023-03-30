@@ -26,7 +26,6 @@ article{
 article img {
     width: 100%;
     object-fit:cover;
-    margin: 0 auto;
     box-shadow: var(--box-shadow-light);
 }
 
@@ -63,6 +62,9 @@ aside {
     box-shadow: var(--box-shadow-light);
 }
 
+aside * {
+    margin-bottom: 0.5em;
+}
 dt {
     font-weight:bold;
 }
@@ -121,11 +123,9 @@ dt {
 .reply {
     font-size: 1.1em;
     text-transform: uppercase;
-    cursor: pointer;
 }
 
 .shoutbox-button {
-    cursor: pointer;
     position: absolute;
     background-color: var(--color1);
     font-size: 2em;

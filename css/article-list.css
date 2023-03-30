@@ -4,14 +4,15 @@ main {
     color: black;
 }
 
-main img {
-    border-radius: 0 0 var(--image-radius-corner) 0;
-}
-
 h2 {
     text-align: center;
 }
 
+#result-count {
+    text-align: center;
+    font-style:italic;
+    font-weight: bold;
+}
 /* ========================= ARTICLE GRID ========================= */
 
 #article-grid-div {
@@ -39,19 +40,32 @@ h2 {
     display:block;
 }
 
+.article * {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.article-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 /* ========== SLIDER ========== */
 
 #page-slider {
     display: block;
     margin: auto;
     width: fit-content;
+
+    border-top: 0.5em dotted var(--color4);
+    border-bottom: 0.5em dotted var(--color4);
+    padding: 1em;
 }
 
 #page-slider > button {
     color:var(--color4);
     border: none;
     background: none;
-    cursor:pointer;
     font-size: 1.5em;
 }
 
@@ -77,14 +91,15 @@ h2 {
     ". . cc cc"
     ". . ic bc";
     column-gap: 0px;
+
+    position: relative;
 }
 
 #search-box button {
-    border: none;
+    border-style: outset;
     border-radius: 0 20px 20px 0;
     background-color: var(--color1);
     color: var(--color3);
-    cursor: pointer;
     font-weight: bold;
 }
 
@@ -95,23 +110,28 @@ h2 {
 #caption-by-title {
     grid-area: ct;
 }
+
 #caption-by-cat {
     grid-area: cc;
 }
+
 #input-by-title {
     grid-area: it;
     box-sizing: border-box;
+    border-style: inset;
+    cursor:text;
     border-radius: 20px 0 0 20px;
     padding-left: 1em;
 }
+
 #input-by-cat {
     grid-area: ic;
     border: none;
     text-align: center;
     border-radius: 20px 0 0 20px;
     text-transform: uppercase;
-
 }
+
 #button-by-title {
     grid-area: bt;
 }
@@ -119,6 +139,12 @@ h2 {
     grid-area: bc;
 }
 
+#deco {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    height: 40%;
+}
 .paired {
     font-size: 1.2em;
 }

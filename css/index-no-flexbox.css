@@ -1,16 +1,13 @@
-/* ========================= MAIN+CONTAINER ========================= */
-
-#main-aside-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-
 main {
     background-color: white;
-    flex: 8;
-    z-index: 1;
-    position: relative;
+    float: left;
+    color: var(--color2);
+    max-width: 75%;
+    overflow: auto;    
+}
+
+main img {
+    border-radius: 0 0 var(--image-radius-corner) 0;
 }
 
 h2 {
@@ -22,8 +19,8 @@ h2 {
     text-align: center;
 }
 
-
 /* ========================= MAIN ARTICLE ========================= */
+
 
 #main-article-div {
     color:white;
@@ -107,11 +104,6 @@ h2 {
     display:block;
 }
 
-.article * {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-}
-
 .article-title {
     font-size: 1.2em;
     font-weight: bold;
@@ -122,11 +114,11 @@ h2 {
 aside {
     background-color: var(--color1);
     color: var(--color3);
+    overflow: hidden;
     padding: 1em;
-    z-index: 2;
     position: relative;
-    box-shadow: -1px 0px 10px black;
-    flex: 2;
+    z-index: 2;
+    height: 100%;
 }
 
 aside h2 {
