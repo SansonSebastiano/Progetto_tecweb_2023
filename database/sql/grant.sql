@@ -15,7 +15,8 @@ CREATE USER 'writer'@'localhost' IDENTIFIED BY 'writer';
 GRANT USAGE ON *.* TO 'writer'@'localhost';
 GRANT SELECT ON `my_elusive`.* TO 'writer'@'localhost';
 GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto, `my_elusive`.articolo TO 'writer'@'localhost';
-GRANT DELETE ON `my_elusive`.view_articolo_utente TO 'writer'@'localhost';
+-- GRANT DELETE ON `my_elusive`.view_articolo_utente TO 'writer'@'localhost';
+GRANT DELETE ON `my_elusive`.articolo TO 'writers'@'localhost';
 
 -- admin user type
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
