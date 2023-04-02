@@ -8,6 +8,7 @@ CREATE USER 'logged'@'localhost' IDENTIFIED BY 'logged';
 GRANT USAGE ON *.* TO 'logged'@'localhost';
 GRANT SELECT ON `my_elusive`.* TO 'logged'@'localhost';
 GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto TO 'logged'@'localhost';
+GRANT INSERT ON `my_elusive`.risposta TO 'logged'@'localhost';
 
 -- writers user type
 CREATE USER 'writer'@'localhost' IDENTIFIED BY 'writer';
