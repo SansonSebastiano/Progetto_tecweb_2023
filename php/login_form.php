@@ -3,6 +3,8 @@
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
 
+    const LOCATION = "Location: ../index.php";
+
     // import the connection script
     require_once('admin_conn.php');
     // import input cleaner script
@@ -52,7 +54,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header("Location: ../index.php");
+                            header(LOCATION);
                         } elseif ($row["ruolo"] == WRITER_ROLE) {
                             echo "<script>console.log('WRITER SECTION');</script>";
 
@@ -65,7 +67,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header("Location: ../index.php");
+                            header(LOCATION);
                         } elseif ($row["ruolo"] == USER_ROLE) {
                             echo "<script>console.log('LOGGED SECTION');</script>";
 
@@ -78,7 +80,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header("Location: ../index.php");
+                            header(LOCATION);
                         } else {
                             echo "Error: no role found for the user.";
                             // TODO: redirect to the login page
