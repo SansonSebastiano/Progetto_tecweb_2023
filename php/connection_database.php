@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "elusive";
-$password= "root";
-$db = "my_elusive";
+$user = "root";
+$password= "";
+$db = "elusive";
 $connessione = new mysqli($host,$user,$password,$db);
 if (mysqli_connect_errno()) {
     echo "Connessione fallita (". mysqli_connect_errno()
