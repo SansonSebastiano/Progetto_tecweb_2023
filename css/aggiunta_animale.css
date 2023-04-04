@@ -9,6 +9,7 @@ main{
 
 .form-container h2{
     padding: 1em 1em 0em 1em;
+    margin-left: 65px;
     text-align: center;
     color: white;
     font-weight: 1000;
@@ -22,7 +23,6 @@ main{
     margin-left: 65px;
     border-radius: 10px;
     background-color: rgb(3, 60, 37,0.8);
-    font-family: monospace;
     max-width: 90%;
     height: 100%;
     align-items: center;
@@ -80,21 +80,20 @@ form .form-box input{
 .btn-submit{
     width: 100px;
     height: 100px;
-    border-radius: 10px;
+    border-radius: 60px;
     border-width: 1px;
     color: white;
-    font-size: 1.75em;
     cursor: pointer;
     justify-self: center;
-    background-color: rgb(34, 0, 88);
+    background-color: white;
     grid-area: btn-submit;
     background-image: url('../images/icons/add.png');
-    background-size: 100px;
-    /**visibility: hidden;**/
+    background-size: 98px;
+    visibility: hidden;
 }
 
 .btn-submit:hover{
-    background-color: rgb(12, 3, 60);
+    background-color: rgb(176, 176, 182);
 }
 
 .btn-load{
@@ -103,9 +102,13 @@ form .form-box input{
     height: 50px;
     margin-top: 10px;
     border-radius: 10px;
-    background-color: rgb(3, 60, 37,0.8);
+    background-color:white;
     color: #fff;
     border-width: 1px;
     background-image: url('../images/icons/upload.png');
     background-size: 75px;
+}
+
+.btn-load:hover{
+    background-color: rgb(176, 176, 182);
 }
