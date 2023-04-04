@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/animal.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
-    <script src="../js/animal.js"></script>
+    <!--<script src="../js/animal.js"></script>-->
     <title>Scimpassero - eLusive</title>
 </head>
 <body>
@@ -83,20 +83,16 @@
             
             </section>
         <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
-        <section id="animal-voting">
-            <h2>Esprimi il tuo parere sull'esistenza del <span data-animal>Scimpassero</span></h2>
-            <p id="vote-check"><!--Hai gia mandato il tuo voto--></p>
-               <form id="vote" action="animal.php" method="post">
+        <section id="animal-voting" class="">
+            <h2 class="centered">Esprimi il tuo parere sull'esistenza del <span data-animal>Scimpassero</span></h2>
+            <div class="horizontal-flex">
+                <div class="votes-box">Esiste: <span id="exist-votes" data-value="234">1212</span></div>
                 <div>
-                    <button label="Esiste" type="submit" form="vote" name="vote" value="exist">Esiste</button><span id="colored-vote-area"></span><button type="submit" form="vote" name="vote" value="noExist">Non Esiste</button>
-                    <input type="text" hidden name="userId" value="">
+                    <button id="exist-btn">Vota esiste</button>
+                    <button id="non-exist-btn">Vota non esiste</button>
                 </div>
-                </form>
-               <ul>
-                    <li>Voti totali: <span id="total-votes" data-value="1234"></span></li>
-                    <li>Esiste: <span id="exist-votes" data-value="224"></span></li>
-                    <li>Non esiste: <span id="non-exist-votes" data-value="1000"></span></li>
-               </ul>
+                <div class="votes-box">Non esiste: <span id="non-exist-votes" data-value="234">1212</span></div>
+            </div>
         </section> 
         <nav id="related-articles">
             <h2>Articoli correlati:</h2>
