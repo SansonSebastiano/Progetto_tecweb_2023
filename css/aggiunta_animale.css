@@ -89,7 +89,7 @@ form .form-box input{
     grid-area: btn-submit;
     background-image: url('../images/icons/add.png');
     background-size: 98px;
-    /**visibility: hidden;**/
+    visibility: hidden;
 }
 
 .btn-submit:hover{
