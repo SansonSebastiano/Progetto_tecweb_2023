@@ -21,5 +21,33 @@
     ul .article{
         padding: 1.5em;
     }
+    #non-exist-btn{
+        padding: 5em;
+    }
+    #exist-btn{
+        padding: 5em;
+    }
 }
 
+@media screen and (max-width:768px) {
+    #animal-description{
+        flex-direction: column-reverse;
+    }
+
+    #animal-description 
+    ul .article{
+        padding: 1.5em;
+    }
+    #non-exist-btn{
+        padding: 6em;
+        display: block;
+        border-radius: 50%;
+        border: darkred 10px solid;
+    }
+    #exist-btn{
+        padding: 6em;
+        display: block;
+        border-radius: 50%;
+        border: darkgreen 10px solid;
+    }
+}

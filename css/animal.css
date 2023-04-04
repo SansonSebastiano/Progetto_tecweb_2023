@@ -20,36 +20,81 @@ main h2{
     clip: rect(1px, 1px, 1px, 1px);
 }
 /** VOTAZIONI **/
-#animal-voting{
-    border: rgb(0, 165, 96) 10px solid;
-    border-radius: 20px;
-    background-color: rgba(3, 173, 102, 0.7);
-    margin: 2em 1.7em 0em;
+.vertical-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-#animal-voting > *{
-    padding: 0.7em;
-}
-
-#animal-voting ul{
-    margin-left: 2em;
-}
-#animal-voting h2{
+.centered{
     text-align: center;
 }
 
-#animal-voting ul li{
-    font-size: large;
-    list-style: none;
-}
-#animal-voting div{
-  height: 12%;
-  display: flex;
-  flex-direction: row;
+.horizontal-flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
-#colored-vote-area{
-    width: 100%;
+#exist-votes, #non-exist-votes{
+    display: block;
+}
+#exist-btn{
+    height: 12em;
+    width: 12em;
+    padding: 10em;
+    background-color: green;
+    background-image: url("../images/icons/thumb-up.png");
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    margin: 0;
+    border: darkgreen 10px solid;
+    border-radius: 50% 0% 0% 50%;
+    border-right: none;
+    text-indent: -999em;
+    text-decoration: none;
+}
+
+#exist-btn:hover{
+    background-color: rgb(1, 177, 1);
+    border-color: rgb(0, 143, 0);
+    background-position: right center;
+}
+
+#non-exist-btn{
+    height: 12em;
+    width: 12em;
+    padding: 10em;
+    background-color: rgb(196, 0, 0);
+    background-image: url("../images/icons/thumb-down.png");
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    margin: 0;
+    border: darkred 10px solid;
+    border-radius: 0% 50% 50% 0%;
+    border-left: none;
+    text-indent: -999em;
+    text-decoration: none;
+}
+
+#non-exist-btn:hover{
+    background-color: rgb(255, 0, 0);
+    border-color: rgb(187, 0, 0);
+    background-position: right center;
+}
+
+.votes-box {
+    background: rgb(34, 0, 88);
+    color: #fff;
+    padding: 1% 2%;
+    border-radius: 10px;
+  }
+
+#colored-vote-area {
     background: linear-gradient(to right, #00FF00 26%, #FF0000 );
 }
 
@@ -57,21 +102,8 @@ main h2{
 
 #animal-voting button {
     cursor: pointer;
-    border-radius: 2px;
-    padding: 5px 10px;
-    background: #808080;
-    color: #ececec;
-    font-size: 15px;
-    font-family: sans-serif;
-    transition: all 0.1s;
-}
 
-#animal-voting button:hover{
-    background: var(--color1);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    text-shadow: 0 1px 0px #808080;
 }
-
 /** TABELLA ANIMALE **/
 #animal-info{
     display: flex;
