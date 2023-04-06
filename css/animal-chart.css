@@ -64,16 +64,17 @@ table {
     width: 90%;
 }
 
-tbody, tfoot {
-    border: 1px solid white;
+table button {
+    background: none;
+    text-decoration: underline;
+    font-weight: bold;
+    border: none;
+    font-size: 1.2em;
+    color: var(--color2);
 }
 
 td {
     text-align: center;
-}
-
-tr {
-    border-bottom: 1px solid var(--color4);
 }
 
 td:first-child {
@@ -86,6 +87,7 @@ td:nth-child(2){
 td:nth-child(3){
     border-right: 5px solid var(--color4);
 }
+
 td:nth-child(3),td:nth-child(4){
     font-size: 1.2em;
     font-weight: bold;
@@ -104,37 +106,41 @@ th{
     text-transform: uppercase;
 }
 
+th:first-child{
+    border-radius: 25px 0 0 0;
+}
+th:last-child{
+    border-radius: 0 25px 0 0;
+}
+
+th img {
+    height: 2em;
+}
+
+th button.white {
+    color: white;
+}
+
+th.vote {
+    background-color: var(--color1);
+    border-top: 0px;
+    border-bottom: 1px solid var(--color4);
+    padding: 0.5em;
+}
 
 tfoot td {
     color: black;
     background-color: var(--color3);
 }
 
-
-th:first-child{
-    border-radius: 20px 0 0 0;
-}
-th:last-child{
-    border-radius: 0 20px 0 0;
-}
-
-th img {
-    height: 2em;
-    box-shadow: none;
-}
-
-th button {
-    background: none;
-    text-decoration: underline;
-    font-weight: bold;
-    border: none;
-    font-size: 1em;
-    color: var(--color2)
-}
-
-th.vote {
-    background-color: var(--color1);
-    border-top: 1px solid var(--color4);
+tr {
     border-bottom: 1px solid var(--color4);
-    padding: 0.5em;
+}
+
+#timespan {
+    width: fit-content;
+    display: block;
+    font-style: italic;
+    margin: auto;
+    border-top: 1px solid black;
 }

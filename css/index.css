@@ -136,3 +136,29 @@ aside h2 {
 aside a {
     color: var(--color2);
 }
+
+aside ol {
+    border: 1px solid white;
+    border-radius: var(--image-radius-corner);
+    border-top: none;
+}
+
+aside section {
+    margin-bottom: 2em;
+}
+
+aside li {
+    font-weight: bold;
+}
+aside figure {
+    margin: 1em;
+}
+aside figure img{
+    width: 30%;
+    border-radius: 10px;
+    vertical-align: middle;
+    box-shadow: var(--box-shadow-light);
+}
+aside figcaption {
+    display: inline;
+}
