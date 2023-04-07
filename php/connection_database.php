@@ -1,20 +1,12 @@
 <?php
-  $db_host = 'localhost';
-  $db_user = 'root';
-  $db_password = 'root';
-  $db_db = 'my_elusive';
- 
-  $mysqli = @new mysqli(
-    $db_host,
-    $db_user,
-    $db_password,
-    $db_db
-  );
-	
-  if ($mysqli->connect_error) {
-    echo 'Errno: '.$mysqli->connect_errno;
-    echo '<br>';
-    echo 'Error: '.$mysqli->connect_error;
+$host = "localhost";
+$user = "root";
+$password= "";
+$db = "elusive";
+$connessione = new mysqli($host,$user,$password,$db);
+if (mysqli_connect_errno()) {
+    echo "Connessione fallita (". mysqli_connect_errno()
+    . "): " . mysqli_connect_error();
     exit();
   }
 
@@ -26,3 +18,5 @@
 
   //$mysqli->close();
 ?>
+
+
