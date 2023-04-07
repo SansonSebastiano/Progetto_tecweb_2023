@@ -6,9 +6,9 @@
     const INDEX = "Location: ../index.php";
 
     // import the connection script
-    require_once('admin_conn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin_conn.php');
     // import input cleaner script
-    include('input_cleaner.php');
+    include($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'input_cleaner.php');
 
     session_start();
 
@@ -37,6 +37,8 @@
                     $mysqli->close();
                     
                     header("Location: ../html/login-form.html");
+
+                    exit();
                 } else {
                     echo "<script>console.log('Success: A proper query to MySQL eLusive was made.');</script>";
                     echo "<script>console.log('Number of rows: " . $result->num_rows . "');</script>";

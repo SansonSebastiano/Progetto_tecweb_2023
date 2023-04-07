@@ -1,20 +1,24 @@
 <?php
-    $page = file_get_contents("../html/animal.html");
-    
-    require_once("../php/connection_database.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check_conn.php");
+
+    $page = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal.html");
+
+    $page = str_replace("<user />", "Ciao, " . $_SESSION["username"], $page);
+    $page = str_replace("<userImg />", "<img src=\"../../images/icons/icon-user.png\" class = \"profile-pic\" alt = \"utente\"/>", $page);
+    $page = str_replace("<log_in_out />", $log_in_out, $page);
 
     if($_GET["animale"]){
         $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
         $queryResult = mysqli_query($connessione, $query);
         if(!$queryResult){
-            include_once("../html/404.html");
+            include_once(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
-            include_once("../html/404.html");
+            include_once(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
 
@@ -52,7 +56,7 @@
 
         $page = str_replace("<ulitmoAvvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
 
-        $relArticleTemplate = file_get_contents("../html/related_article_template.html");
+        $relArticleTemplate = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "related_article_template.html");
 
         mysqli_data_seek($queryResultTwo,0);
         $relArticles = "";

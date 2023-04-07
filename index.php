@@ -1,5 +1,5 @@
 <?php
-    require("." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check_user.php");
+    require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check_conn.php");
 
     $page = file_get_contents("." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "index.html");
 

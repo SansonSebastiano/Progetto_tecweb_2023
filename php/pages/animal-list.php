@@ -1,9 +1,14 @@
 <?php
+// da implementare i meccanismi della sessione?
+require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check_conn.php");
 
-require_once("." . DIRECTORY_SEPARATOR . "connection_database.php");
-$table = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "letter-table.html");
-$animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-entry.html");
-$page = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-list.html");
+$table = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "letter-table.html");
+$animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-entry.html");
+$page = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-list.html");
+
+$page = str_replace("<user />", "Ciao, " . $_SESSION["username"], $page);
+$page = str_replace("<userImg />", "<img src=\"../../images/icons/icon-user.png\" class = \"profile-pic\" alt = \"utente\"/>", $page);
+$page = str_replace("<log_in_out />", $log_in_out, $page);
 
 $alphas = range('A', 'Z');
 

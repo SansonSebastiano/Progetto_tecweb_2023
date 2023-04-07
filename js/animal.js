@@ -3,7 +3,7 @@ const exist = document.getElementById("exist-votes")
 const nonExist = document.getElementById("non-exist-votes")
 const coloredVoteArea = document.getElementById("colored-vote-area")
 
-document.body.addEventListener("load",getVotes())
+document.body.addEventListener("load", getVotes())
 
 /*
     Ottiene i valori di data-value per i voti, poi aggiorna l'HTML
