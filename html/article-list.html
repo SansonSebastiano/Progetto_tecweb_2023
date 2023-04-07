@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/global.css" />
+        <link rel="stylesheet" type="text/css" href="../css/media.css" />
+
+        <link rel="stylesheet" type="text/css" href="../css/article-list.css" />
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> 
+            $(function(){
+              $("#header").load("modules/header.html"); 
+              $("#footer").load("modules/footer.html");
+              $("#go-up-div").load("html/modules/go-up-div.html"); 
+            });
+        </script> 
+
+        <title>
+            Storico articoli | 1 - Elusive
+        </title>
+    </head>
+
+    <body>
+        <div id="identification">
+            Ciao,
+            <span id="username">
+                <img src="../images/icons/icon-user.png" class = "profile-pic" alt = "utente"/>
+                Kikkoceccato.
+            </span>
+            <a href="login-form.html">Non sei tu?</a>
+            <button id = "logout"><img src="../images/icons/logout.png"/></button>
+        </div>
+
+        <header id="header"></header>
+
+        <nav id = "breadcrumb">
+            <img src="../images/icons/home.png"/>
+            <p>
+                <a href="../index.html">Homepage </a>|
+                Articoli
+            </p>
+            <img id="logo" src="../images/logo.svg"/>
+        </nav>
+
+        <main>
+            <h2>
+                Gli articoli di eLusive
+            </h2>
+
+            <div id = "search-box">
+                    <p id="caption-by-title">Ricerca in base al titolo</p>
+                    <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
+                    <button id="button-by-title" class="paired">CERCA</button>
+                    <p id="caption-by-cat">Ricerca in base al tag</p>
+                    <img src="../images/icons/lens.png" id="deco"/>
+                    <select id="input-by-cat" class="paired">
+                        <option>scoperta</option>
+                        <option>avvistamento</option>
+                        <option>miscellanea</option>
+                    </select>
+                    <button id = "button-by-cat" class="paired">CERCA</button>
+            </div>
+            <p id="result-count">47 risultati</p>
+            <hr/>
+            <div id = "article-grid-div">
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div class="tag corner-tag sighting">AVVISTAMENTO</div>
+                    <div>
+                        <p class="article-title">Articolo Mock 1</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div>
+                        <p class="article-title">Articolo Mock 2</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div>
+                        <p class="article-title">Articolo Mock 3</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div>
+                        <p class="article-title">Articolo Mock 4</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div>
+                        <p class="article-title">Articolo Mock 5</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div>
+                        <p class="article-title">Articolo Mock 6</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+            </div>
+            <div id = "page-slider">
+                …
+                <button id="button-current">1</button>
+                <button>2</button>
+                <button>3</button>
+                …
+            </div>
+            <div id="go-up-div"></div>
+        </main>
+
+        <footer id="footer"></footer>
+
+    </body>
+</html>

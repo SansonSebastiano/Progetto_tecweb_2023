@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/animal-chart.css">
+        <link rel="stylesheet" type="text/css" href="../css/media.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> 
+            $(function(){
+                $("#header").load("modules/header.html"); 
+                $("#footer").load("modules/footer.html"); 
+            });
+        </script> 
+        <title>Classifica - eLusive</title>
+    </head>
+
+    <body>
+        <div id="identification">
+            Ciao,
+            <span id="username">
+                <img src="../images/icons/icon-user.png" class = "profile-pic" alt = "utente"/>
+                Kikkoceccato.
+            </span>
+            <a href="login-form.html">Non sei tu?</a>
+            <button id = "logout"><img src="../images/icons/logout.png"/></button>
+        </div>
+
+        <header id="header"></header>
+
+        <nav id = "breadcrumb">
+            <img src="../images/icons/home.png"/>
+            <p>                
+                <a href="../index.html">Homepage </a>|
+                Classifica degli animali più votati</p>
+            <img id="logo" src="../images/logo.svg"/>
+        </nav>
+        
+        <main>
+            <h2>Classifica degli animali più votati</h2>
+
+            <div id="container-options">
+                <div id="container-buttons">
+                    <button id="btn1">Mensile
+                        <div>
+                            <p class = "btn-caption">(ultimi 30 giorni)</p>
+                        </div>
+                    </button>
+                    <button id="btn2">Annuale 
+                        <div>
+                            <p class = "btn-caption">(ultimi 365 giorni)</p>
+                        </div>
+                    </button>
+                    <button id="btn3">Generale 
+                        <div>
+                            <p class = "btn-caption">(tutti i voti)</p>
+                        </div>
+                    </button>
+                </div>
+                <div id = "div-with-checkbox">
+                    <input type="checkbox"/>
+                    <span>Includi animali già scoperti</span>
+                </div>
+            </div>
+
+            <!--
+                <span id="summary">Questa tabella descrive le fasce orarie in cui si tengono le lezioni di Danza e Karate nei giorni della settimana dal Lunedì al Venerdì.</span>
+                cazzo fare con questo?
+            -->
+            <table>
+                <caption>
+                    La classifica delle creature la cui esistenza è ritenuta maggiormente plausibile dagli utenti di <span lang="en">Elusive.</span>
+                </caption>
+
+                <colgroup>
+                    <col>
+                    <col span="3" class="col-aligned">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="colgroup" colspan="2">
+                            Nome creatura
+                            <div>
+                            <button>↑↓</button>
+                            </div>
+                        </th>
+                        <th scope="col" lang="en" class="vote">
+                            <img src="../images/icons/thumb-up.png" alt="Upvotes"/>
+                            <div>
+                                <button class="white">↑↓</button>
+                            </div>
+                        </th>
+                        <th scope="col" lang="en" class="vote">
+                            <img src="../images/icons/thumb-down.png" alt="Downvotes"/>
+                            <div>
+                                <button class="white">↑↓</button>
+                            </div>
+                        </th>
+                        <th scope="col">Status attuale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="../images/articles/1.jpg"/></td>
+                        <td><a href="animal.html">Scimpassero</a></td>
+                        <td>142</td>
+                        <td>17</td>
+                        <td>Scoperto</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/3.jpg"/></td>
+                        <td>Elefante orecchie a farfalla</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 1</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 2</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 3</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 4</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 5</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 6</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 7</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../images/articles/2.jpg"/></td>
+                        <td>Mock 8</td>
+                        <td>17</td>
+                        <td>92</td>
+                        <td>Avvistato</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <button>1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <p id="timespan"><span lang="en">Timespan</span>: Dal 28/02/2022 al 30/03/2023</p>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+
+        <footer id="footer"></footer>
+    </body>
+</html>

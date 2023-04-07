@@ -1,0 +1,146 @@
+main {
+    padding: var(--margin-default);
+    background-color: var(--color1);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+}
+
+/* ============ OPTIONS ============ */
+
+#container-options {
+    margin: auto;
+    width: 70%;
+    border-bottom: 1px solid white;
+    margin-bottom: var(--margin-default);
+    padding-bottom: 1em;
+}
+
+#container-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1px;
+    margin-bottom: 1em;
+}
+
+#container-buttons button {
+    border-style:outset;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-right: 2px;
+}
+
+#div-with-checkbox {
+    margin: auto;
+    width: fit-content;
+}
+
+#btn1 {
+    border-radius: 20px 0 0 20px;
+}
+
+#btn3 {
+    border-radius: 0 20px 20px 0;
+}
+
+.btn-caption {
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: none;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+/* ============ TABLE ============ */
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 90%;
+}
+
+table button {
+    background: none;
+    text-decoration: underline;
+    font-weight: bold;
+    border: none;
+    font-size: 1.2em;
+    color: var(--color2);
+}
+
+td {
+    text-align: center;
+}
+
+td:first-child {
+    width: 5em;
+}
+td:nth-child(2){
+    text-align: left;
+    padding-left: 0.5em;
+}
+td:nth-child(3){
+    border-right: 5px solid var(--color4);
+}
+
+td:nth-child(3),td:nth-child(4){
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 1px 0px 5px black, -1px 0 5px black, 0px 1px 5px black, 0px -1px 5px black;
+}
+
+td img {
+    width: 90%;
+    border-radius: 5px;
+    border-style: inset;
+}
+
+th{
+    color: black;
+    background-color: var(--color3);
+    text-transform: uppercase;
+}
+
+th:first-child{
+    border-radius: 25px 0 0 0;
+}
+th:last-child{
+    border-radius: 0 25px 0 0;
+}
+
+th img {
+    height: 2em;
+}
+
+th button.white {
+    color: white;
+}
+
+th.vote {
+    background-color: var(--color1);
+    border-top: 0px;
+    border-bottom: 1px solid var(--color4);
+    padding: 0.5em;
+}
+
+tfoot td {
+    color: black;
+    background-color: var(--color3);
+}
+
+tr {
+    border-bottom: 1px solid var(--color4);
+}
+
+#timespan {
+    width: fit-content;
+    display: block;
+    font-style: italic;
+    margin: auto;
+    border-top: 1px solid black;
+}

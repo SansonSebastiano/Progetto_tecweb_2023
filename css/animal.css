@@ -1,9 +1,10 @@
 *{
     margin: 0em;
 }
+
 /** MAIN **/
 main{
-    background-color: #fff;
+    background-color: white;
     padding-bottom: 2em;
 }
 
@@ -116,15 +117,11 @@ main h2{
 }
 
 #animal-stats td, #animal-stats th{
-    padding: 1em 1em;
+    padding: 1em;
 }
 
 #animal-stats{
     border-collapse: collapse;
-}
-
-#animal-stats td, #animal-stats th{
-    padding: 1em 1em;
 }
 
 .coloredlist > li, #animal-stats tr,#animal-stats, .coloredlist .animal-entry{
@@ -133,25 +130,17 @@ main h2{
     border: #000 solid 2px;
 }
 
-.animal-entry dt{
-    font-size: x-large;
-    padding: 0.5em;
-    padding-top: 0em;
-}
 
-.animal-entry{
-    
+main > form{
+    margin: 3em;
 }
-
-.animal-entry li{
-    inline-size: 19em;
-    overflow-wrap: break-word;
-}
+/*
 dl.coloredlist{
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
 }
+*/
 /** DESCRIZIONE ANIMALE **/
 #animal-description{
     display: flex;

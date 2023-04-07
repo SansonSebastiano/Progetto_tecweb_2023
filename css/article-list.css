@@ -1,0 +1,150 @@
+main {
+    padding: var(--margin-default);
+    background-color: white;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+#result-count {
+    text-align: center;
+    font-style:italic;
+    font-weight: bold;
+}
+/* ========================= ARTICLE GRID ========================= */
+
+#article-grid-div {
+    display: grid;
+    margin: var(--margin-default);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--margin-default);;
+    column-gap: var(--margin-default);;
+}
+
+#article-grid-section > a {
+    margin-left :var(--margin-default)
+}
+
+.article{
+    position: relative;
+}
+
+.article img{
+    width:100%;
+}
+
+.article a{
+    display:block;
+}
+
+.article * {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.article-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* ========== SLIDER ========== */
+
+#page-slider {
+    display: block;
+    margin: auto;
+    width: fit-content;
+
+    border-top: 0.5em dotted var(--color4);
+    border-bottom: 0.5em dotted var(--color4);
+    padding: 1em;
+}
+
+#page-slider > button {
+    color:var(--color4);
+    border: none;
+    background: none;
+    font-size: 1.5em;
+}
+
+#page-slider #button-current {
+    color:var(--color1);
+    font-size:2em;
+}
+
+/* ============= SEARCH BOX ============= */
+
+#search-box {
+    border: 1px solid var(--color2);
+    border-radius: var(--image-radius-corner);
+    color: var(--color2);
+    margin: auto;
+    padding: 1em;
+    width: 70%;
+
+    display:grid;
+    grid-template-areas: 
+    "ct ct ct ct"
+    "it it it bt"
+    ". . cc cc"
+    ". . ic bc";
+    column-gap: 0px;
+
+    position: relative;
+}
+
+#search-box button {
+    border-style: outset;
+    border-radius: 0 20px 20px 0;
+    background-color: var(--color1);
+    color: var(--color3);
+    font-weight: bold;
+}
+
+#search-box select {
+    cursor: pointer;
+}
+
+#caption-by-title {
+    grid-area: ct;
+}
+
+#caption-by-cat {
+    grid-area: cc;
+}
+
+#input-by-title {
+    grid-area: it;
+    box-sizing: border-box;
+    border-style: inset;
+    cursor:text;
+    border-radius: 20px 0 0 20px;
+    padding-left: 1em;
+}
+
+#input-by-cat {
+    grid-area: ic;
+    border: none;
+    text-align: center;
+    border-radius: 20px 0 0 20px;
+    text-transform: uppercase;
+}
+
+#button-by-title {
+    grid-area: bt;
+}
+#button-by-cat {
+    grid-area: bc;
+}
+
+#deco {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    height: 40%;
+}
+.paired {
+    font-size: 1.2em;
+}

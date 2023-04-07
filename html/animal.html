@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/animal.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
     <!--<script src="../js/animal.js"></script>-->
     <title><animalName/> - eLusive</title>
 </head>
 <body>
+
     <div id="identification">
         Ciao,
         <span id="username">
-            <img src="../images/icons/icon-user.png" alt="utente" height="20px">
+            <img src="../images/icons/icon-user.png" class = "profile-pic" alt = "utente"/>
             Kikkoceccato.
         </span>
-        <a href="PAGINA DI LOGIN">Non sei tu?</a>
+        <a href="login-form.html">Non sei tu?</a>
+        <button id = "logout"><img src="../images/icons/logout.png"/></button>
     </div>
-    <header>
-        <div id="header-titling">
-            <h1>
-                <span lang="en">eLusive</span>
-            </h1>
-            <p>comunichiamo avvistamenti, dal 2022</p>
-        </div>
-        <div id="header-deco"></div>
-    </header>
+
+    <header id="header"></header>
+
     <nav id = "breadcrumb">
-        <ul class="breadcrumb-list">
-            <li><a href="index.html">Home</a>&gt;</li>
-            <li><a href="animali.html">Animali</a> &gt;</li>
-            <li><span data-animal>Scimpassero</span></li>
-        </ul>
+        <img src="../images/icons/home.png"/>
+        <p>                
+            <a href="../index.html">Homepage </a>|
+            <a href="animal-list.html">Lista degli animali </a>|
+            Scimpassero</p>
+        <img id="logo" src="../images/logo.svg"/>
     </nav>
+    
     <main class="main-wrapper">
             
             <h2><animalName/></h2>
@@ -105,8 +103,7 @@
         </nav>
     </main>
     
-    <footer>
-        Copyright 2022 Il Gruppo Fantàsia
-    </footer>
+    <footer id="footer"></footer>
+
 </body>
 </html>

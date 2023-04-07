@@ -1,0 +1,130 @@
+main {
+    background-color: white;
+    float: left;
+    color: var(--color2);
+    max-width: 75%;
+    overflow: auto;    
+}
+
+main img {
+    border-radius: 0 0 var(--image-radius-corner) 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+#last-update {
+    font-style: italic;
+    text-align: center;
+}
+
+/* ========================= MAIN ARTICLE ========================= */
+
+
+#main-article-div {
+    color:white;
+    height: 30em;
+    margin: var(--margin-default);
+    position: relative;
+    cursor: pointer;
+}
+
+#main-article-div a{
+    height: inherit;
+}
+
+#main-article-div img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+#main-article-div button {
+    position: absolute;
+    top: 50%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    text-shadow: 2px 2px 8px black;
+    font-size: 3em;
+    width: 1em;
+    height: 1em;
+}
+
+#main-article-text {
+    position: absolute;
+    bottom:10px;
+    left: 10px;
+    text-shadow: 2px 2px 2px black;
+}
+
+#main-article-title {
+    font-size: 2em;
+    margin-bottom: 0.2em;
+}
+#main-article-subtitle {
+    font-size: 1.2em;
+}
+
+#button-prev {
+    left: 10px;
+    background-image: url(../images/icons/button-l.png);
+}
+
+#button-next {
+    right: 10px;
+    background-image: url(../images/icons/button-r.png);
+}
+
+/* ========================= ARTICLE GRID ========================= */
+
+#article-grid-div {
+    display: grid;
+    margin: var(--margin-default);
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--margin-default);
+    column-gap: var(--margin-default);
+}
+
+#article-grid-section > a {
+    margin-left :var(--margin-default)
+}
+
+.article{
+    position: relative;
+}
+
+.article img{
+    width:100%;
+}
+
+.article a{
+    display:block;
+}
+
+.article-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* ========================= ASIDE ========================= */
+
+aside {
+    background-color: var(--color1);
+    color: var(--color3);
+    overflow: hidden;
+    padding: 1em;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+aside h2 {
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+}
+
+aside a {
+    color: var(--color2);
+}

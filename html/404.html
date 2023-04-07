@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+    
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/global.css" />
+        <link rel="stylesheet" type="text/css" href="../css/media.css" />
+        <link rel="stylesheet" type="text/css" href="../css/404.css" />
+
+        <link rel="stylesheet" type="text/css" href="../css/article-list.css" />
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> 
+            $(function(){
+              $("#header").load("../html/modules/header.html"); 
+              $("#footer").load("../html/modules/footer.html"); 
+            });
+        </script> 
+
+        <title>
+            404: Non trovato! - Elusive
+        </title>
+    </head>
+
+    <body>
+        <div id="breadcrumb">
+            <img src="../images/logo.svg"/>
+        </div>
+        <main>
+            <img src="../images/404.png">
+            <p id="headline"><span><strong>Errore 404</strong></span>(T_T) Nulla di interessante!</p>
+            <p>A quanto pare, hai richiesto un contenuto inesistente o che potrebbe essere stato eliminato.</p>
+            <a href="../index.html">Torna alla homepage</a>
+        </main>
+
+        <footer id="footer"></footer>
+    </body>
+
+</html>
