@@ -3,10 +3,10 @@
     --color1: rgb(34, 0, 88);
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
-    --color4: rgb(200,200,200);
-    --unvisited-links: rgb(34, 0, 88);
+    --color4: rgb(150,150,150);
+    --nonvisited-links: rgb(34, 0, 88);
     --visited-links: rgb(158, 142, 0);
-    --width-perc-main: 90em;
+    --width-perc-main: 75%;
     --margin-default: 3em;
     --margin-tag: 5px;
     --box-shadow-huge: -1px 0px 100px 5px black, 1px 0px 100px 5px black;
@@ -23,16 +23,18 @@ html {
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
+img.framed {
+    border-radius: 0 0 var(--image-radius-corner) 0;
+    box-shadow: var(--box-shadow-light);
+}
+
+
 h2 {
     color:var(--color2);
 }
 
-img {
-    box-shadow: var(--box-shadow-light);
-}
-/*
 a{
-    color: var(--unvisited-links);
+    color: var(--nonvisited-links);
 }
 
 a:visited{
@@ -70,7 +72,9 @@ main {
     border-radius: 0px 0px 20px 20px;
     border: 1px solid white;
     border-top: none;
-    padding: 10px;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
     background-color: var(--color2);
     color: var(--color3);
     width: fit-content;
@@ -78,12 +82,25 @@ main {
     box-shadow: var(--box-shadow-light);
 }
 
-.profile-pic {
-    box-shadow: none;
+#username {
+    font-weight: bold;
 }
 
-#username img {
+#username .profile-pic {
+    height: 30px;
+}
+
+#logout {
     height: 20px;
+    border: none;
+    background:none;
+    vertical-align: middle;
+    margin-left: 1em;
+}
+
+#logout img {
+    height: 20px;
+    box-shadow: none;
 }
 
 /* HEADER */
@@ -153,15 +170,27 @@ header div {
     color: var(--color3);
 
     font-size: 1.2em;
-    padding:0px;
+    padding: 0.2em;
 
     position: sticky;
     z-index: 3;
     top: 0px;
 
-    box-shadow: 0px -1px 1px 1px black;
+    box-shadow: 0px -1px 1px black, 0px 1px 1px black;
 }
 
+#breadcrumb p {
+    display: inline;
+}
+
+#breadcrumb img {
+    height: 1.5em;
+    vertical-align: middle;
+}
+
+#logo {
+    float: right;
+}
 .breadcrumb-list{
     list-style: none outside;
 }
@@ -183,7 +212,6 @@ header div {
 #go-up {
     display: block;
     margin: auto;
-    cursor: pointer;
     background-color: var(--color1);
     color: var(--color3);
     font-size: 2.5em;
@@ -198,9 +226,15 @@ header div {
 
 footer {
     color: #fff;
-    clear:both;
     background-color: var(--color2);
+    padding: 1em;
 }
+
+footer p {
+    margin: 0px;
+    text-align: center;
+}
+
 
 /* HR */
 
@@ -236,6 +270,13 @@ hr {
 /* PROFILE-PIC */
 
 .profile-pic {
+    box-shadow: none;
     display: inline-block;
     vertical-align: middle;
+}
+
+/* INPUT */
+button, input[type=checkbox], input[type=text]
+{
+    cursor: pointer;
 }

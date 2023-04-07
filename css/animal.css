@@ -1,9 +1,10 @@
 *{
     margin: 0em;
 }
+
 /** MAIN **/
 main{
-    background-color: #fff;
+    background-color: white;
     padding-bottom: 2em;
 }
 
@@ -56,7 +57,6 @@ main h2{
 /** VOTAZIONI RADIO **/
 
 #animal-voting button {
-    cursor: pointer;
     border-radius: 2px;
     padding: 5px 10px;
     background: #808080;

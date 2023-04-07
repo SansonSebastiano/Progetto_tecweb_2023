@@ -10,6 +10,8 @@
         height:100%;
         width: 100%;
     }
+}
+    
 
 @media screen and (max-width:768px) {
     #animal-description{
@@ -20,5 +22,5 @@
     ul .article{
         padding: 1.5em;
     }
-    }
 }
+

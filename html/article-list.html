@@ -10,8 +10,9 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
             $(function(){
-              $("#header").load("../html/modules/header.html"); 
-              $("#footer").load("../html/modules/footer.html"); 
+              $("#header").load("modules/header.html"); 
+              $("#footer").load("modules/footer.html");
+              $("#go-up-div").load("html/modules/go-up-div.html"); 
             });
         </script> 
 
@@ -24,16 +25,22 @@
         <div id="identification">
             Ciao,
             <span id="username">
-                <img src="../images/icons/icon-user.png" height="20px" class = "profile-pic" alt = "utente"/>
+                <img src="../images/icons/icon-user.png" class = "profile-pic" alt = "utente"/>
                 Kikkoceccato.
             </span>
-            <a href="PAGINA DI LOGIN">Non sei tu?</a>
+            <a href="login-form.html">Non sei tu?</a>
+            <button id = "logout"><img src="../images/icons/logout.png"/></button>
         </div>
 
         <header id="header"></header>
 
         <nav id = "breadcrumb">
-            <a href="../index.html">Homepage</a> 🢚 Tutti gli articoli
+            <img src="../images/icons/home.png"/>
+            <p>
+                <a href="../index.html">Homepage </a>|
+                Articoli
+            </p>
+            <img id="logo" src="../images/logo.svg"/>
         </nav>
 
         <main>
@@ -46,6 +53,7 @@
                     <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
                     <button id="button-by-title" class="paired">CERCA</button>
                     <p id="caption-by-cat">Ricerca in base al tag</p>
+                    <img src="../images/icons/lens.png" id="deco"/>
                     <select id="input-by-cat" class="paired">
                         <option>scoperta</option>
                         <option>avvistamento</option>
@@ -53,67 +61,66 @@
                     </select>
                     <button id = "button-by-cat" class="paired">CERCA</button>
             </div>
-
+            <p id="result-count">47 risultati</p>
+            <hr/>
             <div id = "article-grid-div">
                 <div class="article">
-                    <img src = "../images/articles/2.jpg"/>
+                    <img src = "../images/articles/2.jpg" class="framed"/>
                     <div class="tag corner-tag sighting">AVVISTAMENTO</div>
                     <div>
-                        Articolo Mock 1
+                        <p class="article-title">Articolo Mock 1</p>
                         <a href="MOCK">Leggi...</a>
                     </div>
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg"/>
+                    <img src = "../images/articles/2.jpg" class="framed"/>
                     <div>
-                        Articolo Mock 2
+                        <p class="article-title">Articolo Mock 2</p>
                         <a href="MOCK">Leggi...</a>
                     </div>
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg"/>
-                        Articolo Mock 3
-                        <a href="MOCK">Leggi...</a>
-                </div>
-
-                <div class="article">
-                    <img src = "../images/articles/2.jpg"/>
+                    <img src = "../images/articles/2.jpg" class="framed"/>
                     <div>
-                        Articolo Mock 4
+                        <p class="article-title">Articolo Mock 3</p>
                         <a href="MOCK">Leggi...</a>
                     </div>
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg"/>
+                    <img src = "../images/articles/2.jpg" class="framed"/>
                     <div>
-                        Articolo Mock 5
+                        <p class="article-title">Articolo Mock 4</p>
                         <a href="MOCK">Leggi...</a>
                     </div>
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg"/>
+                    <img src = "../images/articles/2.jpg" class="framed"/>
                     <div>
-                        Articolo Mock 6
+                        <p class="article-title">Articolo Mock 5</p>
+                        <a href="MOCK">Leggi...</a>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <div>
+                        <p class="article-title">Articolo Mock 6</p>
                         <a href="MOCK">Leggi...</a>
                     </div>
                 </div>
             </div>
             <div id = "page-slider">
-                <hr>
+                …
                 <button id="button-current">1</button>
                 <button>2</button>
                 <button>3</button>
                 …
-                <hr>
             </div>
-            <div id="go-up-div">
-                <button id="go-up">⮉</button>
-                <p>VAI SU</p>
-            </div>
+            <div id="go-up-div"></div>
         </main>
 
         <footer id="footer"></footer>
