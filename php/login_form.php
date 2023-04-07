@@ -3,7 +3,7 @@
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
 
-    const LOCATION = "Location: ../index.php";
+    const INDEX = "Location: ../index.php";
 
     // import the connection script
     require_once('admin_conn.php');
@@ -33,7 +33,10 @@
                 // check if the query was executed successfully and if the result is not empty
                 if ($result->num_rows == 0) {
                     echo "<script>console.log('Error: the query to MySQL eLusive was not executed successfully or the result is empty.');</script>";
-                    exit();
+
+                    $mysqli->close();
+                    
+                    header("Location: ../html/login-form.html");
                 } else {
                     echo "<script>console.log('Success: A proper query to MySQL eLusive was made.');</script>";
                     echo "<script>console.log('Number of rows: " . $result->num_rows . "');</script>";
@@ -54,7 +57,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header(LOCATION);
+                            header(INDEX);
                         } elseif ($row["ruolo"] == WRITER_ROLE) {
                             echo "<script>console.log('WRITER SECTION');</script>";
 
@@ -67,7 +70,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header(LOCATION);
+                            header(INDEX);
                         } elseif ($row["ruolo"] == USER_ROLE) {
                             echo "<script>console.log('LOGGED SECTION');</script>";
 
@@ -80,11 +83,11 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header(LOCATION);
+                            header(INDEX);
                         } else {
                             echo "Error: no role found for the user.";
                             // TODO: redirect to the login page
-                            //header("Location: ../html/login_form.html");
+                            //header("Location: ../html/login-form.html");
                         }
                     }
 

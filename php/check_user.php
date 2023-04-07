@@ -23,12 +23,12 @@
             require_once("." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logged_conn.php");
 
         } else {
-            $log_in_out = "<a href=\"./html/login_form.html\">Accedi</a>";
+            $log_in_out = "<a href=\"./html/login-form.html\">Accedi</a>";
             $_SESSION["ruolo"] = GUEST_ROLE;
             require_once("." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "guest_conn.php");
         }
     } else {
-        $log_in_out = "<a href=\"./html/login_form.html\">Accedi</a>";
+        $log_in_out = "<a href=\"./html/login-form.html\">Accedi</a>";
         $_SESSION["ruolo"] = GUEST_ROLE;
         require_once("." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "guest_conn.php");
     }
