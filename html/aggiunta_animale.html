@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/media.css">
+    <link rel="stylesheet" type="text/css" href="../css/aggiunta_animale.css">
+    <title>Form aggiunta animale - eLusive</title>
+</head>
+<body>
+    <div id="identification">
+        Ciao,
+        <span id="username">
+            <img src="../images/icons/icon-user.png" alt="utente" height="20px">
+            Kikkoceccato.
+        </span>
+        <a href="PAGINA DI LOGIN">Non sei tu?</a>
+    </div>
+    <header>
+        <div id="header-titling">
+            <h1>
+                <span lang="en">eLusive</span>
+            </h1>
+            <p>comunichiamo avvistamenti, dal 2022</p>
+        </div>
+        <div id="header-deco"></div>
+    </header>
+    <nav id = "breadcrumb">
+        <ul class="breadcrumb-list">
+            <li><a href="../index.php">Home</a>&gt;</li>
+            <li><span form>Aggiunta animale</span></li>
+        </ul>
+    </nav>
+    <main class="main-wrapper">
+        <form action="../php/aggiunta_animale.php" id="submit-form" method="post">
+            <div class="form-container">
+                <h2><span form-aggiunta>Form di aggiunta animale</span></h2>
+                <div class="form-input-name">
+                    <label class="info">Nome animale</label>
+                    <input type="text" name= "nome" id="nome" required>
+                </div>
+                <div class="form-input-status">
+                    <label class="info">Status animale</label>
+                    <select id="status" name= "status" required>
+                        <option value="scoperto">Scoperto</option>
+                        <option value="ipotizzato">Ipotizzato</option>
+                        <option value="avvistato">Avvistato</option>
+                    </select>
+                </div>
+                <div class="form-input-descrizione">
+                    <label class="info">Descrizione animale</label>
+                    <textarea id="descrizione" name= "descrizione" required></textarea>
+                </div>
+                <div class="form-input-data">
+                    <label class="info">Data scoperta</label>
+                    <input type="date" name= "data_scoperta" id="data_scoperta" required>
+                </div>
+                <div class="form-input-img">
+                    <label class="info">Immagine animale</label>
+                    <input id="immagine" type="file" accept="image/*" required>
+                </div>
+                    <button id="submit" class="btn-submit">Conferma</button>
+            </div>
+        </form>
+       <!-- <script type="module" src="../js/uploadAnimal.js"></script>  -->
+    </main>
+</body>
+</html>
