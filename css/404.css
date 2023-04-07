@@ -1,0 +1,27 @@
+html {
+    background-image: url(../images/bg.jpg) !important;
+}
+
+#breadcrumb img{
+    display: block;
+    margin: auto;
+    height: 2em;
+}
+
+main p, main a{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+main img {
+    display: block;
+    margin: auto;
+    height: 50vh;
+}
+
+#headline span {
+    font-size: 1.5em;
+    font-style: italic;
+    color: var(--color1);
+    margin-right: 1em;
+}

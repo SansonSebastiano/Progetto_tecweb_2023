@@ -1,4 +1,4 @@
-import { ref, animalsRef, uploadBytes} from './initDB.js';
+import { ref, animalsRef, uploadBytes, getDownloadURL} from './initDB.js';
 
 // PRE: web page with input image file and button (maybe change with submit button)
 // function to upload file called by button
@@ -7,8 +7,8 @@ function uploadFile(e) {
     e.preventDefault();
     // get file from input with id=#file
     let file = document.querySelector("#immagine").files[0];
-
-    // set metadata for the file
+    let hidden = document.querySelector("#hidden");
+        // set metadata for the file
     const metadata = {
         contentType: file.type,
       };
@@ -19,12 +19,17 @@ function uploadFile(e) {
     // upload file
     uploadBytes(fileRef, file, metadata).then((snapshot) => {
         console.log(file.name  + ' uploaded');
+        return getDownloadURL(snapshot.ref);
+    }).then((url) => {
+        hidden.value = url;
     });
-    document.getElementById('submit-form').reset();
+    document.getElementById("submit").style.visibility="visible";
+
 
 }
 // POST: file uploaded to firebase storage
 
 // add event listener to button with id=#submit
-document.getElementById('submit-form').addEventListener('submit', uploadFile);
+document.getElementById('load').addEventListener('click', uploadFile);
+
 //document.getElementById('form-aggiunta-animale').addEventListener("submit", uploadFile);

@@ -26,7 +26,6 @@ article{
 article img {
     width: 100%;
     object-fit:cover;
-    margin: 0 auto;
     box-shadow: var(--box-shadow-light);
 }
 
@@ -63,8 +62,17 @@ aside {
     box-shadow: var(--box-shadow-light);
 }
 
+aside * {
+    margin-bottom: 0.5em;
+}
 dt {
     font-weight:bold;
+}
+
+#shoutbox {
+    position: relative;
+    height: 60vh;
+    overflow-y:scroll;
 }
 
 #shoutbox-section {
@@ -115,7 +123,28 @@ dt {
 .reply {
     font-size: 1.1em;
     text-transform: uppercase;
-    cursor: pointer;
+}
+
+.shoutbox-button {
+    position: absolute;
+    background-color: var(--color1);
+    font-size: 2em;
+    color: white;
+    right: 10px;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-light);
+    border: 1px solid white;
+}
+
+
+#go-top {
+    top: 10px;
+}
+
+#go-bottom {
+    bottom: 10px;
 }
 
 ul {
