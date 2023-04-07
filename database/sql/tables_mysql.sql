@@ -26,6 +26,7 @@ CREATE TABLE articolo (
     descrizione VARCHAR(255) NOT NULL,
     contenuto VARCHAR(2000) NOT NULL,
     image_path VARCHAR(1024),
+    alt VARCHAR(255) NOT NULL,
     tag ENUM ('scoperta','new-entry','avvistamento','comunicazione','none') NOT NULL,
     featured BOOLEAN NOT NULL,
     PRIMARY KEY(id),
@@ -38,6 +39,7 @@ CREATE TABLE animale (
     status ENUM ('scoperto','ipotizzato','avvistato') NOT NULL,
     data_scoperta DATE,
     image_path VARCHAR(1024) NOT NULL,
+    alt VARCHAR(255) NOT NULL,
     PRIMARY KEY (nome)
 );
 

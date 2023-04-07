@@ -1,0 +1,108 @@
+*{
+    margin: 0em;
+}
+/** MAIN **/
+main{
+    background-color: #fff;
+    padding-bottom: 2em;
+}
+
+main h2{
+    padding: 1em 1em 0em 1em;
+}
+
+/** TESTO NASCOSTO **/
+.speech-help{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+/*
+dl.coloredlist{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+*/
+/** DESCRIZIONE ANIMALE **/
+
+.inlinelist > li{
+    display: inline;
+    margin: 0em 0.2em;
+}
+
+.content{
+    border: 1px solid #a2a9b1;
+    border-radius: 20px 0px 20px 0px;
+    background-color: #86e2a5;
+    padding: 1em;
+    margin: 2em;
+    font-size: 95%;
+}
+
+.sectionTitle, .mainTitle{
+    margin: 1em;
+    padding: 0.5em;
+}
+
+.sectionTitle{
+    border-bottom: 1px solid #111;
+    font-style: italic;
+}
+
+
+.animalTable{
+    width: 95%;
+    background: #f9f9f9;
+    border: 1px #aaaaaa solid;
+    border-collapse: separate;
+    border-radius: 40px 0px 40px 0px;
+    margin: 0 auto;
+}
+
+.animalTable tbody tr:last-of-type td:last-of-type{
+    border-bottom-right-radius: 40px;
+}
+
+.animalTable th:first-child{
+    width: 30%;
+    word-break: break-all;
+    padding: 1%;
+}
+
+.animalTable th:last-child{
+    width: 25%;
+}
+
+.animalTable thead th{
+    background-color: #aaaaaa ;
+}
+
+.animalTable thead th:first-of-type{
+    border-top-left-radius: 40px;
+}
+
+.animalTable tr:nth-child(even) *{
+    background-color: #c2c2c2;
+}
+/*
+.animalTable tr:nth-child(odd) *{
+    background-color: var(--color1);
+}
+*/
+
+.animalTable td:first-child, .animalTable th:first-child {
+    border-left: none;
+}
+
+.tabContainer{
+    overflow-x:auto;
+}
+
+/** FOOTER **/
+footer{
+    padding: 1%;
+}
+

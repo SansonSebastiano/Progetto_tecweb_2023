@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/animal.css">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/animal-list.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
     <script src="../js/animal.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script> 
         $(function(){
-          $("#header").load("modules/header.html"); 
-          $("#footer").load("modules/footer.html"); 
+          $("#header").load("../html/modules/header.html"); 
+          $("#footer").load("../html/modules/footer.html"); 
         });
     </script> 
     <title>Scimpassero - eLusive</title>
@@ -39,130 +39,21 @@
     </nav>
 
     <main class="main-wrapper">
-        <section>
-        <h2>Risultati di ricerca per <span>NOME_ANIMALE</span></h2>
-        <form id="ordering" method="get" action="animal_list.php">
-            <fieldset>
-            <label for="orderBy">Ordina per...</label>
-                <select name="orderBy" id="orderBy">
-                    <option value="name">Nome</option>
-                    <option value="status">Stato</option>
-                    <option value="mercedes">Data scoperta</option>
-                    <option value="mercedes">Data ulitmo avvistamento</option>
-                    <option value="exist">Credibiltà</option>
-                </select>
-            <label for="order">Ordine</label>
-                <select name="orderType" id="order">
-                    <option value="asc">Crescente</option>
-                    <option value="des">Decrescente</option>
-                </select>
-            </fieldset>
-            <input type="submit" name="orderResults" value="Ordina">
-        </form>
-        <dl class="coloredlist">
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/1.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizione</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 69%</li>
-                    </ul>
-                </dd>
-            </div>
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale 2</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/2.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizione</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 12%</li>
-                    </ul>
-                </dd>
-            </div>
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale 3</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/2.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizioneaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 12%</li>
-                    </ul>
-                </dd>
-            </div>
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale 3</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/2.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizione</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 12%</li>
-                    </ul>
-                </dd>
-            </div>
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale 4</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/2.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizione</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 12%</li>
-                    </ul>
-                </dd>
-            </div>
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale 5</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/2.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizione</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 12%</li>
-                    </ul>
-                </dd>
-            </div>
-            <div class="animal-entry">
-                <dt>
-                    <a href="../html/animal.html">Animale 6</a>
-                </dt>
-                <dd>
-                    <img src="../images/articles/2.jpg" height="150"/>
-                    <ul>
-                        <li>Utlimo avvistamento: <time datetime="1914-12-20">27/12/2022</time></li>
-                        <li>Desrcizione</li>
-                        <li>Stato: avvistato</li>
-                        <li>Credibiltà 12%</li>
-                    </ul>
-                </dd>
-            </div>
-        </dl>
-    </section>
+        <h1 class="mainTitle" id="mainTitle">Animali</h1>
+        <nav>
+            <ul class="inlinelist content">
+                <navigator/>
+            </ul>
+        </nav>
+        <ToFill/>
+        <nav>
+            <ul class="inlinelist content">
+                <navigator/>
+            </ul>
+        </nav>
     </main>
-
-    <footer id="footer"></footer>
-
+    <footer>
+        Copyright 2022 Il Gruppo Fantàsia
+    </footer>
 </body>
 </html>
