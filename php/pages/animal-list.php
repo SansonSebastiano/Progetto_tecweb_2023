@@ -63,5 +63,6 @@
     $page = str_replace("<navigator/>",$navigator,$page);
     $page = str_replace("<ToFill/>",$final,$page);
     $mysqli->close();
+    
     echo $page;
 ?>

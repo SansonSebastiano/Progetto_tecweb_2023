@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/global.css">
-    <link rel="stylesheet" type="text/css" href="../css/special/media.css">
-    <link rel="stylesheet" type="text/css" href="../css/form-add-animal.css">
+    <link rel="stylesheet" type="text/css" href="../../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../../css/special/media.css">
+    <link rel="stylesheet" type="text/css" href="../../css/form-add-animal.css">
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script> 
         $(function(){
-              $("#header").load("../html/modules/header.html"); 
-              $("#footer").load("../html/modules/footer.html"); 
+              $("#header").load("../../html/modules/header.html"); 
+              $("#footer").load("../../html/modules/footer.html"); 
         });
     </script> 
     
@@ -33,15 +33,15 @@
     <header id="header"></header>
 
     <nav id = "breadcrumb">
-        <img src="../images/icons/home.png"/>
+        <img src="../../images/icons/home.png"/>
         <p>Ti trovi nella homepage.</p>
-        <img id="logo" src="../images/logo.svg"/>
+        <img id="logo" src="../../images/logo.svg"/>
     </nav>
     
     <main class="main-wrapper">
         <div class="form-container">
             <h2><span form-aggiunta>Aggiungi un animale...</span></h2>
-            <form action="../php/add_animal.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <form action="../add_animal.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div class="form-info">
                     <div class="form-box">
                     <span class="info">Nome animale</span>
@@ -73,7 +73,7 @@
                 </div>
             </form>
         </div>
-        <script type="module" src="../js/uploadAnimal.js"></script>
+        <script type="module" src="../../js/uploadAnimal.js"></script>
     </main>
 </body>
 </html>
