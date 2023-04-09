@@ -3,8 +3,6 @@
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
 
-    const INDEX = "Location: ../index.php";
-
     // import the connection script
     require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin_conn.php');
     // import input cleaner script
@@ -59,7 +57,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header(INDEX);
+                            header("Location: " . $_SESSION["prev_page"]);
                         } elseif ($row["ruolo"] == WRITER_ROLE) {
                             echo "<script>console.log('WRITER SECTION');</script>";
 
@@ -72,7 +70,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header(INDEX);
+                            header("Location: " . $_SESSION["prev_page"]);
                         } elseif ($row["ruolo"] == USER_ROLE) {
                             echo "<script>console.log('LOGGED SECTION');</script>";
 
@@ -85,7 +83,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header(INDEX);
+                            header("Location: " . $_SESSION["prev_page"]);
                         } else {
                             echo "Error: no role found for the user.";
                             // TODO: redirect to the login page

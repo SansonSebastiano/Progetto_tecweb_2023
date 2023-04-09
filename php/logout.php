@@ -6,5 +6,5 @@
 
     // da chiudere anche la connessione al db? è dunque necessario customizzare il metodo di chiusura della connessione?
 
-    header("Location: ../index.php");
+    header("Location: " . $_SESSION['DOCUMENT_ROOT'] . "/index.php");
 ?>
