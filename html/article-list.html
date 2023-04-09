@@ -2,17 +2,17 @@
 <html lang="it">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/global.css" />
-        <link rel="stylesheet" type="text/css" href="../css/media.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/global.css" />
+        <link rel="stylesheet" type="text/css" href="../../css//special/media.css" />
 
-        <link rel="stylesheet" type="text/css" href="../css/article-list.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/article-list.css" />
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
             $(function(){
-              $("#header").load("modules/header.html"); 
-              $("#footer").load("modules/footer.html");
-              $("#go-up-div").load("html/modules/go-up-div.html"); 
+              $("#header").load("../../html/modules/header.html"); 
+              $("#footer").load("../../html/modules/footer.html");
+              $("#go-up-div").load("../../html//modules/go-up-div.html"); 
             });
         </script> 
 
@@ -23,24 +23,26 @@
 
     <body>
         <div id="identification">
-            Ciao,
+            <!-- Ciao, -->
             <span id="username">
-                <img src="../images/icons/icon-user.png" class = "profile-pic" alt = "utente"/>
-                Kikkoceccato.
+                <!-- <img src="images/icons/icon-user.png" class = "profile-pic" alt = "utente"/> -->
+                <userImg />
+                <user />
             </span>
-            <a href="login-form.html">Non sei tu?</a>
-            <button id = "logout"><img src="../images/icons/logout.png"/></button>
+            <log_in_out />
+            <!-- <a href="html/login-form.html">Non sei tu?</a> -->
+            <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
         </div>
 
         <header id="header"></header>
 
         <nav id = "breadcrumb">
-            <img src="../images/icons/home.png"/>
+            <img src="../../images/icons/home.png"/>
             <p>
-                <a href="../index.html">Homepage </a>|
+                <a href="../../index.html">Homepage </a>|
                 Articoli
             </p>
-            <img id="logo" src="../images/logo.svg"/>
+            <img id="logo" src="../../images/logo.svg"/>
         </nav>
 
         <main>
@@ -53,7 +55,7 @@
                     <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
                     <button id="button-by-title" class="paired">CERCA</button>
                     <p id="caption-by-cat">Ricerca in base al tag</p>
-                    <img src="../images/icons/lens.png" id="deco"/>
+                    <img src="../../images/icons/lens.png" id="deco"/>
                     <select id="input-by-cat" class="paired">
                         <option>scoperta</option>
                         <option>avvistamento</option>
@@ -65,7 +67,7 @@
             <hr/>
             <div id = "article-grid-div">
                 <div class="article">
-                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <img src = "../../images/articles/2.jpg" class="framed"/>
                     <div class="tag corner-tag sighting">AVVISTAMENTO</div>
                     <div>
                         <p class="article-title">Articolo Mock 1</p>
@@ -74,7 +76,7 @@
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <img src = "../../images/articles/2.jpg" class="framed"/>
                     <div>
                         <p class="article-title">Articolo Mock 2</p>
                         <a href="MOCK">Leggi...</a>
@@ -82,7 +84,7 @@
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <img src = "../../images/articles/2.jpg" class="framed"/>
                     <div>
                         <p class="article-title">Articolo Mock 3</p>
                         <a href="MOCK">Leggi...</a>
@@ -90,7 +92,7 @@
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <img src = "../../images/articles/2.jpg" class="framed"/>
                     <div>
                         <p class="article-title">Articolo Mock 4</p>
                         <a href="MOCK">Leggi...</a>
@@ -98,7 +100,7 @@
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <img src = "../../images/articles/2.jpg" class="framed"/>
                     <div>
                         <p class="article-title">Articolo Mock 5</p>
                         <a href="MOCK">Leggi...</a>
@@ -106,7 +108,7 @@
                 </div>
 
                 <div class="article">
-                    <img src = "../images/articles/2.jpg" class="framed"/>
+                    <img src = "../../images/articles/2.jpg" class="framed"/>
                     <div>
                         <p class="article-title">Articolo Mock 6</p>
                         <a href="MOCK">Leggi...</a>
