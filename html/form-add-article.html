@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../../css/special/media.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script> 
+        $(function(){
+              $("#header").load("../../html/modules/header.html"); 
+              $("#footer").load("../../html/modules/footer.html"); 
+        });
+    </script> 
+    
+    <title>Form aggiunta articolo - eLusive</title>
+</head>
+<body>
+    <div id="identification">
+        <!-- Ciao, -->
+        <span id="username">
+            <!-- <img src="images/icons/icon-user.png" class = "profile-pic" alt = "utente"/> -->
+            <userImg />
+            <user />
+        </span>
+        <log_in_out />
+        <!-- <a href="html/login-form.html">Non sei tu?</a> -->
+        <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
+    </div>
+
+    <header id="header"></header>
+
+    <nav id = "breadcrumb">
+        <img src="../../images/icons/home.png"/>
+        <p>
+            <a href="../../index.php">Homepage </a>|
+            Form aggiunta articolo
+        </p>
+        <img id="logo" src="../../images/logo.svg"/>
+    </nav>
+    
+    <main class="main-wrapper">
+        <div class="form-container">
+            <h2><span form-aggiunta>Aggiungi un articolo...</span></h2>
+            <form action="../add_article.php" id="submit-form" method="post" enctype="multipart/form-data">
+                <div class="form-info">
+                    <div class="form-box">
+                    <span class="info">Titolo articolo</span>
+                    <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" required>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Tag articolo</span>
+                    <select id="tag" name= "tag" required>
+                        <option value="scoperto">Scoperta</option>
+                        <option value="ipotizzato">New-entry</option>
+                        <option value="avvistato">Avvistamento</option>
+                        <option value="avvistato">Comunicazione</option>
+                    </select>
+                    </div>
+                    <div class="form-box">
+                        <span class="info">Luogo riferito nell'articolo</span>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" required>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Sottotitolo</span>
+                    <textarea id="sottotitolo" name= "sottotitolo" required></textarea>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Testo articolo</span>
+                    <textarea id="testo" name= "testo" required></textarea>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Data scrittura</span>
+                    <input type="date" name= "data_scoperta" id="data_scoperta" required>
+                    </div>
+                    <div class="form-box">
+                    <span class="info">Immagine articolo</span>
+                    <input id="immagine" type="file" accept="image/*" required>
+                    <input type="hidden" id="hidden" name="hidden">
+                    <button id="load" class="btn-load"></button>
+                    </div>
+                    <button id="submit" class="btn-submit"></button>
+                </div>
+            </form>
+        </div>
+        <script type="module" src="../../js/uploadAnimal.js"></script>
+    </main>
+</body>
+</html>
