@@ -143,6 +143,10 @@ aside ol {
     border-top: none;
 }
 
+aside ul {
+    list-style-type:square;
+}
+
 aside section {
     margin-bottom: 2em;
 }
@@ -150,9 +154,11 @@ aside section {
 aside li {
     font-weight: bold;
 }
+
 aside figure {
     margin: 1em;
 }
+
 aside figure img{
     width: 30%;
     border-radius: 10px;

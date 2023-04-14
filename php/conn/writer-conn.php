@@ -5,13 +5,13 @@
   $db_db = 'my_elusive';
  
   $mysqli = @new mysqli($db_host, $db_user, $db_password, $db_db);
+
+  $user;
 	
   if ($mysqli->connect_error) {
-    echo "<script>console.log('Writer connection failed.');</script>";
+    $user = "<script>console.log('Writer connection failed.');</script>";
     exit();
   }
 
-  echo "<script>console.log('Writer connection estabilished.');</script>";
-
-  //$mysqli->close();
+  $user = "<script>console.log('Writer connection estabilished.');</script>";
 ?>

@@ -42,18 +42,18 @@ dl.coloredlist{
     font-size: 95%;
 }
 
-.sectionTitle, .mainTitle{
+.section-title, .main-title{
     margin: 1em;
     padding: 0.5em;
 }
 
-.sectionTitle{
+.section-title{
     border-bottom: 1px solid #111;
     font-style: italic;
 }
 
 
-.animalTable{
+.animal-table{
     width: 95%;
     background: #f9f9f9;
     border: 1px #aaaaaa solid;
@@ -62,29 +62,29 @@ dl.coloredlist{
     margin: 0 auto;
 }
 
-.animalTable tbody tr:last-of-type td:last-of-type{
+.animal-table tbody tr:last-of-type td:last-of-type{
     border-bottom-right-radius: 40px;
 }
 
-.animalTable th:first-child{
+.animal-table th:first-child{
     width: 30%;
     word-break: break-all;
     padding: 1%;
 }
 
-.animalTable th:last-child{
+.animal-table th:last-child{
     width: 25%;
 }
 
-.animalTable thead th{
+.animal-table thead th{
     background-color: #aaaaaa ;
 }
 
-.animalTable thead th:first-of-type{
+.animal-table thead th:first-of-type{
     border-top-left-radius: 40px;
 }
 
-.animalTable tr:nth-child(even) *{
+.animal-table tr:nth-child(even) *{
     background-color: #c2c2c2;
 }
 /*
@@ -93,11 +93,11 @@ dl.coloredlist{
 }
 */
 
-.animalTable td:first-child, .animalTable th:first-child {
+.animal-table td:first-child, .animal-table th:first-child {
     border-left: none;
 }
 
-.tabContainer{
+.tab-container{
     overflow-x:auto;
 }
 
