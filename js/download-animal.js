@@ -1,4 +1,4 @@
-import { ref, defaultStorage, getDownloadURL} from './initDB.js';
+import { ref, defaultStorage, getDownloadURL} from './init-db.js';
 
 // TODO: get url of animal's image from db sql
 

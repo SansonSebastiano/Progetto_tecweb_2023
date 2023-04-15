@@ -8,34 +8,32 @@
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/special/media.css">
         <link rel="stylesheet" type="text/css" href="../css/login-form.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> 
+            $(function(){
+              $("#header").load("modules/header.html"); 
+              $("#footer").load("modules/footer.html");
+              $("#go-up-div").load("modules/go-up-div.html"); 
+            });
+        </script> 
     </head>
 
     <body>
-        <div id="identification">
-            <span id="username">
+
+        <header id="header"></header>
+
+        <nav id = "breadcrumb">
+            <img src="../../images/icons/home.png"/>
+            <p>                
+                <a href="../index.php">Homepage </a>|
                 Login
-            </span>
-        </div>
-
-        <header>
-            <div id="header-titling">
-                <h1>
-                    <span lang="en">eLusive</span>
-                </h1>
-                <p>Comunichiamo avvistamenti, dal 2022</p>
-            </div>
-            <div id="header-deco"></div>
-        </header>
-
-        <nav id="breadcrumb">
-            <ul class="breadcrumb-list">
-                <li><a href="../index.php">Home</a>&gt;</li>
-                <li><span form>Login</span></li>
-            </ul>
+            </p>
+            <img id="logo" src="../../images/logo.svg"/>
         </nav>
 
         <main class="main-wrapper">
-            <form action="../php/login_form.php" id="submit-form" method="post">
+            <form action="../php/login-form.php" id="submit-form" method="post">
                 <div class="form-container">
                     <h2>
                         <span form-login>Login</span>
@@ -57,7 +55,5 @@
         </main>
     </body>
 
-    <footer>
-        Copyright 2023 - Gruppo Fantàsia.
-    </footer>
+    <footer id="footer"></footer>
 </html>

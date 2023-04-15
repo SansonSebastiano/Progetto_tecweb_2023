@@ -15,25 +15,25 @@
         if ($_SESSION["ruolo"] == ADMIN_ROLE) {
             $log_in_out = "<a href=" . $logoutPath . ">Esci</a>";
             //$log_in_out = "<a href=\"./php/logout.php\">Esci</a>";
-            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "admin_conn.php");
+            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "admin-conn.php");
 
         } elseif ($_SESSION["ruolo"] == WRITER_ROLE) {
             $log_in_out = "<a href=" . $logoutPath . ">Esci</a>";
-            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "writer_conn.php");
+            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "writer-conn.php");
 
         } elseif ($_SESSION["ruolo"] == USER_ROLE) {
             $log_in_out = "<a href=" . $logoutPath . ">Esci</a>";
-            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "logged_conn.php");
+            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "logged-conn.php");
 
         } else {
             $log_in_out = "<a href=" . $loginPath . ">Accedi</a>";
             //$log_in_out = "<a href=\"./html/login-form.html\">Accedi</a>";
             $_SESSION["ruolo"] = GUEST_ROLE;
-            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "guest_conn.php");
+            require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "guest-conn.php");
         }
     } else {
         $log_in_out = "<a href=" . $loginPath . ">Accedi</a>";
         $_SESSION["ruolo"] = GUEST_ROLE;
-        require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "guest_conn.php");
+        require_once($_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "conn" . DIRECTORY_SEPARATOR . "guest-conn.php");
     }
 ?>

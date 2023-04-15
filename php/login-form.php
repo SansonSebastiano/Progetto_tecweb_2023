@@ -4,9 +4,9 @@
     const WRITER_ROLE = "writer";
 
     // import the connection script
-    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin_conn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php');
     // import input cleaner script
-    include($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'input_cleaner.php');
+    include($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'input-cleaner.php');
 
     session_start();
 

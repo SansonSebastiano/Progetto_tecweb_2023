@@ -1,17 +1,17 @@
 <?php
-    // da implementare i meccanismi della sessione?
-    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check_conn.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check-conn.php");
 
     session_start();
     $_SESSION["prev_page"] = "./pages/animal-list.php";
 
-    $table = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "letter-table.html");
-    $animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-entry.html");
+    $table = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "modules" . DIRECTORY_SEPARATOR . "letter-table.html");
+    $animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "modules" . DIRECTORY_SEPARATOR . "animal-entry.html");
     $page = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-list.html");
 
     $page = str_replace("<user />", "Ciao, " . $_SESSION["username"], $page);
-    $page = str_replace("<userImg />", "<img src=\"../../images/icons/icon-user.png\" class = \"profile-pic\" alt = \"utente\"/>", $page);
-    $page = str_replace("<log_in_out />", $log_in_out, $page);
+    $page = str_replace("<user-img />", "<img src=\"../../images/icons/icon-user.png\" class = \"profile-pic\" alt = \"utente\"/>", $page);
+    $page = str_replace("<log-in-out />", $log_in_out, $page);
+    $page = str_replace("<script-conn/>", $user, $page);
 
     $alphas = range('A', 'Z');
 
@@ -29,7 +29,7 @@
     if($query->num_rows > 0){
         $final = str_replace("Animali che iniziano con <letter/>","Animali che iniziano con caratteri non alfabetici",$table);
         $final = str_replace("<letter/>","hash",$final);
-        $final = str_replace("<letterTitle/>","#",$final);
+        $final = str_replace("<letter-title/>","#",$final);
         $navigator .= '<li><a href="#hash">#</a></li>';
         while($row = mysqli_fetch_assoc($query)){
             $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
@@ -47,7 +47,7 @@
         $animals = "";
         if($query->num_rows > 0){
             $newTable = str_replace("<letter/>",$letter,$table);
-            $newTable = str_replace("<letterTitle/>",$letter,$table);
+            $newTable = str_replace("<letter-title/>",$letter,$table);
             $navigator .= '<li><a href="'.$letter.'">'.$letter.'</a></li>';
             while($row = mysqli_fetch_assoc($query)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
@@ -61,7 +61,7 @@
         }
     }
     $page = str_replace("<navigator/>",$navigator,$page);
-    $page = str_replace("<ToFill/>",$final,$page);
+    $page = str_replace("<to-fill/>",$final,$page);
     $mysqli->close();
     
     echo $page;

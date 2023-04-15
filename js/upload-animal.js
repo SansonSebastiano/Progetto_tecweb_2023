@@ -1,4 +1,4 @@
-import { ref, animalsRef, uploadBytes, getDownloadURL} from './initDB.js';
+import { ref, animalsRef, uploadBytes, getDownloadURL} from './init-db.js';
 
 // PRE: web page with input image file and button (maybe change with submit button)
 // function to upload file called by button
