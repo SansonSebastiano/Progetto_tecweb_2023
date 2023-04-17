@@ -43,14 +43,14 @@
     
     <main class="main-wrapper">
         <div class="form-container">
-            <h2><span form-aggiunta>Aggiungi un articolo...</span></h2>
-            <form action="../add_article.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <h2><span form-aggiunta>Scrivi un articolo...</span></h2>
+            <form action="../php/add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div class="form-info">
-                    <div class="form-box">
+                    <div class="form-box-titolo">
                     <span class="info">Titolo articolo</span>
                     <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" required>
                     </div>
-                    <div class="form-box">
+                    <div class="form-box-tag">
                     <span class="info">Tag articolo</span>
                     <select id="tag" name= "tag" required>
                         <option value="scoperto">Scoperta</option>
@@ -59,30 +59,30 @@
                         <option value="avvistato">Comunicazione</option>
                     </select>
                     </div>
-                    <div class="form-box">
+                    <div class="form-box-luogo">
                         <span class="info">Luogo riferito nell'articolo</span>
                         <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" required>
                     </div>
-                    <div class="form-box">
+                    <div class="form-box-sottotitolo">
                     <span class="info">Sottotitolo</span>
-                    <textarea id="sottotitolo" name= "sottotitolo" required></textarea>
+                    <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Sottotitolo" required>
                     </div>
-                    <div class="form-box">
+                    <div class="form-box-testo">
                     <span class="info">Testo articolo</span>
                     <textarea id="testo" name= "testo" required></textarea>
                     </div>
-                    <div class="form-box">
+                    <div class="form-box-data">
                     <span class="info">Data scrittura</span>
                     <input type="date" name= "data_scrittura" id="data_scrittura" required>
                     </div>
-                    <div class="form-box">
+                    <div class="form-box-path">
                     <span class="info">Immagine articolo</span>
                     <input id="immagine" type="file" accept="image/*" required>
                     <input type="hidden" id="hidden" name="hidden">
                     <button id="load" class="btn-load"></button>
                     </div>
-                    <button id="submit" class="btn-submit"></button>
                 </div>
+                <button id="submit" class="btn-submit"></button>
             </form>
         </div>
         <script type="module" src="../../js/upload-article.js"></script>

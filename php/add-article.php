@@ -1,5 +1,6 @@
 <?php
-    include_once "";
+    include_once "conn/writer-conn.php";
+    session_start();
 
     $titolo = $_POST['titolo'];
     $sottotitolo = $_POST['sottotitolo'];
@@ -7,12 +8,12 @@
     $luogo = $_POST['luogo'];
     $data = $_POST['data_scrittura'];
     $testo = $_POST['testo'];
-    $autore = $_POST[''];
+    $autore = $_SESSION['username'];
     $path = $_POST['hidden'];
 
-    //$sql = "INSERT INTO `article` (`titolo`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path')";
+    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, 'testo')";
 
-    $query = mysqli_query($connessione, $sql);
+    $query = mysqli_query($mysqli, $sql);
 
     if($query){
         header("location: ../html/form-add-article.html");

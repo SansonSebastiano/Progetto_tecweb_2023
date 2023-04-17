@@ -7,51 +7,90 @@ main{
     padding: 20px 20px;
 }
 
-.form-container h2{
+h2{
     padding: 1em 1em 0em 1em;
-    margin-left: 15px;
     text-align: center;
     color: white;
     font-weight: 1000;
-    font-size: 1.75em;
-    grid-area: title;
+    font-size: 3em;
 }
 
 .form-container{
     display: flex;
     flex-direction: column;
-    margin-left: 55px;
+    margin-left: 65px;
     border-radius: 10px;
-    background-color: rgb(3, 60, 37,0.8);
-    max-width: 90%;
-    height: 100%;
-    border-radius: 10px;
-    border-width: 1px;
-    color: white;
-    font-size: 1.75em;
-    justify-self: center;
     background-color: rgb(0, 85, 50);
-    grid-area: btn-submit;
+    width: 90%;
+    height: 100%;
+    border-width: 1px;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-info{
-    display: flex;
-    flex-direction: column;
-    padding: 25px 30px;
-    color: white;
-    gap: 20px;
-    max-width: 925px;
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
+    margin-left: -25px;
+    display: grid;
+    column-gap: 5em;
+    row-gap: 1em;
+    grid-template-areas: 'titolo testo'
+                         'sottotitolo testo'
+                         'tag testo'
+                         'luogo testo'
+                         'data path';
 }
 
-.form-container form .form-box{ 
+.form-box-titolo{ 
     background: rgb(34, 0, 88, 0.7);
-    max-width: 700px;
     width: 100%;
     padding: 25px 30px;
     border-radius: 10px;
+    grid-area: titolo; 
+}
+.form-box-tag{ 
+    background: rgb(34, 0, 88, 0.7);
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    grid-area: tag; 
+}
+.form-box-sottotitolo{ 
+    background: rgb(34, 0, 88, 0.7);
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    grid-area: sottotitolo; 
+
+}
+.form-box-luogo{ 
+    background: rgb(34, 0, 88, 0.7);
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    grid-area: luogo; 
+}
+.form-box-testo{ 
+    background: rgb(34, 0, 88, 0.7);
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    grid-area: testo; 
+}
+.form-box-data{ 
+    background: rgb(34, 0, 88, 0.7);
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    grid-area: data; 
+}
+.form-box-path{ 
+    background: rgb(34, 0, 88, 0.7);
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 10px;
+    grid-area: path; 
 }
 
 .info{
@@ -61,23 +100,23 @@ main{
     color: white;   
 }
 
-form .form-box input{
+input{
     width: 95%;
     height: 20px;
     border-radius: 8px;
 }
 
-.form-box select{
+select{
     width: 95%;
     height: 20px;
     border-radius: 8px;
     text-align: center;
 }
 
-.form-box textarea{
+textarea{
     width: 95%;
     max-width: 95%;
-    height: 80px;
+    height: 300px;
     border-radius: 8px;
     resize: vertical;
 }
@@ -85,13 +124,13 @@ form .form-box input{
 .btn-submit{
     width: 100px;
     height: 100px;
+    margin-top: 30px;
+    margin-bottom: 15px;
     border-radius: 60px;
+    margin-left: 350px;
     border-width: 1px;
-    color: white;
     cursor: pointer;
-    justify-self: center;
     background-color: white;
-    grid-area: btn-submit;
     background-image: url('../images/icons/add.png');
     background-size: 98px;
 }
