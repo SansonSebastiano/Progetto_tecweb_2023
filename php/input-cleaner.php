@@ -4,6 +4,8 @@
         $value = strip_tags($value);    //strip_tags() rimuove le tag HTML e PHP da una stringa
         //$value = htmlentities($value);  //htmlentities() converte i caratteri speciali in entità HTML
         
+        echo "<script>console.log('CLEANED VALUE: " . $value . "');</script>";
+
         return $value;
     }
 ?>

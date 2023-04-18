@@ -14,6 +14,4 @@
   }
 
   $user = "<script>console.log('Admin connection estabilished.');</script>";
-
-  //$mysqli->close();
 ?>

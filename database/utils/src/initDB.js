@@ -1,5 +1,5 @@
-// import config.js
-import { firebaseConfig } from './config.js';
+// import firebase-config.js
+import { firebaseConfig } from './firebase-config.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import { getStorage, ref, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js';

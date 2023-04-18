@@ -1,16 +1,18 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check-conn.php");
+    include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
+    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
     session_start();
-    $_SESSION["prev_page"] = "./pages/animal-list.php";
+    $_SESSION["prev_page"] = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "animal-list.php";
 
-    $table = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "modules" . DIRECTORY_SEPARATOR . "letter-table.html");
-    $animal_entry = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "modules" . DIRECTORY_SEPARATOR . "animal-entry.html");
-    $page = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal-list.html");
+    $table = file_get_contents($modules_path . "letter-table.html");
+    $animal_entry = file_get_contents($modules_path . "animal-entry.html");
+    $page = file_get_contents($html_path . "animal-list.html");
 
-    $page = str_replace("<user />", "Ciao, " . $_SESSION["username"], $page);
-    $page = str_replace("<user-img />", "<img src=\"../../images/icons/icon-user.png\" class = \"profile-pic\" alt = \"utente\"/>", $page);
-    $page = str_replace("<log-in-out />", $log_in_out, $page);
+    $page = str_replace("<user/>", "Ciao, " . $_SESSION["username"], $page);
+    $icon_user = "<img src=\"" . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
+    $page = str_replace("<user-img/>", $icon_user, $page);
+    $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
     $alphas = range('A', 'Z');
@@ -39,7 +41,7 @@
         }
         $query->free_result();
     }
-    $final = str_replace("<animals/>",$animals,$final);
+    $final = str_replace("<animals/>", $animals,$final);
 
     foreach($alphas as $letter){
         $sql = "SELECT nome,descrizione,status FROM animale WHERE LOWER(nome) REGEXP '^" . $letter . "' ORDER BY nome ASC;";
@@ -60,8 +62,8 @@
             $query->free_result();
         }
     }
-    $page = str_replace("<navigator/>",$navigator,$page);
-    $page = str_replace("<to-fill/>",$final,$page);
+    $page = str_replace("<navigator/>", $navigator,$page);
+    $page = str_replace("<to-fill/>", $final,$page);
     $mysqli->close();
     
     echo $page;
