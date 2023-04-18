@@ -9,6 +9,7 @@
     $animal_entry = file_get_contents($modules_path . "animal-entry.html");
     $page = file_get_contents($html_path . "animal-list.html");
 
+
     $page = str_replace("<user/>", "Ciao, " . $_SESSION["username"], $page);
     $icon_user = "<img src=\"" . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
     $page = str_replace("<user-img/>", $icon_user, $page);

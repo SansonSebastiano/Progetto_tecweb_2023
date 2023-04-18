@@ -60,7 +60,7 @@
 
         $page = str_replace("<recent-tag/>",strtoupper($articleTag),$page);
 
-        $page = str_replace("<ulitmo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
+        $page = str_replace("<ultimo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
 
         $relArticleTemplate = file_get_contents($modules_path . "related-article-template.html");
 
