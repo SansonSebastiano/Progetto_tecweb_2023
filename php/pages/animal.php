@@ -1,13 +1,15 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "check-conn.php");
+    include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
+    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
     session_start();
-    $_SESSION["prev_page"] = "./pages/animal.php";
+    $_SESSION["prev_page"] =  DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "animal.php";
 
-    $page = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "animal.html");
+    $page = file_get_contents($html_path . "animal.html");
 
     $page = str_replace("<user />", "Ciao, " . $_SESSION["username"], $page);
-    $page = str_replace("<user-img />", "<img src=\"../../images/icons/icon-user.png\" class = \"profile-pic\" alt = \"utente\"/>", $page);
+    $icon_user = "<img src=\"" . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
+    $page = str_replace("<user-img />", $icon_user, $page);
     $page = str_replace("<log-in-out />", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
@@ -15,14 +17,14 @@
         $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
         $queryResult = mysqli_query($connessione, $query);
         if(!$queryResult){
-            include_once(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            include_once($html_path . "404.html");
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
-            include_once(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            include_once($html_path . "404.html");
             exit();
         }
 
@@ -60,7 +62,7 @@
 
         $page = str_replace("<ulitmo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
 
-        $relArticleTemplate = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "modules" . DIRECTORY_SEPARATOR . "related-article-template.html");
+        $relArticleTemplate = file_get_contents($modules_path . "related-article-template.html");
 
         mysqli_data_seek($queryResultTwo,0);
         $relArticles = "";

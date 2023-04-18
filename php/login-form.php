@@ -3,10 +3,11 @@
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
 
+    include ".." . DIRECTORY_SEPARATOR . "config.php";
     // import the connection script
-    require_once($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php');
+    require __DIR__ . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php';
     // import input cleaner script
-    include($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'php' . DIRECTORY_SEPARATOR . 'input-cleaner.php');
+    include __DIR__ . DIRECTORY_SEPARATOR . 'input-cleaner.php' ;
 
     session_start();
 
@@ -34,7 +35,7 @@
 
                     $mysqli->close();
                     
-                    header("Location: ../html/login-form.html");
+                    header("Location: " . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html");
 
                     exit();
                 } else {
