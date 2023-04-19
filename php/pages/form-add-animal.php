@@ -8,13 +8,12 @@
         //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
     }
-    $_SESSION["prev_page"] =  DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-animal.php";
+    $_SESSION["prev_page"] =  $faa_ref;
 
-    $page = file_get_contents(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-add-animal.html");
+    $page = file_get_contents($html_path . "form-add-animal.html");
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
-    $icon_user = "<img src=\"" . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
-    $page = str_replace("<user-img/>", $icon_user, $page);
+    $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", $_SESSION["username"], $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);

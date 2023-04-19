@@ -5,15 +5,17 @@
 
     include ".." . DIRECTORY_SEPARATOR . "config.php";
     // import the connection script
-    require __DIR__ . DIRECTORY_SEPARATOR . 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php';
+    require 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php';
     // import input cleaner script
-    include __DIR__ . DIRECTORY_SEPARATOR . 'input-cleaner.php' ;
+    include 'input-cleaner.php' ;
 
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['submit'])) {
             if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
+                // set Location header
+                $location = "Location: " . $_SESSION["prev_page"];
                 // get the data from the form:
                 // username
                 $username = clearInput($_POST['username']);
@@ -35,7 +37,7 @@
 
                     $mysqli->close();
                     
-                    header("Location: " . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html");
+                    header("Location: " . $login_form_ref);
 
                     exit();
                 } else {
@@ -58,7 +60,7 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header("Location: " . $_SESSION["prev_page"]);
+                            header($location);
                         } elseif ($row["ruolo"] == WRITER_ROLE) {
                             echo "<script>console.log('WRITER SECTION');</script>";
 
@@ -71,8 +73,8 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header("Location: " . $_SESSION["prev_page"]);
-                        } elseif ($row["ruolo"] == USER_ROLE) {
+                            header($location);
+                        } else {    // USER_ROLE
                             echo "<script>console.log('LOGGED SECTION');</script>";
 
                             $_SESSION["ruolo"] = USER_ROLE;
@@ -84,12 +86,8 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-                            header("Location: " . $_SESSION["prev_page"]);
-                        } else {
-                            echo "Error: no role found for the user.";
-                            // TODO: redirect to the login page
-                            //header("Location: ../html/login-form.html");
-                        }
+                            header($location);
+                        } 
                     }
 
                     // free the result set
