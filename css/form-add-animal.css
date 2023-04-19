@@ -9,12 +9,10 @@ main{
 
 .form-container h2{
     padding: 1em 1em 0em 1em;
-    margin-left: 15px;
     text-align: center;
     color: white;
     font-weight: 1000;
-    font-size: 1.75em;
-    grid-area: title;
+    font-size: 3em;
 }
 
 .form-container{
@@ -22,16 +20,10 @@ main{
     flex-direction: column;
     margin-left: 55px;
     border-radius: 10px;
-    background-color: rgb(3, 60, 37,0.8);
+    background-color: rgb(0, 85, 50);
     max-width: 90%;
     height: 100%;
-    border-radius: 10px;
     border-width: 1px;
-    color: white;
-    font-size: 1.75em;
-    justify-self: center;
-    background-color: rgb(0, 85, 50);
-    grid-area: btn-submit;
 }
 
 .form-info{
@@ -95,10 +87,6 @@ form .form-box input{
     background-image: url('../images/icons/add.png');
     background-size: 98px;
     visibility: hidden;
-}
-
-.btn-submit:hover{
-    background-color: rgb(176, 176, 182);
 }
 
 .btn-load{
