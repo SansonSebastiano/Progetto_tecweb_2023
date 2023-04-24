@@ -29,7 +29,8 @@ h2{
                          'sottotitolo testo'
                          'tag testo'
                          'luogo testo'
-                         'data path'
+                         'data testo'
+                         'path testo'
                          'submit submit';
 }
 
@@ -87,7 +88,7 @@ select{
 
 textarea{
     width: 90%;
-    height: 25em;
+    height: 40em;
     border-radius: 8px;
     resize: vertical;
     flex-grow: 1;
