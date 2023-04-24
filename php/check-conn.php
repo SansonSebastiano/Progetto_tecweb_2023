@@ -8,7 +8,7 @@
 
     $log_in_out = " ";
     $logoutPath = "php/logout.php";
-    $loginPath = "html/login-form.html";
+    $loginPath = "html/form-login.html";
 
     session_start();
 

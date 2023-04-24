@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/form-add-animal.css">
     <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
 
-    <title>Form aggiunta animale - eLusive</title>
+    <title>Aggiungi un animale - eLusive</title>
     <script-conn/>
 </head>
 <body>
@@ -29,7 +29,6 @@
             <user/>
         </span>
         <log-in-out/>
-        <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
     </div>
 
     <header id="header"></header>
@@ -43,38 +42,37 @@
         <img id="logo" src="../../images/logo.svg"/>
     </nav>
     
-    <main class="main-wrapper">
-        <div class="form-container">
-            <h2><span form-aggiunta>Aggiungi un animale...</span></h2>
+    <main id="main-wrapper">
+        <h2><span>Aggiungi un animale...</span></h2>
+        <div id="form-container">
             <form action="../add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
-                <div class="form-info">
-                    <div class="form-box">
-                    <span class="info">Nome animale</span>
-                    <input type="text" name= "nome" id="nome" placeholder="Nome animale" required>
+                <div id="form-info">
+                    <div id = "div-name" class="form-input-wrapper">
+                        <span class="info">Nome dell'animale</span>
+                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" required>
                     </div>
-                    <div class="form-box">
-                    <span class="info">Status animale</span>
-                    <select id="status" name= "status" required>
-                        <option value="scoperto">Scoperto</option>
-                        <option value="ipotizzato">Ipotizzato</option>
-                        <option value="avvistato">Avvistato</option>
-                    </select>
+                    <div id="div-status" class="form-input-wrapper">
+                        <span class="info">Status animale</span>
+                        <select id="status" name= "status" required>
+                            <option value="scoperto">Scoperto</option>
+                            <option value="ipotizzato">Ipotizzato</option>
+                            <option value="avvistato">Avvistato</option>
+                        </select>
                     </div>
-                    <div class="form-box">
-                    <span class="info">Descrizione animale</span>
-                    <textarea id="descrizione" name= "descrizione" required></textarea>
+                    <div id="div-date" class="form-input-wrapper">
+                        <span class="info">Data scoperta</span>
+                        <input type="date" name= "data_scoperta" id="data_scoperta" required>
                     </div>
-                    <div class="form-box">
-                    <span class="info">Data scoperta</span>
-                    <input type="date" name= "data_scoperta" id="data_scoperta" required>
+                    <div id="div-desc" class="form-input-wrapper">
+                        <span class="info">Descrizione animale</span>
+                        <textarea name="description" required></textarea>
                     </div>
-                    <div class="form-box">
-                    <span class="info">Foto animale</span>
-                    <input id="immagine" type="file" accept="image/*" required>
-                    <input type="hidden" id="hidden" name="hidden">
-                    <button id="load" class="btn-load"></button>
+                    <div id = "div-pic" class="form-input-wrapper">
+                        <span class="info">Foto animale</span>
+                        <input id="image" type="file" accept="image/*" required>
+                        <button id="btn-load"></button>
                     </div>
-                    <button id="submit" class="btn-submit"></button>
+                    <button id="btn-submit"></button>
                 </div>
             </form>
         </div>

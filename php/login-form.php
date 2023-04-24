@@ -35,7 +35,7 @@
 
                     $mysqli->close();
                     
-                    header("Location: " . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html");
+                    header("Location: " . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html");
 
                     exit();
                 } else {
@@ -88,7 +88,7 @@
                         } else {
                             echo "Error: no role found for the user.";
                             // TODO: redirect to the login page
-                            //header("Location: ../html/login-form.html");
+                            //header("Location: ../html/form-login.html");
                         }
                     }
 
