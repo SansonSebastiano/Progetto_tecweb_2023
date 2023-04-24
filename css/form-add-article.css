@@ -8,31 +8,23 @@ main{
 }
 
 h2{
-    padding: 1em 1em 0em 1em;
     text-align: center;
     color: white;
-    font-weight: 1000;
-    font-size: 3em;
+    font-weight: bold;
 }
 
 .form-container{
-    display: flex;
-    flex-direction: column;
+    padding: 10px 10px;
     border-radius: 10px;
-    background-color: rgb(0, 85, 50);
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+    background-color:  rgba(0, 85, 50, 0.8);
+    box-shadow: var(--box-shadow-light);
 }
 
 .form-info{
-    width: 100%;
-    margin-top: 20px;
-    margin-left: -25px;
+    margin-top: 1.5em;
     display: grid;
-    column-gap: 5em;
-    row-gap: 1em;
+    grid-auto-columns: 1fr;
+    gap: 1em;
     grid-template-areas: 'titolo testo'
                          'sottotitolo testo'
                          'tag testo'
@@ -41,56 +33,36 @@ h2{
                          'submit submit';
 }
 
-.form-box-titolo{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-titolo{ 
     grid-area: titolo; 
 }
-.form-box-tag{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-tag{ 
     grid-area: tag; 
 }
-.form-box-sottotitolo{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-sottotitolo{ 
     grid-area: sottotitolo; 
 
 }
-.form-box-luogo{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-luogo{ 
     grid-area: luogo; 
 }
-.form-box-testo{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-testo{ 
     grid-area: testo; 
 }
-.form-box-data{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-data{ 
     grid-area: data; 
 }
-.form-box-path{ 
-    background: rgb(34, 0, 88, 0.7);
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 10px;
+#form-box-path{ 
     grid-area: path; 
 }
+
+.form-input-wrapper{
+    background: var(--color1);
+    color: white;
+    border-radius: 10px;
+    padding: 1em;
+}
+
 
 .info{
     display: block;
@@ -100,55 +72,52 @@ h2{
 }
 
 input{
-    width: 95%;
-    height: 20px;
-    border-radius: 8px;
-}
-
-select{
-    width: 95%;
-    height: 20px;
+    width: 90%;
+    font-size: 1.2em;
     border-radius: 8px;
     text-align: center;
 }
 
+select{
+    width: 90%;
+    font-size: 1.2em;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
 textarea{
-    width: 95%;
-    max-width: 95%;
-    height: 300px;
+    width: 90%;
+    height: 25em;
     border-radius: 8px;
     resize: vertical;
+    flex-grow: 1;
 }
 
-.btn-submit{
-    width: 100px;
-    height: 100px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    border-radius: 60px;
-    border-width: 1px;
-    cursor: pointer;
-    background-color: white;
-    background-image: url('../images/icons/add.png');
-    background-size: 98px;
-    justify-self: center;
-    grid-area: submit; 
-}
-
-
-.btn-load{
-    max-width: 200px;
+#btn-load{
     width: 77px;
     height: 50px;
-    margin-top: 10px;
+    margin-top: 1em;
     border-radius: 10px;
     background-color:white;
-    color: #fff;
-    border-width: 1px;
     background-image: url('../images/icons/upload.png');
     background-size: 75px;
 }
 
-.btn-load:hover{
+#btn-load:hover{
+    background-color: rgb(176, 176, 182);
+}
+
+#btn-submit{
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    background-image: url('../images/icons/add.png');
+    background-size: contain;
+    grid-area: submit;
+    justify-self: center;
+
+}
+
+#btn-submit:hover{
     background-color: rgb(176, 176, 182);
 }

@@ -30,6 +30,6 @@ function uploadFile(e) {
 // POST: file uploaded to firebase storage
 
 // add event listener to button with id=#submit
-document.getElementById('load').addEventListener('click', uploadFile);
+document.getElementById('btn-load').addEventListener('click', uploadFile);
 
 //document.getElementById('form-aggiunta-animale').addEventListener("submit", uploadFile);
