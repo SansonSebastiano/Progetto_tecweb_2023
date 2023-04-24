@@ -51,6 +51,9 @@ h2{
     grid-area: div-pic;
 }
 
+input {
+    text-align: center;
+}
 .form-input-wrapper{ 
     background: var(--color1);
     color: white;
