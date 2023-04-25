@@ -1,0 +1,46 @@
+main {
+    padding: var(--margin-default);
+    background-color: var(--color3);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+}
+
+/* ============ OPTIONS ============ */
+
+#container-options {
+    margin: auto;
+    width: 70%;
+}
+
+#container-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1px;
+    margin-bottom: 1em;
+}
+
+#container-buttons button {
+    border-style:outset;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-right: 2px;
+}
+
+#div-with-checkbox {
+    margin: auto;
+    width: fit-content;
+}
+
+#btn1 {
+    border-radius: 20px 0 0 20px;
+}
+
+#btn2 {
+    border-radius: 0 20px 20px 0;
+}
+
+/* create a css rule to center the buttons container */
