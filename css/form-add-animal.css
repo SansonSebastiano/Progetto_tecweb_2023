@@ -9,29 +9,21 @@ main{
 
 .form-container h2{
     padding: 1em 1em 0em 1em;
-    margin-left: 65px;
     text-align: center;
     color: white;
     font-weight: 1000;
-    font-size: 2em;
-    grid-area: title;
+    font-size: 3em;
 }
 
 .form-container{
     display: flex;
     flex-direction: column;
-    margin-left: 65px;
+    margin-left: 55px;
     border-radius: 10px;
-    background-color: rgb(3, 60, 37,0.8);
+    background-color: rgb(0, 85, 50);
     max-width: 90%;
     height: 100%;
-    border-radius: 10px;
     border-width: 1px;
-    color: white;
-    font-size: 1.75em;
-    justify-self: center;
-    background-color: rgb(0, 85, 50);
-    grid-area: btn-submit;
 }
 
 .form-info{
@@ -40,7 +32,7 @@ main{
     padding: 25px 30px;
     color: white;
     gap: 20px;
-    max-width: 1000px;
+    max-width: 925px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -48,7 +40,7 @@ main{
 
 .form-container form .form-box{ 
     background: rgb(34, 0, 88, 0.7);
-    max-width: 1000px;
+    max-width: 700px;
     width: 100%;
     padding: 25px 30px;
     border-radius: 10px;
@@ -95,10 +87,6 @@ form .form-box input{
     background-image: url('../images/icons/add.png');
     background-size: 98px;
     visibility: hidden;
-}
-
-.btn-submit:hover{
-    background-color: rgb(176, 176, 182);
 }
 
 .btn-load{

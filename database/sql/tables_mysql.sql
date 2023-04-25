@@ -1,4 +1,4 @@
---se esistono già cancella le tabelle
+
 DROP TABLE IF EXISTS voto;
 DROP TABLE IF EXISTS risposta;
 DROP TABLE IF EXISTS commento;
@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS articolo_animale;
 DROP TABLE IF EXISTS animale;
 DROP TABLE IF EXISTS articolo;
 DROP TABLE IF EXISTS utente;
---creazione tabelle
+
 
 CREATE TABLE utente (
     id int NOT NULL AUTO_INCREMENT, 
