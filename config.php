@@ -28,7 +28,9 @@
     $index_ref = DIRECTORY_SEPARATOR . "index.php";
     $php_pages_ref = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR;
     // form-add-animal.php
-    $faa_ref = $php_pages_ref . "form-add-animal.php";
+    $faan_ref = $php_pages_ref . "form-add-animal.php";
+    // form-add-article.php
+    $faar_ref = $php_pages_ref . "form-add-article.php";
     // article.php
     $article_ref = $php_pages_ref . "article.php";
     // article-list.php

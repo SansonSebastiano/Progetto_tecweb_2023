@@ -16,14 +16,17 @@
     </script> 
     
     <title>Form aggiunta articolo - eLusive</title>
+
+    <script-conn/>
 </head>
 <body>
     <div id="identification">
         <span id="username">
-            <userImg />
-            <user />
+            <greet/>
+            <user-img/>
+            <user/>
         </span>
-        <log_in_out />
+        <log-in-out/>
     </div>
 
     <header id="header"></header>
@@ -40,7 +43,7 @@
     <main class="main-wrapper">
         <div class="form-container">
             <h2><span form-aggiunta>Scrivi un articolo...</span></h2>
-            <form action="../php/add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div class="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
                     <span class="info">Titolo articolo</span>
@@ -84,4 +87,6 @@
         <script type="module" src="../../js/upload-article.js"></script>
     </main>
 </body>
+
+<footer id="footer"></footer>
 </html>

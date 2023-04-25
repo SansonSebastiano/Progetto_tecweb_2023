@@ -16,7 +16,7 @@
     $query = mysqli_query($mysqli, $sql);
 
     if($query){
-        header("location: ../html/form-add-article.html");
+        header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-article.php ");
         exit();
     }
 ?>

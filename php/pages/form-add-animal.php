@@ -8,7 +8,7 @@
         //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
     }
-    $_SESSION["prev_page"] =  $faa_ref;
+    $_SESSION["prev_page"] =  $faan_ref;
 
     $page = file_get_contents($html_path . "form-add-animal.html");
 
