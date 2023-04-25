@@ -15,16 +15,16 @@
 
     if($_GET["animale"]){
         $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
-        $queryResult = mysqli_query($connessione, $query);
+        $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
-            include_once($html_path . "404.html");
+            include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
-            include_once($html_path . "404.html");
+            include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
             exit();
         }
 
@@ -44,8 +44,10 @@
 
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
 
+        $page = str_replace("<animal-image/>",$image,$page);
+
         $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
-        $queryResultTwo = mysqli_query($connessione, $queryTwo);
+        $queryResultTwo = mysqli_query($mysqli, $queryTwo);
 
         $articleResult = mysqli_fetch_assoc($queryResultTwo);
 
