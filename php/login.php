@@ -85,17 +85,8 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
-<<<<<<< HEAD:php/login.php
-                            header("Location: " . $_SESSION["prev_page"]);
-                        } else {
-                            echo "Error: no role found for the user.";
-                            // TODO: redirect to the login page
-                            //header("Location: ../html/form-login.html");
-                        }
-=======
                             header($location);
                         } 
->>>>>>> dev:php/login-form.php
                     }
 
                     // free the result set
