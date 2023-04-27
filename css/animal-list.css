@@ -77,7 +77,8 @@ dl.coloredlist{
 }
 
 .animal-table thead th{
-    background-color: #aaaaaa ;
+    color: var(--color3);
+    background-color: var(--color1);
 }
 
 .animal-table thead th:first-of-type{
