@@ -7,6 +7,7 @@
     const GUEST_ROLE = "guest";
 
     $log_in_out = " ";
+
     $logoutPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logout.php";
     $loginPath = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html";
 

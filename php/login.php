@@ -36,7 +36,6 @@
                     echo "<script>console.log('Error: the query to MySQL eLusive was not executed successfully or the result is empty.');</script>";
 
                     $mysqli->close();
-                    
                     header("Location: " . $login_form_ref);
 
                     exit();
@@ -86,8 +85,17 @@
                             echo "<script>console.log('EMAIL: " . $row["email"] . "');</script>";
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
+<<<<<<< HEAD:php/login.php
+                            header("Location: " . $_SESSION["prev_page"]);
+                        } else {
+                            echo "Error: no role found for the user.";
+                            // TODO: redirect to the login page
+                            //header("Location: ../html/form-login.html");
+                        }
+=======
                             header($location);
                         } 
+>>>>>>> dev:php/login-form.php
                     }
 
                     // free the result set

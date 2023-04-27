@@ -1,10 +1,6 @@
-*{
-    margin: 0em;
-}
-/** MAIN **/
 main{
     background-color: #fff;
-    padding-bottom: 2em;
+    padding: var(--margin-default);
 }
 
 main h2{
@@ -19,13 +15,7 @@ main h2{
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
 }
-/*
-dl.coloredlist{
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr 1fr;
-}
-*/
+
 /** DESCRIZIONE ANIMALE **/
 
 .inlinelist > li{
@@ -36,7 +26,7 @@ dl.coloredlist{
 .content{
     border: 1px solid #a2a9b1;
     border-radius: 20px 0px 20px 0px;
-    background-color: #86e2a5;
+    background-color: var(--color2);
     padding: 1em;
     margin: 2em;
     font-size: 95%;
@@ -87,11 +77,6 @@ dl.coloredlist{
 .animal-table tr:nth-child(even) *{
     background-color: #c2c2c2;
 }
-/*
-.animalTable tr:nth-child(odd) *{
-    background-color: var(--color1);
-}
-*/
 
 .animal-table td:first-child, .animal-table th:first-child {
     border-left: none;
@@ -101,8 +86,4 @@ dl.coloredlist{
     overflow-x:auto;
 }
 
-/** FOOTER **/
-footer{
-    padding: 1%;
-}
 

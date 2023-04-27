@@ -8,6 +8,10 @@ html {
     height: 2em;
 }
 
+main {
+    background-color: white;
+    padding: var(--margin-default);
+}
 main p, main a{
     text-align: center;
     font-size: 1.2em;
