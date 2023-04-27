@@ -11,11 +11,16 @@
     $autore = $_SESSION['id'];
     $path = $_POST['hidden'];
 
-    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, 'testo')";
+    $query = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, 'testo')";
+    $queryResult = mysqli_query($mysqli, $sql);
 
-    $query = mysqli_query($mysqli, $sql);
+    //TODO: inserire articolo_animale
+    //$queryTwo = "INSERT INTO `articolo_animale` (`articolo`,`autore`) VALUES ('$articolo', '$autore')";
 
-    if($query){
+    if ($queryResult) {
+        // free the result set
+        $queryResult->free();
+
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-article.php ");
         exit();
     }

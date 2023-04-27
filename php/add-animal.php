@@ -12,7 +12,10 @@
 
     $query = mysqli_query($mysqli, $sql);
 
-    if($query){
+    if ($query) {
+        // free the result set
+        $query->free();
+
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-animal.php ");
         exit();
     }

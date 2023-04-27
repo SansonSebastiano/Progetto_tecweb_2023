@@ -16,6 +16,7 @@
     if($_GET["animale"]){
         $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
         $queryResult = mysqli_query($connessione, $query);
+
         if(!$queryResult){
             include_once($html_path . "404.html");
             exit();
@@ -81,6 +82,8 @@
             $relArticles .= $article;
         }
         $page = str_replace("<related-articles/>",$relArticles,$page);
+        
+        $queryResultTwo->free();
     }
     echo $page;
 ?>
