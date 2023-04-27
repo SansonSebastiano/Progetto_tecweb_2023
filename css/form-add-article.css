@@ -1,75 +1,72 @@
+*{
+    margin: 0em;
+}
 /** MAIN **/
 main{
-    background-color: rgba(255, 255,255, 0.8);
-    padding: 1em 20%;
+    background-color: white;
+    padding: 20px 20px;
 }
 
 h2{
     text-align: center;
-    color: black;
+    color: white;
     font-weight: bold;
-
 }
 
-#form-container{
+.form-container{
     padding: 10px 10px;
     border-radius: 10px;
     background-color:  rgba(0, 85, 50, 0.8);
     box-shadow: var(--box-shadow-light);
 }
 
-#form-info{
+.form-info{
+    margin-top: 1.5em;
     display: grid;
-    grid-template-areas:
-    "div-name div-desc div-desc"
-    "div-status div-desc div-desc"
-    "div-date div-desc div-desc"
-    "div-pic div-pic div-pic"
-    ". submit .";
     grid-auto-columns: 1fr;
     gap: 1em;
-    justify-content: center;
+    grid-template-areas: 'titolo testo'
+                         'sottotitolo testo'
+                         'tag testo'
+                         'luogo testo'
+                         'data testo'
+                         'path testo'
+                         'submit submit';
 }
 
-#div-name {
-    grid-area: div-name;
+#form-box-titolo{ 
+    grid-area: titolo; 
+}
+#form-box-tag{ 
+    grid-area: tag; 
+}
+#form-box-sottotitolo{ 
+    grid-area: sottotitolo; 
+
+}
+#form-box-luogo{ 
+    grid-area: luogo; 
+}
+#form-box-testo{ 
+    grid-area: testo; 
+}
+#form-box-data{ 
+    grid-area: data; 
+}
+#form-box-path{ 
+    grid-area: path; 
 }
 
-#div-status {
-    grid-area: div-status;
-}
-
-#div-desc {
-    grid-area: div-desc;
-    display: flex;
-    flex-direction: column;
-}
-
-#div-date {
-    grid-area: div-date;
-}
-
-#div-pic {
-    grid-area: div-pic;
-}
-
-input {
-    text-align: center;
-}
-
-.form-input-wrapper{ 
-    background-color: var(--color1);
+.form-input-wrapper{
+    background: var(--color1);
     color: white;
     border-radius: 10px;
     padding: 1em;
 }
 
-.form-input-wrapper > :not(span){ 
-    display: block;
-    margin: auto;
-}
 
 .info{
+    display: block;
     margin-bottom: 5px;
     font-size: large;
     color: white;   
@@ -79,6 +76,7 @@ input{
     width: 90%;
     font-size: 1.2em;
     border-radius: 8px;
+    text-align: center;
 }
 
 select{
@@ -90,14 +88,16 @@ select{
 
 textarea{
     width: 90%;
+    height: 40em;
     border-radius: 8px;
-    resize:none;
+    resize: vertical;
     flex-grow: 1;
 }
 
 #btn-load{
     width: 77px;
     height: 50px;
+    margin-top: 1em;
     border-radius: 10px;
     background-color:white;
     background-image: url('../images/icons/upload.png');

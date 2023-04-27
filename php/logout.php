@@ -4,5 +4,5 @@
     
     //echo "<script>console.log('SESSION DESTROYED');</script>";
 
-    header("Location: " . ".." . DIRECTORY_SEPARATOR . "index.php");
+    header("Location: " . DIRECTORY_SEPARATOR . "index.php")
 ?>
