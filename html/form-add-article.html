@@ -15,7 +15,7 @@
         });
     </script> 
     
-    <title>Form aggiunta articolo - eLusive</title>
+    <title>Aggiunta di un articolo - eLusive</title>
 
     <script-conn/>
 </head>
@@ -41,44 +41,44 @@
     </nav>
     
     <main class="main-wrapper">
-        <div class="form-container">
-            <h2><span form-aggiunta>Scrivi un articolo...</span></h2>
+        <h2>Scrivi un articolo...</h2>
+        <div id="form-container">
             <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
-                <div class="form-info">
-                    <div id="form-box-titolo" class="form-input-wrapper">
-                    <span class="info">Titolo articolo</span>
-                    <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" required>
+                <div id="form-controls">
+                    <div id="div-titolo" class="form-input-wrapper">
+                        <p class="field-name">Titolo articolo</p>
+                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" required>
                     </div>
-                    <div id="form-box-tag" class="form-input-wrapper">
-                    <span class="info">Tag articolo</span>
-                    <select id="tag" name= "tag" required>
-                        <option value="scoperta">Scoperta</option>
-                        <option value="new">New-entry</option>
-                        <option value="avvistato">Avvistamento</option>
-                        <option value="comunicazione">Comunicazione</option>
-                    </select>
+                    <div id="div-tag" class="form-input-wrapper">
+                        <p class="field-name">Tag articolo</p>
+                        <select id="tag" name= "tag" required>
+                            <option value="scoperta">Scoperta</option>
+                            <option value="new">New-entry</option>
+                            <option value="avvistato">Avvistamento</option>
+                            <option value="comunicazione">Comunicazione</option>
+                        </select>
                     </div>
-                    <div id="form-box-luogo" class="form-input-wrapper">
-                        <span class="info">Luogo riferito nell'articolo</span>
+                    <div id="div-luogo" class="form-input-wrapper">
+                        <p class="field-name">Luogo riferito nell'articolo</p>
                         <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" required>
                     </div>
-                    <div id="form-box-sottotitolo" class="form-input-wrapper">
-                    <span class="info">Sottotitolo</span>
-                    <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Sottotitolo" required>
+                    <div id="div-sottotitolo" class="form-input-wrapper">
+                        <p class="field-name">Sottotitolo</p>
+                        <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Sottotitolo" required>
                     </div>
-                    <div id="form-box-testo" class="form-input-wrapper">
-                    <span class="info">Testo articolo</span>
-                    <textarea id="testo" name= "testo" required></textarea>
+                    <div id="div-testo" class="form-input-wrapper">
+                        <p class="field-name">Testo articolo</p>
+                        <textarea id="testo" name= "testo" required></textarea>
                     </div>
-                    <div id="form-box-data" class="form-input-wrapper">
-                    <span class="info">Data scrittura</span>
-                    <input type="date" name= "data_scrittura" id="data_scrittura" required>
+                    <div id="div-data" class="form-input-wrapper">
+                        <p class="field-name">Data scrittura</p>
+                        <input type="date" name= "data_scrittura" id="data_scrittura" required>
                     </div>
-                    <div id="form-box-path" class="form-input-wrapper">
-                    <span class="info">Immagine articolo</span>
-                    <input id="immagine" type="file" accept="image/*" required>
-                    <input type="hidden" id="hidden" name="hidden">
-                    <button id="btn-load"></button>
+                    <div id="div-path" class="form-input-wrapper">
+                        <p class="field-name">Immagine articolo</p>
+                        <input id="input-image" type="file" accept="image/*" required>
+                        <input type="hidden" id="hidden" name="hidden">
+                        <button id="btn-load"></button>
                     </div>
                     <button id="btn-submit"></button>
                 </div>

@@ -58,7 +58,7 @@ aside {
     float: right;
     background-color: var(--color1);
     color: var(--color3);
-    border-radius: 30px;
+    border-radius: 2em;
     box-shadow: var(--box-shadow-light);
 }
 
@@ -91,14 +91,14 @@ dt {
 .comment-details {
     width: fit-content;
     background-color: var(--color2);
-    padding: 0 10px 0 10px;
-    border-radius: 20px 0 0 0;
+    padding: 0 0.8em 0 0.8em;
+    border-radius: 2em 0 0 0;
 }
 
 .comment-content {
-    border: 1px solid var(--color4);
+    border: 0.1em solid var(--color4);
     border-bottom: none;
-    border-radius: 0 10px 0 0;
+    border-radius: 0 0.8em 0 0;
     margin-top: 0;
     padding: 1em;
 }
@@ -125,21 +125,21 @@ dt {
     background-color: var(--color1);
     font-size: 2em;
     color: white;
-    right: 10px;
+    right: 0.8em;
     width: 1.5em;
     height: 1.5em;
     border-radius: 50%;
     box-shadow: var(--box-shadow-light);
-    border: 1px solid white;
+    border: 0.1em solid white;
 }
 
 
 #go-top {
-    top: 10px;
+    top: 0.8em;
 }
 
 #go-bottom {
-    bottom: 10px;
+    bottom: 0.8em;
 }
 
 ul {

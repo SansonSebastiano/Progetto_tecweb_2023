@@ -8,10 +8,10 @@
     --visited-links: rgb(158, 142, 0);
     --width-perc-main: 75%;
     --margin-default: 3em;
-    --margin-tag: 5px;
+    --margin-tag: 0.5em;
     --box-shadow-huge: -1px 0px 100px 5px black, 1px 0px 100px 5px black;
     --box-shadow-light: 0px 1px 1px 1px black;
-    --image-radius-corner: 25px;
+    --image-radius-corner: 1.5em;
 }
 
 
@@ -58,8 +58,8 @@ main {
 /* ID */
 
 #identification {
-    border-radius: 0px 0px 20px 20px;
-    border: 1px solid white;
+    border-radius: 0px 0px 1.2em 1.2em;
+    border: 0.1em solid white;
     border-top: none;
     padding: 0.5em;
     padding-left: 1em;
@@ -76,11 +76,11 @@ main {
 }
 
 #username .profile-pic {
-    height: 30px;
+    height: 2em;
 }
 
 #logout {
-    height: 20px;
+    height: 1.2em;
     border: none;
     background:none;
     vertical-align: middle;
@@ -88,7 +88,7 @@ main {
 }
 
 #logout img {
-    height: 20px;
+    height: 1.2em;
     box-shadow: none;
 }
 
@@ -96,8 +96,8 @@ main {
 
 header {
     background-color: var(--color1);
-    border: 2px solid white;
-    border-radius: 50px 0px 50px 0px;
+    border: 0.2em solid white;
+    border-radius: 3em 0px 3em 0px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:0px;
@@ -117,6 +117,8 @@ header div {
     height:var(--header-height);
     grid-column: 1;
     grid-row: 1;
+    padding-top: 1em;
+    padding-left: 0.8em;
 }
 
 #header-titling h1 {
@@ -124,30 +126,28 @@ header div {
     background-image: url("../images/logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position-y: center;
     /*RENDI TESTO NON VISIBILE A SCHERMO*/
     overflow:hidden;
     white-space: nowrap;
     text-indent: 100%;
-    margin: 10px 0 0 15px;
+    margin: 0;
 }
 
 #header-titling p {
     color: var(--color4);
     white-space: nowrap;
     overflow: hidden;
-    margin: 0 0 0 15px;
     font-size: 1.2em;
+    margin: 0;
 }
 
 #header-deco {
-    height:var(--header-height);
     background-image:
     linear-gradient(to left, rgba(0, 0, 0, 0), var(--color1)),
     url('../images/header256.jpg');
     background-size: cover;
     background-position: center;
-    border-radius: 0px 0px 50px 0px;
+    border-radius: 0 0 3em 0;
     grid-column: 2;
     grid-row: 1;
 }
@@ -163,7 +163,7 @@ header div {
 
     position: sticky;
     z-index: 3;
-    top: 0px;
+    top: 0;
 
     box-shadow: 0px -1px 1px black, 0px 1px 1px black;
 }
@@ -207,8 +207,8 @@ header div {
     height: 1.5em;
     width: 1.5em;
     box-shadow: var(--box-shadow-light);
-    border-radius: 0 20px 0 20px;
-    border: 1px solid white;
+    border-radius: 0 1.4em 0 1.4em;
+    border: 0.1em solid white;
 }
 
 /* FOOTER */
@@ -220,7 +220,7 @@ footer {
 }
 
 footer p {
-    margin: 0px;
+    margin: 0;
     text-align: center;
 }
 
@@ -266,12 +266,12 @@ hr {
 
 /* INPUT */
 
-button, select, input[type=checkbox], input[type=file]
+button, select, input
 {
     cursor: pointer;
 }
 
-input[type=text]
+input[type=text], input[type=password]
 {
     cursor: text;
 }

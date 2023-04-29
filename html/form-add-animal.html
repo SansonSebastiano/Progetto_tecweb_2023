@@ -43,16 +43,16 @@
     </nav>
     
     <main id="main-wrapper">
-        <h2><span>Aggiungi un animale...</span></h2>
+        <h2>Aggiungi una creatura...</h2>
         <div id="form-container">
             <form action="../add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
-                <div id="form-info">
+                <div id="form-controls">
                     <div id = "div-name" class="form-input-wrapper">
-                        <span class="info">Nome dell'animale</span>
-                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" required>
+                        <p class="field-name">Nome della creatura</p>
+                        <input type="text" name="name" id="name" placeholder="Nome della creatura" required>
                     </div>
                     <div id="div-status" class="form-input-wrapper">
-                        <span class="info">Status animale</span>
+                        <p class="field-name">Status</p>
                         <select id="status" name= "status" required>
                             <option value="scoperto">Scoperto</option>
                             <option value="ipotizzato">Ipotizzato</option>
@@ -60,16 +60,16 @@
                         </select>
                     </div>
                     <div id="div-date" class="form-input-wrapper">
-                        <span class="info">Data scoperta</span>
-                        <input type="date" name= "data_scoperta" id="data_scoperta" required>
+                        <p class="field-name">Data di scoperta</p>
+                        <input type="date" name= "data-scoperta" id="data-scoperta" required>
                     </div>
                     <div id="div-desc" class="form-input-wrapper">
-                        <span class="info">Descrizione animale</span>
+                        <p class="field-name">Descrizione della creatura</p>
                         <textarea name="description" required></textarea>
                     </div>
                     <div id = "div-pic" class="form-input-wrapper">
-                        <span class="info">Foto animale</span>
-                        <input id="image" type="file" accept="image/*" required>
+                        <p class="field-name">Immagine</p>
+                        <input id="input-image" type="file" accept="image/*" required>
                         <button id="btn-load"></button>
                     </div>
                     <button id="btn-submit"></button>

@@ -57,8 +57,8 @@ h2 {
 
 #main-article-text {
     position: absolute;
-    bottom:10px;
-    left: 10px;
+    bottom:0.8em;
+    left: 0.8em;
     text-shadow: 2px 2px 2px black;
 }
 
@@ -71,12 +71,12 @@ h2 {
 }
 
 #button-prev {
-    left: 10px;
+    left: 0.8em;
     background-image: url(../images/icons/button-l.png);
 }
 
 #button-next {
-    right: 10px;
+    right: 0.8em;
     background-image: url(../images/icons/button-r.png);
 }
 
@@ -138,7 +138,7 @@ aside a {
 }
 
 aside ol {
-    border: 1px solid white;
+    border: 0.1em solid white;
     border-radius: var(--image-radius-corner);
     border-top: none;
 }
@@ -161,7 +161,7 @@ aside figure {
 
 aside figure img{
     width: 30%;
-    border-radius: 10px;
+    border-radius: 1em;
     vertical-align: middle;
     box-shadow: var(--box-shadow-light);
 }
