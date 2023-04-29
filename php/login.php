@@ -13,6 +13,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['submit'])) {
+            echo "<script>console.log('LOGIN PAGE');</script>";
             if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
                 // set Location header
                 $location = "Location: " . $_SESSION["prev_page"];
@@ -86,7 +87,7 @@
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
                             header($location);
-                        } 
+                        }
                     }
 
                     // free the result set

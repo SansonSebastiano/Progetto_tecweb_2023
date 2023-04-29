@@ -42,7 +42,7 @@
     // animal-chart.php
     $animal_chart_ref = $php_pages_ref . "animal-chart.php";
     // login-form.html
-    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html";
+    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
 
     /*
     echo "<script>console.log('" . $root . "');</script>";
