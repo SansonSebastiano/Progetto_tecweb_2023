@@ -45,7 +45,7 @@
     <main id="main-wrapper">
         <h2><span>Aggiungi un animale...</span></h2>
         <div id="form-container">
-            <form action="../add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <form action="../php/add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div id="form-info">
                     <div id = "div-name" class="form-input-wrapper">
                         <span class="info">Nome dell'animale</span>
@@ -70,13 +70,14 @@
                     <div id = "div-pic" class="form-input-wrapper">
                         <span class="info">Foto animale</span>
                         <input id="image" type="file" accept="image/*" required>
+                        <input type="hidden" id="hidden" name="hidden">
                         <button id="btn-load"></button>
                     </div>
                     <button id="btn-submit"></button>
                 </div>
             </form>
         </div>
-        <script type="module" src="../../js/upload-animal.js"></script>
+        <script type="module" src="../js/upload-animal.js"></script>
     </main>
 
     <footer id="footer"></footer>

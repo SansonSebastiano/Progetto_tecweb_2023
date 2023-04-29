@@ -2,9 +2,9 @@
     include_once "conn/admin-conn.php";
     session_start();
 
-    $nome = $_POST['nome'];
+    $nome = $_POST['name'];
     $status = $_POST['status'];
-    $descrizione = $_POST['descrizione'];
+    $descrizione = $_POST['description'];
     $data = $_POST['data_scoperta'];
     $path = $_POST['hidden'];
 
@@ -14,7 +14,7 @@
 
     if ($query) {
         // free the result set
-        $query->free();
+        //$query->free();
 
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-animal.php ");
         exit();
