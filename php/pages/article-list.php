@@ -2,7 +2,10 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
     $_SESSION["prev_page"] = $article_list_ref;
 
     $page = file_get_contents($html_path . "article-list.html");
