@@ -35,16 +35,14 @@
         $image = $result["image_path"];
         $scoperta = $result["data_scoperta"];
         $status = $result["status"];
+        $image_alt = $result["alt"];
 
         $page = str_replace("<animal-name/>",$animalName,$page);
-
         $page = str_replace("<animal-description/>",$description,$page);
-
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
-
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
-
         $page = str_replace("<animal-image/>",$image,$page);
+        $page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
         $queryResultTwo = mysqli_query($mysqli, $queryTwo);
