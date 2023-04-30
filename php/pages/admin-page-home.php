@@ -2,7 +2,9 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     if ($_SESSION['ruolo'] != 'admin') {
         //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
