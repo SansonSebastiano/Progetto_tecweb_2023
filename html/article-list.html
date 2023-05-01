@@ -2,6 +2,10 @@
 <html lang="it">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Questa pagina raccoglie tutti gli articoli presenti nel sito, con la possibilità di effettuare delle ricerche">
+        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, ricerca articoli, lista articoli">
+        <meta name="author" content="eLusive">
+
         <link rel="stylesheet" type="text/css" href="../../css/global.css"/>
         <link rel="stylesheet" type="text/css" href="../../css//special/media.css"/>
         <link rel="stylesheet" type="text/css" href="../../css/article-list.css"/>
@@ -30,18 +34,17 @@
                 <user/>
             </span>
             <log-in-out/>
-            <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
         </div>
 
         <header id="header"></header>
 
-        <nav id = "breadcrumb">
-            <img src="../../images/icons/home.png"/>
+        <nav id = "breadcrumb" aria-label="Ti trovi nella pagina contente la lista degli articoli">
+            <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
                 <a href="../../index.php">Homepage </a>|
                 Articoli
             </p>
-            <img id="logo" src="../../images/logo.svg"/>
+            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
         <main>
@@ -51,11 +54,11 @@
 
             <div id = "search-box">
                     <p id="caption-by-title">Ricerca in base al titolo</p>
-                    <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
+                    <input id="input-by-title" class="paired" type="text" aria-label="Campo per ricercare articoli in base al titolo" placeholder="Es.: avvistamento nella Foresta Nera"/>
                     <button id="button-by-title" class="paired">CERCA</button>
                     <p id="caption-by-cat">Ricerca in base al tag</p>
-                    <img src="../../images/icons/lens.png" id="deco"/>
-                    <select id="input-by-cat" class="paired">
+                    <img src="../../images/icons/lens.png" id="deco" alt="Lente di ingrandimento"/>
+                    <select id="input-by-cat" class="paired" aria-label="Ricerca in base al tag">
                         <option>scoperta</option>
                         <option>avvistamento</option>
                         <option>miscellanea</option>

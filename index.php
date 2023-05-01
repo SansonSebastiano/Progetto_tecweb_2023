@@ -2,7 +2,10 @@
     require "config.php";
     require $php_path . "check-conn.php";
     
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     $_SESSION["prev_page"] = $index_ref;
 
     $page = file_get_contents($html_path . "index.html");

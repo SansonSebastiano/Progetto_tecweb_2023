@@ -2,7 +2,10 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
     $_SESSION["prev_page"] = $animal_list_ref;
 
     $table = file_get_contents($modules_path . "letter-table.html");

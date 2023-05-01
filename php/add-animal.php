@@ -1,6 +1,9 @@
 <?php
     include_once "conn/admin-conn.php";
-    session_start();
+    
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     $nome = $_POST['name'];
     $status = $_POST['status'];
