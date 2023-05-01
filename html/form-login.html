@@ -27,7 +27,7 @@
 
         <header id="header"></header>
 
-        <nav id = "breadcrumb">
+        <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di login">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>                
                 <a href="../index.php">Homepage </a>|
@@ -44,16 +44,16 @@
                 <div id="form-container">
 
                     <div id="username-wrapper" class="form-input-wrapper">
-                        <label class="info">Username</label>
-                        <input type="text" name="username" id="username" required>
+                        <label class="info" for="Username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="Inserisci username" required>
                     </div>
 
                     <div id="password-wrapper" class="form-input-wrapper">
-                        <label class="info">Password</label>
-                        <input type="password" name="password" id="password" required>
+                        <label class="info" for="Password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Inserisci password" required>
                     </div>
 
-                    <input type="submit" id="submit" name="submit" class="btn-submit" value="Accedi"/>
+                    <input type="submit" id="submit" name="submit" class="btn-submit" value="Accedi" aria-label="Accedi"/>
                 </div>
             </form>
         </main>

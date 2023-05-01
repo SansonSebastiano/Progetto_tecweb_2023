@@ -36,7 +36,7 @@
 
     <header id="header"></header>
 
-    <nav id = "breadcrumb">
+    <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di aggiunta di un articolo">
         <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
             <a href="../../index.php">Homepage </a>|
@@ -51,41 +51,48 @@
             <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div class="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
-                    <span class="info">Titolo articolo</span>
-                    <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" required>
+                        <label class="info" for="Titolo articolo">Titolo articolo</label>
+                        <input type="text" name= "titolo" id="titolo" placeholder="Inserisci titolo articolo" required>
                     </div>
+
                     <div id="form-box-tag" class="form-input-wrapper">
-                    <span class="info">Tag articolo</span>
-                    <select id="tag" name= "tag" required>
-                        <option value="scoperta">Scoperta</option>
-                        <option value="new">New-entry</option>
-                        <option value="avvistato">Avvistamento</option>
-                        <option value="comunicazione">Comunicazione</option>
-                    </select>
+                        <label class="info" for="Tag articolo">Tag articolo</label>
+                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" required>
+                            <option value="scoperta">Scoperta</option>
+                            <option value="new">New-entry</option>
+                            <option value="avvistato">Avvistamento</option>
+                            <option value="comunicazione">Comunicazione</option>
+                        </select>
                     </div>
+
                     <div id="form-box-luogo" class="form-input-wrapper">
-                        <span class="info">Luogo riferito nell'articolo</span>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" required>
+                        <label class="info" for="Luogo">Luogo riferito nell'articolo</label>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Inserisci luogo avvenimento" required>
                     </div>
+
                     <div id="form-box-sottotitolo" class="form-input-wrapper">
-                    <span class="info">Sottotitolo</span>
-                    <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Sottotitolo" required>
+                        <label class="info" for="Sottotitolo">Sottotitolo</label>
+                        <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Inserisci sottotitolo" required>
                     </div>
+
                     <div id="form-box-testo" class="form-input-wrapper">
-                    <span class="info">Testo articolo</span>
-                    <textarea id="testo" name= "testo" required></textarea>
+                        <label class="info" for="Testo articolo">Testo articolo</label>
+                        <textarea id="testo" name= "testo" required></textarea>
                     </div>
+
                     <div id="form-box-data" class="form-input-wrapper">
-                    <span class="info">Data scrittura</span>
-                    <input type="date" name= "data_scrittura" id="data_scrittura" required>
+                        <label class="info" for="Data pubblicazione">Data pubblicazione</label>
+                        <input type="date" name= "data_scrittura" id="data_scrittura" required>
                     </div>
+
                     <div id="form-box-path" class="form-input-wrapper">
-                    <span class="info">Immagine articolo</span>
-                    <input id="immagine" type="file" accept="image/*" required>
-                    <input type="hidden" id="hidden" name="hidden">
-                    <button id="btn-load"></button>
+                        <label class="info" for="Scegli una immagine per articolo">Immagine articolo</label>
+                        <input id="immagine" type="file" accept="image/*" required>
+                        <input type="hidden" id="hidden" name="hidden">
+                    <button id="btn-load" aria-label="Carica l'immagine per l'articolo"></button>
                     </div>
-                    <button id="btn-submit"></button>
+
+                    <button id="btn-submit" aria-label="Pubblica l'articolo"></button>
                 </div>
             </form>
         </div>
