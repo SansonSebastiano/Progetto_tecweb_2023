@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="../../css/global.css">
     <link rel="stylesheet" type="text/css" href="../../css/special/media.css">
     <link rel="stylesheet" type="text/css" href="../../css/form-add-article.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script> 
@@ -70,6 +72,10 @@
                     <span class="info">Testo articolo</span>
                     <textarea id="testo" name= "testo" required></textarea>
                     </div>
+                    <div id="form-box-creatura" class="form-input-wrapper">
+                    <span class="info">Creatura riferita</span>
+                    <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" required>
+                    </div>
                     <div id="form-box-data" class="form-input-wrapper">
                     <span class="info">Data scrittura</span>
                     <input type="date" name= "data_scrittura" id="data_scrittura" required>
@@ -85,6 +91,9 @@
             </form>
         </div>
         <script type="module" src="../../js/upload-article.js"></script>
+        <script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/suggestion-animal.js"></script>
     </main>
 </body>
 
