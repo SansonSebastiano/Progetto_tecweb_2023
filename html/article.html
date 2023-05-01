@@ -44,10 +44,10 @@
         </nav>
 
         <main>
-                <section>
+                <article>
                     <h2><article-title/></h2>
                     <h3 id = "subtitle"><article-subtitle/></h3>
-                    <p id ="date"><em><article-author/></em> <article-date/></p>
+                    <p id ="date">Di <em><article-author/></em> <time datetime="<article-date/>"><article-date/></time></p>
                     <img src = "<article-image/>" alt="<article-image-alt/>">
                     <div id = "text-div1">
 
@@ -56,23 +56,23 @@
                             <dl>
                                 <dt>TAG:</dt>
                                 <dd>
-                                    <div class="tag discovery"><article-tag/></div>
+                                    <div class="tag <tag-type/>"><article-tag/></div>
                                 </dd>
                                 <dt>SPECIE COLLEGATE:</dt>
+                                <article-animals/>
                                 <dd><a href="animal.php">Scimpassero</a></dd>
                             </dl>
                         </aside>
                         
                         <div id = "text-div2">
 
-                        <article id ="text">
+                        <p id ="text">
                             <span id="location"><article-place/>.</span> <article-content/>
-                        </article>
+                        </p>
                         <p id ="reserved">Riproduzione riservata</p>
                     </div>
-
-                    </div>
-                </section>
+                </div>
+                </article>
 
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>

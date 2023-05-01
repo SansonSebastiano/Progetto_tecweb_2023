@@ -12,7 +12,7 @@
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
-    $page = str_replace("<user/>", $_SESSION["username"], $page);
+    $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
@@ -35,6 +35,7 @@
         
         $queryResult->free();
 
+        //Mi ricavo le informazioni principali dell'articolo
         $articleTitle = $result["titolo"];
         $articleSubTitle = $result["descrizione"];
         $articleTag = $result["tag"];
@@ -44,6 +45,7 @@
         $articlePlace = $result["luogo"];
         $articleContent = $result["contenuto"];
 
+        //Sostituisco i placeholder con i valori dell'articolo
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-subtitle/>",$articleSubTitle,$page);
         $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
@@ -52,7 +54,17 @@
         $page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
+        
+        //Scelgo la classe css da applicare in base al tag dell'articolo e sostituisco il placeholder
+        $cssTags = [
+            "scoperta" => "discovery",
+            "avvistamento" => "sighting",
+            "comunicazione" => "comunication",
+            "new-entry" => "new-entry"
+        ];
+        $page = str_replace("<tag-type/>",$cssTags[$articleTag],$page);
 
+        //Mi ricavo l'autore dell'articolo
         $query = 'SELECT nome FROM view_articolo_utente WHERE id = "'. $_GET["articolo"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         
@@ -60,15 +72,38 @@
         
         $author = "";
         
+        //Se l'articolo è stato scritto da un utente cancellato
         if(!$queryResult){
             $author = "Anonimo";
-        }else{
+        }else{ 
+            //Se l'articolo è stato scritto da un utente esistente
             $author = $result["nome"];
         }
 
+        //Sostituisco il placeholder con il nome dell'autore
         $page = str_replace("<article-author/>",$author,$page);
+
+        $queryResult->free();
+
+        $query = 'SELECT animale FROM articolo_animale WHERE articolo = "'. $_GET["articolo"] . '";';
+        $queryResult = mysqli_query($mysqli, $query);
+        $animalsRelated = "";
+         if($queryResult){
+            while($result = mysqli_fetch_assoc($queryResult)){
+                $animalsRelated .= "<dd>" . $result["animale"] . "</dd>";
+            }
+         }else{
+            $animalsRelated = "<dd>Nessun animale collegato</dd>";
+         }
+
+         $page = str_replace("<article-animals/>",$animalsRelated,$page);
+         
+         $queryResult->free();
         
-    }
+        }
+    // }else{
+    //     header("Location: ../../index.php");
+    // }
 
     echo $page;
 ?>
