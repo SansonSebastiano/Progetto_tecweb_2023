@@ -21,7 +21,7 @@
     $icons_img_path = $img_path . "icons" . DIRECTORY_SEPARATOR;
 
     // icon user refrence
-    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
+    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
 
     // previous page (for 'prev_page' session variable)):
     // index.php
