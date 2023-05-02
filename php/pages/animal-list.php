@@ -56,14 +56,10 @@
             $newTable = str_replace("<letter-title/>",$letter,$table);
             $navigator .= '<li><a href="'.$letter.'" tabindex="3">'.$letter.'</a></li>';
             while($row = mysqli_fetch_assoc($query)){
-                $row_index = 0;
-                $tabindex = 4;
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
-                $newEntry = str_replace("<num-tab-index/>", $tabindex + $row_index ,$newEntry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);
                 $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry); 
                 $animals .= $newEntry; 
-                $row_index++;
             }
             $newTable = str_replace("<animals/>",$animals,$newTable);
             $final .= $newTable;
