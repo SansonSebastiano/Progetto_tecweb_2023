@@ -21,6 +21,7 @@
               $("#footer").load("../../html/modules/footer.html"); 
         });
     </script> 
+
     
     <title>Form aggiunta articolo - eLusive</title>
 
@@ -106,7 +107,11 @@
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <script type="text/javascript" src="../../js/suggestion-animal.js"></script>
     </main>
+    <script>
+        var date = new Date();
+        var currentDate = date.toISOString().substring(0,10);
+        document.getElementById('data_scrittura').value = currentDate;
+    </script>
 </body>
-
 <footer id="footer"></footer>
 </html>
