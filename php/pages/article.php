@@ -85,21 +85,27 @@
 
         $queryResult->free();
 
+        //Mi ricavo gli animali collegati all'articolo
         $query = 'SELECT animale FROM articolo_animale WHERE articolo = "'. $_GET["articolo"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         $animalsRelated = "";
          if($queryResult){
+            //Se ci sono animali collegati all'articolo li aggiungo alla lista
             while($result = mysqli_fetch_assoc($queryResult)){
                 $animalsRelated .= "<dd>" . $result["animale"] . "</dd>";
             }
          }else{
+            //Se non ci sono animali collegati all'articolo mostro un messaggio
             $animalsRelated = "<dd>Nessun animale collegato</dd>";
          }
 
+         //Sostituisco il placeholder con la lista di animali collegati
          $page = str_replace("<article-animals/>",$animalsRelated,$page);
          
          $queryResult->free();
-        
+         
+
+         //TODO: Sezione commenti
         }
     // }else{
     //     header("Location: ../../index.php");
