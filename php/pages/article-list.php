@@ -44,13 +44,13 @@
 
     $articleList = "";
 
-    $artPage = isset($_GET["page"]) ? $_GET["page"] : 0;
-
-    for($i = 0;$articleResult = mysqli_fetch_assoc($queryResult);$i++){
-        $article = $relArticleTemplate;
+    while($articleResult = mysqli_fetch_assoc($queryResult)){
+        $article = $articleTemplate;
         $articleTitle = $articleResult["titolo"];
         $articleId = $articleResult["id"];
         $articleTag = $articleResult["tag"];
+        $articleImage = $articleResult["image_path"];
+        $articleImageAlt = $articleResult["alt"];
         
         $article = str_replace("<article-tag/>",$articleTag,$article);
         
@@ -66,13 +66,16 @@
         $article = str_replace("<article-title/>",$articleTitle,$article);
 
         $article = str_replace("<article-id/>",$articleId,$article);
+
+        $article = str_replace("<image-article/>",$articleImage,$article);
+
+        $article = str_replace("<image-alt/>",$articleImageAlt,$article);
         
         $articleList .= $article;
     }
 
     // Rimuoviamo il placeholder <article-list/> e sostituiamo con la lista di articoli
     $page = str_replace("<article-list/>",$articleList,$page);
-
-
+    
     echo $page;
 ?>

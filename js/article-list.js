@@ -28,7 +28,7 @@ const getPaginationNumbers = () => {
 };
 
 //Invocato quando la pagina è caricata
-document.addEventListener("load", () => {
+window.addEventListener("load", () => {
     getPaginationNumbers();
     // La pagina caricata è la prima
     setCurrentPage(1);

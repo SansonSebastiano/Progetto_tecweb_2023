@@ -180,4 +180,7 @@ h2 {
     color: #fff;
     background: #0085b6;
 }
-  
+
+.article.hidden {
+    display: none;
+}
