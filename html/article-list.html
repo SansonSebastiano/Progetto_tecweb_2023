@@ -41,7 +41,7 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina contente la lista degli articoli">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php">Homepage </a>|
+                <a href="../../index.php" tabindex="2">Homepage </a>|
                 Articoli
             </p>
             <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
@@ -54,16 +54,16 @@
 
             <div id = "search-box">
                     <p id="caption-by-title">Ricerca in base al titolo</p>
-                    <input id="input-by-title" class="paired" type="text" aria-label="Campo per ricercare articoli in base al titolo" placeholder="Es.: avvistamento nella Foresta Nera"/>
-                    <button id="button-by-title" class="paired">CERCA</button>
+                    <input id="input-by-title" class="paired" type="text" aria-label="Campo per ricercare articoli in base al titolo" placeholder="Es.: avvistamento nella Foresta Nera" tabindex="3"/>
+                    <button id="button-by-title" class="paired" tabindex="4">CERCA</button>
                     <p id="caption-by-cat">Ricerca in base al tag</p>
                     <img src="../../images/icons/lens.png" id="deco" alt="Lente di ingrandimento"/>
-                    <select id="input-by-cat" class="paired" aria-label="Ricerca in base al tag">
+                    <select id="input-by-cat" class="paired" aria-label="Ricerca in base al tag" tabindex="5">
                         <option>scoperta</option>
                         <option>avvistamento</option>
                         <option>miscellanea</option>
                     </select>
-                    <button id = "button-by-cat" class="paired">CERCA</button>
+                    <button id = "button-by-cat" class="paired" tabindex="6">CERCA</button>
             </div>
             <p id="result-count">47 risultati</p>
             <hr/>

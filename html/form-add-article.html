@@ -41,7 +41,7 @@
     <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di aggiunta di un articolo">
         <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
-            <a href="../../index.php">Homepage </a>|
+            <a href="../../index.php" tabindex="2">Homepage </a>|
             Form aggiunta articolo
         </p>
         <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
@@ -54,12 +54,17 @@
                 <div class="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
                         <label class="info" for="Titolo articolo">Titolo articolo</label>
-                        <input type="text" name= "titolo" id="titolo" placeholder="Inserisci titolo articolo" required>
+                        <input type="text" name= "titolo" id="titolo" placeholder="Inserisci titolo articolo" tabindex="3" required>
+                    </div>
+
+                    <div id="form-box-sottotitolo" class="form-input-wrapper">
+                        <label class="info" for="Sottotitolo">Sottotitolo</label>
+                        <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Inserisci sottotitolo" tabindex="4" required>
                     </div>
 
                     <div id="form-box-tag" class="form-input-wrapper">
                         <label class="info" for="Tag articolo">Tag articolo</label>
-                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" required>
+                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="5" required>
                             <option value="scoperta">Scoperta</option>
                             <option value="new">New-entry</option>
                             <option value="avvistato">Avvistamento</option>
@@ -69,17 +74,7 @@
 
                     <div id="form-box-luogo" class="form-input-wrapper">
                         <label class="info" for="Luogo">Luogo riferito nell'articolo</label>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Inserisci luogo avvenimento" required>
-                    </div>
-
-                    <div id="form-box-sottotitolo" class="form-input-wrapper">
-                        <label class="info" for="Sottotitolo">Sottotitolo</label>
-                        <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Inserisci sottotitolo" required>
-                    </div>
-
-                    <div id="form-box-testo" class="form-input-wrapper">
-                        <label class="info" for="Testo articolo">Testo articolo</label>
-                        <textarea id="testo" name= "testo" required></textarea>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Inserisci luogo avvenimento" tabindex="6" required>
                     </div>
                     <div id="form-box-creatura" class="form-input-wrapper">
                     <span class="info">Creatura riferita</span>
@@ -87,17 +82,22 @@
                     </div>
                     <div id="form-box-data" class="form-input-wrapper">
                         <label class="info" for="Data pubblicazione">Data pubblicazione</label>
-                        <input type="date" name= "data_scrittura" id="data_scrittura" required>
+                        <input type="date" name= "data_scrittura" id="data_scrittura" tabindex="7" required>
                     </div>
 
                     <div id="form-box-path" class="form-input-wrapper">
                         <label class="info" for="Scegli una immagine per articolo">Immagine articolo</label>
-                        <input id="immagine" type="file" accept="image/*" required>
+                        <input id="immagine" type="file" accept="image/*" tabindex="8" required>
                         <input type="hidden" id="hidden" name="hidden">
-                    <button id="btn-load" aria-label="Carica l'immagine per l'articolo"></button>
+                        <button id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="9"></button>
                     </div>
 
-                    <button id="btn-submit" aria-label="Pubblica l'articolo"></button>
+                    <div id="form-box-testo" class="form-input-wrapper">
+                        <label class="info" for="Testo articolo">Testo articolo</label>
+                        <textarea id="testo" name= "testo" tabindex="10" required></textarea>
+                    </div>
+
+                    <button id="btn-submit" aria-label="Pubblica l'articolo" tabindex="11"></button>
                 </div>
             </form>
         </div>
