@@ -19,7 +19,7 @@
     // Vogliamo prelevare gli articoli dal database, estraendo il tag e la stringa di ricerca (ricerchiamo nel titolo) dalla richiesta get se ci sono
     // Se non ci sono, allora preleviamo tutti gli articoli
 
-    $tag = isset($_GET["tag"]) ? $_GET["tag"] : "";
+    $tag = $_GET["tag"] ?? "";
     $search = isset($_GET["search"]) ? $_GET["search"] : "";
 
     $query = 'SELECT * FROM articolo';

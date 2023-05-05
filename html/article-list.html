@@ -51,15 +51,15 @@
                 <fieldset>
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</p>
-                    <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
+                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</p>
                     <img src="../../images/icons/lens.png" id="deco"/>
-                    <select id="input-by-cat" class="paired">
-                        <option>Tutti</option>
-                        <option>Scoperta</option>
-                        <option>Avvistamento</option>
-                        <option>Comunicazione</option>
-                        <option>New-Entry</option>
+                    <select name=tag id="input-by-cat" class="paired">
+                        <option value="">Tutti</option>
+                        <option value="scoperta">Scoperta</option>
+                        <option value="avvistamento">Avvistamento</option>
+                        <option value="comunicazione">Comunicazione</option>
+                        <option value="new-entry">New-Entry</option>
                     </select>
                     <input type="submit" name="submit" id="button-by-cat" value="CERCA" class="paired"></input>
                 </fieldset>
@@ -74,7 +74,6 @@
                  &lt;
                 </button>
                 <div id="pagination-numbers">
-              
                 </div>
                 <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
                  &gt;
