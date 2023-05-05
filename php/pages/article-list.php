@@ -20,7 +20,7 @@
     // Se non ci sono, allora preleviamo tutti gli articoli
 
     $tag = $_GET["tag"] ?? "";
-    $search = isset($_GET["search"]) ? $_GET["search"] : "";
+    $search = $_GET["search"] ?? "";
 
     $query = 'SELECT * FROM articolo';
 
