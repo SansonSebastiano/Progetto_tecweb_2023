@@ -1,6 +1,6 @@
 main {
     padding: var(--margin-default);
-    background-color: white;
+    background-color: var(--color3);
     color: black;
 }
 

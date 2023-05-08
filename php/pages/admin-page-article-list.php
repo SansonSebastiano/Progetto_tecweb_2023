@@ -21,5 +21,54 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
+    $tag = $_GET["tag"] ?? "";
+    $search = $_GET["search"] ?? "";
+
+    $query = 'SELECT * FROM articolo';
+
+    if ($tag !== "" && $search !== "") {
+        $query .= ' WHERE tag = "' . $tag . '" AND titolo LIKE "%' . $search . '%"';
+    } else if ($tag !== "") {
+        $query .= ' WHERE tag = "' . $tag . '"';
+    } else if ($search !== "") {
+        $query .= ' WHERE titolo LIKE "%' . $search . '%"';
+    }
+
+    $query .= ' ORDER BY data DESC;';
+
+    $queryResult = mysqli_query($mysqli, $query);
+
+    $table = file_get_contents($modules_path . "admin-article-table.html");
+    $article_entry = file_get_contents($modules_path . "admin-article-entry.html");
+    $page = file_get_contents($html_path . "admin-page-article-list.html");
+
+    $articleList = "";
+
+    while($articleResult = mysqli_fetch_assoc($queryResult)){
+        $article = $article_entry;
+        $articleId = $articleResult["id"];
+        $articleTitle = $articleResult["titolo"];
+        $articleAuthor = $articleResult["autore"];
+        $articleDate = $articleResult["data"];
+        $articlePlace = $articleResult["luogo"];
+        $articleTag = $articleResult["tag"];
+
+        // RISOLVERE IL "PROBLEMA" DELL'AUTORE: UTILIZZARE LE VIEWS
+        // TODO: OSSERVARE SE ANCHE NELLE ALTRE PAGINE (PHP) SI POSSONO IMPIEGARE LE VIEWS
+
+        $article = str_replace("<article-id/>",$articleId,$article);
+        $article = str_replace("<article-title/>",$articleTitle,$article);
+        $article = str_replace("<article-author/>",$articleAuthor,$article);
+        $article = str_replace("<article-date/>",$articleDate,$article);
+        $article = str_replace("<article-place/>",$articlePlace,$article);
+        $article = str_replace("<article-tag/>",$articleTag,$article);
+        
+        $articleList .= $article;
+    }
+
+    $table = str_replace("<article-entry/>",$articleList,$table);
+
+    $page = str_replace("<article-list/>",$table,$page);
+
     echo $page;
 ?>  

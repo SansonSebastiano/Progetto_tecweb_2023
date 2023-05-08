@@ -1,6 +1,9 @@
 <?php
     include_once "conn/writer-conn.php";
-    session_start();
+    
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     
     $titolo = $_POST['titolo'];
     $sottotitolo = $_POST['Sottotitolo'];
