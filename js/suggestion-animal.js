@@ -2,7 +2,7 @@ creature_names = {}
 $( "#creatura" ).autocomplete({
     source: function(request, response){
         $.ajax({
-            url: 'http://localhost/php/suggestion.php',
+            url: '../suggestion.php',
             type: 'GET',
             dataType: 'json',
             success:function(data){
