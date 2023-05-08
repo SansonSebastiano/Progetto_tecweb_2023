@@ -15,7 +15,7 @@
               $("#go-up-div").load("../../html//modules/go-up-div.html"); 
             });
         </script> 
-
+        <script src="../../js/pagination.js" defer></script>
         <title>
             Storico articoli | 1 - Elusive
         </title>
@@ -30,7 +30,6 @@
                 <user/>
             </span>
             <log-in-out/>
-            <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
         </div>
 
         <header id="header"></header>
@@ -45,82 +44,42 @@
         </nav>
 
         <main>
-            <h2>
-                Gli articoli di eLusive
-            </h2>
+            <h2>Gli articoli di eLusive</h2>
 
-            <div id = "search-box">
-                    <p id="caption-by-title">Ricerca in base al titolo</p>
-                    <input id="input-by-title" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
-                    <button id="button-by-title" class="paired">CERCA</button>
-                    <p id="caption-by-cat">Ricerca in base al tag</p>
+            <form action="../php/pages/article-list.php" method="get">
+                <fieldset>
+                    <legend>Ricerca articoli</legend>
+                    <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</p>
+                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
+                    <label for="input-by-cat" id="caption-by-cat">Tag</p>
                     <img src="../../images/icons/lens.png" id="deco"/>
-                    <select id="input-by-cat" class="paired">
-                        <option>scoperta</option>
-                        <option>avvistamento</option>
-                        <option>miscellanea</option>
+                    <select name=tag id="input-by-cat" class="paired">
+                        <option value="">Tutti</option>
+                        <option value="scoperta">Scoperta</option>
+                        <option value="avvistamento">Avvistamento</option>
+                        <option value="comunicazione">Comunicazione</option>
+                        <option value="new-entry">New-Entry</option>
                     </select>
-                    <button id = "button-by-cat" class="paired">CERCA</button>
-            </div>
-            <p id="result-count">47 risultati</p>
+                    <input type="submit" name="submit" id="button-by-cat" value="CERCA" class="paired"></input>
+                </fieldset>
+            </form>
+            <p id="result-count"><count/> Risultati</p>
             <hr/>
-            <div id = "article-grid-div">
-                <div class="article">
-                    <img src = "../../images/articles/2.jpg" class="framed"/>
-                    <div class="tag corner-tag sighting">AVVISTAMENTO</div>
-                    <div>
-                        <p class="article-title">Articolo Mock 1</p>
-                        <a href="MOCK">Leggi...</a>
-                    </div>
-                </div>
 
-                <div class="article">
-                    <img src = "../../images/articles/2.jpg" class="framed"/>
-                    <div>
-                        <p class="article-title">Articolo Mock 2</p>
-                        <a href="MOCK">Leggi...</a>
-                    </div>
-                </div>
+            <ul id = "article-grid-div" aria-live="polite">
+                <article-list/>
+            </ul>
 
-                <div class="article">
-                    <img src = "../../images/articles/2.jpg" class="framed"/>
-                    <div>
-                        <p class="article-title">Articolo Mock 3</p>
-                        <a href="MOCK">Leggi...</a>
-                    </div>
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev-button" title="Previous page" aria-label="Previous page">
+                 &lt;
+                </button>
+                <div id="pagination-numbers">
                 </div>
-
-                <div class="article">
-                    <img src = "../../images/articles/2.jpg" class="framed"/>
-                    <div>
-                        <p class="article-title">Articolo Mock 4</p>
-                        <a href="MOCK">Leggi...</a>
-                    </div>
-                </div>
-
-                <div class="article">
-                    <img src = "../../images/articles/2.jpg" class="framed"/>
-                    <div>
-                        <p class="article-title">Articolo Mock 5</p>
-                        <a href="MOCK">Leggi...</a>
-                    </div>
-                </div>
-
-                <div class="article">
-                    <img src = "../../images/articles/2.jpg" class="framed"/>
-                    <div>
-                        <p class="article-title">Articolo Mock 6</p>
-                        <a href="MOCK">Leggi...</a>
-                    </div>
-                </div>
-            </div>
-            <div id = "page-slider">
-                …
-                <button id="button-current">1</button>
-                <button>2</button>
-                <button>3</button>
-                …
-            </div>
+                <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
+                 &gt;
+                </button>
+            </nav>
             <div id="go-up-div"></div>
         </main>
 

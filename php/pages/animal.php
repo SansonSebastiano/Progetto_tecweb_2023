@@ -2,7 +2,10 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
     $_SESSION["prev_page"] = $animal_ref;
 
     $page = file_get_contents($html_path . "animal.html");
@@ -62,7 +65,7 @@
 
         $page = str_replace("<ultimo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
 
-        $relArticleTemplate = file_get_contents($modules_path . "related-article-template.html");
+        $relArticleTemplate = file_get_contents($modules_path . "article-template.html");
 
         mysqli_data_seek($queryResultTwo,0);
         $relArticles = "";
@@ -72,8 +75,17 @@
             $articleId = $articleResult["id"];
             $articleTag = $articleResult["tag"];
             
-            $article = str_replace("<recent-tag/>",$articleTag,$article);
+            $article = str_replace("<article-tag/>",$articleTag,$article);
+            
+            $cssTags = [
+                "scoperta" => "discovery",
+                "avvistamento" => "sighting",
+                "comunicazione" => "comunication",
+                "new-entry" => "new-entry"
+            ];
 
+            $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
+            
             $article = str_replace("<article-title/>",$articleTitle,$article);
 
             $article = str_replace("<article-id/>",$articleId,$article);

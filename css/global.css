@@ -260,6 +260,13 @@ hr {
 .tag.sighting {
     background-color: darkgoldenrod;
 }
+.tag.comunication {
+    background-color: darkblue;
+}
+.tag.new-entry {
+    background-color: darkgreen;
+}
+
 .corner-tag {
     position: absolute;
     top: var(--margin-tag);
