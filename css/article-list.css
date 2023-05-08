@@ -76,7 +76,11 @@ h2 {
 
 /* ============= SEARCH BOX ============= */
 
-#search-box {
+.search-form {
+    background-image: url("../../images/icons/lens.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
     border: 1px solid var(--color2);
     border-radius: var(--image-radius-corner);
     color: var(--color2);
@@ -86,24 +90,23 @@ h2 {
 
     display:grid;
     grid-template-areas: 
-    "ct ct ct ct"
-    "it it it bt"
-    ". . cc cc"
-    ". . ic bc";
+    "ct ct it it .. .. .."
+    "cc cc ic bt .. .. ..";
     column-gap: 0px;
+    row-gap: 0.5em;
 
     position: relative;
 }
 
-#search-box button {
+.search-form button {
     border-style: outset;
-    border-radius: 0 20px 20px 0;
+    border-radius: 20px 20px 20px 20px;
     background-color: var(--color1);
     color: var(--color3);
     font-weight: bold;
 }
 
-#search-box select {
+.search-form select {
     cursor: pointer;
 }
 
@@ -120,7 +123,7 @@ h2 {
     box-sizing: border-box;
     border-style: inset;
     cursor:text;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 20px 20px 20px;
     padding-left: 1em;
 }
 
@@ -132,19 +135,10 @@ h2 {
     text-transform: uppercase;
 }
 
-#button-by-title {
+#submit-button {
     grid-area: bt;
 }
-#button-by-cat {
-    grid-area: bc;
-}
 
-#deco {
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    height: 40%;
-}
 .paired {
     font-size: 1.2em;
 }
@@ -154,9 +148,9 @@ h2 {
 .pagination-container {
     display: flex;
     align-items: center;
-    position: absolute;
-    bottom: 0;
     justify-content: center;
+    border: 1px solid var(--color2);
+    border-radius: var(--image-radius-corner);
 }
   
 .pagination-number,
@@ -178,7 +172,7 @@ h2 {
   
 .pagination-number.active {
     color: #fff;
-    background: #0085b6;
+    background: var(--color1);
 }
 
 .article.hidden {

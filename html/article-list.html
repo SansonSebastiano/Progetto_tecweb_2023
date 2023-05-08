@@ -50,13 +50,13 @@
         <main>
             <h2>Gli articoli di eLusive</h2>
 
-            <form action="article-list.php" method="get">
-                <fieldset>
+            <form action= "article-list.php" method="get">
+                <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
-                    <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</p>
+                    <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
                     <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
-                    <label for="input-by-cat" id="caption-by-cat">Tag</p>
-                    <img src="../../images/icons/lens.png" id="deco"/>
+                    <label for="input-by-cat" id="caption-by-cat">Tag</label>
+                    <!-- <img src="../../images/icons/lens.png" id="deco"/> -->
                     <select name=tag id="input-by-cat" class="paired">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
@@ -64,7 +64,7 @@
                         <option value="comunicazione">Comunicazione</option>
                         <option value="new-entry">New-Entry</option>
                     </select>
-                    <input type="submit" name="submit" id="button-by-cat" value="CERCA" class="paired"></input>
+                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="paired"/>
                 </fieldset>
             </form>
             <p id="result-count"><count/> Risultati</p>
