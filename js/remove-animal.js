@@ -1,5 +1,6 @@
-import { ref, defaultStorage, deletObject} from "./init-db";
+import { ref, defaultStorage} from "./init-db";
 
+/*
 function deleteFile(url) {
     const fileRef = ref(defaultStorage, url);
 
@@ -9,3 +10,4 @@ function deleteFile(url) {
         console.log(error);
     });
 }
+*/
