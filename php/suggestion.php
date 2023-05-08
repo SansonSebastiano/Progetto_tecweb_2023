@@ -1,6 +1,6 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

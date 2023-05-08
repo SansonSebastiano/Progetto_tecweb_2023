@@ -1,5 +1,5 @@
 <?php
-    include_once "conn/admin-conn.php";
+    include_once "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
     
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -26,6 +26,7 @@
         $queryResult->free();
     }
     //TODO: inserire articolo_animale
+    
     $sql = "INSERT INTO `articolo_animale` (`articolo`,`animale`) VALUES ('$id', '$creatura')";
     $queryResult = mysqli_query($mysqli,$sql);
 
