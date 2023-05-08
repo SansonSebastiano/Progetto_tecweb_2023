@@ -16,5 +16,14 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
+    // TODO: aggiungere tabindex
+    $admin_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $admin_page . "'\">Sezione Admin</button>";
+
+    if ($_SESSION["ruolo"] == "admin") {
+        $page = str_replace("<admin-section/>", $admin_section, $page);
+    } else {
+        $page = str_replace("<admin-section/>", "", $page);
+    }
+
     echo $page;
 ?>

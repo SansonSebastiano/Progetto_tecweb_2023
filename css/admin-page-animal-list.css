@@ -1,14 +1,16 @@
 *{
     margin: 0em;
 }
+
 /** MAIN **/
-main{
-    background-color: #fff;
-    padding-bottom: 2em;
+main {
+    padding: var(--margin-default);
+    background-color: var(--color3);
 }
 
-main h2{
-    padding: 1em 1em 0em 1em;
+h2 {
+    text-align: center;
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
 }
 
 /** TESTO NASCOSTO **/
@@ -96,6 +98,10 @@ dl.coloredlist{
 
 .animal-table td:first-child, .animal-table th:first-child {
     border-left: none;
+}
+
+.animal-table td:last-child, .animal-table th:last-child {
+    text-align: center;
 }
 
 .tab-container{

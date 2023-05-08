@@ -41,8 +41,17 @@
     $animal_list_ref = $php_pages_ref . "animal-list.php";
     // animal-chart.php
     $animal_chart_ref = $php_pages_ref . "animal-chart.php";
+    // admin-page-home.php
+    $admin_page_ref = $php_pages_ref . "admin-page-home.php";
+    // admin-page-animal-list.php
+    $admin_page_animal_list_ref = $php_pages_ref . "admin-page-animal-list.php";
+    // admin-page-article-list.php
+    $admin_page_article_list_ref = $php_pages_ref . "admin-page-article-list.php";
+
     // login-form.html
     $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html";
+    // admin-page-home.php
+    $admin_page = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "admin-page-home.php";
 
     /*
     echo "<script>console.log('" . $root . "');</script>";

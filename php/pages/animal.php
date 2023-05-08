@@ -18,16 +18,16 @@
 
     if($_GET["animale"]){
         $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
-        $queryResult = mysqli_query($connessione, $query);
+        $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
-            include_once($html_path . "404.html");
+            include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
-            include_once($html_path . "404.html");
+            include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
             exit();
         }
 
@@ -38,17 +38,17 @@
         $image = $result["image_path"];
         $scoperta = $result["data_scoperta"];
         $status = $result["status"];
+        $image_alt = $result["alt"];
 
         $page = str_replace("<animal-name/>",$animalName,$page);
-
         $page = str_replace("<animal-description/>",$description,$page);
-
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
-
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
+        $page = str_replace("<animal-image/>",$image,$page);
+        $page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
-        $queryResultTwo = mysqli_query($connessione, $queryTwo);
+        $queryResultTwo = mysqli_query($mysqli, $queryTwo);
 
         $articleResult = mysqli_fetch_assoc($queryResultTwo);
 

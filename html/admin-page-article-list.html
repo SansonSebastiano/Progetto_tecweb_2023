@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+    <!-- TODO: tabindex -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Pagina riservata esclusivamente agli amministratori, nella quale è possibile rimuovere articoli">
+        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, pannello di controllo, admin, gestione articoli">
+        <meta name="author" content="eLusive">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+
+        <link rel="stylesheet" type="text/css" href="../../css/global.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/special/media.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/admin-page-article-list.css">
+
+        <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> 
+            $(function(){
+                $("#header").load("../../html/modules/header.html"); 
+                $("#footer").load("../../html/modules/footer.html"); 
+            });
+        </script>
+        <title>Gestione articoli - eLusive</title>
+        <script-conn/>
+    </head>
+
+    <body>
+        <div id="identification" aria-label="Ti trovi nella pagina di amministrazione per la gestione degli articoli">
+            <span id="username">
+                <greet/>
+                <user-img/>
+                <user/>
+            </span>
+            <log-in-out/>
+        </div>
+
+        <header id="header"></header>
+
+        <nav id="breadcrumb">
+            <img src="../../images/icons/home.png" alt="Home di eLusive"/>
+            <p>
+                <a href="../../index.php" tabindex="2">Homepage </a>|
+                <a href="admin-page-home.php" tabindex="3"> Amministrazione</a>|
+                Gestione articoli</p>
+            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+        </nav>
+
+        <main>
+            <h2>Lista articoli</h2>
+
+            <!-- TODO -->
+        </main>
+    </body>
+
+    <footer id="footer"></footer>
+</html>
