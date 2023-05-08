@@ -16,10 +16,10 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
-    //$_GET["articolo"] ritorna l'id dell articolo
+    //$_GET["article"] ritorna l'id dell articolo
     //quindi sarà: http://localhost/php/pages/article.php?articolo=[id]
-    if(isset($_GET["articolo"])){
-        $query = 'SELECT * FROM articolo WHERE id = "'. $_GET["articolo"] . '";';
+    if(isset($_GET["article"])){
+        $query = 'SELECT * FROM articolo WHERE id = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
             include_once($html_path . "404.html");
@@ -65,7 +65,7 @@
         $page = str_replace("<tag-type/>",$cssTags[$articleTag],$page);
 
         //Mi ricavo l'autore dell'articolo
-        $query = 'SELECT nome FROM view_articolo_utente WHERE id = "'. $_GET["articolo"] . '";';
+        $query = 'SELECT nome FROM view_articolo_utente WHERE id = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         
         $result = mysqli_fetch_assoc($queryResult);
@@ -86,7 +86,7 @@
         $queryResult->free();
 
         //Mi ricavo gli animali collegati all'articolo
-        $query = 'SELECT animale FROM articolo_animale WHERE articolo = "'. $_GET["articolo"] . '";';
+        $query = 'SELECT animale FROM articolo_animale WHERE articolo = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         $animalsRelated = "";
          if($queryResult){
