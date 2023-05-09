@@ -1,5 +1,6 @@
 <?php
-    include_once "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
+     include "conn" . DIRECTORY_SEPARATOR . "writer-conn.php";
+
     
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

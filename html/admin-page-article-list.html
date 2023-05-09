@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="it">
+    <!-- TODO: tabindex -->
     <head>
-        <meta charset="utf-8">
-        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Questa pagina raccoglie tutti gli articoli presenti nel sito, con la possibilità di effettuare delle ricerche">
-        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, ricerca articoli, lista articoli">
+        <meta charset="UTF-8">
+        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Pagina riservata esclusivamente agli amministratori, nella quale è possibile rimuovere articoli">
+        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, pannello di controllo, admin, gestione articoli">
         <meta name="author" content="eLusive">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
         <link rel="stylesheet" type="text/css" href="../../css/global.css"/>
-        <link rel="stylesheet" type="text/css" href="../../css//special/media.css"/>
-        <link rel="stylesheet" type="text/css" href="../../css/article-list.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/special/media.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/admin-page-article-list.css">
+
         <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
             $(function(){
-              $("#header").load("../../html/modules/header.html"); 
-              $("#footer").load("../../html/modules/footer.html");
-              $("#go-up-div").load("../../html/modules/go-up-div.html"); 
+                $("#header").load("../../html/modules/header.html"); 
+                $("#footer").load("../../html/modules/footer.html"); 
+                $("#go-up-div").load("../../html/modules/go-up-div.html"); 
             });
-        </script> 
+        </script>
         <script src="../../js/pagination.js" defer></script>
-        <title>
-            Storico articoli | 1 - Elusive
-        </title>
+        <title>Gestione articoli - eLusive</title>
         <script-conn/>
     </head>
 
     <body>
-        <div id="identification">
+        <div id="identification" aria-label="Ti trovi nella pagina di amministrazione per la gestione degli articoli">
             <span id="username">
                 <greet/>
                 <user-img/>
@@ -38,25 +39,24 @@
 
         <header id="header"></header>
 
-        <nav id = "breadcrumb" aria-label="Ti trovi nella pagina contente la lista degli articoli">
+        <nav id="breadcrumb">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
                 <a href="../../index.php" tabindex="2">Homepage </a>|
-                Articoli
-            </p>
+                <a href="admin-page-home.php" tabindex="3"> Amministrazione</a>|
+                Gestione articoli</p>
             <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
         <main>
-            <h2>Gli articoli di eLusive</h2>
+            <h2>Lista articoli</h2>
 
-            <form action= "article-list.php" method="get">
+            <form action="admin-page-article-list.php" method="get">
                 <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
                     <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <!-- <img src="../../images/icons/lens.png" id="deco"/> -->
                     <select name=tag id="input-by-cat" class="paired">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
@@ -70,9 +70,7 @@
             <p id="result-count"><count/> Risultati</p>
             <hr/>
 
-            <ul id = "article-grid-div" aria-live="polite">
-                <article-list/>
-            </ul>
+            <article-list/>
 
             <nav class="pagination-container">
                 <button class="pagination-button" id="prev-button" title="Previous page" aria-label="Previous page">
@@ -85,9 +83,9 @@
                 </button>
             </nav>
             <div id="go-up-div"></div>
+
         </main>
-
-        <footer id="footer"></footer>
-
     </body>
+
+    <footer id="footer"></footer>
 </html>

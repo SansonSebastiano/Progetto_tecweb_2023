@@ -49,119 +49,72 @@
     
     <main class="main-wrapper">
             
-            <h2><!--<animal-name/>-->Scimpassero</h2>
-            <section id="section-animal-description" class="horizontal-flex">
-            <!--
-                <div>
-                    <article>
-                        <p><animal-description/></p>
-                    </article>
-                    <div id = "main-article-div">
-                        <img src="../../images/articles/1.jpg"/>
-                        <div id="main-article-tag" class="tag"><recent-tag/></div>
-                        <div id = "main-article-text">
-                            <div id = "main-article-title"><recent-title/></div>
-                            <div id = "main-article-subtitle"><recent-description/></div>
-                        </div>
+        <h2><animal-name/></h2>
+        <section id="animal-description">
+            <div>
+                <article>
+                    <p><animal-description/></p>
+                </article>
+                <div id = "main-article-div">
+                    <img src="<animal-image/>" alt="<animale-image-alt/>"/>
+                    <div id="main-article-tag" class="tag"><recent-tag/></div>
+                    <div id = "main-article-text">
+                        <div id = "main-article-title"><recent-title/></div>
+                        <div id = "main-article-subtitle"><recent-description/></div>
                     </div>
-               </div>
-            -->
-                    <div id="table-summary" class="speech-help">Dati informativi sulla data di ultimo 
-                        avvistamento, data di scoperta e stato corrente.</div>
-                        <table id="animal-stats" aria-describedby="table-summary">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span>Scimpassero</span></th>
-                                </tr>
-                                <tr>
-                                    <th colspan="2"><img src="../../images/articles/1.jpg" class="framed"/></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Stato:</td>
-                                    <td><animal-status/></td>
-                                </tr>
-                                <tr>
-                                    <td>Data di scoperta:</td>
-                                    <td><time datetime="<data-scoperta/>"><data-scoperta/></time></td>
-                                </tr>
-                                <tr>
-                                    <td>Ultimo avvistamento:</td>
-                                    <td><time datetime="<ultimo-avvistamento/>"><ultimo-avvistamento/></time></td>
-                                </tr>
+                </div>
+           </div>
 
-                            </tbody>
-                        </table>  
-                        <div id="description">
-                            <p>
-                                Lo Scimpassero è un volatile piccolo e snello con un muso allungato e dentatura vigorosa. Ha una struttura agile e slanciata, con potenti zampe. Il suo pelo è di un marrone chiaro, perfettamente adattato per il mimetismo nel suo habitat brullo e arido.
-                            </p>
-                        </div>     
-            </section>
-        <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
-        <section id="animal-voting">
-            <h2>Esprimi il tuo parere sull'esistenza di <animal-name/></h2>
-                <div id = "buttons">
-                    <button id="btn-exist" class="btn-vote">Vota esiste</button>
-                    <button id="btn-non-exist" class="btn-vote">Vota non esiste</button>
-                </div>
-                <div class="horizontal-flex">
-                    <div class="votes-box">Esiste: <span id="exist-votes" class="votes-span" data-value="234">1212</span></div>
-                    <div id ="colored-vote-area"></div>
-                    <div class="votes-box">Non esiste: <span id="non-exist-votes" class="votes-span" data-value="234">1212</span></div>
-                </div>
+           <aside id="animal-info">
+            <div class="speech-help" id="table-summary">Dati informativi sulla data di ultimo 
+                avvistamento, data di scoperta e stato corrente.</div>
+                <table id="animal-stats" aria-describedby="table-summary">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><span data-animal><animal-name/></span></th>
+                        </tr>
+                        <tr>
+                            <th colspan="2"><img src="<animal-image/>" alt="<animale-image-alt/>"  height="200"/></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data di scoperta:</td>
+                            <td><time datetime="<data-scoperta/>"><data-scoperta/></time></td>
+                        </tr>
+                        <tr>
+                            <td>Utlimo avvistamento:</td>
+                            <td><time datetime="<ultimo-avvistamento/>"><ultimo-avvistamento/></time></td>
+                        </tr>
+                        <tr>
+                            <td>Stato:</td>
+                            <td><animal-status/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
         </section>
-        <hr>
-        <section>
+        <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
+        <section id="animal-voting" class="">
+            <h2 class="centered">Esprimi il tuo parere sull'esistenza su <animal-name/></h2>
+            <div class="horizontal-flex">
+                <div class="votes-box">Esiste: <span id="exist-votes" data-value="234">1212</span></div>
+                <div>
+                    <button id="exist-btn">Vota esiste</button>
+                    <button id="non-exist-btn">Vota non esiste</button>
+                </div>
+                <div class="votes-box">Non esiste: <span id="non-exist-votes" data-value="234">1212</span></div>
+            </div>
+        </section> 
+        <nav id="related-articles">
             <h2>Articoli correlati:</h2>
     
-            <ul id = "related-articles-list" class="colored-list">
+            <ul id = "related-articles-list" class="coloredlist">
+                
                 <related-articles/>
-                <li class="article">
-                    <img src = "<image-article/>" width="235"/>
-                    <div>
-                        <article-title/>
-                        <a href="../php/article.php?article=<article-id/>">Leggi...</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <img src = "<image-article/>" width="235"/>
-                    <div>
-                        <article-title/>
-                        <a href="../php/article.php?article=<article-id/>">Leggi...</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <img src = "<image-article/>" width="235"/>
-                    <div>
-                        <article-title/>
-                        <a href="../php/article.php?article=<article-id/>">Leggi...</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <img src = "<image-article/>" width="235"/>
-                    <div>
-                        <article-title/>
-                        <a href="../php/article.php?article=<article-id/>">Leggi...</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <img src = "<image-article/>" width="235"/>
-                    <div>
-                        <article-title/>
-                        <a href="../php/article.php?article=<article-id/>">Leggi...</a>
-                    </div>
-                </li>
-                <li class="article">
-                    <img src = "<image-article/>" width="235"/>
-                    <div>
-                        <article-title/>
-                        <a href="../php/article.php?article=<article-id/>">Leggi...</a>
-                    </div>
-                </li>
+
             </ul>
-        </section>
+        </nav>
     </main>
     
     <footer id="footer"></footer>

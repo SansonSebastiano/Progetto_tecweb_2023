@@ -1,10 +1,16 @@
-main{
-    background-color: #fff;
-    padding: var(--margin-default);
+*{
+    margin: 0em;
 }
 
-main h2{
-    padding: 1em 1em 0em 1em;
+/** MAIN **/
+main {
+    padding: var(--margin-default);
+    background-color: var(--color3);
+}
+
+h2 {
+    text-align: center;
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
 }
 
 /** TESTO NASCOSTO **/
@@ -15,7 +21,13 @@ main h2{
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
 }
-
+/*
+dl.coloredlist{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+*/
 /** DESCRIZIONE ANIMALE **/
 
 .inlinelist > li{
@@ -26,7 +38,7 @@ main h2{
 .content{
     border: 1px solid #a2a9b1;
     border-radius: 20px 0px 20px 0px;
-    background-color: var(--color2);
+    background-color: #86e2a5;
     padding: 1em;
     margin: 2em;
     font-size: 95%;
@@ -78,13 +90,26 @@ main h2{
 .animal-table tr:nth-child(even) *{
     background-color: #c2c2c2;
 }
+/*
+.animalTable tr:nth-child(odd) *{
+    background-color: var(--color1);
+}
+*/
 
 .animal-table td:first-child, .animal-table th:first-child {
     border-left: none;
+}
+
+.animal-table td:last-child, .animal-table th:last-child {
+    text-align: center;
 }
 
 .tab-container{
     overflow-x:auto;
 }
 
+/** FOOTER **/
+footer{
+    padding: 1%;
+}
 

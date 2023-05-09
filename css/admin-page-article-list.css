@@ -1,77 +1,22 @@
+*{
+    margin: 0em;
+}
+
+/** MAIN **/
 main {
     padding: var(--margin-default);
     background-color: var(--color3);
-    color: black;
 }
 
 h2 {
     text-align: center;
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
 }
 
 #result-count {
     text-align: center;
     font-style:italic;
     font-weight: bold;
-}
-/* ========================= ARTICLE GRID ========================= */
-
-#article-grid-div {
-    display: grid;
-    margin: var(--margin-default);
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-    row-gap: var(--margin-default);;
-    column-gap: var(--margin-default);;
-}
-
-#article-grid-section > a {
-    margin-left :var(--margin-default)
-}
-
-.article{
-    position: relative;
-}
-
-.article img{
-    width:75%;
-}
-
-.article a{
-    display:block;
-}
-
-.article * {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-}
-
-.article-title {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-/* ========== SLIDER ========== */
-
-#page-slider {
-    display: block;
-    margin: auto;
-    width: fit-content;
-
-    border-top: 0.5em dotted var(--color4);
-    border-bottom: 0.5em dotted var(--color4);
-    padding: 1em;
-}
-
-#page-slider > button {
-    color:var(--color4);
-    border: none;
-    background: none;
-    font-size: 1.5em;
-}
-
-#page-slider #button-current {
-    color:var(--color1);
-    font-size:2em;
 }
 
 /* ============= SEARCH BOX ============= */
@@ -143,6 +88,7 @@ h2 {
     font-size: 1.2em;
 }
 
+
 /* ============= PAGINAZIONE ============= */
 
 .pagination-container {
@@ -177,4 +123,101 @@ h2 {
 
 .article.hidden {
     display: none;
+}
+
+/* ========== SLIDER ========== */
+
+#page-slider {
+    display: block;
+    margin: auto;
+    width: fit-content;
+
+    border-top: 0.5em dotted var(--color4);
+    border-bottom: 0.5em dotted var(--color4);
+    padding: 1em;
+}
+
+#page-slider > button {
+    color:var(--color4);
+    border: none;
+    background: none;
+    font-size: 1.5em;
+}
+
+#page-slider #button-current {
+    color:var(--color1);
+    font-size:2em;
+}
+
+/* ============= ARTICLE LIST ============= */
+
+.inlinelist > li{
+    display: inline;
+    margin: 0em 0.2em;
+}
+
+.content{
+    border: 1px solid #a2a9b1;
+    border-radius: 20px 0px 20px 0px;
+    background-color: #86e2a5;
+    padding: 1em;
+    margin: 2em;
+    font-size: 95%;
+}
+
+.section-title, .main-title{
+    margin: 1em;
+    padding: 0.5em;
+}
+
+.section-title{
+    border-bottom: 1px solid #111;
+    font-style: italic;
+}
+
+.article-table{
+    width: 95%;
+    background: #f9f9f9;
+    border: 1px #aaaaaa solid;
+    border-collapse: separate;
+    border-radius: 40px 0px 40px 0px;
+    margin: 0 auto;
+}
+
+.article-table tbody tr:last-of-type td:last-of-type{
+    border-bottom-right-radius: 40px;
+}
+
+.article-table th:first-child{
+    width: 30%;
+    word-break: break-all;
+    padding: 1%;
+}
+
+.article-table th:last-child{
+    width: 25%;
+}
+
+.article-table thead th{
+    color: var(--color3);
+    background-color: var(--color1);
+}
+
+.article-table thead th:first-of-type{
+    border-top-left-radius: 40px;
+}
+
+.article-table tr:nth-child(even) *{
+    background-color: #c2c2c2;
+}
+
+.article-table td:first-child, .animal-table th:first-child {
+    border-left: none;
+}
+
+.article-table td:last-child, .animal-table th:last-child {
+    text-align: center;
+}
+.tab-container{
+    overflow-x:auto;
 }
