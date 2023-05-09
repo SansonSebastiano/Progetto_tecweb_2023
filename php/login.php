@@ -22,14 +22,10 @@
                 // get the data from the form:
                 // username
                 $username = clearInput($_POST['username']);
-                if (empty($username)) {
-                    echo "<li>Username is required<li>";
-                }
+
                 // password
                 $password = clearInput($_POST['password']);
-                if (empty($password)) {
-                    echo "<li>Password is required<li>";
-                }
+
                 // create a query
                 $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
                 // execute the query

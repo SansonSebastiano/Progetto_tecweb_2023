@@ -1,18 +1,17 @@
 <?php
      include "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
+     include "input-cleaner.php";
 
     
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
 
-    $nome = $_POST['name'];
-    $status = $_POST['status'];
-    $descrizione = $_POST['description'];
-    $data = $_POST['data_scoperta'];
-    $path = $_POST['hidden'];
-
-    // TODO: clear input
+    $nome = clearInput($_POST['name']);
+    $status = clearInput($_POST['status']);
+    $descrizione = clearInput($_POST['description']);
+    $data = clearInput($_POST['data_scoperta']);
+    $path = clearInput($_POST['hidden']);
 
     $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path', '$nome')";
 

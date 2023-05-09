@@ -1,20 +1,20 @@
 <?php
      include "conn" . DIRECTORY_SEPARATOR . "writer-conn.php";
-
+     include "input-cleaner.php";
     
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     
-    $titolo = $_POST['titolo'];
-    $sottotitolo = $_POST['Sottotitolo'];
-    $tag = $_POST['tag'];
-    $luogo = $_POST['luogo'];
-    $data = $_POST['data_scrittura'];
-    $testo = $_POST['testo'];
-    $autore = $_SESSION['id'];
-    $path = $_POST['hidden'];
-    $creatura = $_POST['creatura'];
+    $titolo = clearInput($_POST['titolo']);
+    $sottotitolo = clearInput($_POST['Sottotitolo']);
+    $tag = clearInput($_POST['tag']);
+    $luogo = clearInput($_POST['luogo']);
+    $data = clearInput($_POST['data_scrittura']);
+    $testo = clearInput($_POST['testo']);
+    $autore = clearInput($_SESSION['id']);
+    $path = clearInput($_POST['hidden']);
+    $creatura = clearInput($_POST['creatura']);
 
     $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
     $queryResult = mysqli_query($mysqli, $sql);

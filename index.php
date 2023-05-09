@@ -17,12 +17,20 @@
     $page = str_replace("<script-conn/>", $user, $page);
 
     // TODO: aggiungere tabindex
-    $admin_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $admin_page . "'\">Sezione Admin</button>";
+    $admin_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\">Sezione Amministratore</button>";
+
+    $writer_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $faar_ref . "'\">Scrivi un nuovo articolo</button>";
 
     if ($_SESSION["ruolo"] == "admin") {
         $page = str_replace("<admin-section/>", $admin_section, $page);
     } else {
         $page = str_replace("<admin-section/>", "", $page);
+    }
+
+    if ($_SESSION["ruolo"] == "writer") {
+        $page = str_replace("<writer-section/>", $writer_section, $page);
+    } else {
+        $page = str_replace("<writer-section/>", "", $page);
     }
 
     echo $page;

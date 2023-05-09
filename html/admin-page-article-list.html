@@ -22,7 +22,6 @@
                 $("#go-up-div").load("../../html/modules/go-up-div.html"); 
             });
         </script>
-        <script src="../../js/pagination.js" defer></script>
         <title>Gestione articoli - eLusive</title>
         <script-conn/>
     </head>
@@ -55,7 +54,7 @@
                 <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
+                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
                     <select name=tag id="input-by-cat" class="paired">
                         <option value="">Tutti</option>
@@ -72,16 +71,6 @@
 
             <article-list/>
 
-            <nav class="pagination-container">
-                <button class="pagination-button" id="prev-button" title="Previous page" aria-label="Previous page">
-                 &lt;
-                </button>
-                <div id="pagination-numbers">
-                </div>
-                <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
-                 &gt;
-                </button>
-            </nav>
             <div id="go-up-div"></div>
 
         </main>

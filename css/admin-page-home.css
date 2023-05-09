@@ -18,7 +18,7 @@ h2 {
 
 #container-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 1px;
     margin-bottom: 1em;
 }
@@ -39,8 +39,7 @@ h2 {
     border-radius: 20px 0 0 20px;
 }
 
-#btn3 {
+#btn4 {
     border-radius: 0 20px 20px 0;
 }
 
-/* create a css rule to center the buttons container */
