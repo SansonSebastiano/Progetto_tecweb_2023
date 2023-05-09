@@ -52,10 +52,6 @@ h2 {
     text-transform: none;
 }
 
-input[type=checkbox] {
-    cursor: pointer;
-}
-
 /* ============ TABLE ============ */
 
 table {
@@ -69,7 +65,7 @@ table button {
     text-decoration: underline;
     font-weight: bold;
     border: none;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: var(--color2);
 }
 

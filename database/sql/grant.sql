@@ -14,7 +14,7 @@ GRANT INSERT ON `my_elusive`.risposta TO 'logged'@'localhost';
 CREATE USER 'writers'@'localhost' IDENTIFIED BY 'writer';
 GRANT USAGE ON *.* TO 'writers'@'localhost';
 GRANT SELECT ON `my_elusive`.* TO 'writers'@'localhost';
-GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto, `my_elusive`.articolo TO 'writers'@'localhost';
+GRANT INSERT ON `my_elusive`.commento, `my_elusive`.voto, `my_elusive`.articolo, `my_elusive`.articolo_animale TO 'writers'@'localhost';
 -- GRANT DELETE ON `my_elusive`.view_articolo_utente TO 'writer'@'localhost';
 GRANT DELETE ON `my_elusive`.articolo TO 'writers'@'localhost';
 

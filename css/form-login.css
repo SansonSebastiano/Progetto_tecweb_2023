@@ -1,0 +1,78 @@
+html {
+    background-image: url(../images/bg4.jpeg) !important;
+}
+
+header {
+    margin-top: 0px;
+}
+
+/** MAIN **/
+main{
+    background-color: rgba(255, 255,255, 0.8);
+    padding: 1em 20%;
+}
+
+#form-container{
+    border-radius: 10px;
+    padding: 10px 10px;
+    background-color:  rgba(0, 85, 50, 0.8);
+    box-shadow: var(--box-shadow-light);
+    display: grid;
+    gap: 1em;
+    grid-template-areas:
+    'username'
+    'password'
+    'btn-submit';
+}
+
+h2{
+    text-align: center;
+    color: black;
+}
+
+.form-input-wrapper{
+    background: var(--color1);
+    color: white;
+    border-radius: 10px;
+    padding: 1em;
+    justify-self: center;
+    font-size: small;
+}
+
+#username-wrapper {
+    grid-area: username;
+}
+
+#password-wrapper {
+    grid-area: password;
+}
+
+input{
+    display: block;
+    margin: auto;
+    width: 90%;
+    font-size: 1.2em;
+    border-radius: 8px;
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.btn-submit{
+    width: fit-content;
+    border-radius: 10px;
+    padding: 0.8em;
+    border-style: outset;
+    color: white;
+    font-size: 1.1em;
+    justify-self: center;
+    cursor: pointer;
+    background-color: rgb(0, 85, 50);
+    grid-area: btn-submit;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover{
+    background-color: rgb(3, 60, 37);
+}

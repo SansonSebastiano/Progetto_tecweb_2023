@@ -21,7 +21,7 @@
     $icons_img_path = $img_path . "icons" . DIRECTORY_SEPARATOR;
 
     // icon user refrence
-    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
+    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
 
     // previous page (for 'prev_page' session variable)):
     // index.php
@@ -49,9 +49,7 @@
     $admin_page_article_list_ref = $php_pages_ref . "admin-page-article-list.php";
 
     // login-form.html
-    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html";
-    // admin-page-home.php
-    $admin_page = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "admin-page-home.php";
+    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
 
     /*
     echo "<script>console.log('" . $root . "');</script>";

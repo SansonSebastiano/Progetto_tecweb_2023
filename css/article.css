@@ -120,12 +120,7 @@ dt {
     color: var(--color4);
     padding-left: 2em;
 }
-.reply {
-    font-size: 1.1em;
-    text-transform: uppercase;
-}
-
-.shoutbox-button {
+.arrow-button {
     position: absolute;
     background-color: var(--color1);
     font-size: 2em;
@@ -154,4 +149,25 @@ ul {
 hr {
     border: none;
     border-top: 0.5em dotted var(--color4);
+}
+
+.div-reply {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-end;
+    column-gap: 1em;
+}
+
+.btn-reply, .btn-send {
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+textarea {
+    resize: none;
+    border-style: inset;
+    overflow: scroll;
+    box-shadow: 1px 1px 50px black;
+    flex: 1;
+    height: 8em;
 }

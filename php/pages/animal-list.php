@@ -2,7 +2,10 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
     $_SESSION["prev_page"] = $animal_list_ref;
 
     $table = file_get_contents($modules_path . "letter-table.html");
@@ -50,7 +53,7 @@
         if($query->num_rows > 0){
             $newTable = str_replace("<letter/>",$letter,$table);
             $newTable = str_replace("<letter-title/>",$letter,$table);
-            $navigator .= '<li><a href="'.$letter.'">'.$letter.'</a></li>';
+            $navigator .= '<li><a href="'.$letter.'" tabindex="3">'.$letter.'</a></li>';
             while($row = mysqli_fetch_assoc($query)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);

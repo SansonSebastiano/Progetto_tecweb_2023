@@ -2,6 +2,10 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Questa pagina visualizza la descrizione di un animale, fornendo vari dati identificativi, Inoltre è possibile esprimere una preferenza di credibilità sull'esistenza.">
+    <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, status, data scoperta, nome animale, articoli correlati, votazione">
+    <meta name="author" content="eLusive">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/global.css">
     <link rel="stylesheet" type="text/css" href="../../css/special/media.css">
@@ -30,68 +34,66 @@
             <user/>
         </span>
         <log-in-out/>
-        <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
     </div>
 
     <header id="header"></header>
 
-    <nav id = "breadcrumb">
-        <img src="../../images/icons/home.png"/>
+    <nav id = "breadcrumb" aria-label="Ti trovi nella pagina descrittiva dell'animale">
+        <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>                
             <a href="../../index.php">Homepage </a>|
             <a href="animal-list.php">Lista degli animali </a>|
-            <animal-name/></p>
-        <img id="logo" src="../../images/logo.svg"/>
+            Scimpassero</p>
+        <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
     </nav>
     
     <main class="main-wrapper">
             
-            <h2><animal-name/></h2>
-            <section id="animal-description">
-                <div>
-                    <article>
-                        <p><animal-description/></p>
-                    </article>
-                    <div id = "main-article-div">
-                        <img src="<animal-image/>" alt="<animale-image-alt/>"/>
-                        <div id="main-article-tag" class="tag"><recent-tag/></div>
-                        <div id = "main-article-text">
-                            <div id = "main-article-title"><recent-title/></div>
-                            <div id = "main-article-subtitle"><recent-description/></div>
-                        </div>
+        <h2><animal-name/></h2>
+        <section id="animal-description">
+            <div>
+                <article>
+                    <p><animal-description/></p>
+                </article>
+                <div id = "main-article-div">
+                    <img src="<animal-image/>" alt="<animale-image-alt/>"/>
+                    <div id="main-article-tag" class="tag"><recent-tag/></div>
+                    <div id = "main-article-text">
+                        <div id = "main-article-title"><recent-title/></div>
+                        <div id = "main-article-subtitle"><recent-description/></div>
                     </div>
-               </div>
-                
-                <aside id="animal-info">
-                    <div class="speech-help" id="table-summary">Dati informativi sulla data di ultimo 
-                        avvistamento, data di scoperta e stato corrente.</div>
-                        <table id="animal-stats" aria-describedby="table-summary">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><span data-animal><animal-name/></span></th>
-                                </tr>
-                                <tr>
-                                    <th colspan="2"><img src="<animal-image/>" alt="<animale-image-alt/>"  height="200"/></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Data di scoperta:</td>
-                                    <td><time datetime="<data-scoperta/>"><data-scoperta/></time></td>
-                                </tr>
-                                <tr>
-                                    <td>Utlimo avvistamento:</td>
-                                    <td><time datetime="<ultimo-avvistamento/>"><ultimo-avvistamento/></time></td>
-                                </tr>
-                                <tr>
-                                    <td>Stato:</td>
-                                    <td><animal-status/></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                </aside>
-            
-            </section>
+                </div>
+           </div>
+
+           <aside id="animal-info">
+            <div class="speech-help" id="table-summary">Dati informativi sulla data di ultimo 
+                avvistamento, data di scoperta e stato corrente.</div>
+                <table id="animal-stats" aria-describedby="table-summary">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><span data-animal><animal-name/></span></th>
+                        </tr>
+                        <tr>
+                            <th colspan="2"><img src="<animal-image/>" alt="<animale-image-alt/>"  height="200"/></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data di scoperta:</td>
+                            <td><time datetime="<data-scoperta/>"><data-scoperta/></time></td>
+                        </tr>
+                        <tr>
+                            <td>Utlimo avvistamento:</td>
+                            <td><time datetime="<ultimo-avvistamento/>"><ultimo-avvistamento/></time></td>
+                        </tr>
+                        <tr>
+                            <td>Stato:</td>
+                            <td><animal-status/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+        </section>
         <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
         <section id="animal-voting" class="">
             <h2 class="centered">Esprimi il tuo parere sull'esistenza su <animal-name/></h2>

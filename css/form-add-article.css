@@ -27,6 +27,7 @@ h2{
     gap: 1em;
     grid-template-areas: 'titolo testo'
                          'sottotitolo testo'
+                         'creatura testo'
                          'tag testo'
                          'luogo testo'
                          'data testo'
@@ -42,7 +43,9 @@ h2{
 }
 #form-box-sottotitolo{ 
     grid-area: sottotitolo; 
-
+}
+#form-box-creatura{ 
+    grid-area: creatura; 
 }
 #form-box-luogo{ 
     grid-area: luogo; 
@@ -88,7 +91,7 @@ select{
 
 textarea{
     width: 90%;
-    height: 40em;
+    height: 50em;
     border-radius: 8px;
     resize: vertical;
     flex-grow: 1;

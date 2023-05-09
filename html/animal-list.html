@@ -2,7 +2,11 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Questa pagina raccoglie tutti gli animali presenti nel sito in ordine alfabetico">
+    <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, lista animali, elenco animali, ordine alfabetico">
+    <meta name="author" content="eLusive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="../../css/global.css">
     <link rel="stylesheet" type="text/css" href="../../css/special/media.css">
     <link rel="stylesheet" type="text/css" href="../../css/animal-list.css">
@@ -17,7 +21,7 @@
           $("#footer").load("../../html/modules/footer.html"); 
         });
     </script> 
-    <title>Lista Animali - eLusive</title>
+    <title>Lista delle creature - eLusive</title>
     <script-conn/>
 </head>
 <body>
@@ -28,29 +32,30 @@
             <user/>
         </span>
         <log-in-out/>
-        <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
     </div>
 
     <header id="header"></header>
 
-    <nav id = "breadcrumb">
-        <img src="../../images/icons/home.png"/>
+    <nav id="breadcrumb" aria-label="Ti trovi nella pagina contenente la lista degli animali">
+        <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
-            <a href="../../index.php">Homepage </a>|
-            Lista degli animali
+            <a href="../../index.php" tabindex="2">Homepage </a>|
+            Lista delle creature
         </p>
-        <img id="logo" src="../../images/logo.svg"/>
+        <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
     </nav>
 
     <main class="main-wrapper">
         <h1 class="main-title" id="main-title">Animali</h1>
-        <nav>
+        <nav aria-label="Animali che iniziano con una lettera dell'alfabeto scelta">
             <ul class="inlinelist content">
                 <navigator/>
             </ul>
         </nav>
+
         <to-fill/>
-        <nav>
+        
+        <nav aria-label="Animali che iniziano con una lettera dell'alfabeto scelta">
             <ul class="inlinelist content">
                 <navigator/>
             </ul>

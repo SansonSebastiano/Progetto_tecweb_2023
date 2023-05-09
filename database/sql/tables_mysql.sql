@@ -45,7 +45,7 @@ CREATE TABLE animale (
 
 CREATE TABLE articolo_animale (
     articolo INT NOT NULL,
-    animale VARCHAR(100) NOT NULL UNIQUE,
+    animale VARCHAR(100) NOT NULL,
     PRIMARY KEY(articolo, animale),
     FOREIGN KEY(articolo) REFERENCES articolo(id),
     FOREIGN KEY(animale) REFERENCES animale(nome)

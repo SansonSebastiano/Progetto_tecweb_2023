@@ -2,6 +2,10 @@
 <html lang="it">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. In questa pagina potete leggere un articolo riguardante un animale ed esprimere la propria opinione nell'apposita sezione commenti">
+        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, letture, commenti, opinione, comunità">
+        <meta name="author" content="eLusive">
+
         <link rel="stylesheet" type="text/css" href="../../css/global.css"/>
         <link rel="stylesheet" type="text/css" href="../../css/special/media.css"/>
         <link rel="stylesheet" type="text/css" href="../../css/article.css"/>
@@ -28,19 +32,18 @@
                 <user/>
             </span>
             <log-in-out/>
-            <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
         </div>
 
         <header id="header"></header>
 
-        <nav id = "breadcrumb">
-            <img src="../../images/icons/home.png"/>
+        <nav id = "breadcrumb" aria-label="Ti trovi nella pagina dell'articolo">
+            <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php">Homepage </a>|
-                <a href="article-list.php">Articoli </a>|
+                <a href="../../index.php" tabindex="2">Homepage </a>|
+                <a href="article-list.php" tabindex="3">Articoli </a>|
                 <article-title/>
             </p>
-            <img id="logo" src="../../images/logo.svg"/>
+            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
         <main>
@@ -60,7 +63,7 @@
                                 </dd>
                                 <dt>SPECIE COLLEGATE:</dt>
                                 <article-animals/>
-                                <dd><a href="animal.php">Scimpassero</a></dd>
+                                <dd><a href="animal.php" tabindex="4">Scimpassero</a></dd>
                             </dl>
                         </aside>
                         
@@ -73,12 +76,16 @@
                     </div>
                 </div>
                 </article>
+                
+            <hr/>
+
+            <!-- TODO: tabindex nella sezione commenti -->
 
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
                 <div id = "shoutbox">
-                    <button id="go-top" class="shoutbox-button">🢙</button>
-                    <button id="go-bottom" class = "shoutbox-button">🢛</button>
+                    <button id="go-top" class="arrow-button">🢙</button>
+                    <button id="go-bottom" class = "arrow-button">🢛</button>
                     <ul class = "comment-list">
 
                         <li class="comment-family">
@@ -92,7 +99,11 @@
 
                                 <div class = "comment-content">
                                     <p class="comment-text">We wagliò, bello 'sto Scimpassero!! Saluti da Castellammare di Stabiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                                    <button class="reply">Rispondi</button>
+                                    <button class="btn-reply">Rispondi</button>
+                                    <div class = "div-reply">
+                                        <textarea></textarea>
+                                        <button class="btn-send">Invia</button>
+                                    </div>                                   
                                 </div>
                             </div>
 
@@ -106,7 +117,7 @@
                                         </div>
                                         <div class="comment-content">
                                             <p class="comment-text">go being Neapolitan somewhere else</p>
-                                            <button class="reply">Rispondi</button>
+                                            <button class="btn-reply">Rispondi</button>
                                         </div>
                                     </div>
                                     <div class="comment-single">
@@ -117,7 +128,7 @@
                                         </div>
                                         <div class="comment-content">
                                             <p class="comment-text">fottiti porcodio</p>
-                                            <button class="reply">Rispondi</button>
+                                            <button class="btn-reply">Rispondi</button>
                                         </div>
                                     </div>
                                 </li>
@@ -136,7 +147,7 @@
 
                                 <div class = "comment-content">
                                     <p class="comment-text">global communication - 76:14 the GOAT no CAP</p>
-                                    <button class="reply">Rispondi</button>
+                                    <button class="btn-reply">Rispondi</button>
                                 </div>
                             </div>
 

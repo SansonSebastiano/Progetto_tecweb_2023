@@ -2,6 +2,10 @@
 <html lang="it">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Potete inoltre esprimere la vostra opinione sulla credibilità dell'esistenza di queste creature, condividendo le vostre teorie e opinioni con una comunità appassionata come voi. Unitevi a noi nella scoperta di questi animali leggendari!">
+        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti">
+        <meta name="author" content="eLusive">
+
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
@@ -32,15 +36,14 @@
                 <user/>
             </span>
             <log-in-out/>
-            <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
         </div>
 
         <header id="header"></header>
 
-        <nav id = "breadcrumb">
-            <img src="images/icons/home.png"/>
+        <nav id = "breadcrumb" aria-label="Ti trovi nella pagina home del sito">
+            <img src="images/icons/home.png" alt="Home di eLusive"/>
             <p>Ti trovi nella homepage.</p>
-            <img id="logo" src="images/logo.svg"/>
+            <img id="logo" src="images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
         <div id="main-aside-wrapper">
@@ -50,7 +53,7 @@
             <section id="main-article-section">
                     <h2>ARTICOLI IN EVIDENZA:</h2>
                     <div id = "main-article-div">
-                        <a href="php/pages/article.php">
+                        <a href="php/pages/article.php" tabindex="2">
                             <img src="images/articles/1.jpg" class="framed"/>
                         </a>
                         <div id="main-article-tag" class="tag corner-tag discovery">SCOPERTA</div>
@@ -58,8 +61,8 @@
                             <div id = "main-article-title">PRATERIA DI LEVI: SCOPERTO LO SCIMPASSERO</div>
                             <div id = "main-article-subtitle">"Increddibbile!" dice R. Bandiera</div>
                         </div>
-                        <button id = "button-prev" type="button">‹</button>
-                        <button id = "button-next" type="button">›</button>
+                        <button id = "button-prev" type="button" tabindex="3" aria-label="Articolo rilevante precedente">‹</button>
+                        <button id = "button-next" type="button" tabindex="4" aria-label="Articolo rilevante successivo">›</button>
                     </div>
             </section>
 
@@ -117,7 +120,7 @@
                             </div>
                         </div>
 
-                        <a href="php/pages/article-list.php">Visualizza tutti...</a>
+                        <a href="php/pages/article-list.php" tabindex="5">Visualizza tutti...</a>
                 </section>
                 
                 <div id="go-up-div"></div>

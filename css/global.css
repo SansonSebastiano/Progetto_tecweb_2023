@@ -40,18 +40,7 @@ a{
 a:visited{
     color: var(--visited-links);
 }
-*/
-.tag {
-    box-shadow: var(--box-shadow-light);
 
-    background-color: red;
-    color: white;
-    padding: var(--margin-tag);
-    border-radius: 10px;
-    position: absolute;
-    top: var(--margin-tag);
-    left: var(--margin-tag);
-}
 
 /* BODY */
 
@@ -251,7 +240,7 @@ hr {
     width: fit-content;
     color: white;
     padding: var(--margin-tag);
-    border-radius: 10px;
+    border-radius: 0.75em;
 }
 
 .tag.discovery {
@@ -283,7 +272,13 @@ hr {
 }
 
 /* INPUT */
-button, input[type=checkbox], input[type=text]
+
+button, select, input[type=checkbox], input[type=file]
 {
     cursor: pointer;
+}
+
+input[type=text]
+{
+    cursor: text;
 }

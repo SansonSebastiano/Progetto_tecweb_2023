@@ -93,6 +93,8 @@
             $relArticles .= $article;
         }
         $page = str_replace("<related-articles/>",$relArticles,$page);
+        
+        $queryResultTwo->free();
     }
     echo $page;
 ?>

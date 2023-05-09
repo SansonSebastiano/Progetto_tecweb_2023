@@ -3,6 +3,9 @@
 
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. In questa pagina è possibile visualizzare la classifica degli animali più votati">
+        <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, classifica, esistenza">
+        <meta name="author" content="eLusive">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" type="text/css" href="../../css/global.css"/>
@@ -30,17 +33,16 @@
                 <user/>
             </span>
             <log-in-out/>
-            <!-- <button id = "logout"><img src="images/icons/logout.png"/></button> -->
         </div>
 
         <header id="header"></header>
 
-        <nav id = "breadcrumb">
-            <img src="../../images/icons/home.png"/>
+        <nav id="breadcrumb" aria-label="Ti trovi nella pagina della classifica degli animali">
+            <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>                
-                <a href="../../index.php">Homepage </a>|
+                <a href="../../index.php" tabindex="2">Homepage </a>|
                 Classifica degli animali più votati</p>
-            <img id="logo" src="../../images/logo.svg"/>
+            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
         
         <main>
@@ -48,24 +50,24 @@
 
             <div id="container-options">
                 <div id="container-buttons">
-                    <button id="btn1">Mensile
+                    <button id="btn1" aria-label="Visualizza classifica mensile" tabindex="3">Mensile
                         <div>
                             <p class = "btn-caption">(ultimi 30 giorni)</p>
                         </div>
                     </button>
-                    <button id="btn2">Annuale 
+                    <button id="btn2" aria-label="Visualizza classifica annuale" tabindex="4">Annuale 
                         <div>
                             <p class = "btn-caption">(ultimi 365 giorni)</p>
                         </div>
                     </button>
-                    <button id="btn3">Generale 
+                    <button id="btn3" aria-label="Visualizza classifica totale" tabindex="5">Generale 
                         <div>
                             <p class = "btn-caption">(tutti i voti)</p>
                         </div>
                     </button>
                 </div>
                 <div id = "div-with-checkbox">
-                    <input type="checkbox"/>
+                    <input type="checkbox" aria-label="Checkbox per includere nella classifica gli animali già scoperti" tabindex="6"/>
                     <span>Includi animali già scoperti</span>
                 </div>
             </div>
@@ -88,19 +90,19 @@
                         <th scope="colgroup" colspan="2">
                             Nome creatura
                             <div>
-                            <button>↑↓</button>
+                            <button aria-label="Ordina la lista per nome animale" tabindex="7">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
-                            <img src="../../images/icons/thumb-up-2.png" alt="Upvotes"/>
+                            <img src="../../images/icons/thumb-up-2.png" alt="Voti esprimenti l'esistenza"/>
                             <div>
-                                <button class="white">↑↓</button>
+                                <button class="white" aria-label="Ordina la lista per voti esprimenti l'esistenza" tabindex="8">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
-                            <img src="../../images/icons/thumb-down-2.png" alt="Downvotes"/>
+                            <img src="../../images/icons/thumb-down-2.png" alt="Voti esprimenti l'inesistenza"/>
                             <div>
-                                <button class="white">↑↓</button>
+                                <button class="white" aria-label="Ordina la lista per voti esprimenti l'inesistenza" tabindex="9">↑↓</button>
                             </div>
                         </th>
                         <th scope="col">Status attuale</th>
