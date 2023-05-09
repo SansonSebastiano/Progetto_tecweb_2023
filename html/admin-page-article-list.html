@@ -19,8 +19,10 @@
             $(function(){
                 $("#header").load("../../html/modules/header.html"); 
                 $("#footer").load("../../html/modules/footer.html"); 
+                $("#go-up-div").load("../../html/modules/go-up-div.html"); 
             });
         </script>
+        <script src="../../js/pagination.js" defer></script>
         <title>Gestione articoli - eLusive</title>
         <script-conn/>
     </head>
@@ -50,11 +52,11 @@
             <h2>Lista articoli</h2>
 
             <form action="admin-page-article-list.php" method="get">
-                <fieldset>
+                <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
-                    <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</p>
+                    <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
                     <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera"/>
-                    <label for="input-by-cat" id="caption-by-cat">Tag</p>
+                    <label for="input-by-cat" id="caption-by-cat">Tag</label>
                     <select name=tag id="input-by-cat" class="paired">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
@@ -62,7 +64,7 @@
                         <option value="comunicazione">Comunicazione</option>
                         <option value="new-entry">New-Entry</option>
                     </select>
-                    <input type="submit" name="submit" id="button-by-cat" value="CERCA" class="paired"></input>
+                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="paired"/>
                 </fieldset>
             </form>
             <p id="result-count"><count/> Risultati</p>

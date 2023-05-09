@@ -24,7 +24,7 @@
     $tag = $_GET["tag"] ?? "";
     $search = $_GET["search"] ?? "";
 
-    $query = 'SELECT * FROM articolo';
+    $query = 'SELECT * FROM view_articolo_utente';
 
     if ($tag !== "" && $search !== "") {
         $query .= ' WHERE tag = "' . $tag . '" AND titolo LIKE "%' . $search . '%"';
@@ -48,13 +48,10 @@
         $article = $article_entry;
         $articleId = $articleResult["id"];
         $articleTitle = $articleResult["titolo"];
-        $articleAuthor = $articleResult["autore"];
+        $articleAuthor = $articleResult["nome"];
         $articleDate = $articleResult["data"];
         $articlePlace = $articleResult["luogo"];
         $articleTag = $articleResult["tag"];
-
-        // RISOLVERE IL "PROBLEMA" DELL'AUTORE: UTILIZZARE LE VIEWS
-        // TODO: OSSERVARE SE ANCHE NELLE ALTRE PAGINE (PHP) SI POSSONO IMPIEGARE LE VIEWS
 
         $article = str_replace("<article-id/>",$articleId,$article);
         $article = str_replace("<article-title/>",$articleTitle,$article);
