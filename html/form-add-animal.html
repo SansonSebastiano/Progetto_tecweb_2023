@@ -40,7 +40,7 @@
     <nav id = "breadcrumb" aria-label="Ti trovi nella pagina per l'aggiunta di un animale">
         <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
-            <a href="../../index.php">Homepage </a>|
+            <a href="../../index.php" tabindex="2">Homepage </a>|
             <a href="admin-page-home.php" tabindex="3"> Amministrazione</a>|
             Form aggiunta animale
         </p>
@@ -54,7 +54,7 @@
                 <div id="form-info">
                     <div id = "div-name" class="form-input-wrapper">
                         <label class="info" for="name">Nome dell'animale</label>
-                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="3" autocomplete="on" required>
+                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="3" autocomplete="on" aria-label="Inserisci il nome dell'animale" required>
                     </div>
 
                     <div id="div-status" class="form-input-wrapper">
@@ -68,19 +68,19 @@
 
                     <div id="div-date" class="form-input-wrapper">
                         <label class="info" for="data_scoperta">Data scoperta</label>
-                        <input type="date" name= "data_scoperta" id="data_scoperta" tabindex="5" required>
+                        <input type="date" name= "data_scoperta" id="data_scoperta" aria-label="seleziona una data" tabindex="5" required>
                     </div>
 
                     <div id = "div-pic" class="form-input-wrapper">
                         <label class="info" for="image">Foto animale</label>
-                        <input id="image" type="file" accept="image/*" aria-label="Scegli una foto per l'animale" tabindex="6" required>
+                        <input id="image" type="file" accept="image/*" aria-label="Seleziona una foto per l'animale" tabindex="6" required>
                         <input type="hidden" id="hidden" name="hidden">
                         <button id="btn-load" aria-label="Carica la foto dell'animale" tabindex="7"></button>
                     </div>
 
                     <div id="div-desc" class="form-input-wrapper">
                         <label class="info" for="description">Descrizione animale</label>
-                        <textarea name="description" id="description" aria-label="Campo per inserire la descrizione" tabindex="8" autocomplete="off" required></textarea>
+                        <textarea name="description" id="description" placeholder="Descrizione animale" aria-label="Inserirsci una descrizione" tabindex="8" autocomplete="off" required></textarea>
                     </div>
 
                     <button id="btn-submit" aria-label="Carica i dati dell'animale" tabindex="9"></button>

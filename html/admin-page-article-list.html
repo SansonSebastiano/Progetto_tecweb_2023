@@ -27,7 +27,7 @@
     </head>
 
     <body>
-        <div id="identification" aria-label="Ti trovi nella pagina di amministrazione per la gestione degli articoli">
+        <div id="identification">
             <span id="username">
                 <greet/>
                 <user-img/>
@@ -54,16 +54,16 @@
                 <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on"/>
+                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci un titolo" tabindex="4"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <select name=tag id="input-by-cat" class="paired">
+                    <select name=tag id="input-by-cat" class="paired" aria-label="Seleziona un tag" tabindex="5">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
                         <option value="avvistamento">Avvistamento</option>
                         <option value="comunicazione">Comunicazione</option>
                         <option value="new-entry">New-Entry</option>
                     </select>
-                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="paired"/>
+                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="paired" aria-label="Cerca" tabindex="6"/>
                 </fieldset>
             </form>
             <p id="result-count"><count/> Risultati</p>
@@ -71,7 +71,7 @@
 
             <article-list/>
 
-            <div id="go-up-div"></div>
+            <div id="go-up-div" ></div>
 
         </main>
     </body>

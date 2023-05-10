@@ -62,7 +62,7 @@
             while($row = mysqli_fetch_assoc($query)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);
-                $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry); 
+                $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry);
                 $animals .= $newEntry; 
             }
             $newTable = str_replace("<animals/>",$animals,$newTable);
