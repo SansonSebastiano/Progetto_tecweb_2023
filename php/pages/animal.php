@@ -56,13 +56,12 @@
         $articleDescription = $articleResult["descrizione"];
         $articleTag = $articleResult["tag"];
         $ultimoAvv = $articleResult["data"];
+        $articleImg = $articleResult["image_path"];
+        $articleImgAlt = $articleResult["alt"];
 
         $page = str_replace("<recent-title/>",$articleTitle,$page);
-
         $page = str_replace("<recent-description/>",$articleDescription,$page);
-
         $page = str_replace("<recent-tag/>",strtoupper($articleTag),$page);
-
         $page = str_replace("<ultimo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
 
         $relArticleTemplate = file_get_contents($modules_path . "article-template.html");
@@ -85,10 +84,10 @@
             ];
 
             $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
-            
             $article = str_replace("<article-title/>",$articleTitle,$article);
-
             $article = str_replace("<article-id/>",$articleId,$article);
+            $article = str_replace("<image-article/>",$articleImg,$article);
+            $article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
             $relArticles .= $article;
         }
