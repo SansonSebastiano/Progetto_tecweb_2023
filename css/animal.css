@@ -44,7 +44,7 @@ section {
 }
 
 #animal-stats img {
-    width: 20vw;
+    width: 25vw;
 }
 
 #description {
@@ -75,9 +75,8 @@ section {
 }
 
 .btn-vote {
-    height: 12em;
-    width: 12em;
-    padding: 10em;
+    height: 15vw;
+    width: 15vw;
     background-size: cover;
     background-position: left center;
     background-repeat: no-repeat;
