@@ -24,7 +24,7 @@
     </script> 
 
     
-    <title>Form aggiunta articolo - eLusive</title>
+    <title>Aggiunta di un articolo - eLusive</title>
 
     <script-conn/>
 </head>
@@ -51,9 +51,10 @@
     </nav>
     
     <main class="main-wrapper">
-        <div class="form-container">
-            <h2><span form-aggiunta>Scrivi un articolo...</span></h2>
+        <h2>Scrivi un articolo...</h2>
+        <div id="form-container">
             <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
+
                 <div class="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo articolo</label>
@@ -74,6 +75,7 @@
                             <option value="comunicazione">Comunicazione</option>
                         </select>
                     </div>
+           <button id="btn-load"></button>
 
                     <div id="form-box-luogo" class="form-input-wrapper">
                         <label class="info" for="luogo">Luogo riferito nell'articolo</label>

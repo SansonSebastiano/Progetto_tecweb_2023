@@ -44,7 +44,7 @@ section {
 }
 
 #animal-stats img {
-    width: 20vw;
+    width: 25vw;
 }
 
 #description {
@@ -75,9 +75,8 @@ section {
 }
 
 .btn-vote {
-    height: 12em;
-    width: 12em;
-    padding: 10em;
+    height: 15vw;
+    width: 15vw;
     background-size: cover;
     background-position: left center;
     background-repeat: no-repeat;
@@ -95,28 +94,28 @@ section {
 #btn-exist{
     background-color: green;
     background-image: url("../images/icons/thumb-up.png");
-    border: darkgreen 10px solid;
+    border: darkgreen 0.5em solid;
     border-radius: 50% 0% 0% 50%;
     border-right: none;
 }
 
 #btn-exist:hover{
-    background-color: rgb(1, 177, 1);
-    border-color: rgb(0, 143, 0);
+    background-color: green;
+    border-color: rgb(0, 110, 0);
     background-position: right center;
 }
 
 #btn-non-exist{
     background-color: red;
     background-image: url("../images/icons/thumb-down.png");
-    border: darkred 10px solid;
+    border: darkred 0.5em solid;
     border-radius: 0% 50% 50% 0%;
     border-left: none;
 }
 
 #btn-non-exist:hover{
-    background-color: rgb(255, 0, 0);
-    border-color: rgb(187, 0, 0);
+    background-color: red;
+    border-color: rgb(160, 0, 0);
     background-position: right center;
 }
 

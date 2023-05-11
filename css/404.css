@@ -20,7 +20,7 @@ main p, main a{
 main img {
     display: block;
     margin: auto;
-    height: 50vh;
+    width: 100%;
 }
 
 #headline span {
