@@ -17,9 +17,9 @@
     $page = str_replace("<script-conn/>", $user, $page);
 
     // TODO: aggiungere tabindex
-    $admin_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\">Sezione Amministratore</button>";
+    $admin_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\" tabindex='2'>Sezione Amministratore</button>";
 
-    $writer_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $faar_ref . "'\">Scrivi un nuovo articolo</button>";
+    $writer_section = "<button class=\"btn btn-primary\" onclick=\"location.href='" . $faar_ref . "'\" tabindex='2'>Scrivi un nuovo articolo</button>";
 
     if ($_SESSION["ruolo"] == "admin") {
         $page = str_replace("<admin-section/>", $admin_section, $page);

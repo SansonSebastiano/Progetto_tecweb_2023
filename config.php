@@ -47,21 +47,6 @@
     $admin_page_animal_list_ref = $php_pages_ref . "admin-page-animal-list.php";
     // admin-page-article-list.php
     $admin_page_article_list_ref = $php_pages_ref . "admin-page-article-list.php";
-
     // login-form.html
     $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
-
-    /*
-    echo "<script>console.log('" . $root . "');</script>";
-    echo "<script>console.log('" . $index_path . "');</script>";
-    echo "<script>console.log('" . $php_path . "');</script>";
-    echo "<script>console.log('" . $conn_path . "');</script>";
-    echo "<script>console.log('" . $pages_path . "');</script>";
-    echo "<script>console.log('" . $html_path . "');</script>";
-    echo "<script>console.log('" . $img_path . "');</script>";
-    echo "<script>console.log('" . $articles_img_path . "');</script>";
-    echo "<script>console.log('" . $icons_img_path . "');</script>";
-    echo "<script>console.log('" . $icon_user . "');</script>";
-    */
-
 ?>
