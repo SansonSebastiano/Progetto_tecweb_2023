@@ -48,17 +48,19 @@
     </nav>
     
     <main id="main-wrapper">
-        <h2><span>Aggiungi un animale...</span></h2>
+        <h2>Aggiungi una creatura...</h2>
         <div id="form-container">
             <form action="../add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
-                <div id="form-info">
+                <div id="form-controls">
                     <div id = "div-name" class="form-input-wrapper">
-                        <label class="info" for="name">Nome dell'animale</label>
+
+                        <label class="info" for="name">Nome della creatura</label>
                         <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="3" autocomplete="on" aria-label="Inserisci il nome dell'animale" required>
                     </div>
 
                     <div id="div-status" class="form-input-wrapper">
-                        <label class="info" for="status">Status animale</label>
+
+                        <label class="info" for="status">Status</label>
                         <select id="status" name= "status" aria-label="seleziona lo status dell'animale" tabindex="4" required>
                             <option value="scoperto">Scoperto</option>
                             <option value="ipotizzato">Ipotizzato</option>
@@ -70,9 +72,15 @@
                         <label class="info" for="data_scoperta">Data scoperta</label>
                         <input type="date" name= "data_scoperta" id="data_scoperta" aria-label="seleziona una data" tabindex="5" required>
                     </div>
+              
+                    <div id="div-desc" class="form-input-wrapper">
+                        <p class="field-name">Descrizione della creatura</p>
+                        <textarea name="description" required></textarea>
+                    </div>
 
                     <div id = "div-pic" class="form-input-wrapper">
-                        <label class="info" for="image">Foto animale</label>
+
+                        <label class="info" for="image">Immagine</label>
                         <input id="image" type="file" accept="image/*" aria-label="Seleziona una foto per l'animale" tabindex="6" required>
                         <input type="hidden" id="hidden" name="hidden">
                         <button id="btn-load" aria-label="Carica la foto dell'animale" tabindex="7"></button>

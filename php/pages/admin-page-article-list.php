@@ -35,7 +35,6 @@
     }
 
     $query .= ' ORDER BY data DESC;';
-
     $queryResult = mysqli_query($mysqli, $query);
 
     $table = file_get_contents($modules_path . "admin-article-table.html");

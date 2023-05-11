@@ -10,12 +10,14 @@
 
     $page = file_get_contents($html_path . "animal.html");
 
+    // IDENTIFICATION
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", $_SESSION["username"], $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
+    // ANIMAL SECTION
     if($_GET["animale"]){
         $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
@@ -47,6 +49,31 @@
         $page = str_replace("<animal-image/>",$image,$page);
         $page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
+        // VOTES SECTION
+        $queryYes = 'SELECT YES FROM vote_yes WHERE nome = "'. $_GET["animale"] . '";';
+        $queryResultYes = mysqli_query($mysqli, $queryYes);
+
+        $queryNo = 'SELECT NO FROM vote_no WHERE nome = "'. $_GET["animale"] . '";';
+        $queryResultNo = mysqli_query($mysqli, $queryNo);
+
+        $yes = 0;
+        $no = 0;
+
+        if ($queryResultYes) {
+            $yes = mysqli_fetch_assoc($queryResultYes)["YES"];
+        }
+
+        if ($queryResultNo) {
+            $no = mysqli_fetch_assoc($queryResultNo)["NO"];
+        }
+
+        $queryResultYes->free();
+        $queryResultNo->free();
+
+        $page = str_replace("<yes-vote/>",$yes,$page);
+        $page = str_replace("<no-vote/>",$no,$page);
+
+        // RELATED ARTICLES SECTION
         $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
         $queryResultTwo = mysqli_query($mysqli, $queryTwo);
 

@@ -52,6 +52,10 @@ h2 {
 
 /* ============= SEARCH BOX ============= */
 
+<<<<<<< HEAD
+=======
+/* da togliere width:75% per schermi piccoli */
+>>>>>>> 353ccfa55f8d3b677fe415766796a21c3f062939
 #search-form {
     background-image: url("../../images/icons/lens.png");
     background-repeat: no-repeat;
@@ -68,12 +72,15 @@ h2 {
     grid-template-areas: 
     "ct ct it it"
     "cc cc ic bt";
+<<<<<<< HEAD
     grid-template-areas: 
     "ct ct ct ct"
     "it it it bt"
     ". . cc cc"
     ". . ic bc";
     column-gap: 0;
+=======
+>>>>>>> 353ccfa55f8d3b677fe415766796a21c3f062939
     row-gap: 0.5em;
 
     position: relative;
@@ -99,7 +106,12 @@ h2 {
     grid-area: it;
     box-sizing: border-box;
     border-style: inset;
+<<<<<<< HEAD
     border-radius: 20px 20px 20px 20px;
+=======
+    cursor:text;
+    border-radius: 1em 0 0 1em;
+>>>>>>> 353ccfa55f8d3b677fe415766796a21c3f062939
     padding-left: 1em;
 }
 
@@ -107,12 +119,19 @@ h2 {
     grid-area: ic;
     border: none;
     text-align: center;
-    border-radius: 20px 0 0 20px;
+    border-radius: 1em 0 0 1em;
     text-transform: uppercase;
 }
 
 #submit-button {
     grid-area: bt;
+}
+
+#deco {
+    position: absolute;
+    left: 0.2em;
+    bottom: 0.2em;
+    height: 40%;
 }
 
 .paired {
