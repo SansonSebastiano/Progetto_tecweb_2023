@@ -1,6 +1,6 @@
 main {
     padding: var(--margin-default);
-    background-color: white;
+    background-color: var(--color3);
     color: black;
 }
 
@@ -33,7 +33,7 @@ h2 {
 }
 
 .article img{
-    width:100%;
+    width:75%;
 }
 
 .article a{
@@ -77,7 +77,11 @@ h2 {
 /* ============= SEARCH BOX ============= */
 
 /* da togliere width:75% per schermi piccoli */
-#search-box {
+#search-form {
+    background-image: url("../../images/icons/lens.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
     border: 0.1em solid var(--color2);
     border-radius: var(--image-radius-corner);
     color: var(--color2);
@@ -87,16 +91,14 @@ h2 {
 
     display:grid;
     grid-template-areas: 
-    "ct ct ct ct"
-    "it it it bt"
-    ". . cc cc"
-    ". . ic bc";
-    column-gap: 0;
+    "ct ct it it"
+    "cc cc ic bt";
+    row-gap: 0.5em;
 
     position: relative;
 }
 
-#search-box button {
+.search-form button {
     border-style: outset;
     border-radius: 0 1em 1em 0;
     background-color: var(--color1);
@@ -104,7 +106,7 @@ h2 {
     font-weight: bold;
 }
 
-#search-box select {
+.search-form select {
     cursor: pointer;
 }
 
@@ -133,11 +135,8 @@ h2 {
     text-transform: uppercase;
 }
 
-#button-by-title {
+#submit-button {
     grid-area: bt;
-}
-#button-by-cat {
-    grid-area: bc;
 }
 
 #deco {
@@ -146,6 +145,43 @@ h2 {
     bottom: 0.2em;
     height: 40%;
 }
+
 .paired {
     font-size: 1.2em;
+}
+
+/* ============= PAGINAZIONE ============= */
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color2);
+    border-radius: var(--image-radius-corner);
+}
+  
+.pagination-number,
+.pagination-button{
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+}
+  
+.pagination-number:hover,
+.pagination-button:not(.disabled):hover {
+    background: #fff;
+}
+  
+.pagination-number.active {
+    color: #fff;
+    background: var(--color1);
+}
+
+.article.hidden {
+    display: none;
 }

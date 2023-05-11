@@ -9,24 +9,23 @@
     // import input cleaner script
     include 'input-cleaner.php' ;
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST['submit'])) {
+            echo "<script>console.log('LOGIN PAGE');</script>";
             if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
                 // set Location header
                 $location = "Location: " . $_SESSION["prev_page"];
                 // get the data from the form:
                 // username
                 $username = clearInput($_POST['username']);
-                if (empty($username)) {
-                    echo "<li>Username is required<li>";
-                }
+
                 // password
                 $password = clearInput($_POST['password']);
-                if (empty($password)) {
-                    echo "<li>Password is required<li>";
-                }
+
                 // create a query
                 $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
                 // execute the query
@@ -86,7 +85,7 @@
                             echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
 
                             header($location);
-                        } 
+                        }
                     }
 
                     // free the result set

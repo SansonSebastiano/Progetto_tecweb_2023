@@ -2,18 +2,27 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. In questa pagina, riservata solo agli autori e amministratori, è possibile aggiungere un articolo attraverso l'apposito form.">
+    <meta name="keywords" content="criptozoologia, animali sconosciuti, classificazione animali, credibilità esistenza animali, notizie, scoperte, avvistamenti, orm aggiunta articolo">
+    <meta name="author" content="eLusive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <link rel="stylesheet" type="text/css" href="../../css/global.css">
     <link rel="stylesheet" type="text/css" href="../../css/special/media.css">
     <link rel="stylesheet" type="text/css" href="../../css/form-add-article.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script> 
         $(function(){
-              $("#header").load("../../html/modules/header.html"); 
-              $("#footer").load("../../html/modules/footer.html"); 
+            $("#header").load("../../html/modules/header.html"); 
+            $("#footer").load("../../html/modules/footer.html");
+            $("#go-up-div").load("../../html/modules/go-up-div.html"); 
         });
     </script> 
+
     
     <title>Aggiunta di un articolo - eLusive</title>
 
@@ -31,62 +40,82 @@
 
     <header id="header"></header>
 
-    <nav id = "breadcrumb">
-        <img src="../../images/icons/home.png"/>
+    <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di aggiunta di un articolo">
+        <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
-            <a href="../../index.php">Homepage </a>|
+            <a href="../../index.php" tabindex="2">Homepage </a>|
+            <who-am-i/>
             Form aggiunta articolo
         </p>
-        <img id="logo" src="../../images/logo.svg"/>
+        <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
     </nav>
     
     <main class="main-wrapper">
         <h2>Scrivi un articolo...</h2>
         <div id="form-container">
             <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
-                <div id="form-controls">
-                    <div id="div-titolo" class="form-input-wrapper">
-                        <p class="field-name">Titolo articolo</p>
-                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" required>
+
+                <div class="form-info">
+                    <div id="form-box-titolo" class="form-input-wrapper">
+                        <label class="info" for="titolo">Titolo articolo</label>
+                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="3" autocomplete="on" aria-label="Inserisci titolo articolo" required>
                     </div>
-                    <div id="div-tag" class="form-input-wrapper">
-                        <p class="field-name">Tag articolo</p>
-                        <select id="tag" name= "tag" required>
+
+                    <div id="form-box-sottotitolo" class="form-input-wrapper">
+                        <label class="info" for="Sottotitolo">Sottotitolo</label>
+                        <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Sottotitolo articolo" tabindex="4" autocomplete="on" aria-label="Inserisci sottotitolo articolo" required>
+                    </div>
+
+                    <div id="form-box-tag" class="form-input-wrapper">
+                        <label class="info" for="tag">Tag articolo</label>
+                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="6" required>
                             <option value="scoperta">Scoperta</option>
                             <option value="new">New-entry</option>
                             <option value="avvistato">Avvistamento</option>
                             <option value="comunicazione">Comunicazione</option>
                         </select>
                     </div>
-                    <div id="div-luogo" class="form-input-wrapper">
-                        <p class="field-name">Luogo riferito nell'articolo</p>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" required>
+           <button id="btn-load"></button>
+
+                    <div id="form-box-luogo" class="form-input-wrapper">
+                        <label class="info" for="luogo">Luogo riferito nell'articolo</label>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="6" autocomplete="country-name" aria-label="Inserisci luogo" required>
                     </div>
-                    <div id="div-sottotitolo" class="form-input-wrapper">
-                        <p class="field-name">Sottotitolo</p>
-                        <input type="text" name= "Sottotitolo" id="Sottotitolo" placeholder="Sottotitolo" required>
+                    <div id="form-box-creatura" class="form-input-wrapper">
+                    <span class="info">Creatura riferita</span>
+                    <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required>
                     </div>
-                    <div id="div-testo" class="form-input-wrapper">
-                        <p class="field-name">Testo articolo</p>
-                        <textarea id="testo" name= "testo" required></textarea>
+                    <div id="form-box-data" class="form-input-wrapper">
+                        <label class="info" for="data_scrittura">Data pubblicazione</label>
+                        <input type="date" name= "data_scrittura" id="data_scrittura" tabindex="8" aria-label="Seleziona la data" required>
                     </div>
-                    <div id="div-data" class="form-input-wrapper">
-                        <p class="field-name">Data scrittura</p>
-                        <input type="date" name= "data_scrittura" id="data_scrittura" required>
-                    </div>
-                    <div id="div-path" class="form-input-wrapper">
-                        <p class="field-name">Immagine articolo</p>
-                        <input id="input-image" type="file" accept="image/*" required>
+
+                    <div id="form-box-path" class="form-input-wrapper">
+                        <label class="info" for="immagine">Immagine articolo</label>
+                        <input id="immagine" type="file" accept="image/*" tabindex="9" aria-label="Seleziona immagine per l'articolo" required>
                         <input type="hidden" id="hidden" name="hidden">
-                        <button id="btn-load"></button>
+                        <button id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="10"></button>
                     </div>
-                    <button id="btn-submit"></button>
+
+                    <div id="form-box-testo" class="form-input-wrapper">
+                        <label class="info" for="testo">Testo articolo</label>
+                        <textarea id="testo" name= "testo" tabindex="11" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" required></textarea>
+                    </div>
+
+                    <button id="btn-submit" aria-label="Pubblica l'articolo" tabindex="12"></button>
                 </div>
             </form>
         </div>
         <script type="module" src="../../js/upload-article.js"></script>
+        <script scr="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/suggestion-animal.js"></script>
     </main>
+    <script>
+        var date = new Date();
+        var currentDate = date.toISOString().substring(0,10);
+        document.getElementById('data_scrittura').value = currentDate;
+    </script>
 </body>
-
 <footer id="footer"></footer>
 </html>

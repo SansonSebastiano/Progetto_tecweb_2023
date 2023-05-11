@@ -5,12 +5,17 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    
-    $_SESSION["prev_page"] = $animal_list_ref;
 
-    $table = file_get_contents($modules_path . "letter-table.html");
-    $animal_entry = file_get_contents($modules_path . "animal-entry.html");
-    $page = file_get_contents($html_path . "animal-list.html");
+    if ($_SESSION['ruolo'] != 'admin') {
+        //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
+        header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+    }
+
+    $_SESSION["prev_page"] =  $admin_page_animal_list_ref;
+
+    $table = file_get_contents($modules_path . "admin-letter-table.html");
+    $animal_entry = file_get_contents($modules_path . "admin-animal-entry.html");
+    $page = file_get_contents($html_path . "admin-page-animal-list.html");
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
@@ -53,11 +58,11 @@
         if($query->num_rows > 0){
             $newTable = str_replace("<letter/>",$letter,$table);
             $newTable = str_replace("<letter-title/>",$letter,$table);
-            $navigator .= '<li><a href="'.$letter.'" tabindex="3">'.$letter.'</a></li>';
+            $navigator .= '<li><a href="'.$letter.'" tabindex="4">'.$letter.'</a></li>';
             while($row = mysqli_fetch_assoc($query)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);
-                $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry); 
+                $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry);
                 $animals .= $newEntry; 
             }
             $newTable = str_replace("<animals/>",$animals,$newTable);
@@ -68,6 +73,6 @@
     $page = str_replace("<navigator/>", $navigator,$page);
     $page = str_replace("<to-fill/>", $final,$page);
     $mysqli->close();
-    
+
     echo $page;
 ?>

@@ -6,7 +6,7 @@ function uploadFile(e) {
     //rimuove la reazione base del form così da non sovrascrivere l'upload
     e.preventDefault();
     // get file from input with id=#file
-    let file = document.querySelector("#immagine").files[0];
+    let file = document.querySelector("#image").files[0];
     let hidden = document.querySelector("#hidden");
         // set metadata for the file
     const metadata = {
@@ -23,13 +23,9 @@ function uploadFile(e) {
     }).then((url) => {
         hidden.value = url;
     });
-    document.getElementById("submit").style.visibility="visible";
-
-
+    document.getElementById("btn-submit").style.visibility="visible";
 }
 // POST: file uploaded to firebase storage
 
-// add event listener to button with id=#submit
-document.getElementById('load').addEventListener('click', uploadFile);
-
-//document.getElementById('form-aggiunta-animale').addEventListener("submit", uploadFile);
+// add event listener to button with id=#load
+document.getElementById('btn-load').addEventListener('click', uploadFile);

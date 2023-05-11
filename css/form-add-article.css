@@ -23,6 +23,7 @@ h2{
     gap: 1em;
     grid-template-areas: 'titolo testo'
                          'sottotitolo testo'
+                         'creatura testo'
                          'tag testo'
                          'luogo testo'
                          'data testo'
@@ -39,7 +40,9 @@ h2{
 }
 #div-sottotitolo{ 
     grid-area: sottotitolo; 
-
+}
+#form-box-creatura{ 
+    grid-area: creatura; 
 }
 #div-luogo{ 
     grid-area: luogo; 
@@ -86,6 +89,8 @@ textarea{
     margin:0;
     border-radius: 0.5em;
     resize:none;
+    width: 90%;
+    height: 50em;
     flex-grow: 1;
     justify-self: stretch;
 }

@@ -21,11 +21,6 @@ AS SELECT view_articolo_commento.articolo, view_articolo_commento.commento, view
 FROM view_articolo_commento INNER JOIN risposta ON view_articolo_commento.commento = risposta.padre 
 INNER JOIN commento ON risposta.figlio = commento.id INNER JOIN utente ON commento.utente = utente.id;
 
-    -- create view with animals and his votes
-CREATE VIEW view_animale_voto
-AS SELECT animale.nome, voto.voto
-FROM animale LEFT JOIN voto ON animale.nome = voto.animale;
-
     -- create view with animals, his votes grouped by 'nome' and count of 'voto' (YES)
 CREATE VIEW vote_YES
 AS SELECT animale.nome, COUNT(voto) as YES
@@ -41,7 +36,6 @@ WHERE voto='NO'
 GROUP BY animale.nome;
 
     -- create view with animals, his votes grouped by 'nome' and count of 'voto' (YES) and (NO)
-CREATE VIEW view_animale_voto_2
-AS SELECT animale.nome, vote_YES.YES, vote_NO.NO
-FROM animale, vote_YES, vote_NO
-WHERE animale.nome = vote_YES.nome AND animale.nome = vote_NO.nome;
+CREATE VIEW view_animale_voto 
+AS SELECT animale.nome, vote_YES.YES, vote_NO.NO, animale.image_path, animale.alt, animale.status
+FROM animale LEFT JOIN vote_YES ON animale.nome = vote_YES.nome LEFT JOIN vote_NO ON animale.nome = vote_NO.nome;

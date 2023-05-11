@@ -9,30 +9,32 @@
     $log_in_out = " ";
 
     $logoutPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logout.php";
-    $loginPath = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html";
+    $loginPath = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // check user privilege
     if (isset($_SESSION["ruolo"])) {
         if ($_SESSION["ruolo"] == ADMIN_ROLE) {
-            $log_in_out = "<a href=" . $logoutPath . ">Esci</a>";
+            $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
             require($conn_path . "admin-conn.php");
 
         } elseif ($_SESSION["ruolo"] == WRITER_ROLE) {
-            $log_in_out = "<a href=" . $logoutPath . ">Esci</a>";
+            $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
             require($conn_path . "writer-conn.php");
 
         } elseif ($_SESSION["ruolo"] == USER_ROLE) {
-            $log_in_out = "<a href=" . $logoutPath . ">Esci</a>";
+            $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
             require($conn_path . "user-conn.php");
 
         } else {
-            $log_in_out = "<a href=" . $loginPath . ">Accedi</a>";
+            $log_in_out = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
             require($conn_path . "guest-conn.php");
         }
     } else {
-        $log_in_out = "<a href=" . $loginPath . ">Accedi</a>";
+        $log_in_out = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
         $_SESSION["ruolo"] = GUEST_ROLE;
         require($conn_path . "guest-conn.php");
     }

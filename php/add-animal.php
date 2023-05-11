@@ -1,12 +1,17 @@
 <?php
-    include_once "conn/admin-conn.php";
-    session_start();
+     include "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
+     include "input-cleaner.php";
 
-    $nome = $_POST['nome'];
-    $status = $_POST['status'];
-    $descrizione = $_POST['descrizione'];
-    $data = $_POST['data_scoperta'];
-    $path = $_POST['hidden'];
+    
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $nome = clearInput($_POST['name']);
+    $status = clearInput($_POST['status']);
+    $descrizione = clearInput($_POST['description']);
+    $data = clearInput($_POST['data_scoperta']);
+    $path = clearInput($_POST['hidden']);
 
     $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path', '$nome')";
 
@@ -14,8 +19,7 @@
 
     if ($query) {
         // free the result set
-        $query->free();
-
+        //$query->free();
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-animal.php ");
         exit();
     }

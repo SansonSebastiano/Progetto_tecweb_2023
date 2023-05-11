@@ -21,7 +21,7 @@
     $icons_img_path = $img_path . "icons" . DIRECTORY_SEPARATOR;
 
     // icon user refrence
-    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"utente\"/>";
+    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
 
     // previous page (for 'prev_page' session variable)):
     // index.php
@@ -41,20 +41,12 @@
     $animal_list_ref = $php_pages_ref . "animal-list.php";
     // animal-chart.php
     $animal_chart_ref = $php_pages_ref . "animal-chart.php";
+    // admin-page-home.php
+    $admin_page_ref = $php_pages_ref . "admin-page-home.php";
+    // admin-page-animal-list.php
+    $admin_page_animal_list_ref = $php_pages_ref . "admin-page-animal-list.php";
+    // admin-page-article-list.php
+    $admin_page_article_list_ref = $php_pages_ref . "admin-page-article-list.php";
     // login-form.html
-    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "login-form.html";
-
-    /*
-    echo "<script>console.log('" . $root . "');</script>";
-    echo "<script>console.log('" . $index_path . "');</script>";
-    echo "<script>console.log('" . $php_path . "');</script>";
-    echo "<script>console.log('" . $conn_path . "');</script>";
-    echo "<script>console.log('" . $pages_path . "');</script>";
-    echo "<script>console.log('" . $html_path . "');</script>";
-    echo "<script>console.log('" . $img_path . "');</script>";
-    echo "<script>console.log('" . $articles_img_path . "');</script>";
-    echo "<script>console.log('" . $icons_img_path . "');</script>";
-    echo "<script>console.log('" . $icon_user . "');</script>";
-    */
-
+    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
 ?>
