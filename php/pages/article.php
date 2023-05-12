@@ -1,6 +1,7 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include_once ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -19,7 +20,8 @@
     //$_GET["article"] ritorna l'id dell articolo
     //quindi sarà: http://localhost/php/pages/article.php?articolo=[id]
     if(isset($_GET["article"])){
-        $query = 'SELECT * FROM articolo WHERE id = "'. $_GET["article"] . '";';
+        $articleId = clearInput($_GET["article"]);
+        $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
             include_once($html_path . "404.html");

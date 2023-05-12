@@ -53,7 +53,8 @@
     <main class="main-wrapper">
         <div class="form-container">
             <h2><span form-aggiunta>Scrivi un articolo...</span></h2>
-            <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <result/>
+            <form action="./form-add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div class="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo articolo</label>
@@ -91,7 +92,7 @@
                     <div id="form-box-path" class="form-input-wrapper">
                         <label class="info" for="immagine">Immagine articolo</label>
                         <input id="immagine" type="file" accept="image/*" tabindex="9" aria-label="Seleziona immagine per l'articolo" required>
-                        <input type="hidden" id="hidden" name="hidden">
+                        <input type="hidden" id="hidden" name="image-path">
                         <button id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="10"></button>
                     </div>
 
@@ -109,11 +110,6 @@
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
         <script type="text/javascript" src="../../js/suggestion-animal.js"></script>
     </main>
-    <script>
-        var date = new Date();
-        var currentDate = date.toISOString().substring(0,10);
-        document.getElementById('data_scrittura').value = currentDate;
-    </script>
+    <footer id="footer"></footer>
 </body>
-<footer id="footer"></footer>
 </html>

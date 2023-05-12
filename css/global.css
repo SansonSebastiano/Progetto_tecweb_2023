@@ -282,3 +282,10 @@ input[type=text]
 {
     cursor: text;
 }
+
+/** TESTO NASCOSTO **/
+.speech-help{
+    overflow:hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+}

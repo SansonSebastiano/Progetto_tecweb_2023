@@ -8,6 +8,7 @@ function uploadFile(e) {
     // get file from input with id=#file
     let file = document.querySelector("#image").files[0];
     let hidden = document.querySelector("#hidden");
+    let status = document.getElementById("loaded-photo")
         // set metadata for the file
     const metadata = {
         contentType: file.type,
@@ -22,6 +23,9 @@ function uploadFile(e) {
         return getDownloadURL(snapshot.ref);
     }).then((url) => {
         hidden.value = url;
+        status.innerHTML = "Foto caricata con successo";
+        status.style.color = "green";
+
     });
     document.getElementById("btn-submit").style.visibility="visible";
 }
