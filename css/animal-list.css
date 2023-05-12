@@ -3,10 +3,6 @@ main{
     padding: var(--margin-default);
 }
 
-main h2{
-    padding: 1em 1em 0em 1em;
-}
-
 /** TESTO NASCOSTO **/
 .speech-help{
     position: absolute;
@@ -24,36 +20,27 @@ main h2{
 }
 
 .content{
-    border: 1px solid #a2a9b1;
-    border-radius: 20px 0px 20px 0px;
+    border-radius: 1.2em 0px 1.2em 0px;
     background-color: var(--color2);
     padding: 1em;
     margin: 2em;
-    font-size: 95%;
 }
 
-.section-title, .main-title{
-    margin: 1em;
-    padding: 0.5em;
-}
 
 .section-title{
-    border-bottom: 1px solid #111;
     font-style: italic;
 }
 
 
 .animal-table{
-    width: 95%;
     background: #f9f9f9;
-    border: 1px #aaaaaa solid;
     border-collapse: separate;
-    border-radius: 40px 0px 40px 0px;
+    border-radius: 2.5em 0px 2.5em 0px;
     margin: 0 auto;
 }
 
 .animal-table tbody tr:last-of-type td:last-of-type{
-    border-bottom-right-radius: 40px;
+    border-bottom-right-radius: 2.5em;
 }
 
 .animal-table th:first-child{
@@ -72,11 +59,11 @@ main h2{
 }
 
 .animal-table thead th:first-of-type{
-    border-top-left-radius: 40px;
+    border-top-left-radius: 2.5em;
 }
 
 .animal-table tr:nth-child(even) *{
-    background-color: #c2c2c2;
+    background-color: var(--color4);
 }
 
 .animal-table td:first-child, .animal-table th:first-child {
