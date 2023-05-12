@@ -13,6 +13,11 @@ h2 {
     font-style:italic;
     font-weight: bold;
 }
+
+ul {
+    list-style-type: none;
+}
+
 /* ========================= ARTICLE GRID ========================= */
 
 #article-grid-div {
@@ -20,8 +25,8 @@ h2 {
     margin: var(--margin-default);
     justify-items: center;
     grid-template-columns: 1fr 1fr;
-    row-gap: var(--margin-default);;
-    column-gap: var(--margin-default);;
+    row-gap: var(--margin-default);
+    column-gap: var(--margin-default);
 }
 
 #article-grid-section > a {
@@ -52,15 +57,12 @@ h2 {
 
 /* ============= SEARCH BOX ============= */
 
-<<<<<<< HEAD
-=======
 /* da togliere width:75% per schermi piccoli */
->>>>>>> 353ccfa55f8d3b677fe415766796a21c3f062939
 #search-form {
     background-image: url("../../images/icons/lens.png");
     background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
+    background-position: bottom 0.5em left 0.5em;
+    background-size:5%;
     border: 0.1em solid var(--color2);
     border-radius: var(--image-radius-corner);
     color: var(--color2);
@@ -70,17 +72,11 @@ h2 {
 
     display:grid;
     grid-template-areas: 
-    "ct ct it it"
-    "cc cc ic bt";
-<<<<<<< HEAD
-    grid-template-areas: 
     "ct ct ct ct"
     "it it it bt"
     ". . cc cc"
     ". . ic bc";
     column-gap: 0;
-=======
->>>>>>> 353ccfa55f8d3b677fe415766796a21c3f062939
     row-gap: 0.5em;
 
     position: relative;
@@ -106,12 +102,7 @@ h2 {
     grid-area: it;
     box-sizing: border-box;
     border-style: inset;
-<<<<<<< HEAD
-    border-radius: 20px 20px 20px 20px;
-=======
-    cursor:text;
     border-radius: 1em 0 0 1em;
->>>>>>> 353ccfa55f8d3b677fe415766796a21c3f062939
     padding-left: 1em;
 }
 

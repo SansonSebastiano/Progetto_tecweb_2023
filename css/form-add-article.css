@@ -89,7 +89,6 @@ textarea{
     margin:0;
     border-radius: 0.5em;
     resize:none;
-    width: 90%;
     height: 50em;
     flex-grow: 1;
     justify-self: stretch;
