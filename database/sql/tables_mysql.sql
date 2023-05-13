@@ -12,7 +12,6 @@ CREATE TABLE utente (
     id int NOT NULL AUTO_INCREMENT, 
     nome VARCHAR(255) NOT NULL, 
     password VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
     ruolo ENUM ('user','writer','admin') NOT NULL,
     PRIMARY KEY(id)
 );
@@ -21,7 +20,7 @@ CREATE TABLE articolo (
     id int NOT NULL AUTO_INCREMENT,
     autore INT NOT NULL,
     titolo VARCHAR(255) NOT NULL,
-    data TIMESTAMP NOT NULL,
+    data TIMESTAMP NOT NULL  DEFAULT current_timestamp(),
     luogo VARCHAR(255),
     descrizione VARCHAR(255) NOT NULL,
     contenuto VARCHAR(2000) NOT NULL,
@@ -34,12 +33,11 @@ CREATE TABLE articolo (
 );
 
 CREATE TABLE animale (
-    nome VARCHAR(100) NOT NULL UNIQUE,
+    nome VARCHAR(100) NOT NULL,
     descrizione VARCHAR(2000) NOT NULL,
     status ENUM ('scoperto','ipotizzato','avvistato') NOT NULL,
     data_scoperta DATE,
     image_path VARCHAR(1024) NOT NULL,
-    alt VARCHAR(255) NOT NULL,
     PRIMARY KEY (nome)
 );
 
@@ -52,7 +50,7 @@ CREATE TABLE articolo_animale (
 );
 
 CREATE TABLE commento (
-    id int NOT NULL AUTO_INCREMENT,
+    id BIGINT NOT NULL AUTO_INCREMENT,
     articolo INT NOT NULL,
     utente INT NOT NULL,
     contenuto VARCHAR(255) NOT NULL,
@@ -77,6 +75,7 @@ CREATE TABLE voto (
     utente INT NOT NULL,
     animale VARCHAR(100) NOT NULL,
     voto ENUM ('YES','NO') NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT current_timestamp(),
     PRIMARY KEY(utente,animale),
     FOREIGN KEY(utente) REFERENCES utente(id),
     FOREIGN KEY(animale) REFERENCES animale(nome)

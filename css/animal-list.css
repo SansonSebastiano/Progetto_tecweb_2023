@@ -3,6 +3,14 @@ main{
     padding: var(--margin-default);
 }
 
+h2, h3 {
+    text-align: center;
+    color: var(--color2);
+}
+
+section {
+    margin-bottom: 2em;
+}
 /** TESTO NASCOSTO **/
 .speech-help{
     position: absolute;
@@ -12,41 +20,41 @@ main{
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-/** DESCRIZIONE ANIMALE **/
 
 .inlinelist > li{
     display: inline;
     margin: 0em 0.2em;
 }
 
-.content{
-    border-radius: 1.2em 0px 1.2em 0px;
+.index{
     background-color: var(--color2);
     padding: 1em;
     margin: 2em;
 }
 
 
-.section-title{
+.letter{
+    border-bottom: 0.1em solid var(--color4);
     font-style: italic;
 }
 
 
 .animal-table{
-    background: #f9f9f9;
+    border: 0.1em solid var(--color4);
     border-collapse: separate;
-    border-radius: 2.5em 0px 2.5em 0px;
+    border-radius: 2.2em 0 2.2em 0;
     margin: 0 auto;
+    
+    width: 75%;
 }
 
-.animal-table tbody tr:last-of-type td:last-of-type{
-    border-bottom-right-radius: 2.5em;
+.animal-table td {
+    text-align: center;
 }
 
 .animal-table th:first-child{
     width: 30%;
     word-break: break-all;
-    padding: 1%;
 }
 
 .animal-table th:last-child{
@@ -59,15 +67,11 @@ main{
 }
 
 .animal-table thead th:first-of-type{
-    border-top-left-radius: 2.5em;
+    border-top-left-radius: 2.3em;
 }
 
 .animal-table tr:nth-child(even) *{
-    background-color: var(--color4);
-}
-
-.animal-table td:first-child, .animal-table th:first-child {
-    border-left: none;
+    background-color: var(--color3);
 }
 
 .tab-container{

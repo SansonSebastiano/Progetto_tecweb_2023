@@ -41,12 +41,12 @@
     $animal_list_ref = $php_pages_ref . "animal-list.php";
     // animal-chart.php
     $animal_chart_ref = $php_pages_ref . "animal-chart.php";
-    // admin-page-home.php
-    $admin_page_ref = $php_pages_ref . "admin-page-home.php";
-    // admin-page-animal-list.php
-    $admin_page_animal_list_ref = $php_pages_ref . "admin-page-animal-list.php";
-    // admin-page-article-list.php
-    $admin_page_article_list_ref = $php_pages_ref . "admin-page-article-list.php";
+    // admin-home.php
+    $admin_page_ref = $php_pages_ref . "admin-home.php";
+    // admin-animal-list.php
+    $admin_page_animal_list_ref = $php_pages_ref . "admin-animal-list.php";
+    // admin-article-list.php
+    $admin_page_article_list_ref = $php_pages_ref . "admin-article-list.php";
     // login-form.html
     $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
 ?>

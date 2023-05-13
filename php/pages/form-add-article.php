@@ -20,7 +20,7 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
-    $who_am_i = "<a href=' admin-page-home.php' tabindex='3'> Amministrazione</a> ●" ;
+    $who_am_i = "<a href=' admin-home.php' tabindex='3'> Amministrazione</a> ●" ;
 
     if ($_SESSION["ruolo"] == "admin") {
         $page = str_replace("<who-am-i/>", $who_am_i, $page);

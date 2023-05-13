@@ -239,7 +239,7 @@ hr {
     text-transform: uppercase;
     width: fit-content;
     color: white;
-    padding: var(--margin-tag);
+    padding: 0.3em;
     border-radius: 0.75em;
 }
 

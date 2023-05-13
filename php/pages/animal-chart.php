@@ -21,7 +21,7 @@
     $page = str_replace("<order-up/>", "uporder", $page);
     $page = str_replace("<order-down/>", "downorder", $page);
 
-    $animal_entry = file_get_contents($modules_path . "chart-animal-entry.html");
+    $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
     
     $query = 'SELECT * FROM view_animale_voto;';
     $queryResult = mysqli_query($mysqli, $query);

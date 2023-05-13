@@ -25,7 +25,7 @@
     $row = "";
 
     if(is_null($query)){
-        echo "<h1>Errore durante la connesione al server</h1>";
+        echo "<h1>Errore durante la connessione al server</h1>";
         die(1);
     }
 
