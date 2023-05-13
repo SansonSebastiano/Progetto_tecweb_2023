@@ -19,7 +19,7 @@ h2 {
 #container-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 1px;
+    column-gap: 0.1em;
     margin-bottom: 1em;
 }
 
