@@ -50,25 +50,20 @@
         $page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         // VOTES SECTION
-        $queryYes = 'SELECT YES FROM vote_yes WHERE nome = "'. $_GET["animale"] . '";';
-        $queryResultYes = mysqli_query($mysqli, $queryYes);
+        $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
+        $queryResult = mysqli_query($mysqli, $query);
+        $result = mysqli_fetch_assoc($queryResult);
 
-        $queryNo = 'SELECT NO FROM vote_no WHERE nome = "'. $_GET["animale"] . '";';
-        $queryResultNo = mysqli_query($mysqli, $queryNo);
+        $yes = $result['YES'];
+        $no = $result['NO'];
 
-        $yes = 0;
-        $no = 0;
-
-        if ($queryResultYes) {
-            $yes = mysqli_fetch_assoc($queryResultYes)["YES"];
+        if (is_null($yes)) {
+            $yes = 0;
         }
 
-        if ($queryResultNo) {
-            $no = mysqli_fetch_assoc($queryResultNo)["NO"];
+        if (is_null($no)) {
+            $no = 0;
         }
-
-        $queryResultYes->free();
-        $queryResultNo->free();
 
         $page = str_replace("<yes-vote/>",$yes,$page);
         $page = str_replace("<no-vote/>",$no,$page);
@@ -76,6 +71,11 @@
         // RELATED ARTICLES SECTION
         $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
         $queryResultTwo = mysqli_query($mysqli, $queryTwo);
+
+        if(!$queryResultTwo){
+            include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
+            exit();
+        }
 
         $articleResult = mysqli_fetch_assoc($queryResultTwo);
 

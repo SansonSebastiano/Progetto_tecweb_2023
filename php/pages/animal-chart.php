@@ -44,8 +44,20 @@
         $entry = $animal_entry;
         $entry = str_replace("<animal/>", $result["nome"], $entry);
         $entry = str_replace("<animal-name/>", $result["nome"],$entry);
-        $entry = str_replace("<yes-votes/>", $result["YES"],$entry);
-        $entry = str_replace("<no-votes/>", $result["NO"],$entry);
+
+        $yes = $result["YES"];
+        $no = $result["NO"];
+
+        if (is_null($yes)) {
+            $yes = 0;
+        }
+
+        if (is_null($no)) {
+            $no = 0;
+        }
+
+        $entry = str_replace("<yes-votes/>", $yes,$entry);
+        $entry = str_replace("<no-votes/>", $no,$entry);
         $entry = str_replace("<animal-image/>", $result["image_path"],$entry);
         $entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
         $entry = str_replace("<animal-status/>", $result["status"],$entry);
