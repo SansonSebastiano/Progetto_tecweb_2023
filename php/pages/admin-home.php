@@ -13,7 +13,7 @@
 
     $_SESSION["prev_page"] =  $admin_page_ref;
 
-    $page = file_get_contents($html_path . "admin-page-home.html");
+    $page = file_get_contents($html_path . "admin-home.html");
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);

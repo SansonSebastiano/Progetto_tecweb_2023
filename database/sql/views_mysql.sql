@@ -37,5 +37,5 @@ GROUP BY animale.nome;
 
     -- create view with animals, his votes grouped by 'nome' and count of 'voto' (YES) and (NO)
 CREATE VIEW view_animale_voto 
-AS SELECT animale.nome, vote_YES.YES, vote_NO.NO, animale.image_path, animale.alt, animale.status
+AS SELECT animale.nome, vote_YES.YES, vote_NO.NO, animale.image_path, animale.status
 FROM animale LEFT JOIN vote_YES ON animale.nome = vote_YES.nome LEFT JOIN vote_NO ON animale.nome = vote_NO.nome;

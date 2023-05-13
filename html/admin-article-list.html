@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
         <link rel="stylesheet" type="text/css" href="../../css/global.css"/>
-        <link rel="stylesheet" type="text/css" href="../../css/special/media.css"/>
-        <link rel="stylesheet" type="text/css" href="../../css/admin-page-article-list.css">
+        <link rel="stylesheet" type="text/css" href="../../css/special/media/global.css"/>
+        <link rel="stylesheet" type="text/css" href="../../css/admin-article-list.css">
 
         <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
 
@@ -42,7 +42,7 @@
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
                 <a href="../../index.php" tabindex="2">Homepage</a> ●
-                <a href="admin-page-home.php" tabindex="3"> Amministrazione</a> ●
+                <a href="admin-home.php" tabindex="3"> Amministrazione</a> ●
                 Gestione articoli</p>
             <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
@@ -50,13 +50,13 @@
         <main>
             <h2>Lista articoli</h2>
 
-            <form action="admin-page-article-list.php" method="get">
+            <form action="admin-article-list.php" method="get">
                 <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
                     <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci un titolo" tabindex="4"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <select name=tag id="input-by-cat" class="paired" aria-label="Seleziona un tag" tabindex="5">
+                    <select name = tag id="input-by-cat" class="paired" aria-label="Seleziona un tag" tabindex="5">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
                         <option value="avvistamento">Avvistamento</option>
