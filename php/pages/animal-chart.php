@@ -16,6 +16,11 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
+    // setting up order buttons
+    $page = str_replace("<order-name/>", "animalorder", $page);
+    $page = str_replace("<order-up/>", "uporder", $page);
+    $page = str_replace("<order-down/>", "downorder", $page);
+
     $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
     
     $query = 'SELECT * FROM view_animale_voto;';
