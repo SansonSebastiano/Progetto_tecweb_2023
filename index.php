@@ -16,7 +16,6 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
-    // TODO: aggiungere tabindex
     $admin_section = "<button class=\"btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\" tabindex='2'>Sezione Amministratore</button>";
 
     $writer_section = "<button class=\"btn-primary\" onclick=\"location.href='" . $faar_ref . "'\" tabindex='2'>Scrivi un nuovo articolo</button>";
@@ -32,6 +31,27 @@
     } else {
         $page = str_replace("<writer-section/>", "", $page);
     }
+
+    $homeChart = file_get_contents($modules_path . "home-chart.html");
+
+    $query = 'SELECT nome, image_path, alt FROM view_animale_voto ORDER BY YES DESC LIMIT 5;';
+    $queryResult = mysqli_query($mysqli, $query);
+
+    $entries = "";
+
+    while ($result = mysqli_fetch_assoc($queryResult)) {
+
+        $entry = $homeChart;
+        $entry = str_replace("<chart-img/>", $result["image_path"], $entry);
+        $entry = str_replace("<chart-img-alt/>", $result["alt"], $entry);
+        $entry = str_replace("<animal-name/>", $result["nome"], $entry);
+
+        $entries .= $entry;
+    }
+
+    $queryResult->free();
+
+    $page = str_replace("<home-chart-entries/>", $entries, $page);
 
     echo $page;
 ?>
