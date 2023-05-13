@@ -38,6 +38,11 @@
     // e di eseguire la query
     $queryResult = mysqli_query($mysqli, $query);
 
+    if (!$queryResult) {
+        include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
+        exit();
+    }
+
     $articleTemplate = file_get_contents($modules_path . "article-template.html");
 
     // Per ogni articolo, creiamo un template e lo aggiungiamo alla pagina usando il placeholder <article-list/>

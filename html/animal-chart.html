@@ -72,14 +72,13 @@
                     <span>Includi animali già scoperti</span>
                 </div>
             </div>
-
             <!--
                 <span id="summary">Questa tabella descrive le fasce orarie in cui si tengono le lezioni di Danza e Karate nei giorni della settimana dal Lunedì al Venerdì.</span>
                 cazzo fare con questo?
             -->
             <table>
+                <p id="click-test"></p>
                 <caption>
-                    <p id="results"></p>
                     La classifica delle creature la cui esistenza è ritenuta maggiormente plausibile dagli utenti di <span lang="en">Elusive.</span>
                 </caption>
 
@@ -92,19 +91,19 @@
                         <th scope="colgroup" colspan="2">
                             Nome creatura
                             <div>
-                                <button type="button" aria-label="Ordina la lista per nome animale" tabindex="7" onclick="myFunction('<order-name/>');">↑↓</button>
+                                <button type="button" aria-label="Ordina la lista per nome animale" tabindex="7" onclick="window.location.href='animal-chart.php?order=animalorder';">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
                             <img src="../../images/icons/thumb-up-2.png" alt="Voti esprimenti l'esistenza"/>
                             <div>
-                                <button type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'esistenza" tabindex="8" onclick="myFunction('<order-up/>');">↑↓</button>
+                                <button type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'esistenza" tabindex="8" onclick="window.location.href='animal-chart.php?order=uporder';">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
                             <img src="../../images/icons/thumb-down-2.png" alt="Voti esprimenti l'inesistenza"/>
                             <div>
-                                <button type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'inesistenza" tabindex="9" onclick="myFunction('<order-down/>');">↑↓</button>
+                                <button type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'inesistenza" tabindex="9" onclick="window.location.href='animal-chart.php?order=downorder';">↑↓</button>
                             </div>
                         </th>
                         <th scope="col">Status attuale</th>
@@ -127,6 +126,5 @@
             </table>
         </main>
     </body>
-    <script type="text/javascript" src="../../js/btn-click-event.js"></script>
     <footer id="footer"></footer>
 </html>
