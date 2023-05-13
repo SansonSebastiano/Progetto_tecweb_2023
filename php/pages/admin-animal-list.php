@@ -15,7 +15,7 @@
 
     $table = file_get_contents($modules_path . "admin-letter-table.html");
     $animal_entry = file_get_contents($modules_path . "admin-animal-entry.html");
-    $page = file_get_contents($html_path . "admin-page-animal-list.html");
+    $page = file_get_contents($html_path . "admin-animal-list.html");
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);

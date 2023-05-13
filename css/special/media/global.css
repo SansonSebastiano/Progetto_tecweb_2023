@@ -1,0 +1,22 @@
+@media screen and (max-width:800px) {
+    #header-titling {
+        padding: 1em;
+        padding-left: 0.8em;
+    }
+    #header-titling p {
+        display: none;
+    }
+    #header-titling h1 {
+        height:100%;
+        width: 100%;
+        background-position: center;
+    }
+
+    body {
+        max-width: 100%;
+    }
+
+    .tag {
+        display: none;
+    }
+}

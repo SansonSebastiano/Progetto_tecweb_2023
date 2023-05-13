@@ -1,0 +1,10 @@
+@media screen and (max-width:720px) {
+    #form-controls{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #btn-submit{
+        align-self: center;
+    }
+}

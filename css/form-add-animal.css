@@ -28,7 +28,6 @@ h2{
     "submit submit submit";
     grid-auto-columns: 1fr;
     gap: 1em;
-    justify-content: center;
 }
 
 #div-name {
@@ -110,7 +109,6 @@ textarea{
     background-size: contain;
     grid-area: submit;
     justify-self: center;
-
 }
 
 #btn-submit:hover{

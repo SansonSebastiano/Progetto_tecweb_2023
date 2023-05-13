@@ -13,7 +13,7 @@
 
     $_SESSION["prev_page"] =  $admin_page_article_list_ref;
 
-    $page = file_get_contents($html_path . "admin-page-article-list.html");
+    $page = file_get_contents($html_path . "admin-article-list.html");
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
@@ -39,7 +39,7 @@
 
     $table = file_get_contents($modules_path . "admin-article-table.html");
     $article_entry = file_get_contents($modules_path . "admin-article-entry.html");
-    $page = file_get_contents($html_path . "admin-page-article-list.html");
+    $page = file_get_contents($html_path . "admin-article-list.html");
 
     $articleList = "";
 
