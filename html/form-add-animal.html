@@ -83,7 +83,8 @@
 
                     <div id="div-desc" class="form-input-wrapper">
                         <label class="info" for="description">Descrizione animale</label>
-                        <textarea name="description" id="description" placeholder="Descrizione animale" aria-label="Inserirsci una descrizione" tabindex="8" autocomplete="off" required></textarea>
+                        <textarea name="description" id="description" placeholder="Descrizione animale" aria-label="Inserirsci una descrizione" tabindex="8" autocomplete="off" required  minlength="20"></textarea>
+                        <div id="description-too-short" class="error"></div>
                     </div>
 
                     <button id="btn-submit" aria-label="Carica i dati dell'animale" tabindex="9"></button>
