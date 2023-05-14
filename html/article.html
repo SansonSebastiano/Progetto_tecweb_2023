@@ -80,16 +80,31 @@
             <hr/>
 
             <!-- TODO: tabindex nella sezione commenti -->
-
+            
+            
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
+                <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
+                    <span name="article" id="article" hidden><article-id/></span>
+                    <input type="hidden" id="hidden" name="hidden">
+                    <div class="comment-single">
+                        <div class = "comment-details">
+                            <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
+                            <p class="author"><user/></p>
+                        </div>
+                        <div class = "comment-content">
+                            <div class = "div-reply">
+                                <textarea id="text" name="text"></textarea>
+                                <button type="submit" class="btn-send">Commenta</button>
+                            </div>                                                        
+                        </div>
+                    </div>
+                </form>            
                 <div id = "shoutbox">
                     <button id="go-top" class="arrow-button">🢙</button>
                     <button id="go-bottom" class = "arrow-button">🢛</button>
                     <ul class = "comment-list">
-
                         <li class="comment-family">
-
                             <div class="comment-single">
                                 <div class = "comment-details">
                                     <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
@@ -150,7 +165,6 @@
                                     <button class="btn-reply">Rispondi</button>
                                 </div>
                             </div>
-
                             <ul class="replies">
                             </ul>
 
@@ -159,9 +173,10 @@
                 </div>
             </section>
         </main>
-
-        <footer id="footer"></footer>
-
+        <script>
+            document.getElementById("hidden").value = document.getElementById("article").textContent;
+        </script>
+        
     </body>
 
 </html>

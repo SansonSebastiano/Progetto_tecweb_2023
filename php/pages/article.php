@@ -36,6 +36,7 @@
         $queryResult->free();
 
         //Mi ricavo le informazioni principali dell'articolo
+
         $articleTitle = $result["titolo"];
         $articleSubTitle = $result["descrizione"];
         $articleTag = $result["tag"];
@@ -46,6 +47,7 @@
         $articleContent = $result["contenuto"];
 
         //Sostituisco i placeholder con i valori dell'articolo
+        $page = str_replace("<article-id/>",$_GET["article"],$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-subtitle/>",$articleSubTitle,$page);
         $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
@@ -101,6 +103,7 @@
          //Sostituisco il placeholder con la lista di animali collegati
          $page = str_replace("<article-animals/>",$animalsRelated,$page);
          $page = str_replace("<related_animal/>",$tmp,$page);
+
          
          $queryResult->free();
          
@@ -110,6 +113,7 @@
     // }else{
     //     header("Location: ../../index.php");
     // }
-
     echo $page;
+    
+    
 ?>

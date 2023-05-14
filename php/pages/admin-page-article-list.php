@@ -68,4 +68,4 @@
     $page = str_replace("<article-list/>",$table,$page);
 
     echo $page;
-?>  
+?>     
