@@ -151,33 +151,33 @@ section {
 
 
 /*
-#main-article-div {
+#featured-item-div {
     color:white;
     height: 25em;
     margin: 1.7em 1em 0em 0em;
     position: relative;
 }
 
-#main-article-div img {
+#featured-item-div img {
     width: 100%;
     height: inherit;
     object-fit: cover;
     border: #000 solid 2px;
 }
 
-#main-article-text {
+#featured-item-text {
     position: absolute;
     bottom:0%;
     text-shadow: 2px 2px 2px black;
     margin: 10px;
 }
 
-#main-article-title {
+#featured-item-title {
     font-size: 1.2em;
     margin-bottom: 5px;
 }
 
-#main-article-subtitle {
+#featured-item-subtitle {
     font-size: 1em;
 }
 */

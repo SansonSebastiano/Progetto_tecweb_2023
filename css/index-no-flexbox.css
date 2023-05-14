@@ -22,7 +22,7 @@ h2 {
 /* ========================= MAIN ARTICLE ========================= */
 
 
-#main-article-div {
+#featured-item-div {
     color:white;
     height: 30em;
     margin: var(--margin-default);
@@ -30,17 +30,17 @@ h2 {
     cursor: pointer;
 }
 
-#main-article-div a{
+#featured-item-div a{
     height: inherit;
 }
 
-#main-article-div img {
+#featured-item-div img {
     width: 100%;
     height: inherit;
     object-fit: cover;
 }
 
-#main-article-div button {
+#featured-item-div button {
     position: absolute;
     top: 50%;
     background-color: transparent;
@@ -52,18 +52,18 @@ h2 {
     height: 1em;
 }
 
-#main-article-text {
+#featured-item-text {
     position: absolute;
     bottom:10px;
     left: 10px;
     text-shadow: 2px 2px 2px black;
 }
 
-#main-article-title {
+#featured-item-title {
     font-size: 2em;
     margin-bottom: 0.2em;
 }
-#main-article-subtitle {
+#featured-item-subtitle {
     font-size: 1.2em;
 }
 

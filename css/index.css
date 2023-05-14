@@ -25,25 +25,19 @@ h2 {
 
 /* ========================= MAIN ARTICLE ========================= */
 
-#main-article-div {
-    color:white;
-    height: 30em;
-    margin: var(--margin-default);
+#featured-items-wrapper {
     position: relative;
-    cursor: pointer;
+    margin: var(--margin-default);
 }
 
-#main-article-div a{
-    height: inherit;
+.carousel {
+    position: relative;
+    width: 88%;
+    height: 30em;
+    overflow: hidden;
 }
 
-#main-article-div img {
-    width: 100%;
-    height: inherit;
-    object-fit: cover;
-}
-
-#main-article-div button {
+#featured-items-wrapper button {
     position: absolute;
     top: 50%;
     background-color: transparent;
@@ -55,18 +49,48 @@ h2 {
     height: 1em;
 }
 
-#main-article-text {
+#featured-item {
+    color:white;
+    height: 30em;
+    cursor: pointer;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+#featured-item a{
+    height: inherit;
+}
+
+#featured-item img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+#featured-item-text {
     position: absolute;
     bottom:0.8em;
     left: 0.8em;
     text-shadow: 2px 2px 2px black;
 }
 
-#main-article-title {
+#featured-item-title {
     font-size: 2em;
     margin-bottom: 0.2em;
 }
-#main-article-subtitle {
+#featured-item-subtitle {
     font-size: 1.2em;
 }
 
