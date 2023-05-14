@@ -1,5 +1,6 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . "config.php";
+    require  'db-conn.php';
 
     const ADMIN_ROLE = "admin";
     const USER_ROLE = "user";
@@ -7,6 +8,7 @@
     const GUEST_ROLE = "guest";
 
     $log_in_out = " ";
+    $user = " ";
 
     $logoutPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logout.php";
     $loginPath = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
@@ -19,23 +21,24 @@
     if (isset($_SESSION["ruolo"])) {
         if ($_SESSION["ruolo"] == ADMIN_ROLE) {
             $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
-            require($conn_path . "admin-conn.php");
+            $user = $_SESSION["ruolo"] . $logConn;
 
         } elseif ($_SESSION["ruolo"] == WRITER_ROLE) {
             $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
-            require($conn_path . "writer-conn.php");
+            $user = $_SESSION["ruolo"] . $logConn;
 
         } elseif ($_SESSION["ruolo"] == USER_ROLE) {
             $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
-            require($conn_path . "user-conn.php");
+            $user = $_SESSION["ruolo"] . $logConn;
 
-        } else {
+        } else {    // GUEST_ROLE
             $log_in_out = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
-            require($conn_path . "guest-conn.php");
+            $user = $_SESSION["ruolo"] . $logConn;
         }
     } else {
         $log_in_out = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
         $_SESSION["ruolo"] = GUEST_ROLE;
-        require($conn_path . "guest-conn.php");
+        $user = $_SESSION["ruolo"] . $logConn;
     }
+    $logUserConn = "<script>console.log('" . $user . "');</script>";
 ?>

@@ -1,5 +1,5 @@
 <?php
-     include "conn" . DIRECTORY_SEPARATOR . "writer-conn.php";
+     include "db-conn.php";
      include "input-cleaner.php";
     
     if (session_status() === PHP_SESSION_NONE) {
