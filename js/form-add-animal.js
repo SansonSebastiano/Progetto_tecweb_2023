@@ -1,16 +1,22 @@
+//OVERVIEW: Contiene le funzioni che validano i campi del form di aggiunta di un animale
 const invalidAnimalName = document.getElementById("invalid-animal-name")
+const invalidDate = document.getElementById("invalid-date")
+const dateInput = document.getElementById("data-scoperta")
 const descriptionTooShort = document.getElementById("description-too-short")
 const animalInput = document.getElementById("name")
 const descriptionInput = document.getElementById("description")
 const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
+//Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
 animalInput.addEventListener("blur", checkAnimalName)
 descriptionInput.addEventListener("blur", checkDescriptionLength)
+dateInput.addEventListener("blur", checkDate)
 submitForm.addEventListener("submit", validate)
 
+//Controlla se il nome dell'animale è valido (solo lettere e spazi)
 function checkAnimalName(){
-    if(!(/^[A-Za-z\s]*$/.test(animalInput.value))){
+    if(!(/^[\w\s]*$/.test(animalInput.value))){
         invalidAnimalName.innerHTML = "Il nome dell animale può contenere solo lettere o spazi"
         return false
     }
@@ -20,6 +26,8 @@ function checkAnimalName(){
     }
 }
 
+//Controlla se è stata caricata un'immagine su firebase
+//Il trucco è che se è stata caricata, il campo imagePath.value non è vuoto
 function isImageUploaded(){
     const status = document.getElementById("loaded-photo")
     console.log(imagePath.value)
@@ -38,7 +46,7 @@ function isImageUploaded(){
 function checkDescriptionLength(){
     const description = document.getElementById("description")
     if(description.value.length < 20){
-        descriptionTooShort.innerHTML = "La descrizione deve essere lunga almeno 20 caratteri"
+        descriptionTooShort.innerHTML = "La descrizione deve contenere almeno 20 caratteri"
         return false
     }
     else{
@@ -47,11 +55,28 @@ function checkDescriptionLength(){
     }
 }
 
-function validate() {
-    setCurrentDate()
-    return checkAnimalName() && isImageUploaded() && checkDescriptionLength()
+
+//La data deve essere nel formato yyyy-mm-dd
+function checkDate(){
+    if(!/\d{4}\-\d{2}\-\d{2}/.test(dateInput.value)){
+        invalidDate.innerHTML = "La data non è nel formato corretto"
+        return false
+    }
+    else{
+        invalidDate.innerHTML = ""
+        return true
+    }
 }
 
+//Funzione che viene chiamata quando si preme il pulsante di submit del form
+function validate() {
+    return checkAnimalName() 
+        && isImageUploaded() 
+        && checkDescriptionLength()
+        && checkDate()
+}
+
+//Questa funzione non è necessaria qui ma nel form aggiunta articolo
 // function setCurrentDate(){
 //     var date = new Date();
 //     var currentDate = date.toISOString().substring(0,10);

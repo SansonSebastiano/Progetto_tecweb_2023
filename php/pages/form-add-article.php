@@ -29,6 +29,8 @@
         $path = clearInput($_POST['image-path']);
         $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
 
+        $ok = true;
+
         $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
         $queryResult = mysqli_query($mysqli, $sql);
         $id_query = "SELECT MAX(`id`) FROM `articolo`";
