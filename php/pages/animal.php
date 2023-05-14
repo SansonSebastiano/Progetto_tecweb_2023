@@ -6,7 +6,7 @@
         session_start();
     }
     
-    $_SESSION["prev_page"] = $animal_ref;
+    $_SESSION["prev_page"] = $animal_ref . "?animale=" . $_GET["animale"];
 
     $page = file_get_contents($html_path . "animal.html");
 
@@ -122,5 +122,14 @@
         
         $queryResultTwo->free();
     }
+
+    // disabilita la sezione voto se l'utente non e' loggato
+    $voting_section = "";
+    if ($_SESSION['ruolo'] != 'guest') {
+        $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
+        $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
+    }
+    $page = str_replace("<animal-voting-section/>", $voting_section, $page);
+
     echo $page;
 ?>
