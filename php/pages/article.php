@@ -6,7 +6,7 @@
         session_start();
     }
 
-    $_SESSION["prev_page"] = $article_ref;
+    $_SESSION["prev_page"] = $article_ref . "?article=" . $_GET["article"];
 
     $page = file_get_contents($html_path . "article.html");
 

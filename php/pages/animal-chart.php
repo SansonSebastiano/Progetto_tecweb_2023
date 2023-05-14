@@ -6,7 +6,7 @@
         session_start();
     }
     
-    $_SESSION["prev_page"] = $animal_chart_ref;
+    $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"];
 
     $page = file_get_contents($html_path . "animal-chart.html");
 

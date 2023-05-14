@@ -2,7 +2,6 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     include "conn" . DIRECTORY_SEPARATOR . "user-conn.php";
 
-    // GESTIRE CHE UN UTENTE PUÒ ESPRIMERE UNA SOLA VOLTA IL VOTO PER OGNI ANIMALE
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -26,7 +25,11 @@
             if ($writeQueryResult) {
                 print_r($yes + 1);
             } else {
-                print_r($yes);
+                if (is_null($yes)) {
+                    print_r(0);
+                } else {
+                    print_r($yes);
+                }
             }
         } else { // $voteType === "downvote"
             // read
@@ -43,7 +46,11 @@
             if ($writeQueryResult) {
                 print_r($no + 1);
             } else {
-                print_r($no);
+                if (is_null($no)) {
+                    print_r(0);
+                } else {
+                    print_r($no);
+                }
             }
         }
     }

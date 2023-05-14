@@ -68,6 +68,25 @@
         $page = str_replace("<yes-vote/>",$yes,$page);
         $page = str_replace("<no-vote/>",$no,$page);
 
+        $queryResult->free();
+
+        $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
+        // un utente può esprimere un solo voto per ciascun animale
+        $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
+        $queryResultThree = mysqli_query($mysqli, $queryThree);
+
+        if ($queryResultThree->num_rows > 0) {
+            $voting_section = str_replace("<is-clicked/>", 'true', $voting_section);
+        } else {
+            $voting_section = str_replace("<is-clicked/>", 'false', $voting_section);
+        }
+
+        // disabilita la sezione voto se l'utente non e' loggato
+        if ($_SESSION['ruolo'] != 'guest') {
+            $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
+            $page = str_replace("<animal-voting-section/>", $voting_section, $page);
+        }
+
         // RELATED ARTICLES SECTION
         $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
         $queryResultTwo = mysqli_query($mysqli, $queryTwo);
@@ -122,14 +141,6 @@
         
         $queryResultTwo->free();
     }
-
-    // disabilita la sezione voto se l'utente non e' loggato
-    $voting_section = "";
-    if ($_SESSION['ruolo'] != 'guest') {
-        $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
-        $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
-    }
-    $page = str_replace("<animal-voting-section/>", $voting_section, $page);
 
     echo $page;
 ?>
