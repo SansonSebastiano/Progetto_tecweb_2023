@@ -5,7 +5,7 @@
 
     include ".." . DIRECTORY_SEPARATOR . "config.php";
     // import the connection script
-    require 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php';
+    require  'db-conn.php';
     // import input cleaner script
     include 'input-cleaner.php' ;
 

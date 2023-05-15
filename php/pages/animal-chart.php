@@ -6,7 +6,7 @@
         session_start();
     }
     
-    $_SESSION["prev_page"] = $animal_chart_ref;
+    $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"];
 
     $page = file_get_contents($html_path . "animal-chart.html");
 
@@ -14,7 +14,7 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", $_SESSION["username"], $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $user, $page);
+    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
 

@@ -14,7 +14,7 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", $_SESSION["username"], $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $user, $page);
+    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     // LOGIN SECTION
     $admin_section = "<button class=\"btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\" tabindex='2'>Sezione Amministratore</button>";
@@ -34,17 +34,35 @@
     }
 
     // MAIN ARTICLES SECTION
-    $query = 'SELECT id, titolo, image_path, alt, tag, descrizione FROM articolo WHERE featured=1 ORDER BY data DESC LIMIT 5;';
+    $carousel_item = file_get_contents($modules_path . "home-carousel-item.html");
+    $query = 'SELECT id, titolo, image_path, alt, tag, descrizione FROM articolo WHERE featured=1 ORDER BY data DESC LIMIT 3;';
     $queryResult = mysqli_query($mysqli, $query);
 
+    $items = "";
+    $i = 0;
     while ($result = mysqli_fetch_assoc($queryResult)) {
-        $page = str_replace("<main-article-img/>", $result["image_path"], $page);
-        $page = str_replace("<main-img-alt/>", $result["alt"], $page);
-        $page = str_replace("<main-article-title/>", $result["titolo"], $page);
-        $page = str_replace("<main-article-tag/>", $result["tag"], $page);
-        $page = str_replace("<main-article-id/>", $result["id"], $page);
-        $page = str_replace("<main-article-subtitle/>", $result["descrizione"], $page);
+        $item = $carousel_item;
+        // if is first item of array
+        if ($i == 0) {
+            $item = str_replace("<active/>", " active", $item);
+        } else {
+            $item = str_replace("<active/>", "", $item);
+        }
+        $i++;
+
+        $item = str_replace("<featured-item-img/>", $result["image_path"], $item);
+        $item = str_replace("<main-img-alt/>", $result["alt"], $item);
+        $item = str_replace("<featured-item-title/>", $result["titolo"], $item);
+        $item = str_replace("<featured-item-tag/>", $result["tag"], $item);
+        $item = str_replace("<featured-item-id/>", $result["id"], $item);
+        $item = str_replace("<featured-item-subtitle/>", $result["descrizione"], $item);
+
+        $items .= $item;
     }
+
+    $queryResult->free();
+
+    $page = str_replace("<home-carousel-item/>", $items, $page);
 
     // ASIDE CHART SECTION
     $homeChart = file_get_contents($modules_path . "index-chart.html");

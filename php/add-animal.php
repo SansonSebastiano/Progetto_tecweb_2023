@@ -1,5 +1,5 @@
 <?php
-     include "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
+     include "db-conn.php";
      include "input-cleaner.php";
 
     
