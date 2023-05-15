@@ -20,10 +20,10 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         $titolo = clearInput(filter_input(INPUT_POST,"titolo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $sottotitolo = clearInput(filter_input(INPUT_POST,"Sottotitolo",FILTER_SANITIZE_SPECIAL_CHARS));
+        $sottotitolo = clearInput(filter_input(INPUT_POST,"sottotitolo",FILTER_SANITIZE_SPECIAL_CHARS));
         $tag = clearInput($_POST['tag']);
         $luogo = clearInput(filter_input(INPUT_POST,"luogo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $data = clearInput($_POST['data_scrittura']);
+        $data = clearInput($_POST['data-scrittura']);
         $testo = clearInput($_POST['testo']);
         $autore = clearInput($_SESSION['id']);
         $path = clearInput($_POST['image-path']);
