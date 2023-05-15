@@ -19,10 +19,10 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         $nome = trim(clearInput(filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS)));
-        $status = clearInput($_POST['status']);
+        $status = trim(clearInput($_POST['status']));
         $descrizione = trim(clearInput(filter_input(INPUT_POST,"description",FILTER_SANITIZE_SPECIAL_CHARS)));
-        $data = clearInput($_POST['data_scoperta']);
-        $path = clearInput($_POST['image-path']);
+        $data = trim(clearInput($_POST['data_scoperta']));
+        $path = trim(clearInput($_POST['image-path']));
 
         $sql = "SELECT * FROM animale WHERE nome = '$nome'";
         $ok = true;
@@ -41,13 +41,20 @@
         }else{
             $page = str_replace("<error-desc/>", "", $page);
         }
+
+        if (!array_search($status,["Scopero","Avvistato","Ipotizzato"])){
+            $page = str_replace("<error-status/>", "Inserito uno status invalido", $page);
+            $ok = false;
+        }else{
+            $page = str_replace("<error-status/>", "", $page);
+        }
         
         if (strlen($data) == 0){
-            $page = str_replace("<error-date/>", "La data di nascita non può essere vuota", $page);
+            $page = str_replace("<error-date/>", "La data di scoperta non può essere vuota", $page);
             $ok = false;
         }
         else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $data)){ //se la data non è nel formato corretto (anno - mese - giorno)
-            $page = str_replace("<error-date/>", "La data non è nel formato corretto", $page);
+            $page = str_replace("<error-date/>", "La data non &egrave; nel formato corretto", $page);
             $ok = false;
         } else {
             $page = str_replace("<error-date/>", "", $page);

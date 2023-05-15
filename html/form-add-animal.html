@@ -61,11 +61,12 @@
 
                     <div id="div-status" class="form-input-wrapper">
                         <label class="info" for="status">Status animale</label>
-                        <select id="status" name= "status" aria-label="seleziona lo status dell'animale" tabindex="4" required>
+                        <select id="animal-status" name= "status" aria-label="seleziona lo status dell'animale" tabindex="4" required>
                             <option value="scoperto">Scoperto</option>
                             <option value="ipotizzato">Ipotizzato</option>
                             <option value="avvistato">Avvistato</option>
                         </select>
+                        <div id="invalid-status" class="error"><error-status/></div>
                     </div>
 
                     <div id="div-date" class="form-input-wrapper">

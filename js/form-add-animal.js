@@ -1,15 +1,20 @@
 //OVERVIEW: Contiene le funzioni che validano i campi del form di aggiunta di un animale
 const invalidAnimalName = document.getElementById("invalid-animal-name")
 const invalidDate = document.getElementById("invalid-date")
-const dateInput = document.getElementById("data-scoperta")
 const descriptionTooShort = document.getElementById("description-too-short")
+const status = document.getElementById("loaded-photo")
+
+const animalStatus = document.getElementById("animal-status")
+const dateInput = document.getElementById("data-scoperta")
 const animalInput = document.getElementById("name")
 const descriptionInput = document.getElementById("description")
+
 const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
 animalInput.addEventListener("blur", checkAnimalName)
+animalStatus.addEventListener("blur", setText("invalid-status",""))
 descriptionInput.addEventListener("blur", checkDescriptionLength)
 dateInput.addEventListener("blur", checkDate)
 submitForm.addEventListener("submit", validate)
@@ -29,7 +34,6 @@ function checkAnimalName(){
 //Controlla se è stata caricata un'immagine su firebase
 //Il trucco è che se è stata caricata, il campo imagePath.value non è vuoto
 function isImageUploaded(){
-    const status = document.getElementById("loaded-photo")
     console.log(imagePath.value)
     if(imagePath.value == ""){
         status.innerHTML = "Non è stata caricata nessuna immagine";
@@ -44,8 +48,7 @@ function isImageUploaded(){
 //Questo è probabilmente ridondante
 //Alcuni browser non supportano l'attributo minlength
 function checkDescriptionLength(){
-    const description = document.getElementById("description")
-    if(description.value.length < 20){
+    if(descriptionInput.value.length < 20){
         descriptionTooShort.innerHTML = "La descrizione deve contenere almeno 20 caratteri"
         return false
     }
@@ -66,6 +69,10 @@ function checkDate(){
         invalidDate.innerHTML = ""
         return true
     }
+}
+
+function setText(id, text){
+    document.getElementById(id).innerHTML = text
 }
 
 //Funzione che viene chiamata quando si preme il pulsante di submit del form
