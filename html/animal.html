@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/animal.css"/>
     <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
 
     <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
 
@@ -52,7 +53,7 @@
     
     <main class="main-wrapper">
             
-        <h2><animal-name/></h2>
+        <h2 class="outline"><animal-name/></h2>
         <section id="section-animal-description" class="horizontal-flex">
             <div class="speech-help" id="table-summary">Dati informativi sulla data di ultimo 
                 avvistamento, data di scoperta e stato corrente.</div>
@@ -87,7 +88,7 @@
                 </div>    
         </section>
         <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
-        <section id="animal-voting">
+        <section id="voting">
             <animal-voting-section/>
             <div class="horizontal-flex">
                 <div class="votes-box">Esiste: <span id="exist-votes" class="votes-span" data-value="<yes-vote/>"><yes-vote/></span></div>
@@ -99,7 +100,7 @@
         <hr/>
         
         <section id="related-articles">
-            <h2 class="centered">Articoli correlati:</h2>
+            <h2 class="outline">Articoli correlati:</h2>
     
             <ul id = "related-articles-list" class="coloredlist">
                 <related-articles/>

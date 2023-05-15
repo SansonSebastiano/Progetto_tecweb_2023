@@ -1,12 +1,5 @@
 main {
-    padding: var(--margin-default);
-    background-color: var(--color3);
-    color: white;
-}
-
-h2 {
-    text-align: center;
-    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+    background-color: var(--color-semi-trans);
 }
 
 /* ============ OPTIONS ============ */
