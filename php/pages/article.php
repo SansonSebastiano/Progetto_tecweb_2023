@@ -109,14 +109,17 @@
         //TODO: Sezione commenti
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
 
-        $query = 'SELECT * FROM commento WHERE articolo = "'. $_GET["article"] . '";';
+        $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         $commentList = "";
         while($commentResult = mysqli_fetch_assoc($queryResult)){
             $comment = $commentTemplate;
+            $commentId = $commentResult["commento"];
             $commentText = $commentResult["contenuto"];
-            $commentAuthor = $commentResult["utente"];
+            $commentAuthor = $commentResult["nome"];
             $commentTimestamp = $commentResult["data"];
+            $comment = str_replace("<comment-id/>",$commentId, $comment);
+            $comment = str_replace("<article-id/>",$_GET["article"],$comment);
             $comment = str_replace("<author/>",$commentAuthor,$comment);
         
             $comment = str_replace("<comment-text/>",$commentText,$comment);

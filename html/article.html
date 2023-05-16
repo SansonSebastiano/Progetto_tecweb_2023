@@ -54,8 +54,6 @@
                     <p id ="date">Di <em><article-author/></em> <time datetime="<article-date/>"><article-date/></time></p>
                     <img src = "<article-image/>" alt="<article-image-alt/>">
                     <div id = "text-div1">
-
-
                         <aside>
                             <dl>
                                 <dt>TAG:</dt>
@@ -85,8 +83,8 @@
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
                 <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
-                    <span name="article" id="article" hidden><article-id/></span>
-                    <input type="hidden" id="hidden" name="hidden">
+                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
+                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="false">
                     <div class="comment-single">
                         <div class = "comment-details">
                             <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
@@ -130,9 +128,6 @@
                 </div>
             </section>
         </main>
-        <script>
-            document.getElementById("hidden").value = document.getElementById("article").textContent;
-        </script>
         
     </body>
 
