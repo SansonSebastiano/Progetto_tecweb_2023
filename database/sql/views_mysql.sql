@@ -13,7 +13,8 @@ FROM view_articolo_utente INNER JOIN articolo_animale ON view_articolo_utente.id
     -- create view with articolo and his comments
 CREATE VIEW view_articolo_commento
 AS SELECT articolo.id as articolo, commento.id as commento, utente.nome, commento.contenuto, commento.data
-FROM articolo INNER JOIN commento ON articolo.id = commento.articolo INNER JOIN utente ON commento.utente = utente.id;
+FROM articolo INNER JOIN commento ON articolo.id = commento.articolo INNER JOIN utente ON commento.utente = utente.id
+WHERE commento NOT IN (SELECT figlio FROM risposta);
     
     -- create view with articolo, his comments and his answers
 CREATE VIEW view_articolo_commento_risposta
