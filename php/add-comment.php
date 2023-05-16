@@ -7,7 +7,7 @@
         session_start();
     }
     $text = clearInput($_POST['text']);
-    $autore = $_SESSION['username'];
+    $autore = $_SESSION['id'];
     $article = $_POST["hidden"];
     $date_time = date("Y-m-d H:i:s");
     $sql = "INSERT INTO `commento` (`articolo`, `utente`, `contenuto`, `data`) VALUES ('$article', '$autore', '$text', '$date_time')";

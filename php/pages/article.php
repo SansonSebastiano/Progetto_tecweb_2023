@@ -105,10 +105,29 @@
          $page = str_replace("<related_animal/>",$tmp,$page);
 
          
-         $queryResult->free();
-         
+        $queryResult->free();
+        //TODO: Sezione commenti
+        $commentTemplate = file_get_contents($modules_path . "comment-template.html");
 
-         //TODO: Sezione commenti
+        $query = 'SELECT * FROM commento WHERE articolo = "'. $_GET["article"] . '";';
+        $queryResult = mysqli_query($mysqli, $query);
+        $commentList = "";
+        while($commentResult = mysqli_fetch_assoc($queryResult)){
+            $comment = $commentTemplate;
+            $commentText = $commentResult["contenuto"];
+            $commentAuthor = $commentResult["utente"];
+            $commentTimestamp = $commentResult["data"];
+            $comment = str_replace("<author/>",$commentAuthor,$comment);
+        
+            $comment = str_replace("<comment-text/>",$commentText,$comment);
+
+            $comment = str_replace("<timestamp/>",$commentTimestamp,$comment);
+            $commentList .= $comment;
+        }
+        $page = str_replace("<comment-list/>",$commentList,$page);
+        $queryResult->free();
+
+         
         }
     // }else{
     //     header("Location: ../../index.php");
