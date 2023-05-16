@@ -11,10 +11,7 @@ main {
     flex: 8;
     z-index: 1;
     position: relative;
-}
-
-h2 {
-    text-align: center;
+    padding: 0;
 }
 
 #last-update {
@@ -153,12 +150,9 @@ aside {
     flex: 2;
 }
 
-aside h2 {
-    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
-}
-
 aside a {
-    color: var(--color2);
+    display: block;
+    margin-bottom: 1em;
 }
 
 aside ol {
@@ -173,6 +167,7 @@ aside ul {
 
 aside section {
     margin-bottom: 2em;
+    clear: both;
 }
 
 aside li {
@@ -192,3 +187,4 @@ aside figure img{
 aside figcaption {
     display: inline;
 }
+

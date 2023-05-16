@@ -1,4 +1,4 @@
-@media screen and (max-width:800px) {
+@media only screen and (max-width:800px) {
    .horizontal-flex {
         flex-direction: column;
    }
@@ -19,7 +19,7 @@
    }
 
 
-@media screen and (max-width:720px) {
+@media only screen and (max-width:720px) {
     #animal-description{
         flex-direction: column-reverse;
     }

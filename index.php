@@ -65,7 +65,7 @@
     $page = str_replace("<home-carousel-item/>", $items, $page);
 
     // ASIDE CHART SECTION
-    $homeChart = file_get_contents($modules_path . "home-chart.html");
+    $homeChart = file_get_contents($modules_path . "index-chart.html");
 
     $queryTwo = 'SELECT nome, image_path, alt FROM view_animale_voto ORDER BY YES DESC LIMIT 5;';
     $queryResultTwo = mysqli_query($mysqli, $queryTwo);
@@ -84,10 +84,10 @@
 
     $queryResultTwo->free();
 
-    $page = str_replace("<home-chart-entries/>", $entriesTwo, $page);
+    $page = str_replace("<index-chart-entries/>", $entriesTwo, $page);
 
     // ARTICLES LIST SECTION
-    $article = file_get_contents($modules_path . "home-article-list.html");
+    $article = file_get_contents($modules_path . "index-article-list.html");
 
     $queryThree = 'SELECT id, titolo, image_path, alt, tag, data FROM articolo ORDER BY data DESC LIMIT 6;';
     $queryResultThree = mysqli_query($mysqli, $queryThree);
@@ -107,7 +107,7 @@
 
     $queryResultThree->free();
 
-    $page = str_replace("<home-article-list-entries/>", $entriesThree, $page);
+    $page = str_replace("<index-article-list-entries/>", $entriesThree, $page);
 
     // LAST UPDATE SECTION
     $queryFour = 'SELECT data FROM articolo ORDER BY data DESC LIMIT 1;';

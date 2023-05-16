@@ -16,7 +16,7 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $logUserConn, $page);
 
-    $animal_entry = file_get_contents($modules_path . "chart-animal-entry.html");
+    $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
 
     $type_order = $_GET["order"];
 

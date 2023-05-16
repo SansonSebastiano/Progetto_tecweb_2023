@@ -4,6 +4,7 @@
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
     --color4: rgb(150,150,150);
+    --color-semi-trans: rgba(255, 255,255, 0.8);
     --nonvisited-links: rgb(34, 0, 88);
     --visited-links: rgb(158, 142, 0);
     --width-perc-main: 75%;
@@ -31,7 +32,22 @@ img.framed {
 
 h2 {
     color:var(--color2);
+    text-align: center;
+    font-weight: bold;
 }
+
+h2.black {
+    color: black;
+}
+
+h2.outline {
+    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+}
+
+a.white {
+    color: white;
+}
+
 
 a{
     color: var(--nonvisited-links);
@@ -52,6 +68,7 @@ body {
 
 main {
     position: relative;
+    padding: var(--margin-default);
     z-index: 2;
 }
 
