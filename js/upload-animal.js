@@ -7,13 +7,20 @@ function uploadFile(e) {
     e.preventDefault();
     // get file from input with id=#file
     let file = document.querySelector("#image").files[0];
-    let hidden = document.querySelector("#hidden");
+    let hidden = document.querySelector("#image-path");
     let status = document.getElementById("loaded-photo")
         // set metadata for the file
     const metadata = {
         contentType: file.type,
       };
-
+    
+    console.log(file.size);
+    if(file.size >= 1000000){
+        status.classList.remove("success")
+        status.classList.add("error")
+        status.innerHTML = "L'immagine è troppo grande, massimo 1MB";
+        return;
+    }
     // create a reference to the file
     const fileRef = ref(animalsRef, file.name);
 
@@ -24,7 +31,8 @@ function uploadFile(e) {
     }).then((url) => {
         hidden.value = url;
         status.innerHTML = "Foto caricata con successo";
-        status.style.color = "green";
+        status.classList.remove("error")
+        status.classList.add("success")
 
     });
     document.getElementById("btn-submit").style.visibility="visible";

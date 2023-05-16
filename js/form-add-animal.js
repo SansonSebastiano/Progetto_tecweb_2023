@@ -1,4 +1,3 @@
-
 const animalStatus = document.getElementById("animal-status")
 const dateInput = document.getElementById("data-scoperta")
 const animalInput = document.getElementById("name")
@@ -7,24 +6,30 @@ const descriptionInput = document.getElementById("description")
 const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
+setText("invalid-status","")
+
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
-animalInput.addEventListener("blur", checkValidation("name","invalid-animal-name",/^[a-zA-Z_\s]{1,}$/, "Il nome dell'animale non può contenere caratteri speciali"))
-animalStatus.addEventListener("blur", setText("invalid-status",""))
-descriptionInput.addEventListener("blur", checkValidation("description","description-too-short",/^[\w\d]{20,}$/, "La descrizione deve contenere almeno 20 caratteri"))
-dateInput.addEventListener("blur", checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/, "La data non è nel formato corretto"))
+animalInput.addEventListener("blur", function(){checkValidation("name","invalid-animal-name",/^[a-zA-Z_èàìòéùç\s]*$/, "Inserire un nome per l'animale","Il nome dell'animale non può contenere caratteri speciali")})
+descriptionInput.addEventListener("blur", function(){checkValidation("description","description-too-short",/^[\S\s]{20,}$/,"","La descrizione deve essere lunga almeno 20 caratteri")})
+dateInput.addEventListener("blur", function(){checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"Inserire una data","La data non è nel formato corretto")})
 submitForm.addEventListener("submit",function(){return validate()})
 
-function checkValidation(input,output,regex,errorText){
+function checkValidation(input,output,regex,noValueText,errorText){
     const inputHTML = document.getElementById(input)
     const outputHTML = document.getElementById(output)
+
+    if(!noValueText == "" && inputHTML.value == ""){
+        outputHTML.innerHTML = noValueText
+        return false
+    }
     if(!(regex.test(inputHTML.value))){
         outputHTML.innerHTML = errorText
         return false
-    }   
-    else{
-        outputHTML.innerHTML = ""
-        return true
     }
+
+    outputHTML.innerHTML = ""
+    return true
+    
 }
 
 //Controlla se è stata caricata un'immagine su firebase
@@ -37,11 +42,10 @@ function isImageUploaded(){
         status.classList.remove("success")
         return false
     }
-    else{
-        status.classList.remove("error")
-        status.classList.add("success")
-        return true
-    }
+
+    status.classList.remove("error")
+    status.classList.add("success")
+    return true
 }
 
 
@@ -51,8 +55,8 @@ function setText(id, text){
 
 //Funzione che viene chiamata quando si preme il pulsante di submit del form
 function validate() {
-    return checkValidation("name","invalid-animal-name",/^[\w\s]*$/) 
-        && checkValidation("description","description-too-short",/^[\w\d]{5,}$/) 
-        && checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/) 
+    return checkValidation("name","invalid-animal-name",/^[a-zA-Z_èàìòéùç\s]*$/, "Inserire un nome per l'animale","Il nome dell'animale non può contenere caratteri speciali")
+        && checkValidation("description","description-too-short",/^[\S\s]{20,}$/,"","La descrizione deve essere lunga almeno 20 caratteri") 
+        && checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"Inserire una data","La data non è nel formato corretto")
         && isImageUploaded() 
 }

@@ -70,8 +70,8 @@
                         <label class="info" for="tag">Tag articolo</label>
                         <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="6" required>
                             <option value="scoperta">Scoperta</option>
-                            <option value="new">New-entry</option>
-                            <option value="avvistato">Avvistamento</option>
+                            <option value="new-entry">New-entry</option>
+                            <option value="avvistamento">Avvistamento</option>
                             <option value="comunicazione">Comunicazione</option>
                         </select>
                         <div id="invalid-tag" class="error"><error-tag/></div>
@@ -80,13 +80,13 @@
                     <div id="form-box-luogo" class="form-input-wrapper">
                         <label class="info" for="luogo">Luogo riferito nell'articolo</label>
                         <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="6" autocomplete="country-name" aria-label="Inserisci luogo" required>
-                        <div id="invalid-place" class="error"><error-article/></div>
+                        <div id="invalid-place" class="error"><error-place/></div>
                     </div>
 
                     <div id="form-box-creatura" class="form-input-wrapper">
                         <label for="creatura" class="info">Creatura riferita</label>
                         <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required>
-                        <div id="invalid-creature" class="error"><error-article/></div>
+                        <div id="invalid-creature" class="error"><error-animal/></div>
                     </div>
 
                     <input type="hidden" name= "data-scrittura" id="data-scrittura" tabindex="8">

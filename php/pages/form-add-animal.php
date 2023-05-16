@@ -16,69 +16,79 @@
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
     }
 
+    $errorStrings = [
+        "nome" => "",
+        "descrizione" => "",
+        "status" => "",
+        "data" => "",
+        "path" => ""
+    ];
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        $nome = trim(clearInput(filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS)));
-        $status = trim(clearInput($_POST['status']));
-        $descrizione = trim(clearInput(filter_input(INPUT_POST,"description",FILTER_SANITIZE_SPECIAL_CHARS)));
-        $data = trim(clearInput($_POST['data_scoperta']));
-        $path = trim(clearInput($_POST['image-path']));
+        $nome = clearInput(filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS));
+        $status = clearInput($_POST['status']);
+        $descrizione = clearInput(filter_input(INPUT_POST,"description",FILTER_SANITIZE_SPECIAL_CHARS));
+        $dataScoperta = clearInput($_POST['data-scoperta']);
+        $path = clearInput($_POST['image-path']);
 
         $sql = "SELECT * FROM animale WHERE nome = '$nome'";
         $ok = true;
         $query = mysqli_query($mysqli, $sql);
 
-        if(preg_match('/^[\w\s]*$/', $nome)){
-            $page = str_replace("<error-name/>", "Il nome dell animale può contenere solo lettere o spazi", $page);
+        //controllo che il nome non sia vuoto e che contenga solo lettere o spazi
+        if(strlen($nome) == 0){
+            $errorStrings["nome"] = "Inserire un nome per l'animale";
             $ok = false;
-        }else{
-            $page = str_replace("<error-name/>", "", $page);
+        }
+        else if(!preg_match('/^[\wèàìòéùç\s]*$/', $nome)){
+            $errorStrings["nome"] = "Il nome dell'animale non può contenere caratteri speciali";
+            $ok = false;
         }
         
+        //controllo che la descrizione sia lunga almeno 20 caratteri
         if(strlen($descrizione) < 20){
-            $page = str_replace("<error-desc/>", "La descrizione deve contenere almeno 20 caratteri", $page);
+            $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri";
             $ok = false;
-        }else{
-            $page = str_replace("<error-desc/>", "", $page);
         }
 
-        if (!array_search($status,["Scopero","Avvistato","Ipotizzato"])){
-            $page = str_replace("<error-status/>", "Inserito uno status invalido", $page);
+        //controllo che lo status sia uno di quelli validi
+        if (array_search(ucfirst($status),["Scoperto","Avvistato","Ipotizzato"],true) === false){
+            $errorStrings["status"] = "Lo status deve essere uno di quelli validi";
             $ok = false;
-        }else{
-            $page = str_replace("<error-status/>", "", $page);
         }
         
-        if (strlen($data) == 0){
-            $page = str_replace("<error-date/>", "La data di scoperta non può essere vuota", $page);
+        //controllo che la data non sia vuota e che sia nel formato corretto
+        if (strlen($dataScoperta) == 0){
+            $errorStrings["data"] = "Inserire una data";
             $ok = false;
         }
-        else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $data)){ //se la data non è nel formato corretto (anno - mese - giorno)
-            $page = str_replace("<error-date/>", "La data non &egrave; nel formato corretto", $page);
+        else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataScoperta)){ //se la data non è nel formato corretto (anno - mese - giorno)
+            $errorStrings["data"] = "La data non è nel formato corretto";
             $ok = false;
-        } else {
-            $page = str_replace("<error-date/>", "", $page);
-        }
+        } 
 
+        //controllo che sia stata caricata un immagine
         if (strlen($path) == 0){
-            $page = str_replace("<error-img/>", "Non &egrave; stata caricata nessun immagine", $page);
+            $errorStrings["path"] = "Non è stata caricata nessuna immagine";
             $page = str_replace("<img-status/>", "error", $page);
             $ok = false;
         }else{
-            $page = str_replace("<error-img/>", "", $page);
             $page = str_replace("<img-status/>", "success", $page);
         }
 
+        //controllo che l'animale non sia già presente nel database
         if (mysqli_num_rows($query) > 0) {
             $result = "<p class='error'>Animale già presente!</p>";
             $ok = false;
+        }else if(!$ok){
+            $result = "<p class='error'>Errore nell'inserimento dell'animale!</p>";
         }
 
         $query->free();
         
+        //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
         if($ok){
         
-        $query->free();
         $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path', '$nome')";
 
         $query = mysqli_query($mysqli, $sql);
@@ -90,13 +100,6 @@
 
             }
         }
-    }else if($_SERVER['REQUEST_METHOD'] == "GET"){
-        //se è stata fatta una richiesta GET svuota i messaggi di successo e di errore
-        $page = str_replace("<error-desc/>", "", $page);
-        $page = str_replace("<error-name/>", "", $page);
-        $page = str_replace("<error-date/>", "", $page);
-        $page = str_replace("<error-img/>", "", $page);
-        $page = str_replace("<img-status/>", "success", $page);
     }
 
     $_SESSION["prev_page"] =  $faan_ref;
@@ -108,6 +111,13 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
     $page = str_replace("<result/>", $result, $page);
+
+    $page = str_replace("<error-animal/>", $errorStrings["nome"], $page);
+    $page = str_replace("<error-desc/>", $errorStrings["descrizione"], $page);
+    $page = str_replace("<error-status/>", $errorStrings["status"], $page);
+    $page = str_replace("<error-date/>", $errorStrings["data"], $page);
+    $page = str_replace("<error-img/>", $errorStrings["path"], $page);
+    
     
     echo $page;
 ?>

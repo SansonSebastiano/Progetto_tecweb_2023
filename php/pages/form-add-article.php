@@ -15,6 +15,17 @@
 
     $result = "";
 
+    $errorStrings = [
+        "titolo" => "",
+        "sottotitolo" => "",
+        "tag" => "",
+        "luogo" => "",
+        "data" => "",
+        "testo" => "",
+        "path" => "",
+        "creatura" => ""
+    ];
+
     $page = file_get_contents($html_path . "form-add-article.html");
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -25,34 +36,80 @@
         $luogo = clearInput(filter_input(INPUT_POST,"luogo",FILTER_SANITIZE_SPECIAL_CHARS));
         $data = clearInput($_POST['data-scrittura']);
         $testo = clearInput($_POST['testo']);
-        $autore = clearInput($_SESSION['id']);
+        $autore = $_SESSION['id'];
         $path = clearInput($_POST['image-path']);
         $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
 
         $ok = true;
 
-        $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
-        $queryResult = mysqli_query($mysqli, $sql);
-        $id_query = "SELECT MAX(`id`) FROM `articolo`";
-        $queryResult = mysqli_query($mysqli,$id_query);
-        $data = mysqli_fetch_array($queryResult);
-        $id = $data[0];
-
-        if ($queryResult) {
-            // free the result set
-            $queryResult->free();
+        if(strlen($titolo) == 0){
+            $errorStrings["titolo"] = "Inserire un titolo per l'articolo";
+            $ok = false;
         }
-        //TODO: inserire articolo_animale
+        else if(!preg_match('/^[\wèàìòéùç\s]*$/', $titolo)){
+            $errorStrings["titolo"] = "Il titolo dell'articolo non può contenere caratteri speciali";
+            $ok = false;
+        }
+
+        if(strlen($sottotitolo) == 0){
+            $errorStrings["sottotitolo"] = "Inserisci un sottotitolo";
+            $ok = false;
+        }
+
+        if (array_search($tag,['scoperta','new-entry','avvistamento','comunicazione','none'],true) === false){
+            $errorStrings["tag"] = "Inserito un tag invalido";
+            $ok = false;
+        }
     
-        $sql = "INSERT INTO `articolo_animale` (`articolo`,`animale`) VALUES ('$id', '$creatura')";
-        $queryResult = mysqli_query($mysqli,$sql);
 
-        if ($queryResult) {
-            header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-article.php ");
-            exit();
+        if(strlen($testo) < 20){
+            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri";
+            $ok = false;
         }
 
-        $result = "<p class='success'>Articolo inserito con successo!</p>";
+        if (strlen($path) == 0){
+            $errorStrings["path"] = "Non è stata caricata nessuna immagine";
+            $page = str_replace("<img-status/>", "error", $page);
+            $ok = false;
+        }else{
+            $page = str_replace("<img-status/>", "success", $page);
+        }
+
+        if(strlen($creatura) == 0){
+            $errorStrings["creatura"] = "Inserire un nome per l'animale riferito dall'articolo";
+            $ok = false;
+        }
+        else if(!preg_match('/^[a-zA-Z_èàìòéùç\s]*$/', $creatura)){
+            $errorStrings["creatura"] = "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali";
+            $ok = false;
+        }
+
+
+        if($ok){
+
+            $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
+            $queryResult = mysqli_query($mysqli, $sql);
+            $id_query = "SELECT MAX(`id`) FROM `articolo`";
+            $queryResult = mysqli_query($mysqli,$id_query);
+            $data = mysqli_fetch_array($queryResult);
+            $id = $data[0];
+
+            if ($queryResult) {
+                // free the result set
+                $queryResult->free();
+            }
+            //TODO: inserire articolo_animale
+        
+            $sql = "INSERT INTO `articolo_animale` (`articolo`,`animale`) VALUES ('$id', '$creatura')";
+            $queryResult = mysqli_query($mysqli,$sql);
+
+            $result = "<p class='success'>Articolo inserito con successo!</p>";
+
+        }else{
+            $result = "<p class='error'>Errore nell'inserimento dell'articolo</p>";
+        }
+    }else if($_SERVER['REQUEST_METHOD'] == "GET"){
+        $page = str_replace("<img-status/>", "success", $page);
     }
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
@@ -61,6 +118,15 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
     $page = str_replace("<result/>", $result, $page);
+
+    $page = str_replace("<error-title/>", $errorStrings["titolo"], $page);
+    $page = str_replace("<error-subtitle/>", $errorStrings["sottotitolo"], $page);
+    $page = str_replace("<error-tag/>", $errorStrings["tag"], $page);
+    $page = str_replace("<error-place/>", $errorStrings["luogo"], $page);
+    $page = str_replace("<error-text/>", $errorStrings["testo"], $page);
+    $page = str_replace("<error-img/>", $errorStrings["path"], $page);
+    $page = str_replace("<error-animal/>", $errorStrings["creatura"], $page);
+
 
     $who_am_i = "<a href=' admin-page-home.php' tabindex='3'> Amministrazione</a>|" ;
 

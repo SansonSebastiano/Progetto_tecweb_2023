@@ -9,25 +9,29 @@ const textInput = document.getElementById("testo");
 const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
-titleInput.addEventListener("blur", checkValidation("titolo","invalid-title",/^[a-zA-Z_\s]{1,}$/, "Il titolo dell'articolo non può essere vuoto e può contenere solo lettere o spazi"))
-subTitleInput.addEventListener("blur", checkValidation("sottotitolo","invalid-subtitle",/^[a-zA-Z_\s]{1,}$/, "Il sottotitolo dell'articolo non può essere vuoto e può contenere solo lettere o spazi"))
-placeInput.addEventListener("blur", checkValidation("luogo","invalid-place",/^[a-zA-Z_\s]{1,}$/, "Il luogo dell'articolo non può essere vuoto e può contenere solo lettere o spazi"))
-animalInput.addEventListener("blur", checkValidation("creatura","invalid-creature",/^[a-zA-Z_\s]{1,}$/, "Il nome dell'animmale riferito dall'articolo non può essere vuoto e può contenere solo lettere o spazi"))
-textInput.addEventListener("blur", checkValidation("testo","invalid-text",/^[\w\d]{20,}$/, "Il testo dell'articolo deve contenere almeno 20 caratteri"))
+titleInput.addEventListener("blur", function(){checkValidation("titolo","invalid-title",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")})
+subTitleInput.addEventListener("blur", function(){checkValidation("sottotitolo","invalid-subtitle","","Inserire un sottotitolo","")})
+animalInput.addEventListener("blur", function(){checkValidation("creatura","invalid-creature",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un nome per l'animale riferito dall'articolo", "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali")})
+textInput.addEventListener("blur", function(){checkValidation("testo","invalid-text",/^[\S\s]{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")})
 
 submitForm.addEventListener("submit", function(){ return validate()})
 
-function checkValidation(input,output,regex,errorText){
+function checkValidation(input,output,regex,noValueText,errorText){
     const inputHTML = document.getElementById(input)
     const outputHTML = document.getElementById(output)
-    if(!(regex.test(inputHTML.value))){
+
+    if(!noValueText == "" && inputHTML.value == ""){
+        outputHTML.innerHTML = noValueText
+        return false
+    }
+    if(regex != "" && !(regex.test(inputHTML.value))){
         outputHTML.innerHTML = errorText
         return false
-    }   
-    else{
-        outputHTML.innerHTML = ""
-        return true
     }
+
+    outputHTML.innerHTML = ""
+    return true
+    
 }
 
 function isImageUploaded(){
@@ -45,7 +49,6 @@ function isImageUploaded(){
     }
 }
 
-
 function setText(id, text){
     document.getElementById(id).innerHTML = text
 }
@@ -59,8 +62,10 @@ function setText(id, text){
 function validate() {
     setCurrentDate()
 
-    return checkValidation("titolo","invalid-title",/^[\w\s]*$/, "Il titolo dell'articolo può contenere solo lettere o spazi") 
-        && checkValidation("sottotitolo","invalid-subtitle",/^[\w\s]*$/, "Il sottotitolo dell'articolo può contenere solo lettere o spazi") 
+    return checkValidation("titolo","invalid-title",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")
+        && checkValidation("sottotitolo","invalid-subtitle","","Inserire un sottotitolo","")
+        && checkValidation("creatura","invalid-creature",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un nome per l'animale riferito dall'articolo", "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali")
+        && checkValidation("testo","invalid-text",/^[\S\s]{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")
         && isImageUploaded() 
 }
 

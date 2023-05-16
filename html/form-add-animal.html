@@ -14,7 +14,6 @@
             $("#go-up-div").load("../../html/modules/go-up-div.html");  
         });
     </script> 
-    <script src="../../js/form-add-animal.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="../../css/global.css">
@@ -78,7 +77,7 @@
                     <div id = "div-pic" class="form-input-wrapper">
                         <label class="info" for="image">Foto animale</label>
                         <input id="image" type="file" accept="image/*" aria-label="Seleziona una foto per l'animale" tabindex="6" required />
-                        <input type="hidden" id="hidden" name="image-path" />
+                        <input type="hidden" id="image-path" name="image-path" />
                         <button id="btn-load" aria-label="Carica la foto dell'animale" tabindex="7"></button>
                         <span id="loaded-photo" class="<img-status/>"><error-img/></span>
                     </div>
@@ -97,5 +96,6 @@
     </main>
 
     <footer id="footer"></footer>
+    <script src="../../js/form-add-animal.js"></script>
 </body>
 </html>
