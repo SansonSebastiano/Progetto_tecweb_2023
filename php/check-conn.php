@@ -1,5 +1,5 @@
 <?php
-    include ".." . DIRECTORY_SEPARATOR . "config.php";
+    include "config.php";
 
     const ADMIN_ROLE = "admin";
     const USER_ROLE = "user";
