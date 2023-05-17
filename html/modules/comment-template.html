@@ -9,43 +9,26 @@
 
             <div class = "comment-content">
                 <p class="comment-text"><comment-text/></p>
-                <button class="btn-reply">Rispondi</button>
+                <button type="button" class="btn-reply" onclick="visibleTextarea()">Rispondi</button>
                 <div class = "div-reply">
                     <input type="hidden" id="hidden-bool" name="hidden-bool" value="true">
                     <input type="hidden" id="hidden-comment" name="hidden-comment" value="<comment-id/>">
                     <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
-                    <textarea id="text" name="text"></textarea>
-                    <button type="submit" class="btn-send">Invia</button>
+                    <textarea id="text" name="text" required hidden></textarea>
+                    <button type="submit" class="btn-send" hidden>Invia</button>
                 </div>                                   
             </div>
         </div>
     </form>
 
-    <!--
     <ul class="replies">
-        <li>
-            <div class="comment-single">
-                <div class = "comment-details">
-                    <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
-                    <p class="author">Lorenzo Letame</p>
-                    <p class="timestamp">11:31, 27 dicembre 2022</p>
-                </div>
-                <div class="comment-content">
-                    <p class="comment-text">go being Neapolitan somewhere else</p>
-                </div>
-            </div>
-            <div class="comment-single">
-                <div class = "comment-details">
-                    <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
-                    <p class="author">Orazio Grinzosi</p>
-                    <p class="timestamp">11:31, 27 dicembre 2022</p>
-                </div>
-                <div class="comment-content">
-                    <p class="comment-text">fottiti porcodio</p>
-                </div>
-            </div>
-        </li>
+        <reply-list/>
     </ul>
-    -->
-
 </li>
+
+<script>
+    function visibleTextarea() {
+        document.getElementById("text").hidden=false;
+    }
+</script>
+

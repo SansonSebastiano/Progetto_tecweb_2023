@@ -108,6 +108,7 @@
         $queryResult->free();
         //TODO: Sezione commenti
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
+        $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
         $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
@@ -118,13 +119,26 @@
             $commentText = $commentResult["contenuto"];
             $commentAuthor = $commentResult["nome"];
             $commentTimestamp = $commentResult["data"];
+            $queryReply = 'SELECT * FROM view_articolo_commento_risposta WHERE commento = "' . $commentId . '";';
+            $replyResult = mysqli_query($mysqli, $queryReply);
+            $replyList = "";
+            while($resultReply = mysqli_fetch_assoc($replyResult)){
+                $reply = $replyTemplate;
+                $replyText = $resultReply["contenuto_risposta"];
+                $replyAuthor = $resultReply["nome_risposta"];
+                $replyTimestamp = $resultReply["data_risposta"];
+                $reply = str_replace("<reply-author/>",$replyAuthor, $reply);
+                $reply = str_replace("<reply-timestamp/>",$replyTimestamp,$reply);
+                $reply = str_replace("<reply-text/>",$replyText,$reply);
+                $replyList .= $reply;
+            }
+            $comment = str_replace("<reply-list/>",$replyList, $comment);
             $comment = str_replace("<comment-id/>",$commentId, $comment);
             $comment = str_replace("<article-id/>",$_GET["article"],$comment);
             $comment = str_replace("<author/>",$commentAuthor,$comment);
-        
             $comment = str_replace("<comment-text/>",$commentText,$comment);
-
             $comment = str_replace("<timestamp/>",$commentTimestamp,$comment);
+
             $commentList .= $comment;
         }
         $page = str_replace("<comment-list/>",$commentList,$page);
@@ -132,9 +146,6 @@
 
          
         }
-    // }else{
-    //     header("Location: ../../index.php");
-    // }
     echo $page;
     
     
