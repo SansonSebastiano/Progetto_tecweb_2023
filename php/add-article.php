@@ -16,7 +16,7 @@
     $path = clearInput($_POST['hidden']);
     $creatura = clearInput($_POST['creatura']);
 
-    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
+    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0)";
     $queryResult = mysqli_query($mysqli, $sql);
     $id_query = "SELECT MAX(`id`) FROM `articolo`";
     $queryResult = mysqli_query($mysqli,$id_query);
@@ -31,8 +31,11 @@
     $sql = "INSERT INTO `articolo_animale` (`articolo`,`animale`) VALUES ('$id', '$creatura')";
     $queryResult = mysqli_query($mysqli,$sql);
 
+    $mysqli->close();
+
     if ($queryResult) {
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-article.php ");
         exit();
     }
+
 ?>

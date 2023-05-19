@@ -1,10 +1,11 @@
 <?php
+    include ".." . DIRECTORY_SEPARATOR . "config.php";
+
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     session_destroy();
     
-    //echo "<script>console.log('SESSION DESTROYED');</script>";
-
-    header("Location: " . DIRECTORY_SEPARATOR . "index.php")
+    header("Location: " . $index_ref);
+    exit();
 ?>

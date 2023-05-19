@@ -1,5 +1,6 @@
 <?php
-    require "config.php";
+    include "config.php";
+    require $php_path . "db-conn.php";
     require $php_path . "check-conn.php";
     
     if (session_status() === PHP_SESSION_NONE) {
@@ -14,7 +15,6 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", $_SESSION["username"], $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     // LOGIN SECTION
     $admin_section = "<button class=\"btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\" tabindex='2'>Sezione Amministratore</button>";
@@ -35,7 +35,7 @@
 
     // MAIN ARTICLES SECTION
     $carousel_item = file_get_contents($modules_path . "home-carousel-item.html");
-    $query = 'SELECT id, titolo, image_path, alt, tag, descrizione FROM articolo WHERE featured=1 ORDER BY data DESC LIMIT 3;';
+    $query = 'SELECT id, titolo, image_path, tag, descrizione FROM articolo WHERE featured=1 ORDER BY data DESC LIMIT 3;';
     $queryResult = mysqli_query($mysqli, $query);
 
     $items = "";
@@ -51,7 +51,7 @@
         $i++;
 
         $item = str_replace("<featured-item-img/>", $result["image_path"], $item);
-        $item = str_replace("<main-img-alt/>", $result["alt"], $item);
+        //$item = str_replace("<main-img-alt/>", $result["alt"], $item);
         $item = str_replace("<featured-item-title/>", $result["titolo"], $item);
         $item = str_replace("<featured-item-tag/>", $result["tag"], $item);
         $item = str_replace("<featured-item-id/>", $result["id"], $item);
@@ -67,7 +67,7 @@
     // ASIDE CHART SECTION
     $homeChart = file_get_contents($modules_path . "index-chart.html");
 
-    $queryTwo = 'SELECT nome, image_path, alt FROM view_animale_voto ORDER BY YES DESC LIMIT 5;';
+    $queryTwo = 'SELECT nome, image_path FROM view_animale_voto ORDER BY YES DESC LIMIT 5;';
     $queryResultTwo = mysqli_query($mysqli, $queryTwo);
 
     $entriesTwo = "";
@@ -76,7 +76,7 @@
 
         $entryTwo = $homeChart;
         $entryTwo = str_replace("<chart-img/>", $resultTwo["image_path"], $entryTwo);
-        $entryTwo = str_replace("<chart-img-alt/>", $resultTwo["alt"], $entryTwo);
+        //$entryTwo = str_replace("<chart-img-alt/>", $resultTwo["alt"], $entryTwo);
         $entryTwo = str_replace("<animal-name/>", $resultTwo["nome"], $entryTwo);
 
         $entriesTwo .= $entryTwo;
@@ -89,7 +89,7 @@
     // ARTICLES LIST SECTION
     $article = file_get_contents($modules_path . "index-article-list.html");
 
-    $queryThree = 'SELECT id, titolo, image_path, alt, tag, data FROM articolo ORDER BY data DESC LIMIT 6;';
+    $queryThree = 'SELECT id, titolo, image_path, tag, data FROM articolo ORDER BY data DESC LIMIT 6;';
     $queryResultThree = mysqli_query($mysqli, $queryThree);
 
     $entriesThree = "";
@@ -97,7 +97,7 @@
 
         $entryThree = $article;
         $entryThree = str_replace("<article-img/>", $resultThree["image_path"], $entryThree);
-        $entryThree = str_replace("<article-img-alt/>", $resultThree["alt"], $entryThree);
+        //$entryThree = str_replace("<article-img-alt/>", $resultThree["alt"], $entryThree);
         $entryThree = str_replace("<article-title/>", $resultThree["titolo"], $entryThree);
         $entryThree = str_replace("<article-tag/>", $resultThree["tag"], $entryThree);
         $entryThree = str_replace("<article-id/>", $resultThree["id"], $entryThree);
@@ -119,5 +119,6 @@
 
     $queryResultFour->free();
 
+    $mysqli->close();
     echo $page;
 ?>

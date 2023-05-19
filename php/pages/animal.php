@@ -1,6 +1,8 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -15,7 +17,6 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", $_SESSION["username"], $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     // ANIMAL SECTION
     if($_GET["animale"]){
@@ -40,14 +41,13 @@
         $image = $result["image_path"];
         $scoperta = $result["data_scoperta"];
         $status = $result["status"];
-        $image_alt = $result["alt"];
 
         $page = str_replace("<animal-name/>",$animalName,$page);
         $page = str_replace("<animal-description/>",$description,$page);
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
         $page = str_replace("<animal-image/>",$image,$page);
-        $page = str_replace("<animal-image-alt/>",$image_alt,$page);
+        //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         // VOTES SECTION
         $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
@@ -103,7 +103,7 @@
         $articleTag = $articleResult["tag"];
         $ultimoAvv = $articleResult["data"];
         $articleImg = $articleResult["image_path"];
-        $articleImgAlt = $articleResult["alt"];
+        //$articleImgAlt = $articleResult["alt"];
 
         $page = str_replace("<recent-title/>",$articleTitle,$page);
         $page = str_replace("<recent-description/>",$articleDescription,$page);
@@ -133,7 +133,7 @@
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
-            $article = str_replace("<image-alt/>",$articleImgAlt,$article);
+            //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
             $relArticles .= $article;
         }
@@ -142,5 +142,6 @@
         $queryResultTwo->free();
     }
 
+    $mysqli->close();
     echo $page;
 ?>

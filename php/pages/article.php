@@ -1,6 +1,8 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -14,7 +16,6 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     //$_GET["article"] ritorna l'id dell articolo
     //quindi sarà: http://localhost/php/pages/article.php?articolo=[id]
@@ -41,7 +42,6 @@
         $articleTag = $result["tag"];
         $articleDate = $result["data"];
         $articleImage = $result["image_path"];
-        $articleImageAlt = $result["alt"];
         $articlePlace = $result["luogo"];
         $articleContent = $result["contenuto"];
 
@@ -51,7 +51,7 @@
         $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
         $page = str_replace("<article-date/>",$articleDate,$page);
         $page = str_replace("<article-image/>",$articleImage,$page);
-        $page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
+        //$page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
         
@@ -112,5 +112,6 @@
     //     header("Location: ../../index.php");
     // }
 
+    $mysqli->close();
     echo $page;
 ?>
