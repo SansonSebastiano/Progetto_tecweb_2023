@@ -12,7 +12,7 @@
             $(function(){
               $("#header").load("html/modules/header.html"); 
               $("#footer").load("html/modules/footer.html");
-              $("#go-up-div").load("html/modules/go-up-div.html"); 
+              $("#go-up-div").load("html/modules/go-up.html");
             });
         </script> 
         
@@ -49,7 +49,7 @@
         </nav>
 
         <div id="main-aside-wrapper">
-            <main>
+            <main id="main-wrapper">
                 <p id="last-update">ULTIMO AGGIORNAMENTO: <last-article-date/></p>
 
                 <section id="featured">
@@ -75,8 +75,10 @@
 
                         <a href="php/pages/article-list.php" tabindex="5">Visualizza tutti...</a>
                 </section>
-                
-                <div id="go-up-div"></div>
+            
+                <div id="go-up-div">
+
+                </div>
 
             </main>
 
