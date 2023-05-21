@@ -53,22 +53,24 @@
 
                 switch($row["ruolo"]){
                     case ADMIN_ROLE:
-                        echo "<script>console.log('ADMIN SECTION');</script>";
+                        //echo "<script>console.log('ADMIN SECTION');</script>";
                         $_SESSION["ruolo"] = ADMIN_ROLE;
                         break;
                     case WRITER_ROLE:
-                        echo "<script>console.log('WRITER SECTION');</script>";
+                        //echo "<script>console.log('WRITER SECTION');</script>";
                         $_SESSION["ruolo"] = WRITER_ROLE;
                         break;
                     case USER_ROLE:
-                        echo "<script>console.log('LOGGED SECTION');</script>";
+                        //echo "<script>console.log('LOGGED SECTION');</script>";
                         $_SESSION["ruolo"] = USER_ROLE;
                         break;
                 }
 
+                /*
                 echo "<script>console.log('USERNAME: " . $_SESSION["username"] . "');</script>";
                 echo "<script>console.log('PASSWORD: " . $row["password"] . "');</script>";
                 echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
+                */
                 header($location);
             }
 
