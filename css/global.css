@@ -251,6 +251,8 @@ footer p {
 hr {
     border: none;
     border-top: 0.5em dotted var(--color4);
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 /* TAG */
