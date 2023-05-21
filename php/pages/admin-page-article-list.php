@@ -21,8 +21,8 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $user, $page);
 
-    $tag = $_GET["tag"] ?? "";
-    $search = $_GET["search"] ?? "";
+    $tag = clearInput($_GET["tag"]) ?? "";
+    $search = clearInput($_GET["search"]) ?? "";
 
     $query = 'SELECT * FROM view_articolo_utente';
 

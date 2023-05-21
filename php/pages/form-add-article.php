@@ -34,8 +34,7 @@
         $sottotitolo = clearInput(filter_input(INPUT_POST,"sottotitolo",FILTER_SANITIZE_SPECIAL_CHARS));
         $tag = clearInput($_POST['tag']);
         $luogo = clearInput(filter_input(INPUT_POST,"luogo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $data = clearInput($_POST['data-scrittura']);
-        $testo = clearInput($_POST['testo']);
+        $testo = clearInput(filter_input(INPUT_POST,"testo",FILTER_SANITIZE_SPECIAL_CHARS));
         $autore = $_SESSION['id'];
         $path = clearInput($_POST['image-path']);
         $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
@@ -87,7 +86,7 @@
 
         if($ok){
 
-            $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', '$data', '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
+            $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$testo')";
             $queryResult = mysqli_query($mysqli, $sql);
             $id_query = "SELECT MAX(`id`) FROM `articolo`";
             $queryResult = mysqli_query($mysqli,$id_query);
@@ -99,11 +98,21 @@
                 $queryResult->free();
             }
             //TODO: inserire articolo_animale
-        
-            $sql = "INSERT INTO `articolo_animale` (`articolo`,`animale`) VALUES ('$id', '$creatura')";
-            $queryResult = mysqli_query($mysqli,$sql);
+            $animal = "SELECT * FROM animale WHERE nome = '$creatura'";
+            $queryResult = mysqli_query($mysqli,$animal);
+            if($queryResult->num_rows == 0){
 
-            $result = "<p class='success'>Articolo inserito con successo!</p>";
+                $queryResult->free();
+                $result = "<p class='error'>L'animale riferito non è stato trovato</p>";
+
+            }else{
+                
+                $queryResult->free();
+                $sql = "INSERT INTO `articolo_animale` (`articolo`,`animale`) VALUES ('$id', '$creatura')";
+                $queryResult = mysqli_query($mysqli,$sql);
+
+                $result = "<p class='success'>Articolo inserito con successo!</p>";
+            }
 
         }else{
             $result = "<p class='error'>Errore nell'inserimento dell'articolo</p>";

@@ -5,12 +5,14 @@ const subTitleInput = document.getElementById("sottotitolo");
 const placeInput = document.getElementById("luogo");
 const animalInput = document.getElementById("creatura");
 const textInput = document.getElementById("testo");
+const tagInput = document.getElementById("tag");
 
 const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
-titleInput.addEventListener("blur", function(){checkValidation("titolo","invalid-title",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")})
+titleInput.addEventListener("blur", function(){checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")})
 subTitleInput.addEventListener("blur", function(){checkValidation("sottotitolo","invalid-subtitle","","Inserire un sottotitolo","")})
+tagInput.addEventListener("focus", function(){setText("invalid-tag","")})
 animalInput.addEventListener("blur", function(){checkValidation("creatura","invalid-creature",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un nome per l'animale riferito dall'articolo", "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali")})
 textInput.addEventListener("blur", function(){checkValidation("testo","invalid-text",/^[\S\s]{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")})
 
@@ -53,16 +55,9 @@ function setText(id, text){
     document.getElementById(id).innerHTML = text
 }
 
- function setCurrentDate(){
-     var date = new Date();
-     var currentDate = date.toISOString().substring(0,10);
-     document.getElementById('data-scrittura').value = currentDate;
- }
-
 function validate() {
-    setCurrentDate()
 
-    return checkValidation("titolo","invalid-title",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")
+    return checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")
         && checkValidation("sottotitolo","invalid-subtitle","","Inserire un sottotitolo","")
         && checkValidation("creatura","invalid-creature",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un nome per l'animale riferito dall'articolo", "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali")
         && checkValidation("testo","invalid-text",/^[\S\s]{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")

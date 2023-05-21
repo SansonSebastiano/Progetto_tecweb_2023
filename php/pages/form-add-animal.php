@@ -22,7 +22,7 @@
         "status" => "",
         "data" => "",
         "path" => ""
-    ];
+    ]; 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         $nome = clearInput(filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS));
@@ -89,7 +89,7 @@
         //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
         if($ok){
         
-        $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path', '$nome')";
+        $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path', '$nome')";
 
         $query = mysqli_query($mysqli, $sql);
 

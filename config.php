@@ -49,7 +49,7 @@
     $admin_page_article_list_ref = $php_pages_ref . "admin-page-article-list.php";
 
     // login-form.html
-    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
+    $login_form_ref = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "login.php";
 
     /*
     echo "<script>console.log('" . $root . "');</script>";
