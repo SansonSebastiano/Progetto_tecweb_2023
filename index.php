@@ -43,11 +43,9 @@
     while ($result = mysqli_fetch_assoc($queryResult)) {
         $item = $carousel_item;
         // if is first item of array
-        if ($i == 0) {
-            $item = str_replace("<active/>", " active", $item);
-        } else {
-            $item = str_replace("<active/>", "", $item);
-        }
+
+        $item = str_replace("<active/>", $i === 0 ? " active" : " deactive", $item);
+        
         $i++;
 
         $item = str_replace("<featured-item-img/>", $result["image_path"], $item);

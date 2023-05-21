@@ -53,6 +53,7 @@ main {
 }
 
 .carousel-item {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -64,6 +65,12 @@ main {
 
 .carousel-item.active {
     opacity: 1;
+    display: block;
+    pointer-events: auto;
+}
+
+.carousel-item.deactive {
+    pointer-events: none;
 }
 
 #featured-item a{

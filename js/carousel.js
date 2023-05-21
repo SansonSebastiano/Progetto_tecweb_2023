@@ -6,8 +6,10 @@ let currentIndex = 0;
 
 function showItem(index) {
   carouselItems.forEach((item, i) => {
+    item.classList.add('deactive');
     if (i === index) {
       item.classList.add('active');
+      item.classList.remove('deactive');
     } else {
       item.classList.remove('active');
     }
