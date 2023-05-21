@@ -54,7 +54,7 @@ aside {
     margin: var(--margin-default);
     margin-right: 0;
     float: right;
-    background-color: var(--color2);
+    background-color: var(--color1);
     color: var(--color3);
     border-radius: 2em;
     box-shadow: var(--box-shadow-light);
