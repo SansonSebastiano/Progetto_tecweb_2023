@@ -10,7 +10,6 @@
     $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"];
 
     $page = file_get_contents($html_path . "animal-chart.html");
-
    // IDENTIFICATION SECTION
    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
