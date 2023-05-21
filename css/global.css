@@ -216,7 +216,7 @@ header div {
     margin: var(--margin-default);
 }
 
-#go-up-div p {
+#go-up-div p, #go-up-div a {
     text-align: center;
 }
 
