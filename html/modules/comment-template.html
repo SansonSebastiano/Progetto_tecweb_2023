@@ -1,0 +1,34 @@
+<li class="comment-family">
+    <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
+        <div class="comment-single">
+            <div class = "comment-details">
+                <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
+                <p class="author"><author/></p>
+                <p class="timestamp"><timestamp/></p>
+            </div>
+
+            <div class = "comment-content">
+                <p class="comment-text"><comment-text/></p>
+                <button type="button" class="btn-reply" onclick="visibleTextarea();">Rispondi</button>
+                <div class = "div-reply">
+                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="true">
+                    <input type="hidden" id="hidden-comment" name="hidden-comment" value="<comment-id/>">
+                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
+                    <textarea id="text" name="text" required hidden></textarea>
+                    <button type="submit" class="btn-send" hidden>Invia</button>
+                </div>                                   
+            </div>
+        </div>
+    </form>
+
+    <ul class="replies">
+        <reply-list/>
+    </ul>
+</li>
+
+<script>
+    function visibleTextarea() {
+        document.getElementById("text").hidden=false;
+    }
+</script>
+

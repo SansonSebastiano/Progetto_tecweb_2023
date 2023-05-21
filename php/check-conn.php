@@ -1,6 +1,4 @@
 <?php
-    include ".." . DIRECTORY_SEPARATOR . "config.php";
-
     const ADMIN_ROLE = "admin";
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
@@ -8,6 +6,7 @@
     const NO_ROLE = "no_role";
 
     $log_in_out = " ";
+    $user = " ";
 
     $logoutPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logout.php";
     $loginPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "login.php";
@@ -41,4 +40,5 @@
             require($conn_path . "guest-conn.php");
             break;
     }
+
 ?>

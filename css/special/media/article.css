@@ -1,0 +1,6 @@
+@media only screen and (max-width:900px) {
+    aside {
+        float: none;
+        margin: var(--margin-default);
+    }
+}

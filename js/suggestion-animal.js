@@ -16,6 +16,5 @@ $( "#creatura" ).autocomplete({
                 response(result);
             }
             })
-
     }
 });

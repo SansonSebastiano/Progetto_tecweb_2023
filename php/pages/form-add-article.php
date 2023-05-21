@@ -8,8 +8,8 @@
     }
 
     if ($_SESSION['ruolo'] != 'admin' && $_SESSION['ruolo'] != 'writer') {
-        //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        exit();
     }
     $_SESSION["prev_page"] =  $faar_ref;
 
@@ -137,7 +137,7 @@
     $page = str_replace("<error-animal/>", $errorStrings["creatura"], $page);
 
 
-    $who_am_i = "<a href=' admin-home.php' tabindex='3'> Amministrazione</a> ●" ;
+    $who_am_i = "<a href='admin-home.php' tabindex='3'> Amministrazione</a> ●" ;
 
     if ($_SESSION["ruolo"] == "admin") {
         $page = str_replace("<who-am-i/>", $who_am_i, $page);

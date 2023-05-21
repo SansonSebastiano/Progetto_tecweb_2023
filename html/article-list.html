@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/article-list.css"/>
         <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
 
 
         <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
@@ -27,7 +28,8 @@
         <title>
             Storico articoli | <span id="page-number"></span> - Elusive
         </title>
-        <script-conn/>
+        
+
     </head>
 
     <body>
@@ -52,9 +54,8 @@
 
         <main>
             <h2>Gli articoli di eLusive</h2>
-
-            <form action="article-list.php" method="get">
-                <fieldset id="search-form">
+            <form action= "article-list.php" method="get">
+                <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
                     <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" aria-label="Inserisci il titolo di un articolo" autocomplete="on" tabindex="3"/>

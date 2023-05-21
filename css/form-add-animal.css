@@ -1,20 +1,11 @@
-/** MAIN **/
 main{
-    background-color: rgba(255, 255,255, 0.8);
-    padding: 1em 12.5%;
-}
-
-h2{
-    text-align: center;
-    color: black;
-    font-weight: bold;
-
+    background-color: var(--color-semi-trans);
 }
 
 #form-container{
     padding: 0.5em;
     border-radius: 0.8em;
-    background-color:  rgba(0, 85, 50, 0.8);
+    background-color:  rgba(0, 85, 50, 0.6);
     box-shadow: var(--box-shadow-light);
 }
 

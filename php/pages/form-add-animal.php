@@ -12,8 +12,8 @@
     $page = file_get_contents($html_path . "form-add-animal.html");
 
     if ($_SESSION['ruolo'] != 'admin') {
-        //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        exit();
     }
 
     $errorStrings = [

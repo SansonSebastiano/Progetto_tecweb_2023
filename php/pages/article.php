@@ -2,6 +2,8 @@
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
     include_once ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -15,7 +17,6 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $user, $page);
 
     //$_GET["article"] ritorna l'id dell articolo
     //quindi sarà: http://localhost/php/pages/article.php?articolo=[id]
@@ -38,22 +39,23 @@
         $queryResult->free();
 
         //Mi ricavo le informazioni principali dell'articolo
+
         $articleTitle = $result["titolo"];
         $articleSubTitle = $result["descrizione"];
         $articleTag = $result["tag"];
         $articleDate = $result["data"];
         $articleImage = $result["image_path"];
-        $articleImageAlt = $result["alt"];
         $articlePlace = $result["luogo"];
         $articleContent = $result["contenuto"];
 
         //Sostituisco i placeholder con i valori dell'articolo
+        $page = str_replace("<article-id/>",$_GET["article"],$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-subtitle/>",$articleSubTitle,$page);
         $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
         $page = str_replace("<article-date/>",$articleDate,$page);
         $page = str_replace("<article-image/>",$articleImage,$page);
-        $page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
+        //$page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
         
@@ -103,16 +105,46 @@
          //Sostituisco il placeholder con la lista di animali collegati
          $page = str_replace("<article-animals/>",$animalsRelated,$page);
          $page = str_replace("<related_animal/>",$tmp,$page);
-         
          $queryResult->free();
-         
+        
+        //TODO: Sezione commenti
+        $commentTemplate = file_get_contents($modules_path . "comment-template.html");
+        $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
-         //TODO: Sezione commenti
-         
+        $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '";';
+        $queryResult = mysqli_query($mysqli, $query);
+        $commentList = "";
+        while($commentResult = mysqli_fetch_assoc($queryResult)){
+            $comment = $commentTemplate;
+            $commentId = $commentResult["commento"];
+            $commentText = $commentResult["contenuto"];
+            $commentAuthor = $commentResult["nome"];
+            $commentTimestamp = $commentResult["data"];
+            $queryReply = 'SELECT * FROM view_articolo_commento_risposta WHERE commento = "' . $commentId . '";';
+            $replyResult = mysqli_query($mysqli, $queryReply);
+            $replyList = "";
+            while($resultReply = mysqli_fetch_assoc($replyResult)){
+                $reply = $replyTemplate;
+                $replyText = $resultReply["contenuto_risposta"];
+                $replyAuthor = $resultReply["nome_risposta"];
+                $replyTimestamp = $resultReply["data_risposta"];
+                $reply = str_replace("<reply-author/>",$replyAuthor, $reply);
+                $reply = str_replace("<reply-timestamp/>",$replyTimestamp,$reply);
+                $reply = str_replace("<reply-text/>",$replyText,$reply);
+                $replyList .= $reply;
+            }
+            $comment = str_replace("<reply-list/>",$replyList, $comment);
+            $comment = str_replace("<comment-id/>",$commentId, $comment);
+            $comment = str_replace("<article-id/>",$_GET["article"],$comment);
+            $comment = str_replace("<author/>",$commentAuthor,$comment);
+            $comment = str_replace("<comment-text/>",$commentText,$comment);
+            $comment = str_replace("<timestamp/>",$commentTimestamp,$comment);
+
+            $commentList .= $comment;
         }
-    // }else{
-    //     header("Location: ../../index.php");
-    // }
-
+        $page = str_replace("<comment-list/>",$commentList,$page);
+        $queryResult->free();
+    }
+    $mysqli->close();
     echo $page;
 ?>

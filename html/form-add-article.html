@@ -8,9 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link rel="stylesheet" type="text/css" href="../../css/global.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/special/media.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/form-add-article.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/form-add-article.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/form-add.css"/>
+    <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
+
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../../js/form-add-article.js" defer></script>
@@ -22,9 +30,11 @@
         });
     </script> 
 
+
     <title>Aggiunta di un articolo - eLusive</title>
 
-    <script-conn/>
+    
+
 </head>
 <body>
     <div id="identification">
@@ -50,7 +60,7 @@
     
     <main class="main-wrapper">
         <div class="form-container">
-            <h2><span form-aggiunta>Scrivi un articolo...</span></h2>
+            <h2 class="black">Scrivi un articolo...</h2>
             <result/>
             <form action="./form-add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <div class="form-info">

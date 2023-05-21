@@ -1,6 +1,6 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
-    include "conn" . DIRECTORY_SEPARATOR . "user-conn.php";
+    include "db-conn.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -54,4 +54,6 @@
             }
         }
     }
+
+    $mysqli->close();
 ?>

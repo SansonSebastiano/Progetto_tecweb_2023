@@ -1,4 +1,4 @@
-@media screen and (max-width:720px) {
+@media only screen and (max-width:720px) {
     #form-controls{
         display: flex;
         flex-direction: column;

@@ -1,5 +1,5 @@
 <?php
-     include "conn" . DIRECTORY_SEPARATOR . "admin-conn.php";
+     include "db-conn.php";
      include "input-cleaner.php";
 
     
@@ -13,14 +13,15 @@
     $data = clearInput($_POST['data_scoperta']);
     $path = clearInput($_POST['hidden']);
 
-    $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path', '$nome')";
+    $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$data', '$path')";
 
     $query = mysqli_query($mysqli, $sql);
 
+    $mysqli->close();
+
     if ($query) {
-        // free the result set
-        //$query->free();
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "form-add-animal.php ");
         exit();
     }
+    
 ?>

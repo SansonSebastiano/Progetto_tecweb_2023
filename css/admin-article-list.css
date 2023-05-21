@@ -1,16 +1,5 @@
-*{
-    margin: 0em;
-}
-
-/** MAIN **/
 main {
-    padding: var(--margin-default);
-    background-color: var(--color3);
-}
-
-h2 {
-    text-align: center;
-    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+    background-color: var(--color-semi-trans);
 }
 
 #result-count {
@@ -23,6 +12,7 @@ h2 {
 
 .search-form {
     background-image: url("../../images/icons/lens.png");
+    background-color: white;
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
@@ -31,13 +21,15 @@ h2 {
     color: var(--color2);
     margin: auto;
     padding: 1em;
-    width: 70%;
+    width: 75%;
 
     display:grid;
     grid-template-areas: 
-    "ct ct it it .. .. .."
-    "cc cc ic bt .. .. ..";
-    column-gap: 0px;
+    "ct ct ct ct"
+    "it it it bt"
+    ". . cc cc"
+    ". . ic bc";
+    column-gap: 0;
     row-gap: 0.5em;
 
     position: relative;

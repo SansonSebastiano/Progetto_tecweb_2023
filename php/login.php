@@ -1,11 +1,15 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     const ADMIN_ROLE = "admin";
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
 
     include ".." . DIRECTORY_SEPARATOR . "config.php";
     // import the connection script
-    require 'conn' . DIRECTORY_SEPARATOR . 'admin-conn.php';
+    require  'db-conn.php';
     // import input cleaner script
     include 'input-cleaner.php' ;
 

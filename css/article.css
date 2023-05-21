@@ -1,5 +1,4 @@
 main {
-    padding: var(--margin-default);
     background-color: white;
     color: black;
 }
@@ -156,6 +155,7 @@ hr {
     align-items:flex-end;
     column-gap: 1em;
 }
+
 
 .btn-reply, .btn-send {
     font-size: 1.1em;
