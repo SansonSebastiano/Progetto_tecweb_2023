@@ -8,7 +8,7 @@ const imagePath = document.getElementById("image-path")
 
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
 animalInput.addEventListener("blur", function(){checkValidation("name","invalid-animal-name",/^[a-zA-Z_èàìòéùç\s]*$/, "Inserire un nome per l'animale","Il nome dell'animale non può contenere caratteri speciali")})
-descriptionInput.addEventListener("blur", function(){checkValidation("description","description-too-short",/^[\S\s]{20,}$/,"","La descrizione deve essere lunga almeno 20 caratteri")})
+descriptionInput.addEventListener("blur", function(){checkValidation("description","description-too-short",/^[\S\s]{20,2000}$/,"","La descrizione deve essere lunga almeno 20 caratteri")})
 animalStatus.addEventListener("focus", function(){setText("invalid-status","")})
 dateInput.addEventListener("blur", function(){checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"Inserire una data","La data non è nel formato corretto")})
 submitForm.addEventListener("submit",function(){return validate()})

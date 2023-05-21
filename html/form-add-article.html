@@ -56,13 +56,13 @@
                 <div class="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo articolo</label>
-                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="3" autocomplete="on" aria-label="Inserisci titolo articolo" required>
+                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="3" autocomplete="on" aria-label="Inserisci titolo articolo" required maxlength="255">
                         <div id="invalid-title" class="error"><error-title/></div>
                     </div>
 
                     <div id="form-box-sottotitolo" class="form-input-wrapper">
                         <label class="info" for="sottotitolo">Sottotitolo</label>
-                        <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="4" autocomplete="on" aria-label="Inserisci sottotitolo articolo" required>
+                        <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="4" autocomplete="on" aria-label="Inserisci sottotitolo articolo" required maxlength="255">
                         <div id="invalid-subtitle" class="error"><error-subtitle/></div>
                     </div>
 
@@ -79,13 +79,13 @@
 
                     <div id="form-box-luogo" class="form-input-wrapper">
                         <label class="info" for="luogo">Luogo riferito nell'articolo</label>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="6" autocomplete="country-name" aria-label="Inserisci luogo" required>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="6" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255" required>
                         <div id="invalid-place" class="error"><error-place/></div>
                     </div>
 
                     <div id="form-box-creatura" class="form-input-wrapper">
                         <label for="creatura" class="info">Creatura riferita</label>
-                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required>
+                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required maxlength="100">
                         <div id="invalid-creature" class="error"><error-animal/></div>
                     </div>
 
@@ -99,7 +99,7 @@
 
                     <div id="form-box-testo" class="form-input-wrapper">
                         <label class="info" for="testo">Testo articolo</label>
-                        <textarea id="testo" name= "testo" tabindex="11" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" required></textarea>
+                        <textarea id="testo" name= "testo" tabindex="11" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required></textarea>
                         <div id="invalid-text" class="error"><error-text/></div>
                     </div>
 

@@ -54,7 +54,7 @@
                 <div id="form-info">
                     <div id = "div-name" class="form-input-wrapper">
                         <label class="info" for="name">Nome dell'animale</label>
-                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="3" autocomplete="on" aria-label="Inserisci il nome dell'animale" required />
+                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="3" autocomplete="on" aria-label="Inserisci il nome dell'animale" required maxlength="255"/>
                         <div id="invalid-animal-name" class="error"><error-animal/></div>
                     </div>
 
@@ -84,7 +84,7 @@
 
                     <div id="div-desc" class="form-input-wrapper">
                         <label class="info" for="description">Descrizione animale</label>
-                        <textarea name="description" id="description" placeholder="Descrizione animale" aria-label="Inserirsci una descrizione" tabindex="8" autocomplete="off" required  minlength="20"></textarea>
+                        <textarea name="description" id="description" placeholder="Descrizione animale" aria-label="Inserirsci una descrizione" tabindex="8" autocomplete="off" required  minlength="20" maxlength="2000"></textarea>
                         <div id="description-too-short" class="error"><error-desc/></div>
                     </div>
 
