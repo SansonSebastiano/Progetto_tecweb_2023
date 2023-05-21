@@ -133,7 +133,7 @@ textarea{
 }
 
 .success{
-    color: green;
+    color: rgb(2, 236, 2);
     font-weight: bold;
     text-align: center;
 }
