@@ -13,7 +13,7 @@
 
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
-    $page = str_replace("<user/>", $_SESSION["username"], $page);
+    $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
     // LOGIN SECTION
@@ -43,11 +43,9 @@
     while ($result = mysqli_fetch_assoc($queryResult)) {
         $item = $carousel_item;
         // if is first item of array
-        if ($i == 0) {
-            $item = str_replace("<active/>", " active", $item);
-        } else {
-            $item = str_replace("<active/>", "", $item);
-        }
+
+        $item = str_replace("<active/>", $i === 0 ? " active" : " deactive", $item);
+        
         $i++;
 
         $item = str_replace("<featured-item-img/>", $result["image_path"], $item);
