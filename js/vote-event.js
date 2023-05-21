@@ -1,16 +1,7 @@
-function vote(animal, voteType, clickedBtn) {
-    let isClicked = (clickedBtn === "true"); 
-
+function vote(animal, voteType) {
     let xmlhttp = new XMLHttpRequest();
     let btnUpvote = document.getElementById("btn-exist");
     let btnDownvote = document.getElementById("btn-non-exist");
-
-    if(isClicked){
-        alert("Hai già votato!");
-        btnUpvote.disabled = true;
-        btnDownvote.disabled = true;
-        return;
-    }
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -20,7 +11,7 @@ function vote(animal, voteType, clickedBtn) {
                 btnDownvote.disabled = true;
 
                 alert("Grazie per aver votato!");
-            } else {    // voteType == 'downvote'
+            } else {    // voteType = 'downvote'
                 document.getElementById("non-exist-votes").innerHTML = this.responseText;
                 btnUpvote.disabled = true;
                 btnDownvote.disabled = true;    

@@ -54,7 +54,7 @@
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
         $page = str_replace("<animal-image/>",$image,$page);
-        //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
+        $page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         // VOTES SECTION
         $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
@@ -82,13 +82,10 @@
         $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
         $queryResultThree = mysqli_query($mysqli, $queryThree);
 
-        if ($queryResultThree->num_rows > 0) {
-            $voting_section = str_replace("<is-clicked/>", 'true', $voting_section);
-        } else {
-            $voting_section = str_replace("<is-clicked/>", 'false', $voting_section);
-        }
+        $voting_section = str_replace("<is-disabled/>", $queryResultThree->num_rows > 0 ? 'disabled' : '', $voting_section);
 
-        // disabilita la sezione voto se l'utente non e' loggato
+        $queryResultThree->free();
+        // abilita la sezione voto se l'utente e' loggato
         if ($_SESSION['ruolo'] != 'guest') {
             $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
             $page = str_replace("<animal-voting-section/>", $voting_section, $page);
@@ -110,7 +107,7 @@
         $articleTag = $articleResult["tag"];
         $ultimoAvv = $articleResult["data"];
         $articleImg = $articleResult["image_path"];
-        //$articleImgAlt = $articleResult["alt"];
+        $articleImgAlt = $articleResult["alt"];
 
         $page = str_replace("<recent-title/>",$articleTitle,$page);
         $page = str_replace("<recent-description/>",$articleDescription,$page);
@@ -140,7 +137,7 @@
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
-            //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
+            $article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
             $relArticles .= $article;
         }

@@ -53,6 +53,7 @@
         $articleImage = $result["image_path"];
         $articlePlace = $result["luogo"];
         $articleContent = $result["contenuto"];
+        $articleImageAlt = $result["alt"];
 
         //Sostituisco i placeholder con i valori dell'articolo
         $page = str_replace("<article-id/>",$_GET["article"],$page);
@@ -61,7 +62,7 @@
         $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
         $page = str_replace("<article-date/>",$articleDate,$page);
         $page = str_replace("<article-image/>",$articleImage,$page);
-        //$page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
+        $page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
         
@@ -109,7 +110,6 @@
          }
 
          //Sostituisco il placeholder con la lista di animali collegati
-         $page = str_replace("<article-animals/>",$animalsRelated,$page);
          $page = str_replace("<related-animal/>",$tmp,$page);
          $queryResult->free();
         

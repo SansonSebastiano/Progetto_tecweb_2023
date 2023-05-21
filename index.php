@@ -114,11 +114,10 @@
     // LAST UPDATE SECTION
     $queryFour = 'SELECT data FROM articolo ORDER BY data DESC LIMIT 1;';
     $queryResultFour = mysqli_query($mysqli, $queryFour);
-
-    $resultFour = mysqli_fetch_assoc($queryResultFour);
-
-    $page = str_replace("<last-article-date/>", $resultFour["data"], $page);
-
+    if($queryResultFour){
+        $resultFour = mysqli_fetch_assoc($queryResultFour);
+        $page = str_replace("<last-article-date/>", $resultFour["data"], $page);
+    }
     $queryResultFour->free();
 
     $mysqli->close();
