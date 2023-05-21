@@ -9,16 +9,11 @@
 
 
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../../css/form-add-article.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/form-add.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="../../css/form-add-article.css"/>
     <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
-
-
-
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/form-add-article.css"/>
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -61,10 +56,10 @@
     
     <main class="main-wrapper">
         <h2 class="black">Scrivi un articolo...</h2>
+        <result/>
         <div class="form-container">
-            <result/>
             <form action="./form-add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
-                <div class="form-info">
+                <div id="form-info">
                     <div id="form-box-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo articolo</label>
                         <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="3" autocomplete="on" aria-label="Inserisci titolo articolo" required maxlength="255">
