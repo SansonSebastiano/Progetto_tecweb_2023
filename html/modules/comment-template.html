@@ -9,13 +9,13 @@
 
             <div class = "comment-content">
                 <p class="comment-text"><comment-text/></p>
-                <button type="button" class="btn-reply" onclick="visibleTextarea();">Rispondi</button>
+                <button type="button" class="btn-reply" id="<comment-id/>" onclick="visible(this.id);">Rispondi</button>
                 <div class = "div-reply">
                     <input type="hidden" id="hidden-bool" name="hidden-bool" value="true">
                     <input type="hidden" id="hidden-comment" name="hidden-comment" value="<comment-id/>">
                     <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
-                    <textarea id="text" name="text" required hidden></textarea>
-                    <button type="submit" class="btn-send" hidden>Invia</button>
+                    <textarea id="textreply-<comment-id/>" name="text" required></textarea>
+                    <button type="submit" class="btn-send hidden" id="send-<comment-id/>">Invia</button>
                 </div>                                   
             </div>
         </div>
@@ -27,8 +27,10 @@
 </li>
 
 <script>
-    function visibleTextarea() {
-        document.getElementById("text").hidden=false;
+    function visible(e) {
+        document.getElementById("textreply-"+e).style.display = 'inline';
+        document.getElementById("send-"+e).style.display = 'inline';
+        document.getElementById(e).style.display = 'none';
     }
 </script>
 
