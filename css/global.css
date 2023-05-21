@@ -7,6 +7,7 @@
     --color-semi-trans: rgba(255, 255,255, 0.8);
     --nonvisited-links: rgb(34, 0, 88);
     --visited-links: rgb(158, 142, 0);
+    --color-reserved: rgb(70, 70, 70);
     --width-perc-main: 75%;
     --margin-default: 3em;
     --margin-tag: 0.5em;
