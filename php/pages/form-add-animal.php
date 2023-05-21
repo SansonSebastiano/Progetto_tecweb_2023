@@ -46,8 +46,8 @@
         }
         
         //controllo che la descrizione sia lunga almeno 20 caratteri
-        if(strlen($descrizione) < 20){
-            $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri";
+        if(strlen($descrizione) < 20 || strlen($descrizione) > 2000){
+            $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri e non deve superare i 2000 caratteri";
             $ok = false;
         }
 

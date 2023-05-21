@@ -61,8 +61,8 @@
         }
     
 
-        if(strlen($testo) < 20){
-            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri";
+        if(strlen($testo) < 20 || strlen($testo) > 2000){
+            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri e non deve superare i 2000 caratteri";
             $ok = false;
         }
 
