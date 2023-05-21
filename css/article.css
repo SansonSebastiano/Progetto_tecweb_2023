@@ -162,6 +162,10 @@ hr {
     text-transform: uppercase;
 }
 
+.btn-send.hidden{
+    display: none;
+}
+
 textarea {
     resize: none;
     border-style: inset;
@@ -169,4 +173,8 @@ textarea {
     box-shadow: 1px 1px 50px black;
     flex: 1;
     height: 8em;
+    display: none;
+}
+#textcomment{
+    display: inline;
 }

@@ -110,7 +110,6 @@
          }
 
          //Sostituisco il placeholder con la lista di animali collegati
-         $page = str_replace("<article-animals/>",$animalsRelated,$page);
          $page = str_replace("<related-animal/>",$tmp,$page);
          $queryResult->free();
         
