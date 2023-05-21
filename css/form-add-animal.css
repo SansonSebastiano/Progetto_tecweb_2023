@@ -114,3 +114,20 @@ textarea{
 #btn-submit:hover{
     background-color: rgb(180, 180, 180);
 }
+
+#invalid-animal-name{
+    background-size: contain;
+
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success{
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}

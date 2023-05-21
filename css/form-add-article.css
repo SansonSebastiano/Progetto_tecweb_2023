@@ -123,3 +123,15 @@ textarea{
 #btn-submit:hover{
     background-color: rgb(176, 176, 182);
 }
+
+.error{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success{
+    color: rgb(2, 236, 2);
+    font-weight: bold;
+    text-align: center;
+}

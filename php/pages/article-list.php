@@ -46,37 +46,41 @@
     $articleTemplate = file_get_contents($modules_path . "article-template.html");
 
     // Per ogni articolo, creiamo un template e lo aggiungiamo alla pagina usando il placeholder <article-list/>
+    if($queryResult->num_rows == 0){
+        $articleList = "<li>Nessun articolo trovato</li>";
+    }else{
 
-    $articleList = "";
+        $articleList = "";
 
-    while($articleResult = mysqli_fetch_assoc($queryResult)){
-        $article = $articleTemplate;
-        $articleTitle = $articleResult["titolo"];
-        $articleId = $articleResult["id"];
-        $articleTag = $articleResult["tag"];
-        $articleImage = $articleResult["image_path"];
-        $articleImageAlt = $articleResult["alt"];
+        while($articleResult = mysqli_fetch_assoc($queryResult)){
+            $article = $articleTemplate;
+            $articleTitle = $articleResult["titolo"];
+            $articleId = $articleResult["id"];
+            $articleTag = $articleResult["tag"];
+            $articleImage = $articleResult["image_path"];
+            $articleImageAlt = $articleResult["alt"];
         
-        $article = str_replace("<article-tag/>",$articleTag,$article);
+            $article = str_replace("<article-tag/>",$articleTag,$article);
         
-        $cssTags = [
-            "scoperta" => "discovery",
-            "avvistamento" => "sighting",
-            "comunicazione" => "comunication",
-            "new-entry" => "new-entry"
-        ];
+            $cssTags = [
+                "scoperta" => "discovery",
+                "avvistamento" => "sighting",
+                "comunicazione" => "comunication",
+                "new-entry" => "new-entry"
+            ];
 
-        $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
+            $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
         
-        $article = str_replace("<article-title/>",$articleTitle,$article);
+            $article = str_replace("<article-title/>",$articleTitle,$article);
 
-        $article = str_replace("<article-id/>",$articleId,$article);
+            $article = str_replace("<article-id/>",$articleId,$article);
 
-        $article = str_replace("<image-article/>",$articleImage,$article);
+            $article = str_replace("<image-article/>",$articleImage,$article);
 
-        $article = str_replace("<image-alt/>",$articleImageAlt,$article);
+            $article = str_replace("<image-alt/>",$articleImageAlt,$article);
         
-        $articleList .= $article;
+            $articleList .= $article;
+        }
     }
 
     // Rimuoviamo il placeholder <article-list/> e sostituiamo con la lista di articoli

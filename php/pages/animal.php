@@ -1,6 +1,7 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include_once ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -19,7 +20,8 @@
 
     // ANIMAL SECTION
     if($_GET["animale"]){
-        $query = 'SELECT * FROM animale WHERE nome = "'. $_GET["animale"] . '";';
+        $animal = clearInput($_GET["animale"]);
+        $query = 'SELECT * FROM animale WHERE nome = "'. $animal . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
             include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";

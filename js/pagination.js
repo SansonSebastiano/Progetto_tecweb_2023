@@ -3,6 +3,7 @@ const paginatedList = document.getElementById("article-grid-div");
 const listItems = paginatedList.querySelectorAll("li");
 const nextButton = document.getElementById("next-button");
 const prevButton = document.getElementById("prev-button");
+const pageNumberTitle = document.getElementById("page-number");
 
 const paginationLimit = 10;
 const pageCount = Math.ceil(listItems.length / paginationLimit);
@@ -59,6 +60,8 @@ window.addEventListener("load", () => {
 // Funzione per cambiare pagina (pageNum è il numero di pagina)
 const setCurrentPage = (pageNum) => {
     currentPage = pageNum;
+
+    pageNumberTitle.innerHTML = pageNum;
 
     handleActivePageNumber();
     handlePageButtonsStatus();

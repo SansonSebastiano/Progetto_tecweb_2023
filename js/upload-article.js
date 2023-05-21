@@ -7,12 +7,19 @@ function uploadFile(e) {
     e.preventDefault();
     // get file from input with id=#file
     let file = document.querySelector("#immagine").files[0];
-    let hidden = document.querySelector("#hidden");
+    let hidden = document.querySelector("#image-path");
+    let status = document.getElementById("loaded-photo")
         // set metadata for the file
     const metadata = {
         contentType: file.type,
       };
 
+    if(file.size >= 1000000){
+        status.classList.remove("success")
+        status.classList.add("error")
+        status.innerHTML = "L'immagine è troppo grande, massimo 1MB";
+        return;
+    }
     // create a reference to the file
     const fileRef = ref(articlesRef, file.name);
 
@@ -22,6 +29,9 @@ function uploadFile(e) {
         return getDownloadURL(snapshot.ref);
     }).then((url) => {
         hidden.value = url;
+        status.innerHTML = "Foto caricata con successo";
+        status.classList.remove("error")
+        status.classList.add("success")
     });
     //document.getElementById("submit").style.visibility="visible";
 
