@@ -1,12 +1,7 @@
 <?php
-    const ADMIN_ROLE = "admin";
-    const USER_ROLE = "user";
-    const WRITER_ROLE = "writer";
     const GUEST_ROLE = "guest";
-    const NO_ROLE = "no_role";
 
     $log_in_out = " ";
-    $user = " ";
 
     // logout
     $logoutPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logout.php";
@@ -21,23 +16,10 @@
 
     // check user privileges
     if (isset($_SESSION["ruolo"])) {
-        if ($_SESSION["ruolo"] == ADMIN_ROLE) {
-            $log_in_out = $logout_ref;
-            $user = $_SESSION["ruolo"] . $logConn;
-        } elseif ($_SESSION["ruolo"] == WRITER_ROLE) {
-            $log_in_out = $logout_ref;
-            $user = $_SESSION["ruolo"] . $logConn;
-        } elseif ($_SESSION["ruolo"] == USER_ROLE) {
-            $log_in_out = $logout_ref;
-            $user = $_SESSION["ruolo"] . $logConn;
-        } else {    // GUEST_ROLE
-            $log_in_out = $login_ref;
-            $user = $_SESSION["ruolo"] . $logConn;
-        }
+        $log_in_out = $_SESSION["ruolo"] == GUEST_ROLE ? $login_ref : $logout_ref;
     } else {
-        $log_in_out = $login_ref;
         $_SESSION["ruolo"] = GUEST_ROLE;
-        $user = $_SESSION["ruolo"] . $logConn;
+        $log_in_out = $login_ref;
     }
 
 ?>
