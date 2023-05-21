@@ -81,8 +81,17 @@
         // un utente può esprimere un solo voto per ciascun animale
         $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
         $queryResultThree = mysqli_query($mysqli, $queryThree);
+        $resultThree = mysqli_fetch_assoc($queryResultThree);
+        $vote = $resultThree['voto'];
 
-        $voting_section = str_replace("<is-disabled/>", $queryResultThree->num_rows > 0 ? 'disabled' : '', $voting_section);
+        if ($queryResultThree->num_rows > 0) {
+            $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
+            $msg = 'Hai votato già per questo animale! ';
+            $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? $msg . "Non credi all'esistenza." : $msg . "Credi all'esistenza.", $voting_section);
+        } else {
+            $voting_section = str_replace("<is-disabled/>", '', $voting_section);
+            $voting_section = str_replace("<vote-msg/>", '', $voting_section);
+        }
 
         $queryResultThree->free();
         // abilita la sezione voto se l'utente e' loggato
