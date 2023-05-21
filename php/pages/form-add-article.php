@@ -10,6 +10,7 @@
         //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
     }
+    
     $_SESSION["prev_page"] =  $faar_ref;
 
     $page = file_get_contents($html_path . "form-add-article.html");

@@ -11,19 +11,21 @@
     $pages_path = $php_path . "pages" . DIRECTORY_SEPARATOR;
     // html files
     $html_path = $root . "html" . DIRECTORY_SEPARATOR;
-    // modules files
+    // module files
     $modules_path = $html_path . "modules" . DIRECTORY_SEPARATOR;
     // images
     $img_path = $root . "images" . DIRECTORY_SEPARATOR;
-    // articles images
+    // article images
     $articles_img_path = $img_path . "articles" . DIRECTORY_SEPARATOR;
-    // icons images
+    // icons 
     $icons_img_path = $img_path . "icons" . DIRECTORY_SEPARATOR;
 
-    // icon user refrence
+    // user icon
     $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
+    // logout icon
+    $icon_logout_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "logout.png" . "\" id = \"logout\" alt = \"icona logout\"/>";
 
-    // previous page (for 'prev_page' session variable)):
+    // previous page (for 'prev_page' session variable):
     // index.php
     $index_ref = DIRECTORY_SEPARATOR . "index.php";
     $php_pages_ref = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR;

@@ -10,24 +10,30 @@
 
     $page = file_get_contents($html_path . "index.html");
 
-    $page = str_replace("<greet/>", "Ciao, ", $page);
-    $page = str_replace("<user-img/>", $icon_user_ref, $page);
+    // IDENTIFICATION SECTION
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+        $page = str_replace("<greet/>", "Ciao, ", $page);
+        $page = str_replace("<user-img/>", $icon_user_ref, $page);
+    } else {
+        $page = str_replace("<greet/>", "", $page);
+        $page = str_replace("<user-img/>", "", $page);
+    }
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     $page = str_replace("<script-conn/>", $logUserConn, $page);
 
-    // LOGIN SECTION
+    // ADMIN-WRITER SECTION
     $admin_section = "<button class=\"btn-primary\" onclick=\"location.href='" . $admin_page_ref . "'\" tabindex='2'>Sezione Amministratore</button>";
 
     $writer_section = "<button class=\"btn-primary\" onclick=\"location.href='" . $faar_ref . "'\" tabindex='2'>Scrivi un nuovo articolo</button>";
 
-    if ($_SESSION["ruolo"] == "admin") {
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] === "admin") {
         $page = str_replace("<admin-section/>", $admin_section, $page);
     } else {
         $page = str_replace("<admin-section/>", "", $page);
     }
 
-    if ($_SESSION["ruolo"] == "writer") {
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] === "writer") {
         $page = str_replace("<writer-section/>", $writer_section, $page);
     } else {
         $page = str_replace("<writer-section/>", "", $page);
