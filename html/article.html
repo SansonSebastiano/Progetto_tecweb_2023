@@ -60,8 +60,6 @@
                     <p id ="date">Di <em><article-author/></em> <time datetime="<article-date/>"><article-date/></time></p>
                     <img src = "<article-image/>" alt="<article-image-alt/>">
                     <div id = "text-div1">
-
-
                         <aside>
                             <dl>
                                 <dt>TAG:</dt>
@@ -86,88 +84,36 @@
             <hr/>
 
             <!-- TODO: tabindex nella sezione commenti -->
-
+            
+            
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
+                <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
+                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="false">
+                    <div class="comment-single">
+                        <div class = "comment-details">
+                            <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
+                            <p class="author"><user/></p>
+                        </div>
+                        <div class = "comment-content">
+                            <div class = "div-reply">
+                                <textarea id="text" name="text"></textarea>
+                                <button type="submit" class="btn-send">Commenta</button>
+                            </div>                                                        
+                        </div>
+                    </div>
+                </form>            
                 <div id = "shoutbox">
                     <button id="go-top" class="arrow-button">🢙</button>
                     <button id="go-bottom" class = "arrow-button">🢛</button>
                     <ul class = "comment-list">
-
-                        <li class="comment-family">
-
-                            <div class="comment-single">
-                                <div class = "comment-details">
-                                    <img class="profile-pic" src="../../images/icons/icon-user.png">
-                                    <p class="author">Orazio Grinzosi</p>
-                                    <p class="timestamp">11:28, 27 dicembre 2022</p>
-                                </div>
-
-                                <div class = "comment-content">
-                                    <p class="comment-text">We wagliò, bello 'sto Scimpassero!! Saluti da Castellammare di Stabiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                                    <button class="btn-reply">Rispondi</button>
-                                    <div class = "div-reply">
-                                        <textarea></textarea>
-                                        <button class="btn-send">Invia</button>
-                                    </div>                                   
-                                </div>
-                            </div>
-
-                            <ul class="replies">
-                                <li>
-                                    <div class="comment-single">
-                                        <div class = "comment-details">
-                                            <img class="profile-pic" src="../../images/icons/icon-user.png">
-                                            <p class="author">Lorenzo Letame</p>
-                                            <p class="timestamp">11:31, 27 dicembre 2022</p>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p class="comment-text">go being Neapolitan somewhere else</p>
-                                            <button class="btn-reply">Rispondi</button>
-                                        </div>
-                                    </div>
-                                    <div class="comment-single">
-                                        <div class = "comment-details">
-                                            <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
-                                            <p class="author">Orazio Grinzosi</p>
-                                            <p class="timestamp">11:31, 27 dicembre 2022</p>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p class="comment-text">fottiti porcodio</p>
-                                            <button class="btn-reply">Rispondi</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                        </li>
-                    
-                        <li class="comment-family">
-
-                            <div class="comment-single">
-                                <div class = "comment-details">
-                                    <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
-                                    <p class="author">global communication</p>
-                                    <p class="timestamp">11:28, 27 dicembre 2022</p>
-                                </div>
-
-                                <div class = "comment-content">
-                                    <p class="comment-text">global communication - 76:14 the GOAT no CAP</p>
-                                    <button class="btn-reply">Rispondi</button>
-                                </div>
-                            </div>
-
-                            <ul class="replies">
-                            </ul>
-
-                        </li>
+                        <comment-list/>
                     </ul>
                 </div>
             </section>
         </main>
-
-        <footer id="footer"></footer>
-
+        
     </body>
 
 </html>

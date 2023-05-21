@@ -17,53 +17,71 @@
         session_start();
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['submit'])) {
-            if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
+    $page = file_get_contents($html_path . "form-login.html");
+
+    $username = "";
+    $password = "";
+    $resultString = "";
+    if (isset($_POST['submit']) && array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
+        
+        // set Location header
+        $location = "Location: " . $_SESSION["prev_page"];
+        // get the data from the form:
+        // username
+        $username = clearInput($_POST['username']);
+
+        // password
+        $password = clearInput($_POST['password']);
                 
-                // get the data from the form:
-                // username
-                $username = clearInput($_POST['username']);
+        // $passwordHashed = hash("sha256", $password);
 
-                // password
-                $password = clearInput($_POST['password']);
+        // echo "<script>console.log('Password hash: " .  $passwordHashed . "');</script>";
+        // create a query
+        $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
+        // execute the query
+        $result = $mysqli->query($query);
+        // check if the query was executed successfully and if the result is not empty
+        if ($result->num_rows == 0) {
+                    
+            $resultString = "<p class='error'>Credenziali sbagliate!</p>";
 
-                // create a query
-                $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
-                // execute the query
-                $result = $mysqli->query($query);
-                // check if the query was executed successfully and if the result is not empty
-                $mysqli->close();
-                if ($result->num_rows == 0) {
+            $mysqli->close();
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                $_SESSION["username"] = $row["nome"];
+                $_SESSION["id"] = $row["id"];
 
-                    header("Location: " . $form_login_ref);
-                    exit();
-
-                } else {
-
-                        $row = $result->fetch_assoc();
-                        if ($row["ruolo"] == ADMIN_ROLE) {
-
-                            $_SESSION["ruolo"] = ADMIN_ROLE;
-
-                        } elseif ($row["ruolo"] == WRITER_ROLE) {
-
-                            $_SESSION["ruolo"] = WRITER_ROLE;
-
-                        } else {
-
-                            $_SESSION["ruolo"] = USER_ROLE;
-
-                        }
-                        $_SESSION["username"] = $row["nome"];
-                        $_SESSION["id"] = $row["id"];
-
-                        header("Location: " . $_SESSION["prev_page"]);
-                        exit();
-
-                    $result->free();
+                switch($row["ruolo"]){
+                    case ADMIN_ROLE:
+                        echo "<script>console.log('ADMIN SECTION');</script>";
+                        $_SESSION["ruolo"] = ADMIN_ROLE;
+                        break;
+                    case WRITER_ROLE:
+                        echo "<script>console.log('WRITER SECTION');</script>";
+                        $_SESSION["ruolo"] = WRITER_ROLE;
+                        break;
+                    case USER_ROLE:
+                        echo "<script>console.log('LOGGED SECTION');</script>";
+                        $_SESSION["ruolo"] = USER_ROLE;
+                        break;
                 }
+
+                echo "<script>console.log('USERNAME: " . $_SESSION["username"] . "');</script>";
+                echo "<script>console.log('PASSWORD: " . $row["password"] . "');</script>";
+                echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
+                header($location);
             }
+
+            // free the result set
+            $result->free();
+            // close the connection
+            $mysqli->close();
         }
     }
+
+    $page = str_replace("<username/>", $username, $page);
+    $page = str_replace("<password/>", $password, $page);
+    $page = str_replace("<result/>", $resultString, $page);
+
+    echo $page;
 ?>

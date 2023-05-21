@@ -13,8 +13,14 @@
     $animal_entry = file_get_contents($modules_path . "animal-entry.html");
     $page = file_get_contents($html_path . "animal-list.html");
 
-    $page = str_replace("<greet/>", "Ciao, ", $page);
-    $page = str_replace("<user-img/>", $icon_user_ref, $page);
+    // IDENTIFICATION SECTION
+   if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+        $page = str_replace("<greet/>", "Ciao, ", $page);
+        $page = str_replace("<user-img/>", $icon_user_ref, $page);
+    } else {
+        $page = str_replace("<greet/>", "", $page);
+        $page = str_replace("<user-img/>", "", $page);
+    }
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
