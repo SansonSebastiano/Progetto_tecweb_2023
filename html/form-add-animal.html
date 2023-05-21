@@ -13,7 +13,9 @@
             $("#footer").load("../../html/modules/footer.html");
             $("#go-up-div").load("../../html/modules/go-up-div.html");  
         });
-    </script> 
+    </script>
+    <script src="../../js/validate-form-add-animal.js" defer></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css">
@@ -53,7 +55,7 @@
     </nav>
     
     <main id="main-wrapper">
-        h2 class="black">Aggiungi una creatura...</h2>
+        <h2 class="black">Aggiungi una creatura...</h2>
         <result/>
         <div id="form-container">
             <form action="../pages/form-add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
@@ -96,6 +98,5 @@
     </main>
 
     <footer id="footer"></footer>
-    <script src="../../js/form-add-animal.js"></script>
 </body>
 </html>

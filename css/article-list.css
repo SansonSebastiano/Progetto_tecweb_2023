@@ -57,7 +57,7 @@ ul {
 #search-form {
     background-image: url("../../images/icons/lens.png");
     background-repeat: no-repeat;
-    background-position: bottom 0.5em left 0.5em;
+    background-position: bottom 0.5em right 0.5em;
     background-size:5%;
     border: 0.1em solid var(--color2);
     border-radius: var(--image-radius-corner);
@@ -68,22 +68,29 @@ ul {
 
     display:grid;
     grid-template-areas: 
-    "ct ct ct ct"
-    "it it it bt"
-    ". . cc cc"
-    ". . ic bc";
-    column-gap: 0;
-    row-gap: 0.5em;
+    "ct ct ct . cc"
+    "it it it . ic"
+    ". . bt . .";
+    grid-auto-columns: 1fr;
+    
+    row-gap: 1.5em;
 
     position: relative;
 }
 
+#fieldset-warning {
+    color: var(--color2);
+    font-style: italic;
+    text-align: center;
+}
+
 #submit-button {
     border-style: outset;
-    border-radius: 0 1em 1em 0;
+    border-radius: 1em;
     background-color: var(--color1);
     color: var(--color3);
     font-weight: bold;
+    grid-area: bt;
 }
 
 #caption-by-title {
@@ -98,7 +105,7 @@ ul {
     grid-area: it;
     box-sizing: border-box;
     border-style: inset;
-    border-radius: 1em 0 0 1em;
+    border-radius: 1em;
     padding-left: 1em;
 }
 
@@ -106,22 +113,11 @@ ul {
     grid-area: ic;
     border: none;
     text-align: center;
-    border-radius: 1em 0 0 1em;
+    border-radius: 1em;
     text-transform: uppercase;
 }
 
-#submit-button {
-    grid-area: bt;
-}
-
-#deco {
-    position: absolute;
-    left: 0.2em;
-    bottom: 0.2em;
-    height: 40%;
-}
-
-.paired {
+.larger {
     font-size: 1.2em;
 }
 

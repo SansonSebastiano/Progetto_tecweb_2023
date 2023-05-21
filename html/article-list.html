@@ -58,10 +58,10 @@
                 <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" aria-label="Inserisci il titolo di un articolo" autocomplete="on" tabindex="3"/>
-                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="paired" tabindex="5" aria-label="Cerca"/>
+                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci il titolo di un articolo" autocomplete="on" tabindex="3"/>
+                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="larger" tabindex="5" aria-label="Cerca"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <select name="tag" id="input-by-cat" class="paired" aria-label="Seleziona tag" tabindex="4">
+                    <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona tag" tabindex="4">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
                         <option value="avvistamento">Avvistamento</option>
@@ -69,6 +69,7 @@
                         <option value="new-entry">New-Entry</option>
                     </select>
                 </fieldset>
+                <p id="fieldset-warning">Per filtrare articoli solamente in base al tag, è sufficiente lasciare vuoto il campo del titolo</p>
             </form>
 
             <hr/>
