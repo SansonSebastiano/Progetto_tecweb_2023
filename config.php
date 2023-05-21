@@ -8,7 +8,12 @@
     // modules files
     $modules_path = $html_path . "modules" . DIRECTORY_SEPARATOR;
 
-    // previous page (for 'prev_page' session variable)):
+    // user icon
+    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
+    // logout icon
+    $icon_logout_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "logout.png" . "\" id = \"logout\" alt = \"icona logout\"/>";
+
+    // previous page (for 'prev_page' session variable):
     // index.php
     $root_client_side = DIRECTORY_SEPARATOR . "fceccato" . DIRECTORY_SEPARATOR;
     $index_ref = $root_client_side . "index.php";

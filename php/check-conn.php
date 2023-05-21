@@ -8,37 +8,36 @@
     $log_in_out = " ";
     $user = " ";
 
+    // logout
     $logoutPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "logout.php";
-    $loginPath = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "login.php";
+    $logout_ref = "<a href=" . $logoutPath . " tabindex='1'>" . $icon_logout_ref . "</a>";
+    // login
+    $loginPath = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
+    $login_ref = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    
-    $role = $_SESSION["ruolo"] ?? NO_ROLE;
-    // check user privilege
-    switch ($role) {
-        case ADMIN_ROLE:
-            $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
-            require($conn_path . "admin-conn.php");
-            break;
-        case WRITER_ROLE:
-            $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
-            require($conn_path . "writer-conn.php");
-            break;
-        case USER_ROLE:
-            $log_in_out = "<a href=" . $logoutPath . " tabindex='1'>Esci</a>";
-            require($conn_path . "user-conn.php");
-            break;
-        case GUEST_ROLE:
-            $log_in_out = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
-            require($conn_path . "guest-conn.php");
-            break;
-        default:
-            $log_in_out = "<a href=" . $loginPath . " tabindex='1'>Accedi</a>";
-            $_SESSION["ruolo"] = GUEST_ROLE;
-            require($conn_path . "guest-conn.php");
-            break;
+
+    // check user privileges
+    if (isset($_SESSION["ruolo"])) {
+        if ($_SESSION["ruolo"] == ADMIN_ROLE) {
+            $log_in_out = $logout_ref;
+            $user = $_SESSION["ruolo"] . $logConn;
+        } elseif ($_SESSION["ruolo"] == WRITER_ROLE) {
+            $log_in_out = $logout_ref;
+            $user = $_SESSION["ruolo"] . $logConn;
+        } elseif ($_SESSION["ruolo"] == USER_ROLE) {
+            $log_in_out = $logout_ref;
+            $user = $_SESSION["ruolo"] . $logConn;
+        } else {    // GUEST_ROLE
+            $log_in_out = $login_ref;
+            $user = $_SESSION["ruolo"] . $logConn;
+        }
+    } else {
+        $log_in_out = $login_ref;
+        $_SESSION["ruolo"] = GUEST_ROLE;
+        $user = $_SESSION["ruolo"] . $logConn;
     }
 
 ?>
