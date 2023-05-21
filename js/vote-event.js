@@ -27,6 +27,7 @@ function vote(animal, voteType, clickedBtn) {
 
                 alert("Grazie per aver votato!");
             }
+            window.location.reload();
         }
     };
 
