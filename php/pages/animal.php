@@ -86,8 +86,7 @@
 
         if ($queryResultThree->num_rows > 0) {
             $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
-            $msg = 'Hai votato già per questo animale! ';
-            $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? $msg . "Non credi all'esistenza." : $msg . "Credi all'esistenza.", $voting_section);
+            $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? "<span class='red'>no</span>" : "<span class='green'>sì</span>", $voting_section);
         } else {
             $voting_section = str_replace("<is-disabled/>", '', $voting_section);
             $voting_section = str_replace("<vote-msg/>", '', $voting_section);

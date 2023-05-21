@@ -124,6 +124,16 @@ section {
     text-align: center;
 }
 
+.red{
+    color: red;
+    font-weight: bold;
+}
+
+.green{
+    color: green;
+    font-weight: bold;
+}
+
 .votes-box {
     background: var(--color2);
     color: white;
