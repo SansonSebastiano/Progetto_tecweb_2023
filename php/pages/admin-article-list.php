@@ -70,4 +70,4 @@
     $mysqli->close();
 
     echo $page;
-?>  
+?>     
