@@ -26,9 +26,10 @@
         </script> 
         <script src="../../js/pagination.js" defer></script>
         <title>
-            Storico articoli  ● 1 - Elusive
+            Storico articoli | <span id="page-number"></span> - Elusive
         </title>
-        <script-conn/>
+        
+
     </head>
 
     <body>
@@ -53,9 +54,8 @@
 
         <main>
             <h2>Gli articoli di eLusive</h2>
-
-            <form action="article-list.php" method="get">
-                <fieldset id="search-form">
+            <form action= "article-list.php" method="get">
+                <fieldset class="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
                     <input id="input-by-title" name="search" class="paired" type="text" placeholder="Es.: avvistamento nella Foresta Nera" aria-label="Inserisci il titolo di un articolo" autocomplete="on" tabindex="3"/>

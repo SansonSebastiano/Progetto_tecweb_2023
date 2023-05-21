@@ -7,8 +7,8 @@
     }
 
     if ($_SESSION['ruolo'] != 'admin' && $_SESSION['ruolo'] != 'writer') {
-        //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        exit();
     }
 
     $sql = "SELECT `nome` FROM `animale`";
@@ -19,4 +19,6 @@
         $json_array[]= $data;
     }
     echo json_encode($json_array);
+
+    $mysqli->close();
 ?>

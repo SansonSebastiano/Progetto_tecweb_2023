@@ -1,6 +1,8 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -20,7 +22,6 @@
     }
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
     
     // Vogliamo prelevare gli articoli dal database, estraendo il tag e la stringa di ricerca (ricerchiamo nel titolo) dalla richiesta get se ci sono
     // Se non ci sono, allora preleviamo tutti gli articoli
@@ -52,8 +53,11 @@
     $articleTemplate = file_get_contents($modules_path . "article-template.html");
 
     // Per ogni articolo, creiamo un template e lo aggiungiamo alla pagina usando il placeholder <article-list/>
+    if($queryResult->num_rows == 0){
+        $articleList = "<li>Nessun articolo trovato</li>";
+    }else{
 
-    $articleList = "";
+        $articleList = "";
 
     while($articleResult = mysqli_fetch_assoc($queryResult)){
         $article = $articleTemplate;
@@ -61,32 +65,33 @@
         $articleId = $articleResult["id"];
         $articleTag = $articleResult["tag"];
         $articleImage = $articleResult["image_path"];
-        $articleImageAlt = $articleResult["alt"];
         
-        $article = str_replace("<article-tag/>",$articleTag,$article);
+            $article = str_replace("<article-tag/>",$articleTag,$article);
         
-        $cssTags = [
-            "scoperta" => "discovery",
-            "avvistamento" => "sighting",
-            "comunicazione" => "comunication",
-            "new-entry" => "new-entry"
-        ];
+            $cssTags = [
+                "scoperta" => "discovery",
+                "avvistamento" => "sighting",
+                "comunicazione" => "comunication",
+                "new-entry" => "new-entry"
+            ];
 
-        $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
+            $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
         
-        $article = str_replace("<article-title/>",$articleTitle,$article);
+            $article = str_replace("<article-title/>",$articleTitle,$article);
 
-        $article = str_replace("<article-id/>",$articleId,$article);
+            $article = str_replace("<article-id/>",$articleId,$article);
 
-        $article = str_replace("<image-article/>",$articleImage,$article);
+            $article = str_replace("<image-article/>",$articleImage,$article);
 
-        $article = str_replace("<image-alt/>",$articleImageAlt,$article);
+        //$article = str_replace("<image-alt/>",$articleImageAlt,$article);
         
-        $articleList .= $article;
+            $articleList .= $article;
+        }
     }
 
     // Rimuoviamo il placeholder <article-list/> e sostituiamo con la lista di articoli
     $page = str_replace("<article-list/>",$articleList,$page);
-    
+
+    $mysqli->close();
     echo $page;
 ?>

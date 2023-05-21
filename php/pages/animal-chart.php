@@ -1,6 +1,7 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -20,7 +21,6 @@
     }
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
 
@@ -65,16 +65,15 @@
         $entry = str_replace("<yes-votes/>", $yes,$entry);
         $entry = str_replace("<no-votes/>", $no,$entry);
         $entry = str_replace("<animal-image/>", $result["image_path"],$entry);
-        $entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
+        //$entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
         $entry = str_replace("<animal-status/>", $result["status"],$entry);
 
         $entries .= $entry;
     }
-
-    $queryResult->free();
-
     $page = str_replace("<entries/>",$entries,$page);
 
+    $queryResult->free();
+    $mysqli->close();
 
     echo $page;
 ?>

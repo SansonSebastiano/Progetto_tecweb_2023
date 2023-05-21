@@ -1,11 +1,9 @@
 <?php
-    include ".." . DIRECTORY_SEPARATOR . "config.php";
-    require  'db-conn.php';
-
     const ADMIN_ROLE = "admin";
     const USER_ROLE = "user";
     const WRITER_ROLE = "writer";
     const GUEST_ROLE = "guest";
+    const NO_ROLE = "no_role";
 
     $log_in_out = " ";
     $user = " ";
@@ -41,5 +39,5 @@
         $_SESSION["ruolo"] = GUEST_ROLE;
         $user = $_SESSION["ruolo"] . $logConn;
     }
-    $logUserConn = "<script>console.log('" . $user . "');</script>";
+
 ?>

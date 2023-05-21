@@ -1,14 +1,16 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+    
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
 
     if ($_SESSION['ruolo'] != 'admin') {
-        //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        exit();
     }
 
     $_SESSION["prev_page"] =  $admin_page_animal_list_ref;
@@ -21,7 +23,6 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
     $alphas = range('A', 'Z');
 
@@ -30,7 +31,6 @@
     $row = "";
 
     if(is_null($query)){
-        echo "<h1>Errore durante la connesione al server</h1>";
         die(1);
     }
 
@@ -72,6 +72,7 @@
     }
     $page = str_replace("<navigator/>", $navigator,$page);
     $page = str_replace("<to-fill/>", $final,$page);
+
     $mysqli->close();
 
     echo $page;

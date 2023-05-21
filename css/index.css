@@ -168,10 +168,6 @@ aside ol {
     border-top: none;
 }
 
-aside ul {
-    list-style-type:square;
-}
-
 aside section {
     margin-bottom: 2em;
     clear: both;

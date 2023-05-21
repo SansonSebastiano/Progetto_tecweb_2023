@@ -1,4 +1,4 @@
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:900px) {
     #main-aside-wrapper {
         flex-direction: column;
     }
@@ -16,15 +16,15 @@
     
 }
 
-@media only screen and (min-width:800px) {
+@media only screen and (min-width:901px) {
 
     #link-list {
         float: right;
     }
 
     aside ul {
-        text-align: center;
-        list-style-type: none;
-        padding-left: 0;
+        text-align: initial;
+        list-style-type: square;
+        padding-left: 1em;
     }
 }

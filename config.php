@@ -1,24 +1,12 @@
 <?php
     // root path
-    $root = __DIR__ . DIRECTORY_SEPARATOR;
-    // index.php
-    $index_path = $root . "index.php";
+    $root_server_side = __DIR__ . DIRECTORY_SEPARATOR;
     // php files
-    $php_path = $root . "php" . DIRECTORY_SEPARATOR;
-    // conn files
-    $conn_path = $php_path . "conn" .DIRECTORY_SEPARATOR;
-    // php pages
-    $pages_path = $php_path . "pages" . DIRECTORY_SEPARATOR;
+    $php_path = $root_server_side . "php" . DIRECTORY_SEPARATOR;
     // html files
-    $html_path = $root . "html" . DIRECTORY_SEPARATOR;
-    // module files
+    $html_path = $root_server_side . "html" . DIRECTORY_SEPARATOR;
+    // modules files
     $modules_path = $html_path . "modules" . DIRECTORY_SEPARATOR;
-    // images
-    $img_path = $root . "images" . DIRECTORY_SEPARATOR;
-    // article images
-    $articles_img_path = $img_path . "articles" . DIRECTORY_SEPARATOR;
-    // icons 
-    $icons_img_path = $img_path . "icons" . DIRECTORY_SEPARATOR;
 
     // user icon
     $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
@@ -27,8 +15,12 @@
 
     // previous page (for 'prev_page' session variable):
     // index.php
-    $index_ref = DIRECTORY_SEPARATOR . "index.php";
-    $php_pages_ref = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR;
+    $root_client_side = DIRECTORY_SEPARATOR . "fceccato" . DIRECTORY_SEPARATOR;
+    $index_ref = $root_client_side . "index.php";
+    
+    $php_pages_ref = $root_client_side . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR;
+
+    $html_ref = $root_client_side . "html" . DIRECTORY_SEPARATOR;
     // form-add-animal.php
     $faan_ref = $php_pages_ref . "form-add-animal.php";
     // form-add-article.php
@@ -50,5 +42,8 @@
     // admin-article-list.php
     $admin_page_article_list_ref = $php_pages_ref . "admin-article-list.php";
     // login-form.html
-    $login_form_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "form-login.html";
+    $form_login_ref = $html_ref . "form-login.html";
+
+    // icon user refrence
+    $icon_user_ref = "<img src=\"" . $root_client_side . "images\\icons\\icon-user.png\" class=\"profile-pic\"alt=\"Utente\"/>";
 ?>

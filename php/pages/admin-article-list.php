@@ -1,14 +1,15 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
 
     if ($_SESSION['ruolo'] != 'admin') {
-        //echo "<script>alert('Spiacente! Non hai permessi di amministratore');</script>";
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        exit();
     }
 
     $_SESSION["prev_page"] =  $admin_page_article_list_ref;
@@ -19,10 +20,9 @@
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
-    $page = str_replace("<script-conn/>", $logUserConn, $page);
 
-    $tag = $_GET["tag"] ?? "";
-    $search = $_GET["search"] ?? "";
+    $tag = clearInput($_GET["tag"]) ?? "";
+    $search = clearInput($_GET["search"]) ?? "";
 
     $query = 'SELECT * FROM view_articolo_utente';
 
@@ -64,8 +64,10 @@
     
 
     $table = str_replace("<article-entry/>",$articleList,$table);
-
     $page = str_replace("<article-list/>",$table,$page);
 
+    $queryResult->free_result();
+    $mysqli->close();
+
     echo $page;
-?>  
+?>     

@@ -10,11 +10,11 @@
         $query = 'DELETE FROM animale WHERE nome = "' . $_GET["animale"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
 
-       //$url;
+        $mysqli->close();
 
-        if ($queryResult) {;
-            //echo '<script type="text/javascript" src="' . ".." . DIRECTORY_SEPARATOR . "js" . DIRECTORY_SEPARATOR . "remove-animal.js" .'">','deleteFile('$url');','</script>';
-            header("location:" . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "admin-animal-list.php" );
+        if ($queryResult) {
+            header("Location:" . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "admin-animal-list.php" );
+            exit();
         }
     }
 ?>

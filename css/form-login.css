@@ -78,3 +78,15 @@ label {
 .btn-submit:hover{
     background-color: rgb(3, 60, 37);
 }
+
+.error{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success{
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
