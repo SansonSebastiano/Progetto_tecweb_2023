@@ -10,7 +10,6 @@
     $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"];
 
     $page = file_get_contents($html_path . "animal-chart.html");
-
    // IDENTIFICATION SECTION
    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
@@ -65,7 +64,7 @@
         $entry = str_replace("<yes-votes/>", $yes,$entry);
         $entry = str_replace("<no-votes/>", $no,$entry);
         $entry = str_replace("<animal-image/>", $result["image_path"],$entry);
-        //$entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
+        $entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
         $entry = str_replace("<animal-status/>", $result["status"],$entry);
 
         $entries .= $entry;

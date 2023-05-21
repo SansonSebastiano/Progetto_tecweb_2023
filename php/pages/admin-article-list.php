@@ -1,5 +1,6 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
+    include ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
     require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
     require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
     include ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
@@ -29,9 +30,9 @@
 
     if ($tag !== "" && $search !== "") {
         $query .= ' WHERE tag = "' . $tag . '" AND titolo LIKE "%' . $search . '%"';
-    } else if ($tag !== "") {
+    } elseif ($tag !== "") {
         $query .= ' WHERE tag = "' . $tag . '"';
-    } else if ($search !== "") {
+    } elseif ($search !== "") {
         $query .= ' WHERE titolo LIKE "%' . $search . '%"';
     }
 
@@ -44,7 +45,7 @@
 
     $articleList = "";
 
-    while($articleResult = mysqli_fetch_assoc($queryResult)){
+    while ($articleResult = mysqli_fetch_assoc($queryResult)) {
         $article = $article_entry;
         $articleId = $articleResult["id"];
         $articleTitle = $articleResult["titolo"];
@@ -71,4 +72,4 @@
     $mysqli->close();
 
     echo $page;
-?>     
+?>
