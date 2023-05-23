@@ -7,6 +7,12 @@
         width: 100%;
     }
 
+    td:first-child {
+        width: 0;
+    }
+    td:nth-child(2) {
+        text-align: center;
+    }
     td img {
         display: none;
     }

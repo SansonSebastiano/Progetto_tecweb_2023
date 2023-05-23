@@ -1,8 +1,9 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
+    include ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "db-conn.php";
     include ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
-    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

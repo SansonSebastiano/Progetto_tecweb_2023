@@ -31,10 +31,13 @@ ul {
 
 .article{
     position: relative;
+    width: 100%;
 }
 
 .article img{
-    width:100%;
+    width:inherit;
+    height: 20em;
+    object-fit: cover;
 }
 
 .article a{

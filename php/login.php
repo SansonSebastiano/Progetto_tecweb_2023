@@ -9,7 +9,7 @@
 
     include ".." . DIRECTORY_SEPARATOR . "config.php";
     // import the connection script
-    require  'db-conn.php';
+    include  'db-conn.php';
     // import input cleaner script
     include 'input-cleaner.php' ;
 
@@ -43,7 +43,7 @@
         // check if the query was executed successfully and if the result is not empty
         if ($result->num_rows == 0) {
                     
-            $resultString = "<p class='error'>Credenziali sbagliate!</p>";
+            $resultString = "<p class='error'>Username o password non corretti!</p>";
 
             $mysqli->close();
         } else {
@@ -53,24 +53,16 @@
 
                 switch($row["ruolo"]){
                     case ADMIN_ROLE:
-                        //echo "<script>console.log('ADMIN SECTION');</script>";
                         $_SESSION["ruolo"] = ADMIN_ROLE;
                         break;
                     case WRITER_ROLE:
-                        //echo "<script>console.log('WRITER SECTION');</script>";
                         $_SESSION["ruolo"] = WRITER_ROLE;
                         break;
                     case USER_ROLE:
-                        //echo "<script>console.log('LOGGED SECTION');</script>";
                         $_SESSION["ruolo"] = USER_ROLE;
                         break;
                 }
 
-                /*
-                echo "<script>console.log('USERNAME: " . $_SESSION["username"] . "');</script>";
-                echo "<script>console.log('PASSWORD: " . $row["password"] . "');</script>";
-                echo "<script>console.log('RUOLO: " . $_SESSION["ruolo"] . "');</script>";
-                */
                 header($location);
             }
 
@@ -81,8 +73,6 @@
         }
     }
 
-    $page = str_replace("<username/>", $username, $page);
-    $page = str_replace("<password/>", $password, $page);
     $page = str_replace("<result/>", $resultString, $page);
 
     echo $page;

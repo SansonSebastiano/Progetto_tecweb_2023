@@ -1,5 +1,9 @@
 @media only screen and (max-width:900px) {
     #article-grid-div {
-        display: initial;
+        display: block;
+    }
+
+    #search-form {
+        width: fit-content;
     }
 }

@@ -1,7 +1,7 @@
 <?php
     include "config.php";
-    require $php_path . "db-conn.php";
-    require $php_path . "check-conn.php";
+    include $php_path . "db-conn.php";
+    include $php_path . "check-conn.php";
     
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

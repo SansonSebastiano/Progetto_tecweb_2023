@@ -1,7 +1,7 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
-    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "db-conn.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -64,7 +64,7 @@
         $entry = str_replace("<yes-votes/>", $yes,$entry);
         $entry = str_replace("<no-votes/>", $no,$entry);
         $entry = str_replace("<animal-image/>", $result["image_path"],$entry);
-        $entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
+        $entry = str_replace("<animale-image-alt/>", $result["nome"],$entry);
         $entry = str_replace("<animal-status/>", $result["status"],$entry);
 
         $entries .= $entry;

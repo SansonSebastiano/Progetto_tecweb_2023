@@ -1,7 +1,7 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
-    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "db-conn.php";
     
 
     if (session_status() === PHP_SESSION_NONE) {
@@ -31,25 +31,10 @@
     $row = "";
 
     if(is_null($query)){
-        die(1);
+        exit();
     }
 
     $navigator = "";
-    $animals = "";
-    if($query->num_rows > 0){
-        $final = str_replace("Animali che iniziano con <letter/>","Animali che iniziano con caratteri non alfabetici",$table);
-        $final = str_replace("<letter/>","hash",$final);
-        $final = str_replace("<letter-title/>","#",$final);
-        $navigator .= '<li><a href="#hash">#</a></li>';
-        while($row = mysqli_fetch_assoc($query)){
-            $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
-            $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);
-            $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry); 
-            $animals .= $newEntry; 
-        }
-        $query->free_result();
-    }
-    $final = str_replace("<animals/>", $animals,$final);
 
     foreach($alphas as $letter){
         $sql = "SELECT nome,descrizione,status FROM animale WHERE LOWER(nome) REGEXP '^" . $letter . "' ORDER BY nome ASC;";
@@ -57,8 +42,8 @@
         $animals = "";
         if($query->num_rows > 0){
             $newTable = str_replace("<letter/>",$letter,$table);
-            $newTable = str_replace("<letter-title/>",$letter,$table);
-            $navigator .= '<li><a href="'.$letter.'" tabindex="4">'.$letter.'</a></li>';
+            $newTable = str_replace("<letter-title/>",$letter,$newTable);
+            $navigator .= '<li><a href="#'.$letter.'" class="white" tabindex="4">'.$letter.'</a></li>';
             while($row = mysqli_fetch_assoc($query)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);

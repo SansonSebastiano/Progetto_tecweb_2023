@@ -125,10 +125,13 @@ main {
 
 .article{
     position: relative;
+    width: 100%;
 }
 
 .article img{
-    width:100%;
+    width:inherit;
+    object-fit: cover;
+    height: 20em;
 }
 
 .article a{
@@ -178,14 +181,16 @@ aside li {
 }
 
 aside figure {
-    margin: 1em;
+    margin: 0.5em;
 }
 
 aside figure img{
     width: 30%;
+    height: 4em;
     border-radius: 1em;
     vertical-align: middle;
     box-shadow: var(--box-shadow-light);
+    object-fit: cover;
 }
 aside figcaption {
     display: inline;
@@ -199,6 +204,7 @@ aside figcaption {
     font-weight: bold;
     border: .3em dashed;
     border-radius: 1em;
+    box-shadow: var(--box-shadow-light);
     padding: 1em;
 
     width: 100%;
