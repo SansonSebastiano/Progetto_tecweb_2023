@@ -40,7 +40,7 @@
             $errorStrings["nome"] = "Inserire un nome per l'animale";
             $ok = false;
         }
-        else if(!preg_match('/^[\wèàìòéùç\s]*$/', $nome)){
+        else if(!preg_match('/^[a-zA-Zèàìòéùç\s]*$/', $nome)){
             $errorStrings["nome"] = "Il nome dell'animale non può contenere caratteri speciali";
             $ok = false;
         }

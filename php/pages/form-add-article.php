@@ -79,7 +79,7 @@
             $errorStrings["creatura"] = "Inserire un nome per l'animale riferito dall'articolo";
             $ok = false;
         }
-        else if(!preg_match('/^[a-zA-Z_èàìòéùç\s]*$/', $creatura)){
+        else if(!preg_match('/^[a-zA-Zèàìòéùç\s]*$/', $creatura)){
             $errorStrings["creatura"] = "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali";
             $ok = false;
         }
