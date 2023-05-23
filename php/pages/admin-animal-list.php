@@ -51,12 +51,11 @@
                 $animals .= $newEntry; 
             }
             $newTable = str_replace("<animals/>",$animals,$newTable);
-            $final .= $newTable;
             $query->free_result();
         }
     }
     $page = str_replace("<navigator/>", $navigator,$page);
-    $page = str_replace("<to-fill/>", $final,$page);
+    $page = str_replace("<to-fill/>", $newTable,$page);
 
     $mysqli->close();
 

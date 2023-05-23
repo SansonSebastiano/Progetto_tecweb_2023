@@ -53,7 +53,7 @@
         $articleImage = $result["image_path"];
         $articlePlace = $result["luogo"];
         $articleContent = $result["contenuto"];
-        $articleImageAlt = $result["alt"];
+        //$articleImageAlt = $result["alt"];
 
         //Sostituisco i placeholder con i valori dell'articolo
         $page = str_replace("<article-id/>",$_GET["article"],$page);
@@ -62,7 +62,7 @@
         $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
         $page = str_replace("<article-date/>",$articleDate,$page);
         $page = str_replace("<article-image/>",$articleImage,$page);
-        $page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
+        //$page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
         
@@ -96,22 +96,19 @@
 
         $queryResult->free();
 
-        //Mi ricavo gli animali collegati all'articolo
-        $query = 'SELECT animale FROM articolo_animale WHERE articolo = "'. $_GET["article"] . '";';
+        //Mi ricavo l'animale collegato all'articolo
+        $query = 'SELECT nome_animale FROM articolo WHERE id = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
 
         $tmp = "";
 
-         if($queryResult){
-            //Se ci sono animali collegati all'articolo li aggiungo alla lista
-            while($result = mysqli_fetch_assoc($queryResult)){
-                $tmp .= $result["animale"];
-            }
-         }
+        if($queryResult){
+            $result = mysqli_fetch_assoc($queryResult);
+            $page = str_replace("<related-animal/>",$result["nome_animale"],$page);
+        }
 
-         //Sostituisco il placeholder con la lista di animali collegati
-         $page = str_replace("<related-animal/>",$tmp,$page);
-         $queryResult->free();
+        //Sostituisco il placeholder con la lista di animali collegati
+        $queryResult->free();
         
         //TODO: Sezione commenti
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
