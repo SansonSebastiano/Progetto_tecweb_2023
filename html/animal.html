@@ -21,7 +21,7 @@
         $(function(){
             $("#header").load("../../html/modules/header.html"); 
             $("#footer").load("../../html/modules/footer.html");
-            $("#go-up-div").load("../../html/modules/go-up-div.html");  
+            $("#go-up-div").load("../../html/modules/go-up.html");  
         });
     </script> 
 
@@ -91,7 +91,9 @@
         </section>
         <!--Questa section dovrebbe apparire solo se non è stata confermata l'esistenza dell'animale-->
         <section id="voting">
+
             <animal-voting-section/>
+            
             <div class="horizontal-flex">
                 <div class="votes-box">Esiste: <span id="exist-votes" class="votes-span" data-value="<yes-vote/>"><yes-vote/></span></div>
                 <div id ="colored-vote-area"></div>
@@ -108,6 +110,7 @@
                 <related-articles/>
             </ul>
         </section>
+        <div id="go-up-div"></div>
     </main>
     
     <footer id="footer"></footer>

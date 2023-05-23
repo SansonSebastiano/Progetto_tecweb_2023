@@ -22,7 +22,7 @@
             $(function(){
                 $("#header").load("../../html/modules/header.html"); 
                 $("#footer").load("../../html/modules/footer.html");
-                $("#go-up-div").load("../../html/modules/go-up-div.html");  
+                $("#go-up-div").load("../../html/modules/go-up.html");  
             });
         </script> 
 
@@ -53,7 +53,7 @@
             <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
-        <main>
+        <main id="main-wrapper">
                 <article>
                     <h2><article-title/></h2>
                     <h3 id = "subtitle"><article-subtitle/></h3>
@@ -67,7 +67,7 @@
                                     <div class="tag <tag-type/>"><article-tag/></div>
                                 </dd>
                                 <dt>SPECIE COLLEGATE:</dt>
-                                <dd><a href="animal.php?animale=<related-animal/>" tabindex="4"><related-animal/></a></dd>
+                                <dd><a href="animal.php?animale=<related-animal/>" class="white" tabindex="4"><related-animal/></a></dd>
                             </dl>
                         </aside>
                         
@@ -112,7 +112,12 @@
                     </ul>
                 </div>
             </section>
+
+            <div id="go-up-div">
+
+            </div>
         </main>
+        
         
     </body>
     

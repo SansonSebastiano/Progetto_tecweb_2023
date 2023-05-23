@@ -9,14 +9,10 @@ function vote(animal, voteType) {
                 document.getElementById("exist-votes").innerHTML = this.responseText;
                 btnUpvote.disabled = true;
                 btnDownvote.disabled = true;
-
-                alert("Grazie per aver votato!");
             } else {    // voteType = 'downvote'
                 document.getElementById("non-exist-votes").innerHTML = this.responseText;
                 btnUpvote.disabled = true;
                 btnDownvote.disabled = true;    
-
-                alert("Grazie per aver votato!");
             }
             window.location.reload();
         }
