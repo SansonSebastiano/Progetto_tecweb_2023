@@ -16,7 +16,6 @@
 
     $_SESSION["prev_page"] =  $faan_ref;
 
-
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
