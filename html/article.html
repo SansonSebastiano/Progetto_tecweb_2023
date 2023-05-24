@@ -57,14 +57,13 @@
                 <article>
                     <h2><article-title/></h2>
                     <h3 id = "subtitle"><article-subtitle/></h3>
-                    <p id ="date">Di <em><article-author/></em> <time datetime="<article-date/>"><article-date/></time></p>
                     <img src = "<article-image/>" alt="<article-image-alt/>">
                     <div id = "text-div1">
                         <aside>
                             <dl>
                                 <dt>TAG:</dt>
                                 <dd>
-                                    <div class="tag <tag-type/>"><article-tag/></div>
+                                    <div class="tag <article-tag/>"><article-tag/></div>
                                 </dd>
                                 <dt>SPECIE COLLEGATE:</dt>
                                 <dd><a href="animal.php?animale=<related-animal/>" class="white" tabindex="4"><related-animal/></a></dd>
@@ -91,18 +90,10 @@
                 <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
                     <input type="hidden" id="hidden-bool" name="hidden-bool" value="false">
-                    <div class="comment-single">
-                        <div class = "comment-details">
-                            <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
-                            <p class="author"><user/></p>
-                        </div>
-                        <div class = "comment-content">
-                            <div class = "div-reply">
-                                <textarea id="textcomment" name="text"></textarea>
-                                <button type="submit" class="btn-send">Commenta</button>
-                            </div>                                                        
-                        </div>
-                    </div>
+                    <div id="new-reply" class = "div-reply">
+                        <textarea id="textcomment" name="text"></textarea>
+                        <button type="submit" class="btn-send">Commenta</button>
+                    </div>                                                        
                 </form>            
                 <div id = "shoutbox">
                     <button id="go-top" class="arrow-button">🢙</button>

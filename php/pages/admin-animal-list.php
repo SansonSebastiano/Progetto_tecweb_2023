@@ -31,10 +31,12 @@
     $row = "";
 
     if(is_null($query)){
+        echo "<h1>Errore durante la connessione al server</h1>";
         exit();
     }
 
     $navigator = "";
+    $all_sections = "";
 
     foreach($alphas as $letter){
         $sql = "SELECT nome,descrizione,status FROM animale WHERE LOWER(nome) REGEXP '^" . $letter . "' ORDER BY nome ASC;";
@@ -51,11 +53,12 @@
                 $animals .= $newEntry; 
             }
             $newTable = str_replace("<animals/>",$animals,$newTable);
+            $all_sections .= $newTable;
             $query->free_result();
         }
     }
     $page = str_replace("<navigator/>", $navigator,$page);
-    $page = str_replace("<to-fill/>", $newTable,$page);
+    $page = str_replace("<to-fill/>", $all_sections,$page);
 
     $mysqli->close();
 

@@ -81,7 +81,7 @@
 
                 }else{   
                     $queryResult->free();
-                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome-animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$screatura')";
+                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$creatura')";
                     $queryResult = mysqli_query($mysqli,$sql);
 
                     $_SESSION["result"] = "<p class='success'>Articolo inserito con successo</p>";
@@ -90,7 +90,7 @@
             else
             {
                 $queryResult->free();
-                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome-animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, NULL)";
+                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);
             }
 

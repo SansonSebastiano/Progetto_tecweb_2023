@@ -59,42 +59,12 @@
         $page = str_replace("<article-id/>",$_GET["article"],$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-subtitle/>",$articleSubTitle,$page);
-        $page = str_replace("<article-tag/>",ucfirst($articleTag),$page);
+        $page = str_replace("<article-tag/>",$articleTag,$page);
         $page = str_replace("<article-date/>",$articleDate,$page);
         $page = str_replace("<article-image/>",$articleImage,$page);
         //$page = str_replace("<article-image-alt/>",$articleImageAlt,$page);
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
-        
-        //Scelgo la classe css da applicare in base al tag dell'articolo e sostituisco il placeholder
-        $cssTags = [
-            "scoperta" => "discovery",
-            "avvistamento" => "sighting",
-            "comunicazione" => "comunication",
-            "new-entry" => "new-entry"
-        ];
-        $page = str_replace("<tag-type/>",$cssTags[$articleTag],$page);
-
-        //Mi ricavo l'autore dell'articolo
-        $query = 'SELECT nome FROM view_articolo_utente WHERE id = "'. $_GET["article"] . '";';
-        $queryResult = mysqli_query($mysqli, $query);
-        
-        $result = mysqli_fetch_assoc($queryResult);
-        
-        $author = "";
-        
-        //Se l'articolo è stato scritto da un utente cancellato
-        if(!$queryResult){
-            $author = "Anonimo";
-        }else{ 
-            //Se l'articolo è stato scritto da un utente esistente
-            $author = $result["nome"];
-        }
-
-        //Sostituisco il placeholder con il nome dell'autore
-        $page = str_replace("<article-author/>",$author,$page);
-
-        $queryResult->free();
 
         //Mi ricavo l'animale collegato all'articolo
         $query = 'SELECT nome_animale FROM articolo WHERE id = "'. $_GET["article"] . '";';
