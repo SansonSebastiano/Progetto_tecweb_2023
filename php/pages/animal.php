@@ -1,9 +1,8 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
-    include_once ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
-    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
-
+    include ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -100,7 +99,7 @@
         }
 
         // RELATED ARTICLES SECTION
-        $queryTwo = 'SELECT * FROM articolo JOIN articolo_animale ON articolo.id = articolo_animale.articolo WHERE animale = "'. $_GET["animale"] . '" ORDER BY articolo.data;';
+        $queryTwo = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data;';
         $queryResultTwo = mysqli_query($mysqli, $queryTwo);
 
         if(!$queryResultTwo){
@@ -115,7 +114,7 @@
         $articleTag = $articleResult["tag"];
         $ultimoAvv = $articleResult["data"];
         $articleImg = $articleResult["image_path"];
-        $articleImgAlt = $articleResult["alt"];
+        //$articleImgAlt = $articleResult["alt"];
 
         $page = str_replace("<recent-title/>",$articleTitle,$page);
         $page = str_replace("<recent-description/>",$articleDescription,$page);
@@ -133,19 +132,10 @@
             $articleTag = $articleResult["tag"];
             
             $article = str_replace("<article-tag/>",$articleTag,$article);
-            
-            $cssTags = [
-                "scoperta" => "discovery",
-                "avvistamento" => "sighting",
-                "comunicazione" => "comunication",
-                "new-entry" => "new-entry"
-            ];
-
-            $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
-            $article = str_replace("<image-alt/>",$articleImgAlt,$article);
+            //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
             $relArticles .= $article;
         }

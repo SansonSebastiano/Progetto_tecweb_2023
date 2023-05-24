@@ -3,7 +3,7 @@
     --color1: rgb(34, 0, 88);
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
-    --color4: rgb(150,150,150);
+    --color4: rgb(220,220,220);
     --color-semi-trans: rgba(255, 255,255, 0.8);
     --nonvisited-links: rgb(34, 0, 88);
     --visited-links: rgb(158, 142, 0);
@@ -76,7 +76,7 @@ main {
 /* ID */
 
 #identification {
-    border-radius: 0 0 1.2em 1.2em;
+    border-radius: 0 0 1em 1em;
     border: 0.1em solid white;
     border-top: none;
     padding: 0.5em;
@@ -233,6 +233,10 @@ header div {
     border: 0.1em solid white;
 }
 
+#go-up-div a {
+    text-decoration: none;
+}
+
 /* FOOTER */
 
 footer {
@@ -267,16 +271,23 @@ hr {
     border-radius: 0.75em;
 }
 
-.tag.discovery {
-    background-color: red;
-}
-.tag.sighting {
-    background-color: darkgoldenrod;
-}
 .corner-tag {
     position: absolute;
     top: var(--margin-tag);
     left: var(--margin-tag);
+}
+
+.tag.new-entry{
+    background-color:cornflowerblue;
+}
+.tag.comunicazione{
+    background-color: black;
+}
+.tag.scoperta{
+    background-color: red;
+}
+.tag.avvistamento{
+    background-color: darkgoldenrod;
 }
 
 

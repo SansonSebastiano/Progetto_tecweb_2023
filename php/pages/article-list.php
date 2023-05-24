@@ -1,9 +1,10 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
-    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "db-conn.php";
 
 
+    
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -68,16 +69,7 @@
         $articleImageAlt = $articleResult["alt"];
         
             $article = str_replace("<article-tag/>",$articleTag,$article);
-        
-            $cssTags = [
-                "scoperta" => "discovery",
-                "avvistamento" => "sighting",
-                "comunicazione" => "comunication",
-                "new-entry" => "new-entry"
-            ];
-
-            $article = str_replace("<tag-type/>",$cssTags[$articleTag],$article);
-        
+            
             $article = str_replace("<article-title/>",$articleTitle,$article);
 
             $article = str_replace("<article-id/>",$articleId,$article);

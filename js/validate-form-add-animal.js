@@ -1,4 +1,4 @@
-const animalStatus = document.getElementById("animal-status")
+const animalStatus = document.getElementById("status")
 const dateInput = document.getElementById("data-scoperta")
 const animalInput = document.getElementById("name")
 const descriptionInput = document.getElementById("description")

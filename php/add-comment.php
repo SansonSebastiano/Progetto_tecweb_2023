@@ -1,7 +1,7 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . "config.php";
-    require "check-conn.php";
-    require "db-conn.php";
+    include "check-conn.php";
+    include "db-conn.php";
     include "input-cleaner.php";
 
     

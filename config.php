@@ -8,11 +8,6 @@
     // modules files
     $modules_path = $html_path . "modules" . DIRECTORY_SEPARATOR;
 
-    // user icon
-    $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
-    // logout icon
-    $icon_logout_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "logout.png" . "\" id = \"logout\" alt = \"icona logout\"/>";
-
     // previous page (for 'prev_page' session variable):
     // index.php
     $root_client_side = DIRECTORY_SEPARATOR . "fceccato" . DIRECTORY_SEPARATOR;
@@ -46,4 +41,6 @@
 
     // icon user refrence
     $icon_user_ref = "<img src=\"" . $root_client_side . "images\\icons\\icon-user.png\" class=\"profile-pic\"alt=\"Utente\"/>";
+    $icon_logout_ref = "<img src=\"" . $root_client_side . "images\\icons\\logout.png\" id = \"logout\" alt = \"Fai il logout\"/>";
+
 ?>

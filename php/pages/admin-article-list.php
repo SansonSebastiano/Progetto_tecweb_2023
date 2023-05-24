@@ -1,8 +1,9 @@
 <?php
     include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php";
+    include ".." . DIRECTORY_SEPARATOR . "check-conn.php";
+    include ".." . DIRECTORY_SEPARATOR . "db-conn.php";
     include ".." . DIRECTORY_SEPARATOR . "input-cleaner.php";
-    require ".." . DIRECTORY_SEPARATOR . "check-conn.php";
-    require ".." . DIRECTORY_SEPARATOR . "db-conn.php";
+
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -22,8 +23,8 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    $tag = clearInput($_GET["tag"]) ?? "";
-    $search = clearInput($_GET["search"]) ?? "";
+    $tag = clearInput($_GET["tag"] ?? "") ;
+    $search = clearInput($_GET["search"] ?? "");
 
     $query = 'SELECT * FROM view_articolo_utente';
 
@@ -40,7 +41,6 @@
 
     $table = file_get_contents($modules_path . "admin-article-table.html");
     $article_entry = file_get_contents($modules_path . "admin-article-entry.html");
-    $page = file_get_contents($html_path . "admin-article-list.html");
 
     $articleList = "";
 

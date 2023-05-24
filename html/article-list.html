@@ -26,7 +26,7 @@
         </script> 
         <script src="../../js/pagination.js" defer></script>
         <title>
-            Storico articoli | <span id="page-number"></span> - Elusive
+            Storico articoli - Elusive
         </title>
         
 
@@ -47,7 +47,7 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina contente la lista degli articoli">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a>  ● Articoli
+                <a href="../../index.php" tabindex="2">Homepage</a>  ● Storico articoli
             </p>
             <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
@@ -55,10 +55,10 @@
         <main id="main-wrapper">
             <h2>Gli articoli di eLusive</h2>
             <form action= "article-list.php" method="get">
-                <fieldset class="search-form">
+                <fieldset id="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci il titolo di un articolo" autocomplete="on" tabindex="3"/>
+                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci il titolo di un articolo" tabindex="3"/>
                     <input type="submit" name="submit" id="submit-button" value="CERCA" class="larger" tabindex="5" aria-label="Cerca"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
                     <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona tag" tabindex="4">

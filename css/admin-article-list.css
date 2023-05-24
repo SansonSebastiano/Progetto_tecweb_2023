@@ -10,7 +10,7 @@ main {
 
 /* ============= SEARCH BOX ============= */
 
-.search-form {
+#search-form {
     background-image: url("../../images/icons/lens.png");
     background-color: white;
     background-repeat: no-repeat;
