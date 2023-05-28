@@ -10,12 +10,11 @@
 
     // previous page (for 'prev_page' session variable):
     // index.php
-    $root_client_side = DIRECTORY_SEPARATOR . "fceccato" . DIRECTORY_SEPARATOR;
-    $index_ref = $root_client_side . "index.php";
-    
-    $php_pages_ref = $root_client_side . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR;
-
-    $html_ref = $root_client_side . "html" . DIRECTORY_SEPARATOR;
+    $index_ref = DIRECTORY_SEPARATOR . "index.php";
+    // php pages
+    $php_pages_ref = DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR;
+    // html pages
+    $html_ref = DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR;
     // form-add-animal.php
     $faan_ref = $php_pages_ref . "form-add-animal.php";
     // form-add-article.php
@@ -39,8 +38,9 @@
     // login-form.html
     $form_login_ref = $html_ref . "form-login.html";
 
-    // icon user refrence
-    $icon_user_ref = "<img src=\"" . $root_client_side . "images\\icons\\icon-user.png\" class=\"profile-pic\"alt=\"Utente\"/>";
-    $icon_logout_ref = "<img src=\"" . $root_client_side . "images\\icons\\logout.png\" id = \"logout\" alt = \"Fai il logout\"/>";
+     // user icon
+     $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
+     // logout icon
+     $icon_logout_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "logout.png" . "\" id = \"logout\" alt = \"icona logout\"/>";
 
 ?>

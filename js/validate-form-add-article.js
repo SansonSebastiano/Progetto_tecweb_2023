@@ -11,6 +11,11 @@ const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
 submitForm.addEventListener("submit", function(){ return validate()})
+titleInput.addEventListener("blur", function(){checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")})
+subTitleInput.addEventListener("blur", function(){checkValidation("sottotitolo","invalid-subtitle","","Inserire un sottotitolo","")})
+placeInput.addEventListener("blur", function(){checkValidation("luogo","invalid-place","","Inserire un luogo","")})
+animalInput.addEventListener("blur", function(){checkValidation("creatura","invalid-creature",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un nome per l'animale riferito dall'articolo", "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali")})
+textInput.addEventListener("blur", function(){checkValidation("testo","invalid-text",/^.{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")})
 
 function checkValidation(input,output,regex,noValueText,errorText){
     const inputHTML = document.getElementById(input)
@@ -54,7 +59,7 @@ function validate() {
     return checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Inserire un titolo per l'articolo","Il titolo dell'articolo non può contenere caratteri speciali")
         && checkValidation("sottotitolo","invalid-subtitle","","Inserire un sottotitolo","")
         && checkValidation("creatura","invalid-creature",/^[a-zA-Z_èàìòéùç\s]*$/,"Inserire un nome per l'animale riferito dall'articolo", "Il nome dell'animmale riferito dall'articolo non può contenere caratteri speciali")
-        && checkValidation("testo","invalid-text",/^[\S\s]{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")
+        && checkValidation("testo","invalid-text",/^.{20,}$/,"","Il testo dell'articolo deve essere lungo almeno 20 caratteri")
         && isImageUploaded() 
 }
 

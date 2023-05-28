@@ -3,7 +3,7 @@ const btnNameOrder = document.querySelector('#btn-name-order');
 const btnUpOrder = document.querySelector('#btn-up-order');
 const btnDownOrder = document.querySelector('#btn-down-order');
   
-btnNameOrder.addEventListener('click', () => {
+btnNameOrder.addEventListener('click', () => {    
     if (checkbox.checked) {
         window.location.href = 'animal-chart.php?order=animalorder&discovered=1';
     } else {

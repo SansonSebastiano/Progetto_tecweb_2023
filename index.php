@@ -53,7 +53,7 @@
         $i++;
 
         $item = str_replace("<featured-item-img/>", $result["image_path"], $item);
-        //$item = str_replace("<main-img-alt/>", $result["alt"], $item);
+        $item = str_replace("<main-img-alt/>", $result["alt"], $item);
         $item = str_replace("<featured-item-title/>", $result["titolo"], $item);
         $item = str_replace("<featured-item-tag/>", $result["tag"], $item);
         $item = str_replace("<featured-item-id/>", $result["id"], $item);
@@ -78,7 +78,7 @@
 
         $entryTwo = $homeChart;
         $entryTwo = str_replace("<chart-img/>", $resultTwo["image_path"], $entryTwo);
-        //$entryTwo = str_replace("<chart-img-alt/>", $resultTwo["alt"], $entryTwo);
+        $entryTwo = str_replace("<chart-img-alt/>", $resultTwo["alt"], $entryTwo);
         $entryTwo = str_replace("<animal-name/>", $resultTwo["nome"], $entryTwo);
 
         $entriesTwo .= $entryTwo;
@@ -99,7 +99,7 @@
 
         $entryThree = $article;
         $entryThree = str_replace("<article-img/>", $resultThree["image_path"], $entryThree);
-        //$entryThree = str_replace("<article-img-alt/>", $resultThree["alt"], $entryThree);
+        $entryThree = str_replace("<article-img-alt/>", $resultThree["alt"], $entryThree);
         $entryThree = str_replace("<article-title/>", $resultThree["titolo"], $entryThree);
         $entryThree = str_replace("<article-tag/>", $resultThree["tag"], $entryThree);
         $entryThree = str_replace("<article-id/>", $resultThree["id"], $entryThree);
