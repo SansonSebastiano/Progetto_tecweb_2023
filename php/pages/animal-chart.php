@@ -38,7 +38,11 @@
     } elseif ($type_order == "downorder") {
         $query .= 'ORDER BY NO DESC;';
     } else {
-        $query .= 'ORDER BY nome ASC;';
+        if ($type_order == "animalorder_up") {
+            $query .= 'ORDER BY nome ASC;';
+        } else {
+            $query .= 'ORDER BY nome DESC;';
+        }
     }
 
     $queryResult = mysqli_query($mysqli, $query);
