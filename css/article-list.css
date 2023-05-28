@@ -57,7 +57,7 @@ ul {
 
 /* da togliere width:75% per schermi piccoli */
 #search-form {
-    background-image: url("../../images/icons/lens.png");
+    background-image: url("../images/icons/lens.png");
     background-repeat: no-repeat;
     background-position: bottom 0.5em right 0.5em;
     background-size:5%;

@@ -12,4 +12,6 @@
         $json_array[]= $data;
     }
     $mysqli->close();
+    echo json_encode($json_array);
+    
 ?>
