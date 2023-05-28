@@ -25,10 +25,7 @@
         });
     </script> 
 
-
     <title>Aggiunta di un articolo - eLusive</title>
-
-    
 
 </head>
 <body>
@@ -71,6 +68,12 @@
                         <div id="invalid-subtitle" class="error"><error-subtitle/></div>
                     </div>
 
+                    <div id="div-creatura" class="form-input-wrapper">
+                        <label for="creatura" class="info">Creatura riferita</label>
+                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required maxlength="100">
+                        <div id="invalid-creature" class="error"><error-animal/></div>
+                    </div>
+
                     <div id="div-tag" class="form-input-wrapper">
                         <label class="info" for="tag">Tag articolo</label>
                         <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="6" required>
@@ -84,14 +87,15 @@
 
                     <div id="div-luogo" class="form-input-wrapper">
                         <label class="info" for="luogo">Luogo riferito nell'articolo</label>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="6" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255" required>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="7" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255" required>
                         <div id="invalid-place" class="error"><error-place/></div>
                     </div>
 
-                    <div id="div-creatura" class="form-input-wrapper">
-                        <label for="creatura" class="info">Creatura riferita</label>
-                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required maxlength="100">
-                        <div id="invalid-creature" class="error"><error-animal/></div>
+                    <div id="div-featured" class="form-input-wrapper">
+                        <label class="info" for="featured">Articolo in evidenza</label>
+                        <input type="checkbox" name="featured" id="featured" tabindex="8" aria-label="Seleziona se inserire l'articolo in evidenza">
+                        <!-- validazione input ? -->
+                        <div id="invalid-featured" class="error"><error-featured/></div>
                     </div>
 
                     <div id="div-path" class="form-input-wrapper">

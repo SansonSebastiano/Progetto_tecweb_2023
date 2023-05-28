@@ -28,6 +28,7 @@
         $autore = $_SESSION['id'];
         $path = clearInput($_POST['image-path']);
         $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
+        $featured = $_POST['featured'];
 
         $ok = true;
 
@@ -81,7 +82,7 @@
 
                 }else{   
                     $queryResult->free();
-                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, '$creatura')";
+                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', $featured, '$creatura')";
                     $queryResult = mysqli_query($mysqli,$sql);
 
                     $_SESSION["result"] = "<p class='success'>Articolo inserito con successo</p>";
@@ -90,7 +91,7 @@
             else
             {
                 $queryResult->free();
-                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', 0, NULL)";
+                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', $featured, NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);
             }
 
