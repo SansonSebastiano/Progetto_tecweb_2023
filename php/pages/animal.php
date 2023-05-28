@@ -53,7 +53,7 @@
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
         $page = str_replace("<animal-image/>",$image,$page);
-        $page = str_replace("<animal-image-alt/>",$image_alt,$page);
+        //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         // VOTES SECTION
         $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
@@ -78,20 +78,23 @@
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
         // un utente può esprimere un solo voto per ciascun animale
-        $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
-        $queryResultThree = mysqli_query($mysqli, $queryThree);
-        $resultThree = mysqli_fetch_assoc($queryResultThree);
-        $vote = $resultThree['voto'];
 
-        if ($queryResultThree->num_rows > 0) {
-            $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
-            $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? "<span class='red'>no</span>" : "<span class='green'>sì</span>", $voting_section);
-        } else {
-            $voting_section = str_replace("<is-disabled/>", '', $voting_section);
-            $voting_section = str_replace("<vote-msg/>", '', $voting_section);
-        }
+        if(isset($_SESSION["id"])){
+            $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
+            $queryResultThree = mysqli_query($mysqli, $queryThree);
+            $resultThree = mysqli_fetch_assoc($queryResultThree);
+            $vote = $resultThree['voto'];
 
-        $queryResultThree->free();
+            if ($queryResultThree->num_rows > 0) {
+                $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
+                $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? "<span class='red'>no</span>" : "<span class='green'>sì</span>", $voting_section);
+            } else {
+                $voting_section = str_replace("<is-disabled/>", '', $voting_section);
+                $voting_section = str_replace("<vote-msg/>", '', $voting_section);
+            }
+            $queryResultThree->free();
+        } 
+        
         // abilita la sezione voto se l'utente e' loggato
         if ($_SESSION['ruolo'] != 'guest') {
             $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
