@@ -1,0 +1,105 @@
+%set base template for academic papers
+\documentclass[11pt, a4paper]{article}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+
+
+%set page margins
+\usepackage{geometry}
+\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm, marginparwidth=1.75cm}
+
+%set line spacing
+\usepackage{setspace}
+\onehalfspacing
+
+%set paragraph indentation
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+%set header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{eLusive}
+\rfoot{Pagina \thepage}
+
+
+\begin{document}
+%set title page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{eLusive}
+            
+        \vspace{1.5cm}
+        
+        \Large
+        \textbf{Francesco Ceccato} \\
+        \textbf{Nicola Ravagnan} \\
+        \textbf{Sebastiano Sanson} \\
+        \textbf{Matteo Stocco}
+            
+        \vfill
+            
+        \vspace{0.8cm}
+            
+       \includegraphics[width=0.2\textwidth]{img/Logo_Università_Padova.svg.png}
+            
+        \Large
+        Università degli Studi di Padova \\
+        A.A. 2022/2023
+            
+    \end{center}
+\end{titlepage}
+
+
+\clearpage
+
+\begin{center}
+	\textbf{\Large{Informazioni sul sito}}\\
+	\textbf{Login consegna:} DA INSERIRE \\
+	\textbf{Indirizzo sito web:} DA INSERIRE \url{}\\
+	\textbf{Email referente gruppo:} DA INSERIRE \\
+    \vspace{1cm}
+    \textbf{Accessi interni al sito}
+    \begin{longtable}{|l|l|l|}
+        \hline
+        \rowcolor[HTML]{220058}
+        {\color[HTML]{FFFFFF} Ruolo} & {\color[HTML]{FFFFFF} Username} & {\color[HTML]{FFFFFF} Password} \\ \hline
+        Utente         & user     & user    \\ \hline
+        Autore         & writer   & writer  \\ \hline
+        Amministratore & admin    & admin   \\ \hline
+    \end{longtable}
+\end{center}
+
+\clearpage  
+
+\tableofcontents
+
+\clearpage
+
+% content
+
+\include{src/abstract}
+\include{src/adr}
+\include{src/organization}
+\include{src/design}
+\include{src/back-end}
+\include{src/front-end}
+\include{src/accessibility}
+\include{src/end}
+
+% bibliography
+%TODO add bibliography
+
+\end{document}
