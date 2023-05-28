@@ -91,7 +91,7 @@
     // ARTICLES LIST SECTION
     $article = file_get_contents($modules_path . "index-article-list.html");
 
-    $queryThree = 'SELECT id, titolo, image_path, tag, data FROM articolo ORDER BY data DESC LIMIT 6;';
+    $queryThree = 'SELECT id, titolo, image_path, tag, data FROM articolo WHERE featured = 0 ORDER BY data DESC LIMIT 6;';
     $queryResultThree = mysqli_query($mysqli, $queryThree);
 
     $entriesThree = "";
@@ -114,8 +114,7 @@
     // LAST UPDATE SECTION
     $queryFour = 'SELECT data FROM articolo ORDER BY data DESC LIMIT 1;';
     $queryResultFour = mysqli_query($mysqli, $queryFour);
-    if($queryResultFour){
-        $resultFour = mysqli_fetch_assoc($queryResultFour);
+    if($resultFour = mysqli_fetch_assoc($queryResultFour)){
         $page = str_replace("<last-article-date/>", $resultFour["data"], $page);
     }
     $queryResultFour->free();

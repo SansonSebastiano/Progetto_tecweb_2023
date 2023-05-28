@@ -9,12 +9,14 @@ const imagePath = document.getElementById("image-path")
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
 submitForm.addEventListener("submit",function(){return validate()})
 dateInput.addEventListener("blur",function(){
-    checkLength("data-scoperta","invalid-date",1,"Inserire una data")
-    checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")
+    if(checkLength("data-scoperta","invalid-date",1,"Inserire una data")){
+        checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")
+    }
 })
 animalInput.addEventListener("blur",function(){
-    checkLength("name","invalid-animal-name",1,"Inserire un nome per la creatura")
-    checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura non può contenere caratteri speciali")
+    if(checkLength("name","invalid-animal-name",1,"Inserire un nome per la creatura")) {
+        checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura non può contenere caratteri speciali")
+    }
 })
 descriptionInput.addEventListener("blur",function(){checkLength("description","description-too-short",20,"La descrizione deve essere lunga almeno 20 caratteri")})
 
@@ -69,9 +71,9 @@ function setText(id, text){
 //Funzione che viene chiamata quando si preme il pulsante di submit del form
 function validate() {
     return checkLength("data-scoperta","invalid-date",1,"Inserire una data")
-        && checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"Inserire una data","La data non è nel formato corretto")
+        && checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")
         && checkLength("name","invalid-animal-name",1,"Inserire un nome per la creatura")
-        && checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/, "Inserire un nome per l'animale","Il nome dell'animale non può contenere caratteri speciali")
+        && checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura non può contenere caratteri speciali")
         && checkLength("description","description-too-short",20,"La descrizione deve essere lunga almeno 20 caratteri")
         && isImageUploaded() 
 }

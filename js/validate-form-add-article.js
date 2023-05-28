@@ -12,11 +12,16 @@ const imagePath = document.getElementById("image-path")
 
 submitForm.addEventListener("submit", function(){ return validate()})
 titleInput.addEventListener("blur", function(){
-    checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo")
-    checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
+    if(checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo")) {
+        checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
+    }
 })
-subTitleInput.addEventListener("blur", function(){checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo")})
-placeInput.addEventListener("blur", function(){checkLength("luogo","invalid-place",1,"Inserire un luogo")})
+subTitleInput.addEventListener("blur", function(){
+    checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo")
+})
+placeInput.addEventListener("blur", function(){
+    checkLength("luogo","invalid-place",1,"Inserire un luogo")
+})
 animalInput.addEventListener("blur", function(){
     checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
 })
@@ -71,7 +76,8 @@ function validate() {
     return checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo")
         && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
         && checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo")
-        && checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome dell'animmale riferita dall'articolo non può contenere caratteri speciali")
+        && checkLength("luogo","invalid-place",1,"Inserire un luogo")
+        && checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
         && checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri")
         && isImageUploaded() 
 }

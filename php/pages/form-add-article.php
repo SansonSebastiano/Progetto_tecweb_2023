@@ -22,7 +22,7 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
 
-    if(isset($_SESSION["submit-result"]))
+    if(isset($_SESSION["submit-result"]) && isset($_SESSION["error-strings"]))
     {
         $errorStrings = $_SESSION["error-strings"];
         $page = str_replace("<error-title/>",$errorStrings["titolo"], $page);

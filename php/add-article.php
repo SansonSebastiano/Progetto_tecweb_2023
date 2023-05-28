@@ -30,8 +30,6 @@
         $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
         $featured = isset($_POST['featured']) ? 1 : 0;
 
-        echo "<script>console.log('".$featured."')</script>
-
         $ok = true;
 
         if(strlen($titolo) == 0){
@@ -84,7 +82,7 @@
 
                 }else{   
                     $queryResult->free();
-                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura', '$creatura')";
+                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura')";
                     $queryResult = mysqli_query($mysqli,$sql);
 
                     $_SESSION["result"] = "<p class='success'>Articolo inserito con successo</p>";
@@ -93,7 +91,7 @@
             else
             {
                 $queryResult->free();
-                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL, 'no animal')";
+                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);
             }
 
@@ -104,5 +102,5 @@
         $mysqli->close();
 
         $SESSION["error-strings"] = $errorStrings;
-        //header("Location: " . $_SESSION["prev_page"]);
+        header("Location: " . $_SESSION["prev_page"]);
     }

@@ -21,7 +21,7 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    if(isset($_SESSION["submit-result"]))
+    if(isset($_SESSION["submit-result"]) && isset($_SESSION["error-strings"]))
     {
         $errorStrings = $_SESSION["error-strings"];
         $page = str_replace("<result/>",$_SESSION["submit-result"], $page);
