@@ -1,5 +1,5 @@
 main {
-    color: black;
+    background-color: white;
 }
 
 h2 {
@@ -67,7 +67,6 @@ dt {
 }
 
 #shoutbox {
-    position: relative;
     height: 60vh;
     overflow-y:scroll;
 }
@@ -116,27 +115,6 @@ dt {
 .timestamp {
     color: var(--color4);
     padding-left: 2em;
-}
-.arrow-button {
-    position: absolute;
-    background-color: var(--color1);
-    font-size: 2em;
-    color: white;
-    right: 0.8em;
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 50%;
-    box-shadow: var(--box-shadow-light);
-    border: 0.1em solid white;
-}
-
-
-#go-top {
-    top: 0.8em;
-}
-
-#go-bottom {
-    bottom: 0.8em;
 }
 
 ul {

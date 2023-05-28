@@ -14,6 +14,9 @@
         padding-left: 0;
     }
     
+    aside figure img {
+        height: 100%;
+    }
     #article-grid-div {
         display:block;
     }
