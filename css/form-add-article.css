@@ -111,6 +111,7 @@ textarea{
     background-size: contain;
     grid-area: submit;
     justify-self: center;
+    overflow: hidden;
 
 }
 
