@@ -84,7 +84,7 @@
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
-        $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '";';
+        $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ;';
         $queryResult = mysqli_query($mysqli, $query);
         $commentList = "";
         while($commentResult = mysqli_fetch_assoc($queryResult)){

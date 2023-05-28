@@ -27,7 +27,7 @@ html {
 
 img.framed {
     border-radius: 0 0 var(--image-radius-corner) 0;
-    box-shadow: var(--box-shadow-light);
+    box-shadow: 0px 1px 1px 1px gray;
 }
 
 
