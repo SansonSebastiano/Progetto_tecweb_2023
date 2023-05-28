@@ -39,6 +39,11 @@
     $query .= ' ORDER BY data DESC;';
     $queryResult = mysqli_query($mysqli, $query);
 
+    if (!$queryResult) {
+        header("Location: " . $html_path . "404.html");
+        exit();
+    }
+
     $table = file_get_contents($modules_path . "admin-article-table.html");
     $article_entry = file_get_contents($modules_path . "admin-article-entry.html");
 

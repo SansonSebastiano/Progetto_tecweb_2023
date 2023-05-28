@@ -26,12 +26,12 @@
 
     $alphas = range('A', 'Z');
 
-    $sql = "SELECT nome,descrizione,status FROM animale WHERE nome REGEXP '^[^a-zA-Z]' ORDER BY nome ASC;";
-    $query = mysqli_query($mysqli, $sql);
+    $query = "SELECT nome,descrizione,status FROM animale WHERE nome REGEXP '^[^a-zA-Z]' ORDER BY nome ASC;";
+    $queryResult = mysqli_query($mysqli, $query);
     $row = "";
 
-    if(is_null($query)){
-        echo "<h1>Errore durante la connessione al server</h1>";
+    if (!$queryResult) {
+        header("Location: " . $html_path . "404.html");
         exit();
     }
 
