@@ -84,6 +84,14 @@
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
+        if ($_SESSION["ruolo"] == "guest") {
+            $page = str_replace("<to-hide/>", "hidden", $page);
+            $commentTemplate = str_replace("<to-hide/>", "hidden", $commentTemplate);
+        } else {
+            $page = str_replace("<to-hide/>", "", $page);
+            $commentTemplate = str_replace("<to-hide/>", "", $commentTemplate);
+        }
+
         $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ;';
         $queryResult = mysqli_query($mysqli, $query);
         $commentList = "";
