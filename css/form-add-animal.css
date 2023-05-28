@@ -114,12 +114,10 @@ textarea{
 
 .error{
     color: red;
-    font-weight: bold;
     text-align: center;
 }
 
 .success{
-    color: green;
-    font-weight: bold;
+    color: lawngreen;
     text-align: center;
 }
