@@ -66,7 +66,7 @@
         $articleId = $articleResult["id"];
         $articleTag = $articleResult["tag"];
         $articleImage = $articleResult["image_path"];
-        $articleImageAlt = $articleResult["alt"];
+        //$articleImageAlt = $articleResult["alt"];
         
             $article = str_replace("<article-tag/>",$articleTag,$article);
             
@@ -76,7 +76,7 @@
 
             $article = str_replace("<image-article/>",$articleImage,$article);
 
-            $article = str_replace("<image-alt/>",$articleImageAlt,$article);
+            //$article = str_replace("<image-alt/>",$articleImageAlt,$article);
         
             $articleList .= $article;
         }

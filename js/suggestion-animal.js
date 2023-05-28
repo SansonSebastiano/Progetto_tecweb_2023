@@ -1,5 +1,5 @@
 creature_names = {}
-$( "#creatura" ).autocomplete({
+$("#creatura").autocomplete({
     source: function(request, response){
         $.ajax({
             url: '../suggestion.php',
