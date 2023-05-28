@@ -47,7 +47,7 @@
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {
-        include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
+        header("Location: " . $html_path . "404.html");
         exit();
     }
 

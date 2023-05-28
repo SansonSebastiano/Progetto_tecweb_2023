@@ -83,6 +83,10 @@ td:nth-child(3),td:nth-child(4){
     text-shadow: 1px 0px 5px black, -1px 0 5px black, 0px 1px 5px black, 0px -1px 5px black;
 }
 
+td:last-child {
+    text-transform: uppercase;
+}
+
 td img {
     width: 90%;
     border-radius: 0.5em;

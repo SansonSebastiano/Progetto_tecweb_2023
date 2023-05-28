@@ -38,13 +38,17 @@
     } elseif ($type_order == "downorder") {
         $query .= 'ORDER BY NO DESC;';
     } else {
-        $query .= 'ORDER BY nome ASC;';
+        if ($type_order == "animalorder_up") {
+            $query .= 'ORDER BY nome ASC;';
+        } else {
+            $query .= 'ORDER BY nome DESC;';
+        }
     }
 
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {
-        include ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html";
+        header("Location: " . $html_path . "404.html");
         exit();
     }
 

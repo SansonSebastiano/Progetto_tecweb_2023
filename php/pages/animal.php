@@ -28,15 +28,16 @@
         $animal = clearInput($_GET["animale"]);
         $query = 'SELECT * FROM animale WHERE nome = "'. $animal . '";';
         $queryResult = mysqli_query($mysqli, $query);
+
         if(!$queryResult){
-            header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            header("Location: " . $html_path . "404.html");
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
-            header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            header("Location: " . $html_path . "404.html");
             exit();
         }
 
@@ -56,12 +57,18 @@
         //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
         // VOTES SECTION
-        $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
-        $queryResult = mysqli_query($mysqli, $query);
-        $result = mysqli_fetch_assoc($queryResult);
+        $queryTwo = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
+        $queryResultTwo = mysqli_query($mysqli, $queryTwo);
 
-        $yes = $result['YES'];
-        $no = $result['NO'];
+        if (!$queryResultTwo) {
+            header("Location: " . $html_path . "404.html");
+            exit();
+        }
+
+        $resultTwo = mysqli_fetch_assoc($queryResult);
+
+        $yes = $resultTwo['YES'];
+        $no = $resultTwo['NO'];
 
         if (is_null($yes)) {
             $yes = 0;
@@ -74,7 +81,7 @@
         $page = str_replace("<yes-vote/>",$yes,$page);
         $page = str_replace("<no-vote/>",$no,$page);
 
-        $queryResult->free();
+        $queryResultTwo->free();
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
         // un utente può esprimere un solo voto per ciascun animale
@@ -82,6 +89,12 @@
         if(isset($_SESSION["id"])){
             $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
             $queryResultThree = mysqli_query($mysqli, $queryThree);
+
+            if (!$queryResultThree) {
+                header("Location: " . $html_path . "404.html");
+                exit();
+            }
+
             $resultThree = mysqli_fetch_assoc($queryResultThree);
             $vote = $resultThree['voto'];
 
@@ -102,15 +115,15 @@
         }
 
         // RELATED ARTICLES SECTION
-        $queryTwo = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data;';
-        $queryResultTwo = mysqli_query($mysqli, $queryTwo);
+        $queryFour = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data;';
+        $queryResultFour = mysqli_query($mysqli, $queryFour);
 
-        if(!$queryResultTwo){
-            header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+        if (!$queryResultFour) {
+            header("Location: " . $html_path . "404.html");
             exit();
-        }
+        }   
 
-        $articleResult = mysqli_fetch_assoc($queryResultTwo);
+        $articleResult = mysqli_fetch_assoc($queryResultFour);
 
         $articleTitle = $articleResult["titolo"];
         $articleDescription = $articleResult["descrizione"];
@@ -144,7 +157,7 @@
         }
         $page = str_replace("<related-articles/>",$relArticles,$page);
         
-        $queryResultTwo->free();
+        $queryResultFour->free();
     }
 
     $mysqli->close();

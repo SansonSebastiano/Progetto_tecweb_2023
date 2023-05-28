@@ -120,12 +120,10 @@ textarea{
 
 .error{
     color: red;
-    font-weight: bold;
     text-align: center;
 }
 
 .success{
-    color: rgb(2, 236, 2);
-    font-weight: bold;
+    color:lawngreen;
     text-align: center;
 }
