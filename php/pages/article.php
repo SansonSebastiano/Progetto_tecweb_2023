@@ -36,11 +36,6 @@
         }
 
         $result = mysqli_fetch_assoc($queryResult);
-
-        if(!$result){
-            header("Location: " . $html_path . "404.html");
-            exit();
-        }
         
         $queryResult->free();
 
@@ -75,6 +70,9 @@
         if($queryResult){
             $result = mysqli_fetch_assoc($queryResult);
             $page = str_replace("<related-animal/>",$result["nome_animale"],$page);
+        } else {
+            header("Location: " . $html_path . "404.html");
+            exit();
         }
 
         //Sostituisco il placeholder con la lista di animali collegati
@@ -94,6 +92,12 @@
 
         $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ;';
         $queryResult = mysqli_query($mysqli, $query);
+
+        if (!$queryResult) {
+            header("Location: " . $html_path . "404.html");
+            exit();
+        }
+
         $commentList = "";
         while($commentResult = mysqli_fetch_assoc($queryResult)){
             $comment = $commentTemplate;
