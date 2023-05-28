@@ -159,3 +159,11 @@ textarea {
 #new-reply {
     margin-bottom: 5em;
 }
+
+.div-reply.hidden {
+    display: none;
+}
+
+.btn-reply.hidden{
+    display: none;
+}

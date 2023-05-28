@@ -8,18 +8,20 @@ const imagePath = document.getElementById("image-path")
 
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
 submitForm.addEventListener("submit",function(){return validate()})
-dateInput.addEventListener("blur",function(){checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"Inserire una data","La data non è nel formato corretto")})
-animalInput.addEventListener("blur",function(){checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç'\s]*$/, "Inserire un nome per l'animale","Il nome della creatura non può contenere caratteri speciali")})
-descriptionInput.addEventListener("blur",function(){checkValidation("description","description-too-short",/^.{20,}$/,"","La descrizione deve essere lunga almeno 20 caratteri")})
+dateInput.addEventListener("blur",function(){
+    checkLength("data-scoperta","invalid-date",1,"Inserire una data")
+    checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")
+})
+animalInput.addEventListener("blur",function(){
+    checkLength("name","invalid-animal-name",1,"Inserire un nome per la creatura")
+    checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura non può contenere caratteri speciali")
+})
+descriptionInput.addEventListener("blur",function(){checkLength("description","description-too-short",20,"La descrizione deve essere lunga almeno 20 caratteri")})
 
-function checkValidation(input,output,regex,noValueText,errorText){
+function checkValidation(input,output,regex,errorText){
     const inputHTML = document.getElementById(input)
     const outputHTML = document.getElementById(output)
 
-    if(!noValueText == "" && inputHTML.value == ""){
-        outputHTML.innerHTML = noValueText
-        return false
-    }
     if(!(regex.test(inputHTML.value))){
         outputHTML.innerHTML = errorText
         return false
@@ -28,6 +30,19 @@ function checkValidation(input,output,regex,noValueText,errorText){
     outputHTML.innerHTML = ""
     return true
     
+}
+
+function checkLength(input,output,minLength,noValueText){
+    const inputHTML = document.getElementById(input)
+    const outputHTML = document.getElementById(output)
+
+    if(inputHTML.value.length < minLength){
+        outputHTML.innerHTML = noValueText
+        return false
+    }
+
+    outputHTML.innerHTML = ""
+    return true
 }
 
 //Controlla se è stata caricata un'immagine su firebase
@@ -53,8 +68,10 @@ function setText(id, text){
 
 //Funzione che viene chiamata quando si preme il pulsante di submit del form
 function validate() {
-    return checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/, "Inserire un nome per la creatura","Il nome della creatura non può contenere caratteri speciali")
-        && checkValidation("description","description-too-short",/^.{20,}$/,"","La descrizione deve essere lunga almeno 20 caratteri") 
+    return checkLength("data-scoperta","invalid-date",1,"Inserire una data")
         && checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"Inserire una data","La data non è nel formato corretto")
+        && checkLength("name","invalid-animal-name",1,"Inserire un nome per la creatura")
+        && checkValidation("name","invalid-animal-name",/^[a-zA-Zèàìòéùç\s]*$/, "Inserire un nome per l'animale","Il nome dell'animale non può contenere caratteri speciali")
+        && checkLength("description","description-too-short",20,"La descrizione deve essere lunga almeno 20 caratteri")
         && isImageUploaded() 
 }

@@ -31,14 +31,14 @@
         $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
-            include_once($html_path . "404.html");
+            header("Location: " . $html_path . "404.html");
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
-            include_once($html_path . "404.html");
+            header("Location: " . $html_path . "404.html");
             exit();
         }
         
@@ -83,6 +83,14 @@
         //TODO: Sezione commenti
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
+
+        if ($_SESSION["ruolo"] == "guest") {
+            $page = str_replace("<to-hide/>", "hidden", $page);
+            $commentTemplate = str_replace("<to-hide/>", "hidden", $commentTemplate);
+        } else {
+            $page = str_replace("<to-hide/>", "", $page);
+            $commentTemplate = str_replace("<to-hide/>", "", $commentTemplate);
+        }
 
         $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ;';
         $queryResult = mysqli_query($mysqli, $query);
