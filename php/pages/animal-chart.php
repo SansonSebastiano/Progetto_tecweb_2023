@@ -7,7 +7,7 @@
         session_start();
     }
     
-    $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"];
+    $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"] . "&discovered=" . $_GET["discovered"];
 
     $page = file_get_contents($html_path . "animal-chart.html");
    // IDENTIFICATION SECTION
@@ -21,18 +21,24 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
+    // PAGE CONTENT
     $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
 
     $type_order = $_GET["order"];
+    $discovered = $_GET["discovered"];
 
-    $query = "";
+    $query = "SELECT * FROM view_animale_voto ";
+
+    if ($discovered == "0") {
+        $query .= "WHERE status <> 'scoperto' ";
+    }
 
     if ($type_order == "uporder") {
-        $query = 'SELECT * FROM view_animale_voto ORDER BY YES DESC;';
+        $query .= 'ORDER BY YES DESC;';
     } elseif ($type_order == "downorder") {
-        $query = 'SELECT * FROM view_animale_voto ORDER BY NO DESC;';
+        $query .= 'ORDER BY NO DESC;';
     } else {
-        $query = 'SELECT * FROM view_animale_voto ORDER BY nome ASC;';
+        $query .= 'ORDER BY nome ASC;';
     }
 
     $queryResult = mysqli_query($mysqli, $query);

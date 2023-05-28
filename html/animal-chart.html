@@ -56,7 +56,7 @@
             <h2 class="outline">Classifica degli animali più votati</h2>
 
                 <div id = "div-with-checkbox">
-                    <input id="scoperti-checkbox" type="checkbox" aria-label="Checkbox per includere nella classifica gli animali già scoperti" tabindex="6"/>
+                    <input id="checkbox-discovered" type="checkbox" aria-label="Checkbox per includere nella classifica gli animali già scoperti" tabindex="6"/>
                     <span>Includi animali già scoperti</span>
                 </div>
 
@@ -79,19 +79,19 @@
                         <th scope="colgroup" colspan="2">
                             Nome creatura
                             <div>
-                                <button type="button" aria-label="Ordina la lista per nome animale" tabindex="7" onclick="window.location.href='animal-chart.php?order=animalorder';">↑↓</button>
+                                <button id="btn-name-order" type="button" aria-label="Ordina la lista per nome animale" tabindex="7" >↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
                             <img src="../../images/icons/thumb-up-2.png" alt="Voti esprimenti l'esistenza"/>
                             <div>
-                                <button type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'esistenza" tabindex="8" onclick="window.location.href='animal-chart.php?order=uporder';">↑↓</button>
+                                <button id="btn-up-order" type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'esistenza" tabindex="8">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
                             <img src="../../images/icons/thumb-down-2.png" alt="Voti esprimenti l'inesistenza"/>
                             <div>
-                                <button type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'inesistenza" tabindex="9" onclick="window.location.href='animal-chart.php?order=downorder';">↑↓</button>
+                                <button id="btn-down-order" type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'inesistenza" tabindex="9">↑↓</button>
                             </div>
                         </th>
                         <th scope="col">Status attuale</th>
@@ -113,6 +113,7 @@
             </table>
             <div id="go-up-div"></div>
         </main>
+        <script src="../../js/animal-chart.js"></script>
     </body>
     <footer id="footer"></footer>
 </html>
