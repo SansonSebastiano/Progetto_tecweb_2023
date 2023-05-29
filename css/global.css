@@ -27,7 +27,7 @@ html {
 
 img.framed {
     border-radius: 0 0 var(--image-radius-corner) 0;
-    box-shadow: 0px 1px 1px 1px gray;
+    box-shadow: 0px 1px 5px gray;
 }
 
 
@@ -89,6 +89,9 @@ main {
     box-shadow: var(--box-shadow-light);
 }
 
+#identification a {
+    color: white;
+}
 #username {
     font-weight: bold;
 }
@@ -213,7 +216,7 @@ header div {
 /* GOUP */
 
 #go-up-div {
-    margin: var(--margin-default);
+    margin-top: var(--margin-default);
 }
 
 #go-up-div p, #go-up-div a {

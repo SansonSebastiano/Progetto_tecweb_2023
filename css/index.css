@@ -11,7 +11,7 @@ main {
     flex: 8;
     z-index: 1;
     position: relative;
-    padding: 0;
+    padding: var(--margin-default);
 }
 
 #last-update {
@@ -23,15 +23,11 @@ main {
 /* ========================= MAIN ARTICLE ========================= */
 
 #featured-items-wrapper {
-    position: relative;
-    margin: var(--margin-default);
+    height: 30em;
 }
 
 .carousel {
     position: relative;
-    width: 90%;
-    height: 30em;
-    overflow: hidden;
 }
 
 #featured-items-wrapper button {
@@ -48,7 +44,6 @@ main {
 
 #featured-item {
     color:white;
-    height: 30em;
     cursor: pointer;
 }
 
@@ -73,13 +68,9 @@ main {
     pointer-events: none;
 }
 
-#featured-item a{
-    height: inherit;
-}
-
 #featured-item img {
     width: 100%;
-    height: inherit;
+    height: 100%;
     object-fit: cover;
 }
 
