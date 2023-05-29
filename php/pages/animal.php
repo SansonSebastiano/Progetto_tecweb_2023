@@ -77,6 +77,7 @@
         $queryResult->free();
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
+        
         // un utente può esprimere un solo voto per ciascun animale
 
         if(isset($_SESSION["id"])){
@@ -84,10 +85,12 @@
             $queryResultThree = mysqli_query($mysqli, $queryThree);
             $resultThree = mysqli_fetch_assoc($queryResultThree);
             $vote = $resultThree['voto'];
+            $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
+            $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
 
             if ($queryResultThree->num_rows > 0) {
                 $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
-                $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? "<span class='red'>no</span>" : "<span class='green'>sì</span>", $voting_section);
+                $voting_section = str_replace("<animal-vote-msg/>", $vote === 'NO' ? $msgNo : $msgYes, $voting_section);
             } else {
                 $voting_section = str_replace("<is-disabled/>", '', $voting_section);
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
