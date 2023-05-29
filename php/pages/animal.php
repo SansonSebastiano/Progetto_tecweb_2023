@@ -110,19 +110,12 @@
             exit();
         }
 
-        $articleResult = mysqli_fetch_assoc($queryResultTwo);
-
-        $articleTitle = $articleResult["titolo"];
-        $articleDescription = $articleResult["descrizione"];
-        $articleTag = $articleResult["tag"];
+        if($articleResult = mysqli_fetch_assoc($queryResultTwo)){
         $ultimoAvv = $articleResult["data"];
-        $articleImg = $articleResult["image_path"];
-        //$articleImgAlt = $articleResult["alt"];
-
-        $page = str_replace("<recent-title/>",$articleTitle,$page);
-        $page = str_replace("<recent-description/>",$articleDescription,$page);
-        $page = str_replace("<recent-tag/>",strtoupper($articleTag),$page);
         $page = str_replace("<ultimo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
+        }else{
+            $page = str_replace("<ultimo-avvistamento/>","",$page);
+        }
 
         $relArticleTemplate = file_get_contents($modules_path . "article-template.html");
 

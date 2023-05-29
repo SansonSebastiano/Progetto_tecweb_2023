@@ -1,4 +1,4 @@
-
+const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
 submitForm.addEventListener("submit", function(){ return validate()})

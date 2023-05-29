@@ -1,3 +1,4 @@
+const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
