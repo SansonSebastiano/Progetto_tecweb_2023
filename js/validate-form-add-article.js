@@ -1,13 +1,4 @@
 
-const titleInput = document.getElementById("titolo");
-const invalidTitle = document.getElementById("invalid-title");
-const subTitleInput = document.getElementById("sottotitolo");
-const placeInput = document.getElementById("luogo");
-const animalInput = document.getElementById("creatura");
-const textInput = document.getElementById("testo");
-const tagInput = document.getElementById("tag");
-
-const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
 
 submitForm.addEventListener("submit", function(){ return validate()})
@@ -73,11 +64,17 @@ function isImageUploaded(){
 
 function validate() {
 
-    return checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo")
-        && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
-        && checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo")
-        && checkLength("luogo","invalid-place",1,"Inserire un luogo")
-        && checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
-        && checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri")
-        && isImageUploaded() 
+    const titleBool = checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali");
+    const subtitleBool = checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo");
+    const placeBool = checkLength("luogo","invalid-place",1,"Inserire un luogo");
+    const animalBool = checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere caratteri speciali");
+    const textBool = checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri");
+    const imageBool = isImageUploaded()
+
+    return titleBool
+        && subtitleBool
+        && placeBool
+        && animalBool
+        && textBool
+        && imageBool
 }
