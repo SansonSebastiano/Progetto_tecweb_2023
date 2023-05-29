@@ -20,14 +20,14 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        $titolo = clearInput(filter_input(INPUT_POST,"titolo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $sottotitolo = clearInput(filter_input(INPUT_POST,"sottotitolo",FILTER_SANITIZE_SPECIAL_CHARS));
+        $titolo = clearInput($_POST['titolo']);
+        $sottotitolo = clearInput($_POST['sottotitolo']);
         $tag = clearInput($_POST['tag']);
-        $luogo = clearInput(filter_input(INPUT_POST,"luogo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $testo = clearInput(filter_input(INPUT_POST,"testo",FILTER_SANITIZE_SPECIAL_CHARS));
+        $luogo = clearInput($_POST['luogo']);
+        $testo = clearInput($_POST['testo']);
         $autore = $_SESSION['id'];
         $path = clearInput($_POST['image-path']);
-        $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
+        $creatura = clearInput($_POST['creatura']);
         $featured = isset($_POST['featured']) ? 1 : 0;
 
         $ok = true;
@@ -52,8 +52,8 @@
         }
     
 
-        if(strlen($testo) < 20 || strlen($testo) > 2000){
-            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri e non deve superare i 2000 caratteri";
+        if(strlen($testo) < 20 ){
+            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri";
             $ok = false;
         }
 
@@ -65,7 +65,7 @@
             $page = str_replace("<img-status/>", "success", $page);
         }
 
-        if(!preg_match('/^[a-zA-Z_èàìòéùç\s]*$/', $creatura)){
+        if(!preg_match('/^[a-zA-Zèàìòéùç\s]*$/', $creatura)){
             $errorStrings["creatura"] = "Il nome dell'animale riferito dall'articolo non può contenere caratteri speciali";
             $ok = false;
         }
@@ -90,6 +90,14 @@
             }
             else
             {
+                $titolo = filter_var($titolo, FILTER_SANITIZE_SPECIAL_CHARS);
+                $sottotitolo = filter_var($sottotitolo, FILTER_SANITIZE_SPECIAL_CHARS);
+                $luogo = filter_var($luogo, FILTER_SANITIZE_SPECIAL_CHARS);
+                $testo = filter_var($testo, FILTER_SANITIZE_SPECIAL_CHARS);
+                //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
+                $creatura = filter_var($creatura, FILTER_SANITIZE_SPECIAL_CHARS);
+
+
                 $queryResult->free();
                 $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);

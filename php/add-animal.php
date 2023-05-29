@@ -17,9 +17,9 @@
     
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        $nome = clearInput(filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS));
+        $nome = clearInput($_POST['name']);
         $status = clearInput($_POST['status']);
-        $descrizione = clearInput(filter_input(INPUT_POST,"description",FILTER_SANITIZE_SPECIAL_CHARS));
+        $descrizione = clearInput($_POST['description']);
         $dataScoperta = clearInput($_POST['date']);
         $path = clearInput($_POST['image-path']);
 
@@ -36,8 +36,8 @@
         }
         
         //controllo che la descrizione sia lunga almeno 20 caratteri
-        if(strlen($descrizione) < 20 || strlen($descrizione) > 2000){
-            $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri e non deve superare i 2000 caratteri";
+        if(strlen($descrizione) < 20){
+            $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri";
             $ok = false;
         }
 
@@ -78,6 +78,10 @@
         
         //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
         if($ok){
+            $nome = filter_var($nome, FILTER_SANITIZE_SPECIAL_CHARS);
+            $descrizione = filter_var($descrizione, FILTER_SANITIZE_SPECIAL_CHARS);
+            //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
+
             $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path')";
 
             $query = mysqli_query($mysqli, $sql);
