@@ -5,7 +5,7 @@ main{
 #form-container{
     padding: 0.5em;
     border-radius: 0.8em;
-    background-color:  rgba(0, 85, 50, 0.6);
+    background-color:  rgba(0, 85, 50, 0.8);
     box-shadow: var(--box-shadow-light);
 }
 
