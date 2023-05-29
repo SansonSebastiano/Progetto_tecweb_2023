@@ -25,6 +25,8 @@
     if(isset($_SESSION["submit-result"]) && isset($_SESSION["error-strings"]))
     {
         $errorStrings = $_SESSION["error-strings"];
+        $page = str_replace("<result/>",$_SESSION["error-strings"], $page);
+        $page = str_replace("<error-title/>",$errorStrings["titolo"], $page);
         $page = str_replace("<error-title/>",$errorStrings["titolo"], $page);
         $page = str_replace("<error-subtitle/>",$errorStrings["sottotitolo"], $page);
         $page = str_replace("<error-tag/>",$errorStrings["tag"], $page);
@@ -36,6 +38,7 @@
     }
     else
     {
+        $page = str_replace("<result/>","", $page);
         $page = str_replace("<error-title/>","", $page);
         $page = str_replace("<error-subtitle/>","", $page);
         $page = str_replace("<error-tag/>","", $page);
