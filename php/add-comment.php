@@ -8,7 +8,7 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    $text = clearInput(filter_input(INPUT_POST,"text",FILTER_SANITIZE_SPECIAL_CHARS));
+    $text = clearInput(filter_input(INPUT_POST,"text",FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $autore = $_SESSION['id'];
     $article = $_POST["hidden-article"];
     $date_time = date("Y-m-d H:i:s");

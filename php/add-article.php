@@ -90,12 +90,12 @@
             }
             else
             {
-                $titolo = filter_var($titolo, FILTER_SANITIZE_SPECIAL_CHARS);
-                $sottotitolo = filter_var($sottotitolo, FILTER_SANITIZE_SPECIAL_CHARS);
-                $luogo = filter_var($luogo, FILTER_SANITIZE_SPECIAL_CHARS);
-                $testo = filter_var($testo, FILTER_SANITIZE_SPECIAL_CHARS);
+                $titolo = filter_var($titolo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $sottotitolo = filter_var($sottotitolo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $luogo = filter_var($luogo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $testo = filter_var($testo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
-                $creatura = filter_var($creatura, FILTER_SANITIZE_SPECIAL_CHARS);
+                $creatura = filter_var($creatura, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 
                 $queryResult->free();

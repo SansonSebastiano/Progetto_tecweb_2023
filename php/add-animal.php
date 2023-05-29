@@ -78,8 +78,8 @@
         
         //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
         if($ok){
-            $nome = filter_var($nome, FILTER_SANITIZE_SPECIAL_CHARS);
-            $descrizione = filter_var($descrizione, FILTER_SANITIZE_SPECIAL_CHARS);
+            $nome = filter_var($nome, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $descrizione = filter_var($descrizione, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
 
             $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path')";
