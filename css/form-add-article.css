@@ -115,6 +115,9 @@ textarea{
 
 }
 
+#div-featured > * {
+    display: inline;
+}
 #btn-submit:hover{
     background-color: rgb(176, 176, 182);
 }

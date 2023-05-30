@@ -14,14 +14,13 @@ function getVotes(){
     let totalVotes = existVotes + nonExistVotes
     
     let percExist = Math.round((existVotes/totalVotes) * 100)
-    let percNonExist = Math.round((nonExistVotes/totalVotes) * 100);
+    let _percExist = percExist + 1;
+    let percNonExist = 100 - percExist;
 
 
     exist.innerHTML = existVotes + " (" + percExist + "%)"
     nonExist.innerHTML = nonExistVotes + " (" + percNonExist + "%)"
 
-    let existGradientPerc = percExist < 10 ? 0 : percExist - 10
-    let nonExistGradientPerc = percNonExist > 90 ? 100 : percExist + 10
-    coloredVoteArea.style.background = "linear-gradient(to right, #00FF00 " + existGradientPerc + "%, #FF0000 " + nonExistGradientPerc + "%)"
+    coloredVoteArea.style.background = "linear-gradient(to right, green, green " + percExist + "%, red " + _percExist + "%,red)"
     
 }

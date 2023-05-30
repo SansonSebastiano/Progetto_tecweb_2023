@@ -1,0 +1,10 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Abstract}{3}{section.1}%
+\contentsline {section}{\numberline {2}Analisi dei Requisiti}{4}{section.2}%
+\contentsline {section}{\numberline {3}Suddivisione del lavoro}{5}{section.3}%
+\contentsline {section}{\numberline {4}Progettazione}{6}{section.4}%
+\contentsline {section}{\numberline {5}Implementazione Back-end}{7}{section.5}%
+\contentsline {section}{\numberline {6}Implementazione Front-end}{8}{section.6}%
+\contentsline {section}{\numberline {7}Accessibilità}{9}{section.7}%
+\contentsline {section}{\numberline {8}Note finali}{10}{section.8}%

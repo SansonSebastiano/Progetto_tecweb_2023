@@ -77,22 +77,26 @@
         $queryResult->free();
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
+        
         // un utente può esprimere un solo voto per ciascun animale
 
         if(isset($_SESSION["id"])){
-            $queryThree = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
-            $queryResultThree = mysqli_query($mysqli, $queryThree);
-            $resultThree = mysqli_fetch_assoc($queryResultThree);
-            $vote = $resultThree['voto'];
+            $queryTwo = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
+            $queryResultTwo = mysqli_query($mysqli, $queryTwo);
+            $resultTwo = mysqli_fetch_assoc($queryResultTwo);
+            $vote = $resultTwo['voto'];
+            $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
+            $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
 
-            if ($queryResultThree->num_rows > 0) {
+            if ($queryResultTwo->num_rows > 0) {
+                $vote = $resultTwo['voto'];
                 $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
-                $voting_section = str_replace("<vote-msg/>", $vote === 'NO' ? "<span class='red'>no</span>" : "<span class='green'>sì</span>", $voting_section);
+                $voting_section = str_replace("<animal-vote-msg/>", $vote === 'NO' ? $msgNo : $msgYes, $voting_section);
             } else {
                 $voting_section = str_replace("<is-disabled/>", '', $voting_section);
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
             }
-            $queryResultThree->free();
+            $queryResultTwo->free();
         } 
         
         // abilita la sezione voto se l'utente e' loggato
@@ -102,26 +106,27 @@
         }
 
         // RELATED ARTICLES SECTION
-        $queryTwo = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data;';
-        $queryResultTwo = mysqli_query($mysqli, $queryTwo);
+        $queryThree = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data LIMIT 3;';
+        $queryResultThree = mysqli_query($mysqli, $queryThree);
 
-        if(!$queryResultTwo){
+        if(!$queryResultThree){
             header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
 
-        if($articleResult = mysqli_fetch_assoc($queryResultTwo)){
-        $ultimoAvv = $articleResult["data"];
-        $page = str_replace("<ultimo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
-        }else{
-            $page = str_replace("<ultimo-avvistamento/>","",$page);
-        }
+        $articleResult = mysqli_fetch_assoc($queryResultThree);
+
+        $articleTitle = $articleResult["titolo"];
+        $articleDescription = $articleResult["descrizione"];
+        $articleTag = $articleResult["tag"];
+        $articleImg = $articleResult["image_path"];
+        //$articleImgAlt = $articleResult["alt"];
 
         $relArticleTemplate = file_get_contents($modules_path . "article-template.html");
 
-        mysqli_data_seek($queryResultTwo,0);
+        mysqli_data_seek($queryResultThree,0);
         $relArticles = "";
-        while($articleResult = mysqli_fetch_assoc($queryResultTwo)){
+        while($articleResult = mysqli_fetch_assoc($queryResultThree)){
             $article = $relArticleTemplate;
             $articleTitle = $articleResult["titolo"];
             $articleId = $articleResult["id"];
@@ -137,7 +142,20 @@
         }
         $page = str_replace("<related-articles/>",$relArticles,$page);
         
-        $queryResultTwo->free();
+        $queryResultThree->free();
+
+        $queryFour = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" AND tag = 3 ORDER BY data DESC;';
+        $queryResultFour = mysqli_query($mysqli, $queryFour);
+        $articleResult = mysqli_fetch_assoc($queryResultFour);
+        if ($queryResultFour->num_rows > 0) {
+            $ultimoAvv = $articleResult["data"];
+            $page = str_replace("<ultimo-avvistamento/>",explode(" ",$ultimoAvv,2)[0],$page);
+        }
+        else {
+            $page = str_replace("<ultimo-avvistamento/>", "", $page);
+        }
+
+        $queryResultFour->free();
     }
 
     $mysqli->close();
