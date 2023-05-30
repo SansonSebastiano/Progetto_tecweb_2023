@@ -45,6 +45,19 @@
         $page = str_replace("<article-id/>",$articleId,$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
+
+        if(isset($_SESSION["error-result"]))
+        {
+            $errorStrings = $_SESSION["error-strings"];
+            $page = str_replace("<result/>",$_SESSION["error-result"], $page);
+            $page = str_replace("<error-text/>",$errorStrings["testo"], $page);
+            unset($_SESSION["error-result"]);
+        }
+        else
+        {
+            $page = str_replace("<result/>","", $page);
+            $page = str_replace("<error-text/>","", $page);
+        }
     } else {
         header("Location: " . $html_path . "404.html");
         exit();
