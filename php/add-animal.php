@@ -33,18 +33,24 @@
         else if(!preg_match('/^[\wèàìòéùç\s]*$/', $nome)){
             $errorStrings["nome"] = "Il nome della creatura non può contenere caratteri speciali";
             $ok = false;
+        }else{
+            $errorStrings["nome"] = "";
         }
         
         //controllo che la descrizione sia lunga almeno 20 caratteri
         if(strlen($descrizione) < 20){
             $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri";
             $ok = false;
+        }else{
+            $errorStrings["descrizione"] = "";
         }
 
         //controllo che lo status sia uno di quelli validi
         if (array_search(ucfirst($status),["Scoperto","Avvistato","Ipotizzato"],true) === false){
             $errorStrings["status"] = "Lo status deve essere valido";
             $ok = false;
+        }else{
+            $errorStrings["status"] = "";
         }
         
         //controllo che la data non sia vuota e che sia nel formato corretto
@@ -55,12 +61,16 @@
         else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataScoperta)){ //se la data non è nel formato corretto (anno - mese - giorno)
             $errorStrings["data"] = "La data non è nel formato corretto";
             $ok = false;
-        } 
+        }else{
+            $errorStrings["data"] = "";
+        }
 
         //controllo che sia stata caricata un immagine
         if (strlen($path) == 0){
             $errorStrings["path"] = "Non è stata caricata alcuna immagine";
             $ok = false;
+        }else{
+            $errorStrings["path"] = "";
         }
         
         $sql = "SELECT * FROM animale WHERE LOWER(nome) = LOWER('$nome')";
@@ -88,11 +98,13 @@
 
             if ($query) {
                 $_SESSION["submit-result"] = "<p class='success'>Creatura inserita con successo</p>";
+            }else{
+                $_SESSION["submit-result"] = "<p class='error'>Errore nell'inserimento dell'animale</p>";
             }
         }
 
         $mysqli->close();
 
-        $SESSION["error-strings"] = $errorStrings;
+        $_SESSION["error-strings"] = $errorStrings;
         header("Location: " . $_SESSION["prev_page"]);
     }

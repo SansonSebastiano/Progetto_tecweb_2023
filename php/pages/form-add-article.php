@@ -21,11 +21,10 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-
-    if(isset($_SESSION["submit-result"]) && isset($_SESSION["error-strings"]))
+    if(isset($_SESSION["submit-result"]))
     {
         $errorStrings = $_SESSION["error-strings"];
-        $page = str_replace("<result/>",$_SESSION["error-strings"], $page);
+        $page = str_replace("<result/>",$_SESSION["submit-result"], $page);
         $page = str_replace("<error-title/>",$errorStrings["titolo"], $page);
         $page = str_replace("<error-title/>",$errorStrings["titolo"], $page);
         $page = str_replace("<error-subtitle/>",$errorStrings["sottotitolo"], $page);

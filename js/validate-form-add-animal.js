@@ -1,11 +1,14 @@
 const submitForm = document.getElementById("submit-form")
 const imagePath = document.getElementById("image-path")
+const dateInput = document.getElementById("date")
+const animalInput = document.getElementById("name")
+const descriptionInput = document.getElementById("description")
 
 //Aggiunge gli event listener ai campi del form, che vengono chiamati quando si perde il focus
 submitForm.addEventListener("submit",function(){return validate()})
 dateInput.addEventListener("blur",function(){
-    if(checkLength("data-scoperta","invalid-date",1,"Inserire una data")){
-        checkValidation("data-scoperta","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")
+    if(checkLength("date","invalid-date",1,"Inserire una data")){
+        checkValidation("date","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")
     }
 })
 animalInput.addEventListener("blur",function(){

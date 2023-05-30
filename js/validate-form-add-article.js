@@ -1,4 +1,9 @@
 const submitForm = document.getElementById("submit-form")
+const titleInput = document.getElementById("titolo")
+const subTitleInput = document.getElementById("sottotitolo")
+const placeInput = document.getElementById("luogo")
+const animalInput = document.getElementById("creatura")
+const textInput = document.getElementById("testo")
 const imagePath = document.getElementById("image-path")
 
 submitForm.addEventListener("submit", function(){ return validate()})
