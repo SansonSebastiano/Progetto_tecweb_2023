@@ -37,6 +37,8 @@
     $admin_page_article_list_ref = $php_pages_ref . "admin-article-list.php";
     // login-form.html
     $form_login_ref = $html_ref . "form-login.html";
+    // form-edit-article.php
+    $form_edit_article_ref = $php_pages_ref . "form-edit-article.php";
 
      // user icon
     $icon_user_ref = "<img src=\"" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "icons" . DIRECTORY_SEPARATOR . "icon-user.png" . "\" class = \"profile-pic\" alt = \"icona utente\"/>";
