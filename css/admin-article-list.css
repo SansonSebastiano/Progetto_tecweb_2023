@@ -11,7 +11,7 @@ main {
 /* ============= SEARCH BOX ============= */
 
 #search-form {
-    background-image: url("../../images/icons/lens.png");
+    background-image: url("../images/icons/lens.png");
     background-color: white;
     background-repeat: no-repeat;
     background-position: bottom 0.5em right 0.5em;
