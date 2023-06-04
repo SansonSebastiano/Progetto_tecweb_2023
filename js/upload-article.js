@@ -12,7 +12,14 @@ function uploadFile(e) {
         // set metadata for the file
     const metadata = {
         contentType: file.type,
-      };
+    };
+
+    if(file == undefined){
+        status.classList.remove("success")
+        status.classList.add("error")
+        status.innerHTML = "Inserire un immagine dell'articolo";
+        return;
+    }
 
     if(file.size >= 1000000){
         status.classList.remove("success")

@@ -69,5 +69,5 @@ checkbox.addEventListener('change', () => {
 
 // Check if the checkbox state is stored in local storage
 if (localStorage.getItem("myCheckboxState") === "checked") {
-  checkbox.checked = true;
+   checkbox.checked = true;
 }

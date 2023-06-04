@@ -9,12 +9,19 @@ function uploadFile(e) {
     let file = document.querySelector("#image").files[0];
     let hidden = document.querySelector("#image-path");
     let status = document.getElementById("loaded-photo")
-        // set metadata for the file
+    
+    if(file == undefined){
+        status.classList.remove("success")
+        status.classList.add("error")
+        status.innerHTML = "Inserire un immagine della creatura";
+        return;
+    }
+
+    // set metadata for the file
     const metadata = {
         contentType: file.type,
-      };
+    };
     
-    console.log(file.size);
     if(file.size >= 1000000){
         status.classList.remove("success")
         status.classList.add("error")

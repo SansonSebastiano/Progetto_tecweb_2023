@@ -56,7 +56,7 @@
         <h2 class="black">Aggiungi una creatura...</h2>
         <result/>
         <div id="form-container">
-            <form action="../add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <form action="../add-animal.php" id="submit-form" method="post" onsubmit="return validate()" enctype="multipart/form-data">
                 <fieldset id="form-fields" form="submit-form">
                     <div id = "div-name" class="form-input-wrapper">
                         <label class="info" for="name">Nome della creatura</label>

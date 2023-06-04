@@ -56,7 +56,7 @@
         <h2 class="black">Scrivi un articolo...</h2>
         <result/>
         <div class="form-container">
-            <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <form action="../add-article.php" id="submit-form" method="post" onsubmit="return validate()" enctype="multipart/form-data">
                 <fieldset id="form-fields">
                     <div id="div-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo articolo</label>

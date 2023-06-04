@@ -67,7 +67,7 @@
 
         //controllo che sia stata caricata un immagine
         if (strlen($path) == 0){
-            $errorStrings["path"] = "Non è stata caricata alcuna immagine";
+            $errorStrings["path"] = "Inserire un immagine della creatura";
             $ok = false;
         }else{
             $errorStrings["path"] = "";

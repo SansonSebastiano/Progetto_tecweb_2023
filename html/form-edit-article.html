@@ -61,7 +61,7 @@
                         <p id="title"><article-title/></p>
                     </div>
 
-                    <form action="../edit-article.php?article=<article-id/>" id="submit-form" method="post" enctype="multipart/form-data">
+                    <form action="../edit-article.php?article=<article-id/>" id="submit-form" onsubmit="return validate()" method="post" enctype="multipart/form-data">
                         <div id="div-testo" class="form-input-wrapper">
                             <!-- tabindex -->
                             <label class="info" for="testo">Testo articolo</label>

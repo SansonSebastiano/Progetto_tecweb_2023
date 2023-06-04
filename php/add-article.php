@@ -66,7 +66,7 @@
         }
 
         if (strlen($path) == 0){
-            $errorStrings["path"] = "Non è stata caricata nessuna immagine";
+            $errorStrings["path"] = "Inserire un immagine dell'articolo";
             $page = str_replace("<img-status/>", "error", $page);
             $ok = false;
         }else{
