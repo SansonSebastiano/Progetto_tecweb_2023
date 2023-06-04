@@ -82,17 +82,14 @@
                 
             <hr/>
 
-            <!-- TODO: tabindex nella sezione commenti -->
-            
-
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
                 <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
                     <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
                     <input type="hidden" id="hidden-bool" name="hidden-bool" value="false">
                     <div id="new-reply" class = "div-reply <to-hide/>">
-                        <textarea id="textcomment" name="text"></textarea>
-                        <button type="submit" class="btn-send">Commenta</button>
+                        <textarea id="textcomment" name="text" tabindex="5"></textarea>
+                        <button type="submit" class="btn-send" tabindex="6">Commenta</button>
                     </div>                                                        
                 </form>            
                 <div id = "shoutbox">
