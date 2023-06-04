@@ -17,8 +17,13 @@ main {
 #last-update {
     font-style: italic;
     text-align: center;
+    text-transform: lowercase;
+    margin-bottom: 2em;
 }
 
+main h2 {
+    font-size: 2em;
+}
 
 /* ========================= MAIN ARTICLE ========================= */
 

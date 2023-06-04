@@ -7,6 +7,9 @@ h2 {
     margin-right: 1em;
 }
 
+#article-title {
+    font-size: 2em;
+}
 article{
     margin-bottom: var(--margin-default);
 }
@@ -14,7 +17,7 @@ article{
 #subtitle {
     display: inline-block;
     font-size: 1.1em;
-    color: var(--color2);
+    color: black;
     font-style: italic;
     border-left: 0.5em dotted var(--color4);
     padding-left: 1em;
