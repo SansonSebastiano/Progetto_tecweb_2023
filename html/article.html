@@ -46,7 +46,7 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina dell'articolo">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a> ●
+                <a href="../../index.php" tabindex="2"><span lang="en">Homepage</span></a> ●
                 <a href="article-list.php" tabindex="3">Articoli</a> ●
                 <article-title/>
             </p>
@@ -71,12 +71,11 @@
                         </aside>
                         
                         <div id = "text-div2">
-
-                        <p id ="text">
-                            <span id="location"><article-place/>.</span> <article-content/>
-                        </p>
-                        <p id ="reserved">Riproduzione riservata</p>
-                    </div>
+                            <p id ="text">
+                                <span id="location"><article-place/>.</span> <article-content/>
+                            </p>
+                            <p id ="reserved">Riproduzione riservata</p>
+                        </div>
                 </div>
                 </article>
                 
@@ -95,11 +94,9 @@
                         <button type="submit" class="btn-send">Commenta</button>
                     </div>                                                        
                 </form>            
-                <div id = "shoutbox">
-                    <ul class = "comment-list">
-                        <comment-list/>
-                    </ul>
-                </div>
+                <ul id="shoutbox">
+                    <comment-list/>
+                </ul>
             </section>
 
             <div id="go-up-div">
