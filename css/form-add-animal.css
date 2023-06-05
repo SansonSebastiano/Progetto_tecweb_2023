@@ -10,7 +10,6 @@ main{
 }
 
 #form-fields{
-    display: grid;
     grid-template-areas:
     "div-name div-desc div-desc"
     "div-status div-desc div-desc"
@@ -120,4 +119,8 @@ textarea{
 .success{
     color: green;
     text-align: center;
+}
+
+#name {
+    width: 100%;
 }
