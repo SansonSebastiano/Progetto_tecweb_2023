@@ -100,6 +100,20 @@
             <div id="go-up-div"></div>
         </main>
         <script src="../../js/animal-chart.js"></script>
+        <script type="text/javascript">
+            const checkbox = document.getElementById("checkbox-discovered");
+            // non funziona 
+            checkbox.addEventListener("focus", () => {
+                document.addEventListener('keydown', evt => {
+                    if (evt.key === 'Enter') {
+                        if (checkbox.checked)
+                            checkbox.checked = false;
+                        else
+                            checkbox.checked = true;
+                    }
+                });
+            });
+        </script>
     </body>
     <footer id="footer"></footer>
 </html>
