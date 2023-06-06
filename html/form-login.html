@@ -8,21 +8,17 @@
         <meta name="author" content="eLusive">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/global.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/form-login.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/special/media/global.css"/>
-        <link rel="stylesheet" type="text/css" media="print" href="../css/special/print.css"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/special/mobile.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/form-login.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
+        <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
     
         <link rel="icon" type="image/x-icon" href="../favicon.ico"/>
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script> 
-            $(function(){
-              $("#header").load("../html/modules/header.html"); 
-              $("#footer").load("../html/modules/footer.html");
-            });
-        </script> 
+        <script src="../../js/template-loader.js"> </script>
+        <link rel="icon" type="image/x-icon" href="../../favicon.ico"/>
     </head>
 
     <body>
@@ -30,19 +26,19 @@
         <header id="header"></header>
 
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di login">
-            <img src="../images/icons/home.png" alt="Home di eLusive"/>
+            <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>                
-                <a href="../index.php" tabindex="1">Homepage</a> ●
+                <a href="../../index.php" tabindex="1">Homepage</a> ●
                 Login
             </p>
-            <img id="logo" src="../images/logo.svg" alt="Logo di eLusive"/>
+            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
         <main class="main-wrapper">
 
             <h2 class="black">Accedi in eLusive</h2>
             <result/>
-            <form action="../php/login.php" id="submit-form" method="post">
+            <form action="../../php/login.php" id="submit-form" method="post">
                 <div id="form-container">
 
                     <div id="username-wrapper" class="form-input-wrapper">
