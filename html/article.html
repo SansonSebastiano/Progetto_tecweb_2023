@@ -46,8 +46,8 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina dell'articolo">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a> ●
-                <a href="article-list.php" tabindex="3">Articoli</a> ●
+                <a href="../../index.php" tabindex="0">Homepage</a> ●
+                <a href="article-list.php" tabindex="0">Articoli</a> ●
                 <article-title/>
             </p>
             <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
@@ -66,7 +66,7 @@
                                     <div class="tag <article-tag/>"><article-tag/></div>
                                 </dd>
                                 <dt>SPECIE COLLEGATE:</dt>
-                                <dd><a href="animal.php?animale=<related-animal/>" class="white" tabindex="4"><related-animal/></a></dd>
+                                <dd><a href="animal.php?animale=<related-animal/>" class="white" tabindex="0"><related-animal/></a></dd>
                             </dl>
                         </aside>
                         
@@ -82,17 +82,14 @@
                 
             <hr/>
 
-            <!-- TODO: tabindex nella sezione commenti -->
-            
-            
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
                 <form action="../add-comment.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="hidden-article" value="<article-id/>">
                     <input type="hidden" name="hidden-bool" value="false">
                     <div id="new-reply" class = "div-reply <to-hide/>">
-                        <textarea id="textcomment" name="text"></textarea>
-                        <button type="submit" class="btn-send">Commenta</button>
+                        <textarea id="textcomment" name="text" tabindex="0"></textarea>
+                        <button type="submit" class="btn-send" tabindex="0">Commenta</button>
                     </div>                                                        
                 </form>            
                 <div id = "shoutbox">
