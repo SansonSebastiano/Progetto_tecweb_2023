@@ -60,7 +60,11 @@
                 <fieldset id="form-fields" form="submit-form">
                     <div id = "div-name" class="form-input-wrapper">
                         <label class="info" for="name">Nome della creatura</label>
+<<<<<<< HEAD
                         <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="0" aria-label="Inserisci il nome della creatura" required maxlength="255"/>
+=======
+                        <input type="text" name="name" id="name" placeholder="Nome della creatura" tabindex="4" aria-label="Inserisci il nome della creatura" required maxlength="255"/>
+>>>>>>> dev
                         <div id="invalid-animal-name" class="error"><error-name/></div>
                     </div>
 
@@ -81,7 +85,7 @@
                     </div>
 
                     <div id = "div-pic" class="form-input-wrapper">
-                        <label class="info" for="image">Foto animale</label>
+                        <label class="info" for="image">Foto della creatura</label>
                         <input id="image" type="file" accept="image/*" aria-label="Seleziona una foto per la creatura" tabindex="0" required />
                         <input type="hidden" id="image-path" name="image-path" />
                         <button id="btn-load" aria-label="Carica la foto dell'animale" tabindex="0"></button>
@@ -89,8 +93,8 @@
                     </div>
 
                     <div id="div-desc" class="form-input-wrapper">
-                        <label class="info" for="description">Descrizione animale</label>
-                        <textarea name="description" id="description" placeholder="Descrizione creatura" aria-label="Inserirsci una descrizione" tabindex="0" autocomplete="off" required  minlength="20" maxlength="2000"></textarea>
+                        <label class="info" for="description">Descrizione della creatura</label>
+                        <textarea name="description" id="description" placeholder="Descrizione creatura" aria-label="Inserisci una descrizione" tabindex="0" autocomplete="off" required  minlength="20" maxlength="2000"></textarea>
                         <div id="description-too-short" class="error"><error-desc/></div>
                     </div>
 
