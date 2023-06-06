@@ -118,6 +118,21 @@
         </div>
         <script type="text/javascript" src="../../js/upload-article.js"></script>
         <script type="text/javascript" src="../../js/suggestion.js"></script>
+        
+        <script type="text/javascript">
+            const checkbox = document.getElementById("featured");
+  
+            checkbox.addEventListener("focus", () => {
+                document.addEventListener('keydown', evt => {
+                    if (evt.key === 'Enter') {
+                        if (checkbox.checked)
+                            checkbox.checked = false;
+                        else
+                            checkbox.checked = true;
+                    }
+                });
+            });
+        </script>
     </main>
     <footer id="footer"></footer>
 </body>

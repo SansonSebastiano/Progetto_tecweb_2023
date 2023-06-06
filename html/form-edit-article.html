@@ -44,7 +44,7 @@
             <p>
                 <a href="../../index.php" tabindex="2">Homepage</a> ●
                 <a href="admin-home.php" tabindex="3"> Amministrazione</a> ●
-                <a href="admin-article-list.php" tabindex="3"> Gestione articoli</a> ●
+                <a href="admin-article-list.php" tabindex="4"> Gestione articoli</a> ●
                 Modifica articolo
             </p>
             <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
@@ -62,9 +62,8 @@
                     <form action="../edit-article.php?article=<article-id/>" id="submit-form" method="post" enctype="multipart/form-data">
                         <fieldset>
                             <div id="div-testo" class="form-input-wrapper">
-                                <!-- tabindex -->
                                 <label class="info" for="testo">Testo articolo</label>
-                                <textarea id="testo" name= "testo" tabindex="11" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required><article-content/></textarea>
+                                <textarea id="testo" name= "testo" tabindex="5" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required><article-content/></textarea>
                                 <div id="invalid-text" class="error"><error-text/></div>
                             </div>
         
