@@ -8,15 +8,15 @@ const imagePath = document.getElementById("image-path")
 
 submitForm.addEventListener("submit", function(){ return validate()})
 titleInput.addEventListener("blur", function(){
-    if(checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo")) {
+    if(checkLength("titolo","invalid-title",1,"L'inserimento di un titolo per l'articolo è obbligatorio")) {
         checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
     }
 })
 subTitleInput.addEventListener("blur", function(){
-    checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo")
+    checkLength("sottotitolo","invalid-subtitle",1,"L'inserimento di un sottotitolo per l'articolo è obbligatorio")
 })
 placeInput.addEventListener("blur", function(){
-    checkLength("luogo","invalid-place",1,"Inserire un luogo")
+    checkLength("luogo","invalid-place",1,"Inserimento di un luogo è obbligatorio")
 })
 animalInput.addEventListener("blur", function(){
     checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
@@ -83,3 +83,36 @@ function validate() {
         && textBool
         && imageBool
 }
+
+const checkbox = document.getElementById("featured");
+
+// check if the checkbox is focused
+checkbox.addEventListener("focus", function() { 
+    // check if enter key is pressed
+    checkbox.addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            // check if the checkbox is checked
+            if (checkbox.checked) {
+                checkbox.checked = false;
+                checkbox.dispatchEvent(new Event("change"));
+            } else {
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event("change"));
+            }
+        }
+    });
+});
+
+// check if the checkbox is not focused
+checkbox.addEventListener("blur", function() {
+    checkbox.setAttribute("aria-label", "Seleziona se inserire l'articolo in evidenza");                
+});
+
+// check if the checkbox is checked
+checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+        checkbox.setAttribute("aria-label", "Articolo in evidenza selezionato");
+    } else {
+        checkbox.setAttribute("aria-label", "Articolo in evidenza deselezionato");
+    }
+});
