@@ -1,10 +1,16 @@
 @media only screen and (max-width:720px) {
-    #form-controls{
+    #form-fields{
         display: flex;
         flex-direction: column;
     }
 
     #btn-submit{
         align-self: center;
+    }
+}
+
+@media only screen and (min-width:721px) {
+    #form-fields{
+        display: grid;
     }
 }

@@ -1,8 +1,8 @@
 <li class="comment-family">
-    <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
+    <form action="../add-comment.php" method="post" enctype="multipart/form-data">
         <div class="comment-single">
             <div class = "comment-details">
-                <img class="profile-pic" src="../../images/icons/icon-user.png" height="40px">
+                <img class="profile-pic" src="../../images/icons/icon-user.png">
                 <p class="author"><author/></p>
                 <p class="timestamp"><timestamp/></p>
             </div>
@@ -11,9 +11,9 @@
                 <p class="comment-text"><comment-text/></p>
                 <button type="button" class="btn-reply <to-hide/>" id="<comment-id/>" onclick="visible(this.id);" tabindex="7">Rispondi</button>
                 <div class = "div-reply">
-                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="true">
-                    <input type="hidden" id="hidden-comment" name="hidden-comment" value="<comment-id/>">
-                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
+                    <input type="hidden" name="hidden-bool" value="true">
+                    <input type="hidden" name="hidden-comment" value="<comment-id/>">
+                    <input type="hidden" name="hidden-article" value="<article-id/>">
                     <textarea id="textreply-<comment-id/>" name="text" required tabindex="8"></textarea>
                     <button type="submit" class="btn-send hidden" id="send-<comment-id/>" tabindex="9">Invia</button>
                 </div>                                   

@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/form-add.css"/> -->
     <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/form-edit-article.css"/>
@@ -48,30 +47,30 @@
                 <a href="admin-article-list.php" tabindex="4"> Gestione articoli</a> ●
                 Modifica articolo
             </p>
-            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+            <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
         </nav>
 
         <main class="main-wrapper">
             <h2 class="black">Modifica il testo dell'articolo</h2>
             <result/>
             <div class="form-container">
-                <fieldset>
 
                     <div id="div-titolo" class="title-wrapper">
                         <p id="title"><article-title/></p>
                     </div>
 
                     <form action="../edit-article.php?article=<article-id/>" id="submit-form" method="post" enctype="multipart/form-data">
-                        <div id="div-testo" class="form-input-wrapper">
-                            <label class="info" for="testo">Testo articolo</label>
-                            <textarea id="testo" name= "testo" tabindex="5" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required><article-content/></textarea>
-                            <div id="invalid-text" class="error"><error-text/></div>
-                        </div>
-    
-                        <input type="submit" id="btn-submit" aria-label="Pubblica l'articolo" value="MODIFICA ARTICOLO" tabindex="6"/>
+                        <fieldset>
+                            <div id="div-testo" class="form-input-wrapper">
+                                <label class="info" for="testo">Testo articolo</label>
+                                <textarea id="testo" name= "testo" tabindex="5" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required><article-content/></textarea>
+                                <div id="invalid-text" class="error"><error-text/></div>
+                            </div>
+        
+                            <input type="submit" id="btn-submit" value="Modifica" aria-label="Modifica"/>
+                        </fieldset>
                     </form>
                     
-                </fieldset>
             </div>
         </main>
         <footer id="footer"></footer>

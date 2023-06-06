@@ -58,7 +58,9 @@ a:visited{
     color: var(--visited-links);
 }
 
-
+.profile-pic {
+    height: 2.5em;
+}
 /* BODY */
 
 body {
