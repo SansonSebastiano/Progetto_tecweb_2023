@@ -1,8 +1,16 @@
-function vote(animal, voteType) {
+document.getElementById("btn-exist").addEventListener("click", function(){vote("upvote")})
+document.getElementById("btn-non-exist").addEventListener("click", function(){vote("downvote")})
+
+function vote(voteType) {
+
+    let matches = /animale=([^&#=]*)/.exec(window.location.search);
+    let animalName = matches[1];
+
     let xmlhttp = new XMLHttpRequest();
     let btnUpvote = document.getElementById("btn-exist");
     let btnDownvote = document.getElementById("btn-non-exist");
 
+    
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             if(voteType == 'upvote'){
@@ -18,6 +26,8 @@ function vote(animal, voteType) {
         }
     };
 
-    xmlhttp.open("GET", "../vote-event.php?animale=" + animal + "&voteType=" + voteType, true);
-    xmlhttp.send();
+    xmlhttp.open("POST", "../vote-event.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+    xmlhttp.send("animale=" + animalName + "&voteType=" + voteType);
 }

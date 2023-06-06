@@ -83,13 +83,11 @@
         if(isset($_SESSION["id"])){
             $queryTwo = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
             $queryResultTwo = mysqli_query($mysqli, $queryTwo);
-            $resultTwo = mysqli_fetch_assoc($queryResultTwo);
-            $vote = $resultTwo['voto'];
-            $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
-            $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
-
             if ($queryResultTwo->num_rows > 0) {
+                $resultTwo = mysqli_fetch_assoc($queryResultTwo);
                 $vote = $resultTwo['voto'];
+                $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
+                $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
                 $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
                 $voting_section = str_replace("<animal-vote-msg/>", $vote === 'NO' ? $msgNo : $msgYes, $voting_section);
             } else {
