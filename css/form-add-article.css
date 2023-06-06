@@ -131,6 +131,10 @@ textarea{
     text-align: center;
 }
 
+.error, .success{
+    margin-bottom: 0;
+}
+
 #titolo, #sottotitolo {
     width: 100%;
 }

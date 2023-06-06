@@ -10,8 +10,6 @@ main {
     background-color: white;
     flex: 8;
     z-index: 1;
-    position: relative;
-    padding: var(--margin-default);
 }
 
 #last-update {

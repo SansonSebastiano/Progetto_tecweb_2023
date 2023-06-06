@@ -124,6 +124,3 @@ main {
 .article-table td:last-child, .animal-table th:last-child {
     text-align: center;
 }
-.tab-container{
-    overflow-x:auto;
-}

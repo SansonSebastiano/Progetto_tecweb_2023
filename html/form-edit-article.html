@@ -61,11 +61,12 @@
 
                     <form action="../edit-article.php?article=<article-id/>" id="submit-form" method="post" enctype="multipart/form-data">
                         <fieldset>
+                            <legend class="invisible">Modifica il testo dell'articolo</legend>
                             <div id="div-testo" class="form-input-wrapper">
                                 <!-- tabindex -->
-                                <label class="info" for="testo">Testo articolo</label>
+                                <label class="info" for="testo">Testo dell'articolo</label>
                                 <textarea id="testo" name= "testo" tabindex="11" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required><article-content/></textarea>
-                                <div id="invalid-text" class="error"><error-text/></div>
+                                <p id="invalid-text" class="error"><strong><error-text/></strong></p>
                             </div>
         
                             <input type="submit" id="btn-submit" value="Modifica" aria-label="Modifica"/>
