@@ -1,5 +1,5 @@
 <li class="comment-family">
-    <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
+    <form action="../add-comment.php" method="post" enctype="multipart/form-data">
         <div class="comment-single">
             <div class = "comment-details">
                 <img class="profile-pic" src="../../images/icons/icon-user.png">
@@ -11,9 +11,9 @@
                 <p class="comment-text"><comment-text/></p>
                 <button type="button" class="btn-reply <to-hide/>" id="<comment-id/>" onclick="visible(this.id);">Rispondi</button>
                 <div class = "div-reply">
-                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="true">
-                    <input type="hidden" id="hidden-comment" name="hidden-comment" value="<comment-id/>">
-                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
+                    <input type="hidden" name="hidden-bool" value="true">
+                    <input type="hidden" name="hidden-comment" value="<comment-id/>">
+                    <input type="hidden" name="hidden-article" value="<article-id/>">
                     <textarea id="textreply-<comment-id/>" name="text" required></textarea>
                     <button type="submit" class="btn-send hidden" id="send-<comment-id/>">Invia</button>
                 </div>                                   

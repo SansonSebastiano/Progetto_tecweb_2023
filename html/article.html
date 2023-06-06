@@ -87,9 +87,9 @@
             
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
-                <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
-                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="false">
+                <form action="../add-comment.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="hidden-article" value="<article-id/>">
+                    <input type="hidden" name="hidden-bool" value="false">
                     <div id="new-reply" class = "div-reply <to-hide/>">
                         <textarea id="textcomment" name="text"></textarea>
                         <button type="submit" class="btn-send">Commenta</button>
@@ -103,11 +103,12 @@
             </section>
 
             <div id="go-up-div">
-
             </div>
+
         </main>
         
-        
+        <footer id="footer"></footer>
+
     </body>
     
 

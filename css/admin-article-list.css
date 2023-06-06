@@ -87,6 +87,7 @@ main {
     border-collapse: separate;
     border-radius: 2.5em 0 2.5em 0;
     margin: 0 auto;
+    box-shadow: 1px 1px 5px gray;
 }
 
 .article-table tbody tr:last-of-type td:last-of-type{

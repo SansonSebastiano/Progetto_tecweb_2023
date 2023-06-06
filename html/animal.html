@@ -60,25 +60,26 @@
         <section id="section-animal-description" class="horizontal-flex">
             
                 <table id="animal-stats" aria-describedby="table-summary">
+                    <caption>Questa tabella contiene informazioni utili sulla creatura, come lo status ed eventuali date di scoperta e ultimo avvistamento.</caption>
                     <thead>
                         <tr>
                             <th colspan="2"><animal-name/></th>
                         </tr>
                         <tr>
-                            <th colspan="2"><img src="<animal-image/>" alt="<animale-image-alt/>"  height="200"/></th>
+                            <td colspan="2"><img src="<animal-image/>" alt="<animale-image-alt/>"/></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Data di scoperta:</td>
+                            <th scope="row">Data di scoperta:</th>
                             <td><time datetime="<data-scoperta/>"><data-scoperta/></time></td>
                         </tr>
                         <tr>
-                            <td>Ultimo avvistamento:</td>
+                            <th scope="row">Ultimo avvistamento:</th>
                             <td><time datetime="<ultimo-avvistamento/>"><ultimo-avvistamento/></time></td>
                         </tr>
                         <tr>
-                            <td>Stato:</td>
+                            <th scope="row">Status:</th>
                             <td><animal-status/></td>
                         </tr>
                     </tbody>

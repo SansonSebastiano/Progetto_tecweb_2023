@@ -61,9 +61,8 @@
                 </div>
 
             <table>
-                <p id="click-test"></p>
                 <caption>
-                    La classifica delle creature la cui esistenza è ritenuta maggiormente plausibile dagli utenti di <span lang="en">Elusive.</span>
+                    La classifica delle creature la cui esistenza è ritenuta maggiormente plausibile dagli utenti di <span lang="en">eLusive.</span>
                 </caption>
 
                 <colgroup>
@@ -72,25 +71,25 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th scope="colgroup" colspan="2">
+                        <th scope="colgroup" colspan="2" abbr="Nome">
                             Nome creatura
                             <div>
                                 <button id="btn-name-order" type="button" aria-label="Ordina la lista per nome animale" tabindex="7" >↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
-                            <img src="../../images/icons/thumb-up-2.png" alt="Voti esprimenti l'esistenza"/>
+                            <img src="../../images/icons/thumb-up-2.png" alt="Voti che esprimono l'esistenza"/>
                             <div>
-                                <button id="btn-up-order" type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'esistenza" tabindex="8">↑↓</button>
+                                <button id="btn-up-order" type="button" class="white" aria-label="Ordina la lista per voti favorevoli" tabindex="8">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
-                            <img src="../../images/icons/thumb-down-2.png" alt="Voti esprimenti l'inesistenza"/>
+                            <img src="../../images/icons/thumb-down-2.png" alt="Voti che esprimono l'inesistenza"/>
                             <div>
-                                <button id="btn-down-order" type="button" class="white" aria-label="Ordina la lista per voti esprimenti l'inesistenza" tabindex="9">↑↓</button>
+                                <button id="btn-down-order" type="button" class="white" aria-label="Ordina la lista per voti sfavorevoli" tabindex="9">↑↓</button>
                             </div>
                         </th>
-                        <th scope="col">Status attuale</th>
+                        <th scope="col" abbr="Status">Status attuale</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,6 +99,8 @@
             <div id="go-up-div"></div>
         </main>
         <script src="../../js/animal-chart.js"></script>
+
+        <footer id="footer"></footer>
+
     </body>
-    <footer id="footer"></footer>
 </html>
