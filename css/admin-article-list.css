@@ -81,9 +81,8 @@ main {
 /* ============= ARTICLE TABLE ============= */
 
 .article-table{
-    width: 95%;
-    background: #f9f9f9;
-    border: 0.1em #aaaaaa solid;
+    width: 90%;
+    background-color: white;
     border-collapse: separate;
     border-radius: 2.5em 0 2.5em 0;
     margin: 0 auto;

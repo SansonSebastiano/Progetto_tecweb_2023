@@ -117,14 +117,7 @@
 
         $articleResult = mysqli_fetch_assoc($queryResultThree);
 
-        $articleTitle = $articleResult["titolo"];
-        $articleDescription = $articleResult["descrizione"];
-        $articleTag = $articleResult["tag"];
-        $articleImg = $articleResult["image_path"];
-        //$articleImgAlt = $articleResult["alt"];
-
         $relArticleTemplate = file_get_contents($modules_path . "article-template.html");
-
         mysqli_data_seek($queryResultThree,0);
         $relArticles = "";
         while($articleResult = mysqli_fetch_assoc($queryResultThree)){
@@ -132,10 +125,11 @@
             $articleTitle = $articleResult["titolo"];
             $articleId = $articleResult["id"];
             $articleTag = $articleResult["tag"];
+            $articleImg = $articleResult["image_path"];
             
-            $article = str_replace("<article-tag/>",$articleTag,$article);
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
+            $article = str_replace("<article-tag/>",$articleTag,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
             //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
