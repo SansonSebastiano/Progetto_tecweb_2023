@@ -113,7 +113,7 @@ main {
 }
 
 .article-table tr:nth-child(even) *{
-    background-color: #c2c2c2;
+    background-color: var(--color4);
 }
 
 .article-table td:first-child, .animal-table th:first-child {

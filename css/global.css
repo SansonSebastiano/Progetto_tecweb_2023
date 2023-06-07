@@ -3,7 +3,7 @@
     --color1: rgb(34, 0, 88);
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
-    --color4: rgb(220,220,220);
+    --color4: rgb(220, 220, 220);
     --color-semi-trans: rgba(255, 255,255, 0.8);
     --nonvisited-links: rgb(34, 0, 88);
     --visited-links: rgb(180,160, 0);
@@ -51,7 +51,7 @@ h2.black {
 }
 
 h2.outline {
-    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+    text-shadow: 1px 0px 10px white, -1px 0 10px white, 0px 1px 10px white, 0px -1px 10px white;
 }
 
 a{
@@ -70,6 +70,7 @@ a:visited, a.white:visited{
 .profile-pic {
     height: 2.5em;
 }
+
 /* BODY */
 
 body {
@@ -323,4 +324,11 @@ button, select, input
 input[type=text], input[type=password]
 {
     cursor: text;
+}
+
+/* TEXT RULES */
+* {
+    line-height: 1.5em;
+    letter-spacing: 0.12em;
+    word-spacing: 0.16em;
 }
