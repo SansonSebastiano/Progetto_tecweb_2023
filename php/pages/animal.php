@@ -99,9 +99,10 @@
             $queryResultTwo->free();
         } 
         
+        $page = str_replace("<animal-name/>", $_GET["animale"], $page);
+
         // abilita la sezione voto se l'utente e' loggato
         if ($_SESSION['ruolo'] != 'guest') {
-            $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
             $page = str_replace("<animal-voting-section/>", $voting_section, $page);
         }
 
