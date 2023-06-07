@@ -44,7 +44,6 @@ section {
     font-size: 1.2em;
     font-style: italic;
     text-shadow: 0.1em 0.1em 0.8em darkgoldenrod;
-    text-align: justify;
 }
 
 /** VOTAZIONI **/
@@ -59,7 +58,7 @@ section {
 .horizontal-flex{
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 3em;
     align-items: center;
     justify-content: space-around;
 }
