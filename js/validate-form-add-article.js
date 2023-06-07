@@ -16,7 +16,7 @@ subTitleInput.addEventListener("blur", function(){
     checkLength("sottotitolo","invalid-subtitle",1,"L'inserimento di un sottotitolo per l'articolo è obbligatorio")
 })
 placeInput.addEventListener("blur", function(){
-    checkLength("luogo","invalid-place",1,"Inserimento di un luogo è obbligatorio")
+    checkLength("luogo","invalid-place",1,"L'inserimento di un luogo è obbligatorio")
 })
 animalInput.addEventListener("blur", function(){
     checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
@@ -90,7 +90,7 @@ const checkbox = document.getElementById("featured");
 checkbox.addEventListener("focus", function() { 
     // check if enter key is pressed
     checkbox.addEventListener("keydown", function(event) {
-        if (event.keyCode === 13) {
+        if (event.key === "Enter") {
             // check if the checkbox is checked
             if (checkbox.checked) {
                 checkbox.checked = false;
