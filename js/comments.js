@@ -4,8 +4,7 @@ console.log(replyBtns);
 
 replyBtns.forEach(btn => {
     btn.addEventListener("click", function(){
-        btn.style.display = "none";
-        btn.nextElementSibling.getElementsByClassName("btn-send")[0].style.display = "inline";
-        btn.nextElementSibling.getElementsByClassName("textreply")[0].style.display = "inline";
+        btn.classList.toggle("hidden")
+        btn.nextElementSibling.classList.toggle("hidden")
     })
 })
