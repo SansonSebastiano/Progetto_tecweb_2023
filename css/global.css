@@ -6,7 +6,7 @@
     --color4: rgb(220,220,220);
     --color-semi-trans: rgba(255, 255,255, 0.8);
     --nonvisited-links: rgb(34, 0, 88);
-    --visited-links: rgb(158, 142, 0);
+    --visited-links: rgb(180,160, 0);
     --color-reserved: rgb(70, 70, 70);
     --width-perc-main: 75%;
     --margin-default: 3em;
@@ -23,6 +23,15 @@ html {
     background-position: center;
     background-size: cover;
     font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.invisible {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
 }
 
 img.framed {
@@ -45,20 +54,22 @@ h2.outline {
     text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
 }
 
-a.white {
-    color: white;
-}
-
-
 a{
     color: var(--nonvisited-links);
 }
 
-a:visited{
+
+a.white {
+    color: white;
+}
+
+a:visited, a.white:visited{
     color: var(--visited-links);
 }
 
-
+.profile-pic {
+    height: 2.5em;
+}
 /* BODY */
 
 body {
@@ -312,11 +323,4 @@ button, select, input
 input[type=text], input[type=password]
 {
     cursor: text;
-}
-
-/** TESTO NASCOSTO **/
-.speech-help{
-    overflow:hidden;
-    white-space: nowrap;
-    text-indent: 100%;
 }

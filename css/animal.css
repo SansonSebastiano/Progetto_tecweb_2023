@@ -139,7 +139,7 @@ section {
 .votes-box {
     background: var(--color2);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 0.8em;
     text-align: center;
   }
 

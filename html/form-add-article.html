@@ -45,11 +45,11 @@
     <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di aggiunta di un articolo">
         <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
-            <a href="../../index.php" tabindex="2"><span lang="en">Homepage</span></a> ●
+            <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
             <who-am-i/>
             Aggiunta di un articolo
         </p>
-        <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+        <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
     </nav>
     
     <main class="main-wrapper">
@@ -58,65 +58,66 @@
         <div class="form-container">
             <form action="../add-article.php" id="submit-form" method="post" enctype="multipart/form-data">
                 <fieldset id="form-fields">
+                    <legend class="invisible">Aggiunta di un articolo</legend>
                     <div id="div-titolo" class="form-input-wrapper">
-                        <label class="info" for="titolo">Titolo articolo</label>
-                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="3" autocomplete="on" aria-label="Inserisci titolo articolo" required maxlength="255">
-                        <div id="invalid-title" class="error"><error-title/></div>
+                        <label class="info" for="titolo">Titolo</label>
+                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="0" autocomplete="on" aria-label="Inserisci titolo articolo" required maxlength="255">
+                        <p id="invalid-title" class="error"><strong><error-title/></strong></p>
                     </div>
 
                     <div id="div-sottotitolo" class="form-input-wrapper">
                         <label class="info" for="sottotitolo">Sottotitolo</label>
-                        <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="4" autocomplete="on" aria-label="Inserisci sottotitolo articolo" required maxlength="255">
-                        <div id="invalid-subtitle" class="error"><error-subtitle/></div>
+                        <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="0" autocomplete="on" aria-label="Inserisci sottotitolo articolo" required maxlength="255">
+                        <p id="invalid-subtitle" class="error"><strong><error-subtitle/></strong></p>
                     </div>
 
                     <div id="div-creatura" class="form-input-wrapper">
-                        <label for="creatura" class="info">Creatura riferita</label>
-                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="5" aria-label="Inserisci nome creatura" required maxlength="100">
-                        <div id="invalid-creature" class="error"><error-animal/></div>
+                        <label for="creatura" class="info">Creatura riferita nell'articolo (opzionale)</label>
+                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="0" aria-label="Inserisci nome creatura" maxlength="100">
+                        <p id="invalid-creature" class="error"><strong><error-animal/></strong></p>
                     </div>
 
                     <div id="div-tag" class="form-input-wrapper">
-                        <label class="info" for="tag">Tag articolo</label>
-                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="6" required>
+                        <label class="info" for="tag">Tag dell'articolo</label>
+                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="0" required>
                             <option value="scoperta">Scoperta</option>
                             <option value="new-entry"><span lang="en">New-Entry</span></option>
                             <option value="avvistamento">Avvistamento</option>
                             <option value="comunicazione">Comunicazione</option>
                         </select>
-                        <div id="invalid-tag" class="error"><error-tag/></div>
+                        <p id="invalid-tag" class="error"><strong><error-tag/></strong></p>
                     </div>
 
                     <div id="div-luogo" class="form-input-wrapper">
                         <label class="info" for="luogo">Luogo riferito nell'articolo</label>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="7" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255" required>
-                        <div id="invalid-place" class="error"><error-place/></div>
+                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="0" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255" required>
+                        <p id="invalid-place" class="error"><strong><error-place/></strong></p>
                     </div>
 
                     <div id="div-featured" class="form-input-wrapper">
-                        <input type="checkbox" name="featured" id="featured" tabindex="8" aria-label="Seleziona se inserire l'articolo in evidenza">
-                        <label class="info" for="featured">Articolo in evidenza</label>
+                        <input type="checkbox" name="featured" id="featured" tabindex="0" aria-label="Seleziona se inserire l'articolo in evidenza">
+                        <label class="info" for="featured">&Egrave; un articolo in evidenza</label>
                     </div>
 
                     <div id="div-path" class="form-input-wrapper">
-                        <label class="info" for="immagine">Immagine articolo</label>
-                        <input id="immagine" type="file" accept="image/*" tabindex="9" aria-label="Seleziona immagine per l'articolo" required>
+                        <label class="info" for="immagine">Immagine dell'articolo</label>
+                        <input id="immagine" type="file" accept="image/*" tabindex="0" aria-label="Seleziona immagine per l'articolo" required>
                         <input type="hidden" id="image-path" name="image-path">
-                        <button id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="10"></button>
-                        <span id="loaded-photo" class="<img-status/>"><error-img/></span>
+                        <button id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="10">Carica l'immagine</button>
+                        <p id="loaded-photo" class="<img-status/>"><strong><error-img/></strong></p>
                     </div>
 
                     <div id="div-testo" class="form-input-wrapper">
-                        <label class="info" for="testo">Testo articolo</label>
-                        <textarea id="testo" name= "testo" tabindex="11" autocomplete="off" placeholder="Testo articolo" aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required></textarea>
-                        <div id="invalid-text" class="error"><error-text/></div>
+                        <label class="info" for="testo">Testo dell'articolo</label>
+                        <textarea id="testo" name= "testo" tabindex="0" autocomplete="off" placeholder="Inserisci del testo..." aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required></textarea>
+                        <p id="invalid-text" class="error"><strong><error-text/></strong></p>
                     </div>
 
-                    <input type="submit" id="btn-submit" aria-label="Pubblica l'articolo" value="" tabindex="12"/>
+                    <input type="submit" id="btn-submit" aria-label="Pubblica l'articolo" value="" tabindex="0"/>
                 </fieldset>
             </form>
         </div>
-        <script type="module" src="../../js/upload-article.js"></script>
+        <script type="text/javascript" src="../../js/upload-article.js"></script>
         <script type="text/javascript" src="../../js/suggestion.js"></script>
     </main>
     <footer id="footer"></footer>

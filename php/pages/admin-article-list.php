@@ -70,7 +70,8 @@
     
 
     $table = str_replace("<article-entry/>",$articleList,$table);
-    $page = str_replace("<article-list/>",$table,$page);
+    $page = str_replace("<article-table/>",$table,$page);
+    $page = str_replace("<count/>",$queryResult->num_rows,$page);
 
     $queryResult->free_result();
     $mysqli->close();

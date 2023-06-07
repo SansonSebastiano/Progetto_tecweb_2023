@@ -45,7 +45,7 @@
         if($query->num_rows > 0){
             $newTable = str_replace("<letter/>",$letter,$table);
             $newTable = str_replace("<letter-title/>",$letter,$newTable);
-            $navigator .= '<li><a href="#'.$letter.'" class="white" tabindex="4">'.$letter.'</a></li>';
+            $navigator .= '<li><a href="#'.$letter.'" class="white" tabindex="0">'.$letter.'</a></li>';
             while($row = mysqli_fetch_assoc($query)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);

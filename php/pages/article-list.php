@@ -82,6 +82,7 @@
         }
     }
 
+    $page = str_replace("<count/>",$queryResult->num_rows,$page);
     // Rimuoviamo il placeholder <article-list/> e sostituiamo con la lista di articoli
     $page = str_replace("<article-list/>",$articleList,$page);
 
