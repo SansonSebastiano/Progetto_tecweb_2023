@@ -23,7 +23,7 @@ function addVote(voteType) {
         }
     };
 
-    xmlhttp.open("POST", "../add-vote.php?animale=" + animal + "&voteType=" + voteType, true);
+    xmlhttp.open("POST", "../add-vote.php?animale=" + animalName + "&voteType=" + voteType, true);
     xmlhttp.send();
 }
 
@@ -45,5 +45,5 @@ function removeVote(animal, voteType) {
     xmlhttp.open("POST", "../remove-vote.php", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     
-    xmlhttp.send("animale=" + animalName + "&voteType=" + voteType);
+    xmlhttp.send("animale=" + animal + "&voteType=" + voteType);
 }
