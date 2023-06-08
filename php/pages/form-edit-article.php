@@ -10,7 +10,7 @@
 
     $page = file_get_contents($html_path . "form-edit-article.html");
 
-    if ($_SESSION['ruolo'] != 'admin' /*&& $_SESSION['ruolo'] != 'writer'*/) {
+    if ($_SESSION['ruolo'] != 'admin') {
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
         exit();
     }
@@ -22,12 +22,16 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
+    $errTesto =  [0 => "", 1 => "Il testo dell'articolo deve essere lungo almeno 20 caratteri"];
+    $errSubmit = [0 => "", 1 => "<p class='error'><strong>Errore nell'aggiornamento dell'articolo</strong></p>"];
+
     if (isset($_GET["article"])) {
         $articleId = clearInput($_GET["article"]);
         $query = "SELECT * FROM articolo WHERE id = " . $articleId;
         $queryResult = mysqli_query($mysqli, $query);
 
         if (!$queryResult) {
+            $mysqli->close();
             header("Location: " . $html_path . "404.html");
             exit();
         }
@@ -36,22 +40,19 @@
         
         $queryResult->free();
 
-        //Mi ricavo le informazioni principali dell'articolo
-
         $articleTitle = $result["titolo"];
         $articleContent = $result["contenuto"];
 
-        //Sostituisco i placeholder con i valori dell'articolo
         $page = str_replace("<article-id/>",$articleId,$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
 
-        if(isset($_SESSION["error-result"]))
+        if(isset($_SESSION["error-codes"]))
         {
-            $errorStrings = $_SESSION["error-strings"];
-            $page = str_replace("<result/>",$_SESSION["error-result"], $page);
+            $ec = $_SESSION["error-codes"];
+            $page = str_replace("<result/>",$errSubmit["error-result"], $page);
             $page = str_replace("<error-text/>",$errorStrings["testo"], $page);
-            unset($_SESSION["error-result"]);
+            unset($_SESSION["error-codes"]);
         }
         else
         {
@@ -59,6 +60,7 @@
             $page = str_replace("<error-text/>","", $page);
         }
     } else {
+        $mysqli->close();
         header("Location: " . $html_path . "404.html");
         exit();
     }

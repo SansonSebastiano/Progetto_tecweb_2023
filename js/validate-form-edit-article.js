@@ -1,7 +1,9 @@
 const submitForm = document.getElementById("submit-form")
 const textInput = document.getElementById("testo")
 
-submitForm.addEventListener("submit", function(){ return validate()})
+submitForm.addEventListener("submit", function(){
+    return validate()
+})
 textInput.addEventListener("blur", function(){
     checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri")
 })

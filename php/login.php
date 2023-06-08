@@ -33,9 +33,6 @@
         // password
         $password = clearInput($_POST['password']);
                 
-        // $passwordHashed = hash("sha256", $password);
-
-        // echo "<script>console.log('Password hash: " .  $passwordHashed . "');</script>";
         // create a query
         $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
         // execute the query

@@ -18,7 +18,7 @@ function uploadFile(e) {
     if(file.size >= 1000000){
         status.classList.remove("success")
         status.classList.add("error")
-        status.innerHTML = "L'immagine è troppo grande, massimo 1MB";
+        status.innerHTML = "L'immagine &Egrave; troppo grande, il massimo 1MB";
         return;
     }
     // create a reference to the file

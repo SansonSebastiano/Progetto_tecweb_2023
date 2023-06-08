@@ -47,6 +47,8 @@
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {
+        $mysqli->close();
+
         header("Location: " . $html_path . "404.html");
         exit();
     }

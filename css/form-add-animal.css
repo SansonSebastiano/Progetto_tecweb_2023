@@ -123,9 +123,6 @@ textarea{
     text-align: center;
 }
 
-.error, .success{
-    margin-bottom: 0;
-}
 #name {
     width: 100%;
 }

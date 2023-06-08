@@ -14,6 +14,8 @@
         });
     </script>
     <script src="../../js/validate-form-add-animal.js" defer></script>
+    <script type="module" src="../../js/upload-animal.js" defer></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -85,8 +87,8 @@
                         <label class="info" for="image">Immagine della creatura</label>
                         <input id="image" type="file" accept="image/*" aria-label="Seleziona una foto per la creatura" tabindex="0" required />
                         <input type="hidden" id="image-path" name="image-path" />
-                        <button id="btn-load" aria-label="Carica la foto dell'animale" tabindex="7"></button>
-                        <p id="loaded-photo" class="<img-status/>"><strong><error-img/></strong></p>
+                        <button type="button" id="btn-load" aria-label="Carica la foto della creatura" tabindex="7"></button>
+                        <p id="loaded-photo" class="error"><strong><error-img/></strong></p>
                     </div>
 
                     <div id="div-desc" class="form-input-wrapper">
@@ -95,11 +97,10 @@
                         <p id="description-too-short" class="error"><strong><error-desc/></strong></p>
                     </div>
 
-                    <input type = "submit" id="btn-submit" aria-label="Carica i dati della creatura" value="" tabindex="0"/>
+                    <input type="submit" id="btn-submit" aria-label="Carica i dati della creatura" value="" tabindex="0"/>
                 </fieldset>
             </form>
         </div>
-        <script type="text/javascript" src="../../js/upload-animal.js"></script>
     </main>
 
     <footer id="footer"></footer>

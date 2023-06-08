@@ -31,6 +31,8 @@
         $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
+            $mysqli->close();
+
             header("Location: " . $html_path . "404.html");
             exit();
         }
@@ -71,6 +73,8 @@
             $result = mysqli_fetch_assoc($queryResult);
             $page = str_replace("<related-animal/>",$result["nome_animale"],$page);
         } else {
+            $mysqli->close();
+
             header("Location: " . $html_path . "404.html");
             exit();
         }
@@ -94,6 +98,8 @@
         $queryResult = mysqli_query($mysqli, $query);
 
         if (!$queryResult) {
+            $mysqli->close();
+
             header("Location: " . $html_path . "404.html");
             exit();
         }
