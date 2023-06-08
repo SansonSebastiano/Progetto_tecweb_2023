@@ -27,7 +27,5 @@ function checkLength(input,output,minLength,maxLength,noValueText,tooLongText){
 }
 
 function validate() {
-
-    return checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri")
-    
+    return checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri")
 }

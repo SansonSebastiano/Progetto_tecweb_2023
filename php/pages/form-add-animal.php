@@ -22,7 +22,7 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
     
 
-    $errNome = [0 => "", 1 => "Inserire un nome per la creatura", 2 => "Il nome della creatura non può contenere caratteri speciali"];
+    $errNome = [0 => "", 1 => "Inserire un nome per la creatura", 2 => "Il nome della creatura non può contenere numeri o caratteri speciali"];
     $errDesc = [0 => "", 1 => "La descrizione deve essere lunga almeno 20 caratteri"];
     $errStatus = [0 => "", 1 => "Lo status deve essere valido"];
     $errData =  [0 => "", 1 => "Inserire una data", 2 => "La data deve essere nel formato corretto"];

@@ -8,24 +8,24 @@ function uploadFile(e) {
     // get file from input with id=#file
     let file = document.querySelector("#image").files[0];
     let hidden = document.querySelector("#image-path");
-    let status = document.getElementById("loaded-photo")
-    
-    if(file == undefined){
-        status.classList.remove("success")
-        status.classList.add("error")
-        status.innerHTML = "Inserire un immagine della creatura";
-        return;
-    }
-
+    let status = document.getElementById("loaded-photo");
+    let strong = status.getElementsByTagName("strong").item(0);
     // set metadata for the file
     const metadata = {
         contentType: file.type,
     };
     
+    if(file == undefined){
+        status.classList.remove("success")
+        status.classList.add("error")
+        strong.innerHTML = "Inserire un'immagine della creatura";
+        return;
+    }
+    
     if(file.size >= 1000000){
         status.classList.remove("success")
         status.classList.add("error")
-        status.innerHTML = "L'immagine &Egrave; troppo grande, il massimo 1MB";
+        strong.innerHTML = "L'immagine &Egrave; troppo grande, il massimo &egrave; 1MB";
         return;
     }
     // create a reference to the file
@@ -37,12 +37,11 @@ function uploadFile(e) {
         return getDownloadURL(snapshot.ref);
     }).then((url) => {
         hidden.value = url;
-        status.innerHTML = "Foto caricata con successo";
+        strong.innerHTML = "Foto caricata con successo";
         status.classList.remove("error")
         status.classList.add("success")
 
     });
-    document.getElementById("btn-submit").style.visibility="visible";
 }
 // POST: file uploaded to firebase storage
 

@@ -10,20 +10,20 @@ submitForm.addEventListener("submit", function(){
 })
 
 titleInput.addEventListener("blur", function(){
-    if(checkLength("titolo","invalid-title",1,"L'inserimento di un titolo per l'articolo è obbligatorio")) {
-        checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
+    if(checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri")) {
+        checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere numeri o caratteri speciali")
     }
 })
 subTitleInput.addEventListener("blur", function(){
-    checkLength("sottotitolo","invalid-subtitle",1,"L'inserimento di un sottotitolo per l'articolo è obbligatorio")
+    checkLength("sottotitolo","invalid-subtitle",1,255,"Inserire un sottotitolo","Il sottotitolo dell'articolo non può essere più lungo di 255 caratteri")
 })
 
 animalInput.addEventListener("blur", function(){
-    checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
+    checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere numeri o caratteri speciali")
 })
 
 textInput.addEventListener("blur", function(){
-    checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri")
+    checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri");
 })
 
 function checkValidation(input,output,regex,errorText){
@@ -75,9 +75,9 @@ function isImageUploaded(){
 
 function validate() {
 
-    const titleBool = checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali");
+    const titleBool = checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere numeri o caratteri speciali");
     const subtitleBool = checkLength("sottotitolo","invalid-subtitle",1,255,"Inserire un sottotitolo","Il sottotitolo dell'articolo non può essere più lungo di 255 caratteri");
-    const animalBool = checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere caratteri speciali");
+    const animalBool = checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere numeri o caratteri speciali");
     const textBool = checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri");
     const imageBool = isImageUploaded()
 
