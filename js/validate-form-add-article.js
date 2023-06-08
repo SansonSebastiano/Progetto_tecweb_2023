@@ -8,6 +8,7 @@ const imagePath = document.getElementById("image-path")
 submitForm.addEventListener("submit", function(){
     return validate()
 })
+
 titleInput.addEventListener("blur", function(){
     if(checkLength("titolo","invalid-title",1,"L'inserimento di un titolo per l'articolo è obbligatorio")) {
         checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
@@ -22,7 +23,7 @@ animalInput.addEventListener("blur", function(){
 })
 
 textInput.addEventListener("blur", function(){
-    checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri")
+    checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri")
 })
 
 function checkValidation(input,output,regex,errorText){
@@ -39,12 +40,16 @@ function checkValidation(input,output,regex,errorText){
     
 }
 
-function checkLength(input,output,minLength,noValueText){
+function checkLength(input,output,minLength,maxLength,noValueText,tooLongText){
     const inputHTML = document.getElementById(input)
     const outputHTML = document.getElementById(output).getElementsByTagName("strong").item(0)
 
     if(inputHTML.value.length < minLength){
         outputHTML.innerHTML = noValueText
+        return false
+    }
+    else if(inputHTML.value.length > maxLength){
+        outputHTML.innerHTML = tooLongText
         return false
     }
 
@@ -70,10 +75,10 @@ function isImageUploaded(){
 
 function validate() {
 
-    const titleBool = checkLength("titolo","invalid-title",1,"Inserire un titolo per l'articolo") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali");
-    const subtitleBool = checkLength("sottotitolo","invalid-subtitle",1,"Inserire un sottotitolo");
+    const titleBool = checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali");
+    const subtitleBool = checkLength("sottotitolo","invalid-subtitle",1,255,"Inserire un sottotitolo","Il sottotitolo dell'articolo non può essere più lungo di 255 caratteri");
     const animalBool = checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere caratteri speciali");
-    const textBool = checkLength("testo","invalid-text",20,"Il testo dell'articolo deve essere lungo almeno 20 caratteri");
+    const textBool = checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri");
     const imageBool = isImageUploaded()
 
     return titleBool

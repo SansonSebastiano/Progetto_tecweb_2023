@@ -62,6 +62,7 @@
         if (strlen($path) == 0){
             $errorCodes["path"] = 1;
             $errorFlag = True; 
+
         }
         
         //controllo che l'animale non sia già presente nel database

@@ -11,6 +11,7 @@
 
     $page = file_get_contents($html_path . "index.html");
 
+    chdir("." . DIRECTORY_SEPARATOR . "php" . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR);
     // IDENTIFICATION SECTION
     if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);

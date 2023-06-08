@@ -7,12 +7,7 @@
     <meta name="author" content="eLusive">
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script> 
-        $(function(){
-            $("#header").load("../../html/modules/header.html"); 
-            $("#footer").load("../../html/modules/footer.html");
-        });
-    </script>
+    <script src="../../js/template-loader.js"> </script>
     <script src="../../js/validate-form-add-animal.js" defer></script>
     <script type="module" src="../../js/upload-animal.js" defer></script>
 
@@ -58,7 +53,7 @@
         <h2 class="black">Aggiungi una creatura...</h2>
         <result/>
         <div id="form-container">
-            <form action="../add-animal.php" id="submit-form" method="post" enctype="multipart/form-data">
+            <form action="../add-animal.php" id="submit-form" method="post" onsubmit="return validate()" enctype="multipart/form-data">
                 <fieldset id="form-fields" form="submit-form">
                     <legend class="invisible">Aggiunta di una creatura</legend>
                     <div id = "div-name" class="form-input-wrapper">

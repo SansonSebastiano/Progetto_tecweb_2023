@@ -19,6 +19,7 @@
 
     $page = file_get_contents($html_path . "form-login.html");
 
+    chdir("." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR);
     $username = "";
     $password = "";
     $resultString = "";
