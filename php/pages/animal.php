@@ -79,27 +79,29 @@
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
         
         // un utente può esprimere un solo voto per ciascun animale
-
         if(isset($_SESSION["id"])){
             $queryTwo = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
             $queryResultTwo = mysqli_query($mysqli, $queryTwo);
             $resultTwo = mysqli_fetch_assoc($queryResultTwo);
-            $vote = $resultTwo['voto'];
+            //$vote = $resultTwo['voto'];
             $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
             $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
 
             if ($queryResultTwo->num_rows > 0) {
                 $vote = $resultTwo['voto'];
-                $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
+                $voting_section = str_replace("<is-btn-add-disabled/>", 'disabled', $voting_section);
                 $voting_section = str_replace("<animal-vote-msg/>", $vote === 'NO' ? $msgNo : $msgYes, $voting_section);
+                $voting_section = str_replace("<vote-type/>", $vote === 'NO' ? 'no' : 'yes', $voting_section);
+                $voting_section = str_replace("<is-btn-remove-disabled/>", '', $voting_section);
             } else {
-                $voting_section = str_replace("<is-disabled/>", '', $voting_section);
+                $voting_section = str_replace("<is-btn-add-disabled/>", '', $voting_section);
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
+                $voting_section = str_replace("<is-btn-remove-disabled/>", 'disabled', $voting_section);
             }
             $queryResultTwo->free();
         } 
         
-        $page = str_replace("<animal-name/>", $_GET["animale"], $page);
+        $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
 
         // abilita la sezione voto se l'utente e' loggato
         if ($_SESSION['ruolo'] != 'guest') {
