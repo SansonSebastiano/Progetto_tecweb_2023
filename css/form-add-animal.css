@@ -10,7 +10,6 @@ main{
 }
 
 #form-fields{
-    display: grid;
     grid-template-areas:
     "div-name div-desc div-desc"
     "div-status div-desc div-desc"
@@ -101,6 +100,8 @@ textarea{
     background-size: contain;
     grid-area: submit;
     justify-self: center;
+    overflow: hidden;
+
 }
 
 #btn-submit:hover{
@@ -120,4 +121,11 @@ textarea{
 .success{
     color: green;
     text-align: center;
+}
+
+.error, .success{
+    margin-bottom: 0;
+}
+#name {
+    width: 100%;
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-    <!-- TODO: tabindex -->
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Pagina riservata esclusivamente agli amministratori, nella quale è possibile gestire animali e articoli">
@@ -11,6 +10,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/admin-home.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/admin-home.css"/>
         <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
 
@@ -39,9 +39,9 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina di amministrazione">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a> ●
+                <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
                 Amministrazione</p>
-            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+            <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
         </nav>
 
         <main>
@@ -49,15 +49,15 @@
 
             <div id="container-options">
                 <div id="container-buttons">
-                    <button id="btn1" onclick="location.href='admin-article-list.php'" tabindex="3">Gestione articoli</button>
-                    <button id="btn2" onclick="location.href='admin-animal-list.php'" tabindex="4">Gestione creature</button>
-                    <button id="btn3" onclick="location.href='form-add-article.php'" tabindex="5">Aggiungi articolo</button>
-                    <button id="btn4" onclick="location.href='form-add-animal.php'" tabindex="6">Aggiungi creatura</button>
+                    <button id="btn1" onclick="location.href='admin-article-list.php'" tabindex="0">Gestione articoli</button>
+                    <button id="btn2" onclick="location.href='admin-animal-list.php'" tabindex="0">Gestione creature</button>
+                    <button id="btn3" onclick="location.href='form-add-article.php'" tabindex="0">Aggiungi articolo</button>
+                    <button id="btn4" onclick="location.href='form-add-animal.php'" tabindex="0">Aggiungi creatura</button>
                 </div>
             </div>
         </main>
+
+        <footer id="footer"></footer>
+
     </body>
-
-    <footer id="footer"></footer>
-
 </html>

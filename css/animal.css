@@ -19,6 +19,10 @@ section {
 
 /** SEZIONE INIZIALE **/
 
+#animal-description-flexbox {
+    align-items: center;
+}
+
 #animal-info{
     display: flex;
     flex-direction: column;
@@ -44,7 +48,6 @@ section {
     font-size: 1.2em;
     font-style: italic;
     text-shadow: 0.1em 0.1em 0.8em darkgoldenrod;
-    text-align: justify;
 }
 
 /** VOTAZIONI **/
@@ -53,15 +56,13 @@ section {
     gap: 1em;
     flex-direction: column;
     align-items: center;
-
 }
 
 .horizontal-flex{
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 3em;
     align-items: center;
-    justify-content: space-around;
 }
 
 #exist-votes, #non-exist-votes{
@@ -139,7 +140,7 @@ section {
 .votes-box {
     background: var(--color2);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 0.8em;
     text-align: center;
 }
 
@@ -178,6 +179,8 @@ section {
 
 .article img {
     width: 100%;
+    height: 20em;
+    object-fit: cover;
 }
 
 .article-title {

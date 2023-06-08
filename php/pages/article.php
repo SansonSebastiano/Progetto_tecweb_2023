@@ -78,7 +78,7 @@
         //Sostituisco il placeholder con la lista di animali collegati
         $queryResult->free();
         
-        //TODO: Sezione commenti
+        // SEZIONE COMMENTI
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 

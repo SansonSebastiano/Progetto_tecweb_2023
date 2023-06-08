@@ -44,7 +44,7 @@
         // check if the query was executed successfully and if the result is not empty
         if ($result->num_rows == 0) {
                     
-            $resultString = "<p class='error'>Username o password non corretti!</p>";
+            $resultString = "<p class='error' tabindex='0'>Username o password non corretti!</p>";
 
             $mysqli->close();
         } else {

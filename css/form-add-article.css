@@ -11,7 +11,6 @@ main{
 }
 
 #form-fields{
-    display: grid;
     grid-auto-columns: 1fr;
     gap: 1em;
     grid-template-areas: 'titolo testo'
@@ -117,9 +116,12 @@ textarea{
 
 #div-featured > * {
     display: inline;
+    overflow: hidden;
 }
+
+
 #btn-submit:hover{
-    background-color: rgb(176, 176, 182);
+    background-color: rgb(180, 180, 180);
 }
 
 .error{
@@ -130,4 +132,12 @@ textarea{
 .success{
     color:green;
     text-align: center;
+}
+
+.error, .success{
+    margin-bottom: 0;
+}
+
+#titolo, #sottotitolo {
+    width: 100%;
 }

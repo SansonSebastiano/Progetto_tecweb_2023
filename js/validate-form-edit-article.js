@@ -7,7 +7,7 @@ textInput.addEventListener("blur", function(){
 
 function checkLength(input,output,minLength,maxLength,noValueText,tooLongText){
     const inputHTML = document.getElementById(input)
-    const outputHTML = document.getElementById(output)
+    const outputHTML = document.getElementById(output).getElementsByTagName("strong").item(0)
 
     if(inputHTML.value.length < minLength){
         outputHTML.innerHTML = noValueText

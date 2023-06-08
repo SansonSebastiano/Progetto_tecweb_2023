@@ -19,7 +19,7 @@ descriptionInput.addEventListener("blur",function(){checkLength("description","d
 
 function checkValidation(input,output,regex,errorText){
     const inputHTML = document.getElementById(input)
-    const outputHTML = document.getElementById(output)
+    const outputHTML = document.getElementById(output).getElementsByTagName("strong").item(0)
 
     if(!(regex.test(inputHTML.value))){
         outputHTML.innerHTML = errorText
@@ -33,7 +33,7 @@ function checkValidation(input,output,regex,errorText){
 
 function checkLength(input,output,minLength,maxLength,noValueText,tooLongText){
     const inputHTML = document.getElementById(input)
-    const outputHTML = document.getElementById(output)
+    const outputHTML = document.getElementById(output).getElementsByTagName("strong").item(0)
 
     if(inputHTML.value.length < minLength){
         outputHTML.innerHTML = noValueText

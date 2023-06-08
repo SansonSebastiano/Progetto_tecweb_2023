@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-    <!-- TODO: tabindex -->
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="eLusive è un sito web che raccoglie articoli e notizie riguardanti creature sconosciute e affascinanti. Pagina riservata esclusivamente agli amministratori, nella quale è possibile rimuovere articoli">
@@ -11,6 +10,8 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/admin-article-list.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/article-list.css"/>
+
         <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
 
@@ -38,10 +39,10 @@
         <nav id="breadcrumb">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a> ●
-                <a href="admin-home.php" tabindex="3"> Amministrazione</a> ●
+                <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
+                <a href="admin-home.php" tabindex="0"> Amministrazione</a> ●
                 Gestione articoli</p>
-            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+            <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
         </nav>
 
         <main>
@@ -51,31 +52,32 @@
                 <fieldset id="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci un titolo" tabindex="4"/>
+                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci un titolo" tabindex="0"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona un tag" tabindex="5">
+                    <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona un tag" tabindex="0">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
                         <option value="avvistamento">Avvistamento</option>
                         <option value="comunicazione">Comunicazione</option>
-                        <option value="new-entry">New-Entry</option>
+                        <option value="new-entry"><span lang="en">New-Entry</span></option>
                     </select>
-                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="larger" aria-label="Cerca" tabindex="6"/>
+                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="larger" aria-label="Cerca" tabindex="0"/>
                 </fieldset>
                 <p id="fieldset-warning">Per filtrare articoli solamente in base al tag, è sufficiente lasciare vuoto il campo del titolo</p>
             </form>
 
             <hr/>
             
-            <p id="result-count"><count/> Risultati</p>
-            <ul id = "article-grid-div" aria-live="polite">
-                <article-list/>
-            </ul>
+            <section>
+                <p id="result-count"><count/> risultati</p>
 
-            <div id="go-up-div" ></div>
+                <article-table/>
 
+                <div id="go-up-div" ></div>
+            </section>
         </main>
-    </body>
 
-    <footer id="footer"></footer>
+        <footer id="footer"></footer>
+
+    </body>
 </html>

@@ -38,9 +38,9 @@
         <header id="header"></header>
 
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina home del sito">
-            <img src="../../images/icons/home.png" alt="Home di eLusive"/>
-            <p>Ti trovi nella homepage.</p>
-            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+            <img src="images/icons/home.png" alt="Home di eLusive"/>
+            <p>Ti trovi nella <span lang="en">Homepage</span>.</p>
+            <img id="logo" src="images/logo.svg" alt="Logo di eLusive"/>
         </nav>
 
         <div id="main-aside-wrapper">
@@ -53,8 +53,8 @@
                             
                             <home-carousel-item/>
                             
-                            <button id = "button-prev" class="carousel-btn-prev" type="button" tabindex="4" aria-label="Articolo rilevante precedente">‹</button>
-                            <button id = "button-next" class="carousel-btn-next" type="button" tabindex="4" aria-label="Articolo rilevante successivo">›</button>
+                            <button id = "button-prev" class="carousel-btn-prev" type="button" tabindex="0" aria-label="Articolo rilevante precedente">‹</button>
+                            <button id = "button-next" class="carousel-btn-next" type="button" tabindex="0" aria-label="Articolo rilevante successivo">›</button>
                         </div>
                         
                 </section>
@@ -62,13 +62,12 @@
                 <section id = "article-grid-section">
                         <h2>Tutti gli articoli:</h2>
 
-                        <!-- tabindex da sistemare -->
                         <div id = "article-grid-div">
                             
                             <index-article-list-entries/>
                         </div>
 
-                        <a href="php/pages/article-list.php" tabindex="5">Visualizza tutti gli articoli...</a>
+                        <a href="php/pages/article-list.php" tabindex="0">Visualizza tutti gli articoli...</a>
                 </section>
             
                 <div id="go-up-div">
@@ -88,8 +87,9 @@
                     <ol>
                         <index-chart-entries/>
                     </ol>
-                    <a id="link-chart" href="../../php/pages/animal-chart.php?order=uporder&discovered=1" class="white">Guarda la classifica...</a>
-                    <a id="link-list" href="../../php/pages/animal-list.php" class="white">...Vai alla lista completa</a>
+                    <a id="link-chart" href="php/pages/animal-chart.php?order=uporder&discovered=1" class="white">Guarda la classifica...</a>
+                    <a id="link-list" href="php/pages/animal-list.php" class="white">Lista completa delle creature</a>
+                    <div id="clear"></div>
                 </section>
 
                 <section>
@@ -105,8 +105,8 @@
                 </section>
 
                 <section>
-                    <h2 class="outline">Che cos'è Elusive?</h2>
-                    <p>eLusive è un portale dedicato alla condivisione di notizie in merito ad avvistamenti e scoperte di creature del Regno animale, che avvengono per opera di temerari esploratori nelle lande più remote del nostro pianeta. eLusive è anche un luogo in cui i visitatori possono esprimere la loro fiducia o scetticismo nei confronti dell'esistenza di una creatura e influenzare così le attività di ricerca sul campo.</p>
+                    <h2 class="outline">Che cos'è <span lang="en">eLusive</span></h2>
+                    <p><span lang="en">eLusive</span> è un portale dedicato alla condivisione di notizie in merito ad avvistamenti e scoperte di creature del Regno animale, che avvengono per opera di temerari esploratori nelle lande più remote del nostro pianeta. eLusive è anche un luogo in cui i visitatori possono esprimere la loro fiducia o scetticismo nei confronti dell'esistenza di una creatura e influenzare così le attività di ricerca sul campo.</p>
                 </section>
             </aside>
         </div>
