@@ -7,16 +7,17 @@
         session_start();
     }
 
-    $errorStrings = [
-        "titolo" => "",
-        "sottotitolo" => "",
-        "tag" => "",
-        "luogo" => "",
-        "data" => "",
-        "testo" => "",
-        "path" => "",
-        "creatura" => ""
+    $errorCodes = [
+        "titolo" => 0,
+        "sottotitolo" => 0,
+        "tag" => 0,
+        "luogo" => 0,
+        "testo" => 0,
+        "path" => 0,
+        "creatura" => 0,
+        "submit" => 0
     ];
+    $errorFlag = False;
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
@@ -30,55 +31,38 @@
         $creatura = clearInput($_POST['creatura']);
         $featured = isset($_POST['featured']) ? 1 : 0;
 
-        $ok = true;
-
         if(strlen($titolo) == 0){
-            $errorStrings["titolo"] = "Inserire un titolo per l'articolo";
-            $ok = false;
+            $errorCodes["titolo"] = 1;
+            $errorFlag = True;
         }
         else if(!preg_match('/^[\wèàìòéùç\s]*$/', $titolo)){
-            $errorStrings["titolo"] = "Il titolo dell'articolo non può contenere caratteri speciali";
-            $ok = false;
-        }else{
-            $errorStrings["titolo"] = "";
+            $errorCodes["titolo"] = 2;
+            $errorFlag = True;
         }
 
         if(strlen($sottotitolo) == 0){
-            $errorStrings["sottotitolo"] = "Inserisci un sottotitolo";
-            $ok = false;
-        }else{
-            $errorStrings["sottotitolo"] = "";
+            $errorCodes["sottotitolo"] = 1;
+            $errorFlag = True;
         }
 
         if (array_search($tag,['scoperta','new-entry','avvistamento','comunicazione','none'],true) === false){
-            $errorStrings["tag"] = "Inserisci un tag valido";
-            $ok = false;
-        }else{
-            $errorStrings["tag"] = "";
+            $errorCodes["tag"] = 1;
+            $errorFlag = True;
         }
-    
 
-        if(strlen($testo) < 20 ){
-            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri";
-            $ok = false;
-        }else{
-            $errorStrings["testo"] = "";
+        if(strlen($testo) < 20){
+            $errorCodes["testo"] = 1;
+            $errorFlag = True;
         }
 
         if (strlen($path) == 0){
-            $errorStrings["path"] = "Non è stata caricata nessuna immagine";
-            $page = str_replace("<img-status/>", "error", $page);
-            $ok = false;
-        }else{
-            $errorStrings["path"] = "";
-            $page = str_replace("<img-status/>", "success", $page);
+            $errorCodes["path"] = 1;
+            $errorFlag = True;
         }
 
         if(!preg_match('/^[a-zA-Zèàìòéùç\s]*$/', $creatura)){
-            $errorStrings["creatura"] = "Il nome dell'animale riferito dall'articolo non può contenere caratteri speciali";
-            $ok = false;
-        }else{
-            $errorStrings["creatura"] = "";
+            $errorCodes["creatura"] = 1;
+            $errorFlag = True;
         }
 
         $titolo = filter_var($titolo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -88,41 +72,32 @@
         //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
         $creatura = filter_var($creatura, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if($ok){
+        if(!$errorFlag){
             if(strlen($creatura) > 0)
             {
                 $animal = "SELECT * FROM animale WHERE nome = '$creatura'";
                 $queryResult = mysqli_query($mysqli,$animal);
                 if($queryResult->num_rows == 0){
 
-                    $queryResult->free();
-                    $_SESSION["submit-result"] = "<p class='error'>L'animale riferito non è stato trovato</p>";
+                    $errorCodes["submit"] = 3;
 
                 }else{   
-                    $queryResult->free();
                     $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura')";
                     $queryResult = mysqli_query($mysqli,$sql);
-
-                    $_SESSION["submit-result"] = "<p class='success'>Articolo inserito con successo</p>";
+                    $errorCodes["submit"] = $queryResult ? 1 : 2;
                 }
             }
             else
             {
-
-
-                $queryResult->free();
                 $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);
 
-                $_SESSION["submit-result"] = "<p class='success'>Articolo inserito con successo</p>";
+                $errorCodes["submit"] = $queryResult ? 1 : 2;
             }
-
-        }else{
-            $_SESSION["submit-result"] = "<p class='error'>Errore nell'inserimento dell'articolo</p>";
         }
 
         $mysqli->close();
 
-        $_SESSION["error-strings"] = $errorStrings;
+        $_SESSION["error-codes"] = $errorCodes;
         header("Location: " . $_SESSION["prev_page"]);
     }

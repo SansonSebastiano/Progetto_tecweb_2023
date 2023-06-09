@@ -9,6 +9,7 @@
     }
 
     if ($_SESSION['ruolo'] != 'admin') {
+        $mysqli->close();
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
         exit();
     }
@@ -31,6 +32,7 @@
     $row = "";
 
     if (!$queryResult) {
+        $mysqli->close();
         header("Location: " . $html_path . "404.html");
         exit();
     }
@@ -40,13 +42,13 @@
 
     foreach($alphas as $letter){
         $sql = "SELECT nome,descrizione,status FROM animale WHERE LOWER(nome) REGEXP '^" . $letter . "' ORDER BY nome ASC;";
-        $query = mysqli_query($mysqli, $sql);
+        $queryResult = mysqli_query($mysqli, $sql);
         $animals = "";
-        if($query->num_rows > 0){
+        if($queryResult->num_rows > 0){
             $newTable = str_replace("<letter/>",$letter,$table);
             $newTable = str_replace("<letter-title/>",$letter,$newTable);
             $navigator .= '<li><a href="#'.$letter.'" class="white" tabindex="0">'.$letter.'</a></li>';
-            while($row = mysqli_fetch_assoc($query)){
+            while($row = mysqli_fetch_assoc($queryResult)){
                 $newEntry = str_replace("<animal/>",$row['nome'],$animal_entry);
                 $newEntry = str_replace("<desc/>",$row['descrizione'],$newEntry);
                 $newEntry = str_replace("<status/>",ucfirst($row['status']),$newEntry);
@@ -54,7 +56,7 @@
             }
             $newTable = str_replace("<animals/>",$animals,$newTable);
             $all_sections .= $newTable;
-            $query->free_result();
+            $queryResult->free_result();
         }
     }
     $page = str_replace("<navigator/>", $navigator,$page);

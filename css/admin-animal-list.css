@@ -33,6 +33,7 @@ section {
     border-radius: 1.7em 0 1.7em 0;
     margin: 0 auto;
     box-shadow: 1px 1px 5px gray;
+    background-color: white;
 
     width: 75%;
 }

@@ -10,9 +10,8 @@
         $query = 'DELETE FROM articolo WHERE id = "' . $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
 
-       $mysqli->close();
-
         if ($queryResult) {
+            $mysqli->close();
             header("Location:" . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "admin-article-list.php" );
             exit();
         }

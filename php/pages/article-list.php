@@ -47,6 +47,8 @@
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {
+        $mysqli->close();
+
         header("Location: " . $html_path . "404.html");
         exit();
     }
@@ -86,6 +88,7 @@
     // Rimuoviamo il placeholder <article-list/> e sostituiamo con la lista di articoli
     $page = str_replace("<article-list/>",$articleList,$page);
 
+    $queryResult->free_result();
     $mysqli->close();
     echo $page;
 ?>

@@ -10,7 +10,7 @@
     $_SESSION["prev_page"] = $index_ref;
 
     $page = file_get_contents($html_path . "index.html");
-
+    
     // IDENTIFICATION SECTION
     if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
@@ -62,7 +62,7 @@
         $items .= $item;
     }
 
-    $queryResult->free();
+    $queryResult->free_result();
 
     $page = str_replace("<home-carousel-item/>", $items, $page);
 
@@ -84,7 +84,7 @@
         $entriesTwo .= $entryTwo;
     }
 
-    $queryResultTwo->free();
+    $queryResultTwo->free_result();
 
     $page = str_replace("<index-chart-entries/>", $entriesTwo, $page);
 
@@ -107,7 +107,7 @@
         $entriesThree .= $entryThree;
     }
 
-    $queryResultThree->free();
+    $queryResultThree->free_result();
 
     $page = str_replace("<index-article-list-entries/>", $entriesThree, $page);
 
@@ -117,7 +117,7 @@
     if($resultFour = mysqli_fetch_assoc($queryResultFour)){
         $page = str_replace("<last-article-date/>", $resultFour["data"], $page);
     }
-    $queryResultFour->free();
+    $queryResultFour->free_result();
 
     $mysqli->close();
     echo $page;

@@ -156,7 +156,7 @@ aside {
 
 aside a {
     display: block;
-    margin-bottom: 1em;
+    margin-top: 2em;
 }
 
 aside ol {
@@ -167,7 +167,6 @@ aside ol {
 
 aside section {
     margin-bottom: 2em;
-    clear: both;
 }
 
 aside li {
@@ -202,4 +201,8 @@ aside figcaption {
     padding: 1em;
 
     width: 100%;
+}
+
+#clear {
+    clear:right;
 }

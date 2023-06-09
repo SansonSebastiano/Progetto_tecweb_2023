@@ -9,15 +9,23 @@ function uploadFile(e) {
     let file = document.querySelector("#immagine").files[0];
     let hidden = document.querySelector("#image-path");
     let status = document.getElementById("loaded-photo")
+    let strong = status.getElementsByTagName("strong").item(0)
         // set metadata for the file
     const metadata = {
         contentType: file.type,
-      };
+    };
+
+    if(file == undefined){
+        status.classList.remove("success")
+        status.classList.add("error")
+        strong.innerHTML = "Inserire un immagine dell'articolo";
+        return;
+    }
 
     if(file.size >= 1000000){
         status.classList.remove("success")
         status.classList.add("error")
-        status.innerHTML = "L'immagine è troppo grande, massimo 1MB";
+        strong.innerHTML = "L'immagine &egrave; troppo grande, il massimo &egrave; 1MB";
         return;
     }
     // create a reference to the file
@@ -29,17 +37,12 @@ function uploadFile(e) {
         return getDownloadURL(snapshot.ref);
     }).then((url) => {
         hidden.value = url;
-        status.innerHTML = "Foto caricata con successo";
+        strong.innerHTML = "Foto caricata con successo";
         status.classList.remove("error")
         status.classList.add("success")
     });
-    //document.getElementById("submit").style.visibility="visible";
-
-
 }
 // POST: file uploaded to firebase storage
 
 // add event listener to button with id=#submit
 document.getElementById('btn-load').addEventListener('click', uploadFile);
-
-//document.getElementById('form-aggiunta-animale').addEventListener("submit", uploadFile);

@@ -8,6 +8,7 @@
     }
 
     if ($_SESSION['ruolo'] != 'admin') {
+        $mysqli->close();
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
         exit();
     }

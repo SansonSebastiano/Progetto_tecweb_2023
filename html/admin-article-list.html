@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/admin-article-list.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/article-list.css"/>
+
         <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
 
@@ -18,14 +20,14 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
             $(function(){
-                $("#header").load("../../html/modules/header.html"); 
-                $("#footer").load("../../html/modules/footer.html"); 
-                $("#go-up-div").load("../../html/modules/go-up.html"); 
+              $("#header").load("../../html/modules/header.html"); 
+              $("#footer").load("../../html/modules/footer.html");
+              $("#go-up-div").load("../../html/modules/go-up.html");
             });
-        </script>
+        </script>        
+        
         <title>Gestione articoli - eLusive</title>
         
-
     </head>
 
     <body>
@@ -40,7 +42,7 @@
 
         <header id="header"></header>
 
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" aria-label="Ti trovi nella pagina di gestione degli articoli>
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
                 <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
@@ -56,9 +58,9 @@
                 <fieldset id="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci un titolo" tabindex="0"/>
+                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" tabindex="0"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona un tag" tabindex="0">
+                    <select name="tag" id="input-by-cat" class="larger" tabindex="0">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
                         <option value="avvistamento">Avvistamento</option>

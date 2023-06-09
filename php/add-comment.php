@@ -23,7 +23,7 @@
         
         if ($idResult) {
             // free the result set
-            $idResult->free();
+            $idResult->free_result();
         }
         $sql = "INSERT INTO `risposta` (`figlio`, `padre`) VALUES ('$id', '$commentoPadre')";
         $queryResult = mysqli_query($mysqli, $sql);
@@ -31,6 +31,7 @@
     
     
     if ($queryResult) {
+        $mysqli->close();
         header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "article.php?article=$article");
         exit();
     }

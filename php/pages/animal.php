@@ -29,6 +29,7 @@
         $query = 'SELECT * FROM animale WHERE nome = "'. $animal . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
+            $mysqli->close();
             header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
@@ -36,11 +37,10 @@
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
+            $mysqli->close();
             header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
-
-        $queryResult->free();
 
         $animalName = $result["nome"];
         $description = $result["descrizione"];
@@ -74,32 +74,32 @@
         $page = str_replace("<yes-vote/>",$yes,$page);
         $page = str_replace("<no-vote/>",$no,$page);
 
-        $queryResult->free();
+        $queryResult->free_result();
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
         
         // un utente può esprimere un solo voto per ciascun animale
-
         if(isset($_SESSION["id"])){
             $queryTwo = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
             $queryResultTwo = mysqli_query($mysqli, $queryTwo);
-            $resultTwo = mysqli_fetch_assoc($queryResultTwo);
-            $vote = $resultTwo['voto'];
-            $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
-            $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
-
             if ($queryResultTwo->num_rows > 0) {
+                $resultTwo = mysqli_fetch_assoc($queryResultTwo);
                 $vote = $resultTwo['voto'];
-                $voting_section = str_replace("<is-disabled/>", 'disabled', $voting_section);
+                $msgNo = "<p id='msg-vote'>Hai votato <span class='red'>no</span> per questa creatura</p>";
+                $msgYes = "<p id='msg-vote'>Hai votato <span class='green'>sì</span> per questa creatura</p>";
+                $voting_section = str_replace("<is-btn-add-disabled/>", 'disabled', $voting_section);
                 $voting_section = str_replace("<animal-vote-msg/>", $vote === 'NO' ? $msgNo : $msgYes, $voting_section);
+                $voting_section = str_replace("<vote-type/>", $vote === 'NO' ? 'no' : 'yes', $voting_section);
+                $voting_section = str_replace("<is-btn-remove-disabled/>", '', $voting_section);
             } else {
-                $voting_section = str_replace("<is-disabled/>", '', $voting_section);
+                $voting_section = str_replace("<is-btn-add-disabled/>", '', $voting_section);
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
+                $voting_section = str_replace("<is-btn-remove-disabled/>", 'disabled', $voting_section);
             }
-            $queryResultTwo->free();
+            $queryResultTwo->free_result();
         } 
         
-        $page = str_replace("<animal-name/>", $_GET["animale"], $page);
+        $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
 
         // abilita la sezione voto se l'utente e' loggato
         if ($_SESSION['ruolo'] != 'guest') {
@@ -117,14 +117,7 @@
 
         $articleResult = mysqli_fetch_assoc($queryResultThree);
 
-        $articleTitle = $articleResult["titolo"];
-        $articleDescription = $articleResult["descrizione"];
-        $articleTag = $articleResult["tag"];
-        $articleImg = $articleResult["image_path"];
-        //$articleImgAlt = $articleResult["alt"];
-
         $relArticleTemplate = file_get_contents($modules_path . "article-template.html");
-
         mysqli_data_seek($queryResultThree,0);
         $relArticles = "";
         while($articleResult = mysqli_fetch_assoc($queryResultThree)){
@@ -132,10 +125,11 @@
             $articleTitle = $articleResult["titolo"];
             $articleId = $articleResult["id"];
             $articleTag = $articleResult["tag"];
+            $articleImg = $articleResult["image_path"];
             
-            $article = str_replace("<article-tag/>",$articleTag,$article);
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
+            $article = str_replace("<article-tag/>",$articleTag,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
             //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
@@ -143,7 +137,7 @@
         }
         $page = str_replace("<related-articles/>",$relArticles,$page);
         
-        $queryResultThree->free();
+        $queryResultThree->free_result();
 
         $queryFour = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" AND tag = 3 ORDER BY data DESC;';
         $queryResultFour = mysqli_query($mysqli, $queryFour);
@@ -156,7 +150,7 @@
             $page = str_replace("<ultimo-avvistamento/>", "", $page);
         }
 
-        $queryResultFour->free();
+        $queryResultFour->free_result();
     }
 
     $mysqli->close();

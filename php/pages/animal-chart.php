@@ -48,6 +48,7 @@
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {
+        $mysqli->close();
         header("Location: " . $html_path . "404.html");
         exit();
     }
@@ -81,7 +82,7 @@
     }
     $page = str_replace("<entries/>",$entries,$page);
 
-    $queryResult->free();
+    $queryResult->free_result();
     $mysqli->close();
 
     echo $page;
