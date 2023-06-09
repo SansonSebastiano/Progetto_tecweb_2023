@@ -20,11 +20,11 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> 
             $(function(){
-                $("#header").load("../../html/modules/header.html"); 
-                $("#footer").load("../../html/modules/footer.html");
-                $("#go-up-div").load("../../html/modules/go-up.html");  
+              $("#header").load("../../html/modules/header.html"); 
+              $("#footer").load("../../html/modules/footer.html");
+              $("#go-up-div").load("../../html/modules/go-up.html");
             });
-        </script> 
+        </script>          
 
         <title><article-title/> - eLusive</title>
         
@@ -33,8 +33,8 @@
 
     <body>
         <div id="identification">
+            <greet/>
             <span id="username">
-                <greet/>
                 <user-img/>
                 <user/>
             </span>
@@ -46,16 +46,16 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina dell'articolo">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a> ●
-                <a href="article-list.php" tabindex="3">Articoli</a> ●
+                <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
+                <a href="article-list.php" tabindex="0">Articoli</a> ●
                 <article-title/>
             </p>
-            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+            <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
         </nav>
 
         <main id="main-wrapper">
                 <article>
-                    <h2><article-title/></h2>
+                    <h2 id="article-title"><article-title/></h2>
                     <h3 id = "subtitle"><article-subtitle/></h3>
                     <img src = "<article-image/>" alt="<article-image-alt/>">
                     <div id = "text-div1">
@@ -66,49 +66,44 @@
                                     <div class="tag <article-tag/>"><article-tag/></div>
                                 </dd>
                                 <dt>SPECIE COLLEGATE:</dt>
-                                <dd><a href="animal.php?animale=<related-animal/>" class="white" tabindex="4"><related-animal/></a></dd>
+                                <dd><a href="animal.php?animale=<related-animal/>" class="white" tabindex="0"><related-animal/></a></dd>
                             </dl>
                         </aside>
                         
                         <div id = "text-div2">
-
-                        <p id ="text">
-                            <span id="location"><article-place/>.</span> <article-content/>
-                        </p>
-                        <p id ="reserved">Riproduzione riservata</p>
-                    </div>
+                            <p id ="text">
+                                <span id="location"><article-place/>.</span> <article-content/>
+                            </p>
+                            <p id ="reserved">Riproduzione riservata</p>
+                        </div>
                 </div>
                 </article>
                 
             <hr/>
 
-            <!-- TODO: tabindex nella sezione commenti -->
-            
-            
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
-                <form action="../add-comment.php" id="submit-form" method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="hidden-article" name="hidden-article" value="<article-id/>">
-                    <input type="hidden" id="hidden-bool" name="hidden-bool" value="false">
+                <form action="../add-comment.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="hidden-article" value="<article-id/>">
+                    <input type="hidden" name="hidden-bool" value="false">
                     <div id="new-reply" class = "div-reply <to-hide/>">
-                        <textarea id="textcomment" name="text"></textarea>
-                        <button type="submit" class="btn-send">Commenta</button>
+                        <textarea id="textcomment" name="text" tabindex="0"></textarea>
+                        <button type="submit" class="btn-send" tabindex="0">Commenta</button>
                     </div>                                                        
                 </form>            
-                <div id = "shoutbox">
-                    <ul class = "comment-list">
-                        <comment-list/>
-                    </ul>
-                </div>
+                <ul id="shoutbox">
+                    <comment-list/>
+                </ul>
             </section>
 
             <div id="go-up-div">
-
             </div>
+
         </main>
         
-        
+        <footer id="footer"></footer>
+
     </body>
-    
+    <script src="../../js/comments.js"> </script>
 
 </html>

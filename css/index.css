@@ -10,28 +10,27 @@ main {
     background-color: white;
     flex: 8;
     z-index: 1;
-    position: relative;
-    padding: 0;
 }
 
 #last-update {
     font-style: italic;
     text-align: center;
+    text-transform: lowercase;
+    margin-bottom: 2em;
 }
 
+main h2 {
+    font-size: 2em;
+}
 
 /* ========================= MAIN ARTICLE ========================= */
 
 #featured-items-wrapper {
-    position: relative;
-    margin: var(--margin-default);
+    height: 30em;
 }
 
 .carousel {
     position: relative;
-    width: 90%;
-    height: 30em;
-    overflow: hidden;
 }
 
 #featured-items-wrapper button {
@@ -48,7 +47,6 @@ main {
 
 #featured-item {
     color:white;
-    height: 30em;
     cursor: pointer;
 }
 
@@ -73,13 +71,9 @@ main {
     pointer-events: none;
 }
 
-#featured-item a{
-    height: inherit;
-}
-
 #featured-item img {
     width: 100%;
-    height: inherit;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -162,7 +156,7 @@ aside {
 
 aside a {
     display: block;
-    margin-bottom: 1em;
+    margin-top: 2em;
 }
 
 aside ol {
@@ -173,7 +167,6 @@ aside ol {
 
 aside section {
     margin-bottom: 2em;
-    clear: both;
 }
 
 aside li {
@@ -208,4 +201,8 @@ aside figcaption {
     padding: 1em;
 
     width: 100%;
+}
+
+#clear {
+    clear:right;
 }

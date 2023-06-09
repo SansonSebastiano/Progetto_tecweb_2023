@@ -10,6 +10,7 @@
     }
 
     if ($_SESSION['ruolo'] != 'admin') {
+        $mysqli->close();
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
         exit();
     }
@@ -40,6 +41,8 @@
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {
+        $queryResult->free_result();
+        $mysqli->close();
         header("Location: " . $html_path . "404.html");
         exit();
     }
@@ -70,7 +73,8 @@
     
 
     $table = str_replace("<article-entry/>",$articleList,$table);
-    $page = str_replace("<article-list/>",$table,$page);
+    $page = str_replace("<article-table/>",$table,$page);
+    $page = str_replace("<count/>",$queryResult->num_rows,$page);
 
     $queryResult->free_result();
     $mysqli->close();

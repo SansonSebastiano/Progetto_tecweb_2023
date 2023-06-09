@@ -7,88 +7,88 @@
         session_start();
     }
 
-    $errorStrings = [
-        "nome" => "",
-        "descrizione" => "",
-        "status" => "",
-        "data" => "",
-        "path" => ""
-    ]; 
+    $errorCodes = [
+        "nome" => 0,
+        "descrizione" => 0,
+        "status" => 0,
+        "data" => 0,
+        "path" => 0,
+        "submit" => 0
+    ];
+    $errorFlag = False;
     
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        $nome = clearInput(filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS));
+        $nome = clearInput($_POST['name']);
         $status = clearInput($_POST['status']);
-        $descrizione = clearInput(filter_input(INPUT_POST,"description",FILTER_SANITIZE_SPECIAL_CHARS));
+        $descrizione = clearInput($_POST['description']);
         $dataScoperta = clearInput($_POST['date']);
         $path = clearInput($_POST['image-path']);
 
-        $ok = true;
 
         //controllo che il nome non sia vuoto e che contenga solo lettere o spazi
         if(strlen($nome) == 0){
-            $errorStrings["nome"] = "Inserire un nome per la creatura";
-            $ok = false;
+            $errorCodes["nome"] = 1;
+            $errorFlag = True;
         }
         else if(!preg_match('/^[\wèàìòéùç\s]*$/', $nome)){
-            $errorStrings["nome"] = "Il nome della creatura non può contenere caratteri speciali";
-            $ok = false;
+            $errorCodes["nome"] = 2;
+            $errorFlag = True;
         }
         
         //controllo che la descrizione sia lunga almeno 20 caratteri
-        if(strlen($descrizione) < 20 || strlen($descrizione) > 2000){
-            $errorStrings["descrizione"] = "La descrizione deve essere lunga almeno 20 caratteri e non deve superare i 2000 caratteri";
-            $ok = false;
+        if(strlen($descrizione) < 20){
+            $errorCodes["descrizione"] = 1;
+            $errorFlag = True;
         }
 
         //controllo che lo status sia uno di quelli validi
         if (array_search(ucfirst($status),["Scoperto","Avvistato","Ipotizzato"],true) === false){
-            $errorStrings["status"] = "Lo status deve essere valido";
-            $ok = false;
+            $errorCodes["status"] = 1;
+            $errorFlag = True;        
         }
         
         //controllo che la data non sia vuota e che sia nel formato corretto
         if (strlen($dataScoperta) == 0){
-            $errorStrings["data"] = "Inserire una data";
-            $ok = false;
+            $errorCodes["data"] = 1;
+            $errorFlag = True;   
         }
         else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataScoperta)){ //se la data non è nel formato corretto (anno - mese - giorno)
-            $errorStrings["data"] = "La data non è nel formato corretto";
-            $ok = false;
-        } 
+            $errorCodes["data"] = 2;
+            $errorFlag = True;   
+        }
 
         //controllo che sia stata caricata un immagine
         if (strlen($path) == 0){
-            $errorStrings["path"] = "Non è stata caricata alcuna immagine";
-            $ok = false;
+            $errorCodes["path"] = 1;
+            $errorFlag = True; 
+
         }
         
+        //controllo che l'animale non sia già presente nel database
         $sql = "SELECT * FROM animale WHERE LOWER(nome) = LOWER('$nome')";
         $query = mysqli_query($mysqli, $sql);
 
-        //controllo che l'animale non sia già presente nel database
         if (mysqli_num_rows($query) > 0) {
-            $_SESSION["submit-result"] = "<p class='error'>Si ha tentato di inserire una creatura già presente</p>";
-            $ok = false;
-        }else if(!$ok){
-            $_SESSION["submit-result"] = "<p class='error'>Errore nell'inserimento dell'animale</p>";
+            $errorCodes["submit"] = 3;
+            $errorFlag = True; 
         }
-
-        $query->free();
         
         //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
-        if($ok){
+        if(!$errorFlag){
+            $nome = filter_var($nome, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $descrizione = filter_var($descrizione, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
+
             $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path')";
 
             $query = mysqli_query($mysqli, $sql);
 
-            if ($query) {
-                $_SESSION["submit-result"] = "<p class='success'>Creatura inserita con successo</p>";
-            }
+            $errorCodes["submit"] = $query ? 1 : 2;
         }
 
         $mysqli->close();
 
-        $SESSION["error-strings"] = $errorStrings;
+        $_SESSION["error-codes"] = $errorCodes;
         header("Location: " . $_SESSION["prev_page"]);
     }

@@ -13,3 +13,11 @@ body {
 footer, button {
     display: none;
 }
+
+.corner-tag {
+    display: none;
+}
+
+#go-up-div {
+    display: none;
+}

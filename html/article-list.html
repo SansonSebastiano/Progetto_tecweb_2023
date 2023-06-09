@@ -21,12 +21,12 @@
             $(function(){
               $("#header").load("../../html/modules/header.html"); 
               $("#footer").load("../../html/modules/footer.html");
-              $("#go-up-div").load("../../html/modules/go-up.html"); 
+              $("#go-up-div").load("../../html/modules/go-up.html");
             });
         </script> 
-        <script src="../../js/pagination.js" defer></script>
+                 
         <title>
-            Storico articoli - Elusive
+            Storico articoli - eLusive
         </title>
         
 
@@ -34,8 +34,8 @@
 
     <body>
         <div id="identification">
+            <greet/>
             <span id="username">
-                <greet/>
                 <user-img/>
                 <user/>
             </span>
@@ -47,47 +47,37 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina contente la lista degli articoli">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="2">Homepage</a>  ● Storico articoli
+                <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a>  ● Storico articoli
             </p>
-            <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+            <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
         </nav>
 
         <main id="main-wrapper">
-            <h2>Gli articoli di eLusive</h2>
+            <h2>Gli articoli di <span lang="en">eLusive</span></h2>
             <form action= "article-list.php" method="get">
                 <fieldset id="search-form">
                     <legend>Ricerca articoli</legend>
                     <label for="input-by-title" id="caption-by-title">Ricerca in base al titolo</label>
-                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci il titolo di un articolo" tabindex="3"/>
-                    <input type="submit" name="submit" id="submit-button" value="CERCA" class="larger" tabindex="5" aria-label="Cerca"/>
+                    <input id="input-by-title" name="search" class="larger" type="text" placeholder="Es.: avvistamento nella Foresta Nera" autocomplete="on" aria-label="Inserisci il titolo di un articolo" tabindex="0"/>
                     <label for="input-by-cat" id="caption-by-cat">Tag</label>
-                    <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona tag" tabindex="4">
+                    <select name="tag" id="input-by-cat" class="larger" aria-label="Seleziona tag" tabindex="0">
                         <option value="">Tutti</option>
                         <option value="scoperta">Scoperta</option>
                         <option value="avvistamento">Avvistamento</option>
                         <option value="comunicazione">Comunicazione</option>
-                        <option value="new-entry">New-Entry</option>
+                        <option value="new-entry"><span lang="en">New-Entry</span></option>
                     </select>
+                    <input type="submit" id="submit-button" value="CERCA" class="larger" tabindex="0" aria-label="Cerca"/>
                 </fieldset>
                 <p id="fieldset-warning">Per filtrare articoli solamente in base al tag, è sufficiente lasciare vuoto il campo del titolo</p>
             </form>
 
             <hr/>
-            <p id="result-count"><count/> Risultati</p>
+            <p id="result-count"><count/> risultati</p>
             <ul id = "article-grid-div" aria-live="polite">
                 <article-list/>
             </ul>
 
-            <nav class="pagination-container">
-                <button class="pagination-button" id="prev-button" title="Previous page" aria-label="Pagina precedente" tabindex="7">
-                 &lt;
-                </button>
-                <div id="pagination-numbers">
-                </div>
-                <button class="pagination-button" id="next-button" title="Next page" aria-label="Pagina successiva" tabindex="8">
-                 &gt;
-                </button>
-            </nav>
             <div id="go-up-div"></div>
         </main>
 

@@ -3,10 +3,10 @@
     --color1: rgb(34, 0, 88);
     --color2: rgb(0, 85, 50);
     --color3: rgb(255,255,255);
-    --color4: rgb(220,220,220);
+    --color4: rgb(220, 220, 220);
     --color-semi-trans: rgba(255, 255,255, 0.8);
     --nonvisited-links: rgb(34, 0, 88);
-    --visited-links: rgb(158, 142, 0);
+    --visited-links: rgb(180,160, 0);
     --color-reserved: rgb(70, 70, 70);
     --width-perc-main: 75%;
     --margin-default: 3em;
@@ -25,9 +25,18 @@ html {
     font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
+.invisible {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
 img.framed {
     border-radius: 0 0 var(--image-radius-corner) 0;
-    box-shadow: 0px 1px 1px 1px gray;
+    box-shadow: 0px 1px 5px gray;
 }
 
 
@@ -42,22 +51,25 @@ h2.black {
 }
 
 h2.outline {
-    text-shadow: 1px 0px 5px white, -1px 0 5px white, 0px 1px 5px white, 0px -1px 5px white;
+    text-shadow: 1px 0px 10px white, -1px 0 10px white, 0px 1px 10px white, 0px -1px 10px white;
 }
-
-a.white {
-    color: white;
-}
-
 
 a{
     color: var(--nonvisited-links);
 }
 
-a:visited{
+
+a.white {
+    color: white;
+}
+
+a:visited, a.white:visited{
     color: var(--visited-links);
 }
 
+.profile-pic {
+    height: 2.5em;
+}
 
 /* BODY */
 
@@ -89,6 +101,9 @@ main {
     box-shadow: var(--box-shadow-light);
 }
 
+#identification a {
+    color: white;
+}
 #username {
     font-weight: bold;
 }
@@ -213,7 +228,7 @@ header div {
 /* GOUP */
 
 #go-up-div {
-    margin: var(--margin-default);
+    margin-top: var(--margin-default);
 }
 
 #go-up-div p, #go-up-div a {
@@ -311,9 +326,9 @@ input[type=text], input[type=password]
     cursor: text;
 }
 
-/** TESTO NASCOSTO **/
-.speech-help{
-    overflow:hidden;
-    white-space: nowrap;
-    text-indent: 100%;
+/* TEXT RULES */
+* {
+    line-height: 1.5em;
+    letter-spacing: 0.12em;
+    word-spacing: 0.16em;
 }

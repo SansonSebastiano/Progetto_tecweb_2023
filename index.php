@@ -10,7 +10,7 @@
     $_SESSION["prev_page"] = $index_ref;
 
     $page = file_get_contents($html_path . "index.html");
-
+    
     // IDENTIFICATION SECTION
     if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
@@ -23,9 +23,9 @@
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
     // ADMIN-WRITER SECTION
-    $admin_section = "<button id=\"btn-reserved\" onclick=\"location.href='" . $admin_page_ref . "'\" tabindex='2'>Sezione Amministratore</button>";
+    $admin_section = "<button id=\"btn-reserved\" onclick=\"location.href='" . str_replace(DIRECTORY_SEPARATOR,"/",$admin_page_ref) . "'\" tabindex='0'>Sezione Amministratore</button>";
 
-    $writer_section = "<button id=\"btn-reserved\" onclick=\"location.href='" . $faar_ref . "'\" tabindex='2'>Scrivi un nuovo articolo</button>";
+    $writer_section = "<button id=\"btn-reserved\" onclick=\"location.href='" . str_replace(DIRECTORY_SEPARATOR,"/",$faar_ref) . "'\" tabindex='0'>Scrivi un nuovo articolo</button>";
 
     if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] === "admin") {
         $page = str_replace("<admin-section/>", $admin_section, $page);
@@ -62,7 +62,7 @@
         $items .= $item;
     }
 
-    $queryResult->free();
+    $queryResult->free_result();
 
     $page = str_replace("<home-carousel-item/>", $items, $page);
 
@@ -84,14 +84,14 @@
         $entriesTwo .= $entryTwo;
     }
 
-    $queryResultTwo->free();
+    $queryResultTwo->free_result();
 
     $page = str_replace("<index-chart-entries/>", $entriesTwo, $page);
 
     // ARTICLES LIST SECTION
     $article = file_get_contents($modules_path . "index-article-list.html");
 
-    $queryThree = 'SELECT id, titolo, image_path, tag, data FROM articolo ORDER BY data DESC LIMIT 6;';
+    $queryThree = 'SELECT id, titolo, image_path, tag, data FROM articolo WHERE featured = 0 ORDER BY data DESC LIMIT 6;';
     $queryResultThree = mysqli_query($mysqli, $queryThree);
 
     $entriesThree = "";
@@ -107,18 +107,17 @@
         $entriesThree .= $entryThree;
     }
 
-    $queryResultThree->free();
+    $queryResultThree->free_result();
 
     $page = str_replace("<index-article-list-entries/>", $entriesThree, $page);
 
     // LAST UPDATE SECTION
     $queryFour = 'SELECT data FROM articolo ORDER BY data DESC LIMIT 1;';
     $queryResultFour = mysqli_query($mysqli, $queryFour);
-    if($queryResultFour){
-        $resultFour = mysqli_fetch_assoc($queryResultFour);
+    if($resultFour = mysqli_fetch_assoc($queryResultFour)){
         $page = str_replace("<last-article-date/>", $resultFour["data"], $page);
     }
-    $queryResultFour->free();
+    $queryResultFour->free_result();
 
     $mysqli->close();
     echo $page;

@@ -69,5 +69,21 @@ checkbox.addEventListener('change', () => {
 
 // Check if the checkbox state is stored in local storage
 if (localStorage.getItem("myCheckboxState") === "checked") {
-  checkbox.checked = true;
+   checkbox.checked = true;
 }
+
+// Check if the checkbox is focused and the user presses enter
+checkbox.addEventListener("focus", () => {
+    checkbox.addEventListener('keydown', evt => {
+        if (evt.key === 'Enter') {
+            if (checkbox.checked) {
+                checkbox.checked = false;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+            else {
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+        }
+    });
+});

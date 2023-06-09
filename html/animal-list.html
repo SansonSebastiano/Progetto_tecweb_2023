@@ -20,19 +20,20 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script> 
         $(function(){
-            $("#header").load("../../html/modules/header.html"); 
-            $("#footer").load("../../html/modules/footer.html");
-            $("#go-up-div").load("../../html/modules/go-up.html");  
+          $("#header").load("../../html/modules/header.html"); 
+          $("#footer").load("../../html/modules/footer.html");
+          $("#go-up-div").load("../../html/modules/go-up.html");
         });
-    </script> 
+    </script>
+    
     <title>Lista delle creature - eLusive</title>
     
 
 </head>
 <body>
     <div id="identification">
+        <greet/>
         <span id="username">
-            <greet/>
             <user-img/>
             <user/>
         </span>
@@ -44,10 +45,10 @@
     <nav id="breadcrumb" aria-label="Ti trovi nella pagina contenente la lista degli animali">
         <img src="../../images/icons/home.png" alt="Home di eLusive"/>
         <p>
-            <a href="../../index.php" tabindex="2">Homepage</a> ●
+            <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
             Lista delle creature
         </p>
-        <img id="logo" src="../../images/logo.svg" alt="Logo di eLusive"/>
+        <img id="logo" src="../../images/logo-small.png" alt="Logo di eLusive"/>
     </nav>
 
     <main class="main-wrapper">
@@ -62,7 +63,7 @@
 
         <div id="go-up-div"></div>
     </main>
-</body>
 
-<footer id="footer"></footer>
+    <footer id="footer"></footer>
+</body>
 </html>

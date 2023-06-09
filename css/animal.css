@@ -19,6 +19,10 @@ section {
 
 /** SEZIONE INIZIALE **/
 
+#animal-description-flexbox {
+    align-items: center;
+}
+
 #animal-info{
     display: flex;
     flex-direction: column;
@@ -44,7 +48,6 @@ section {
     font-size: 1.2em;
     font-style: italic;
     text-shadow: 0.1em 0.1em 0.8em darkgoldenrod;
-    text-align: justify;
 }
 
 /** VOTAZIONI **/
@@ -53,15 +56,13 @@ section {
     gap: 1em;
     flex-direction: column;
     align-items: center;
-
 }
 
 .horizontal-flex{
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 3em;
     align-items: center;
-    justify-content: space-around;
 }
 
 #exist-votes, #non-exist-votes{
@@ -139,9 +140,9 @@ section {
 .votes-box {
     background: var(--color2);
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 0.8em;
     text-align: center;
-  }
+}
 
 .votes-span {
     font-size: 1.2em;
@@ -150,7 +151,6 @@ section {
 }
 
 #colored-vote-area {
-    background: linear-gradient(to right, #00FF00 50%, #FF0000 );
     width: 80%;
     height: 2em;
     border-style: inset;
@@ -161,12 +161,10 @@ section {
 /** LISTA ARTICOLI CORRELATI **/
 
 #related-articles-list{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     margin: auto;
     list-style: none;
+    padding-left: 0;
+    align-items: stretch;
 }
 
 #related-articles-list > li:nth-child(even), #animal-stats tr:nth-child(even) {
@@ -175,5 +173,21 @@ section {
 
 .article {
     position: relative;
+    flex: 1;
+    padding: 2em;
 }
 
+.article img {
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+}
+
+.article-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+a {
+    color: white;
+}

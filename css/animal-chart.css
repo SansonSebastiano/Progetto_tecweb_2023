@@ -28,6 +28,7 @@ main {
 
 #div-with-checkbox {
     margin: auto;
+    margin-bottom: 1em;
     width: fit-content;
 }
 

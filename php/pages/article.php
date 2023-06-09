@@ -31,13 +31,15 @@
         $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
+            $mysqli->close();
+
             header("Location: " . $html_path . "404.html");
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
         
-        $queryResult->free();
+        $queryResult->free_result();
 
         //Mi ricavo le informazioni principali dell'articolo
 
@@ -71,14 +73,16 @@
             $result = mysqli_fetch_assoc($queryResult);
             $page = str_replace("<related-animal/>",$result["nome_animale"],$page);
         } else {
+            $mysqli->close();
+
             header("Location: " . $html_path . "404.html");
             exit();
         }
 
         //Sostituisco il placeholder con la lista di animali collegati
-        $queryResult->free();
+        $queryResult->free_result();
         
-        //TODO: Sezione commenti
+        // SEZIONE COMMENTI
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
@@ -94,6 +98,8 @@
         $queryResult = mysqli_query($mysqli, $query);
 
         if (!$queryResult) {
+            $mysqli->close();
+
             header("Location: " . $html_path . "404.html");
             exit();
         }
@@ -128,7 +134,7 @@
             $commentList .= $comment;
         }
         $page = str_replace("<comment-list/>",$commentList,$page);
-        $queryResult->free();
+        $queryResult->free_result();
     }
     $mysqli->close();
     echo $page;

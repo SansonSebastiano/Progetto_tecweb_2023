@@ -10,15 +10,6 @@ h3 {
 section {
     margin-bottom: 2em;
 }
-/** TESTO NASCOSTO **/
-.speech-help{
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
 
 .inlinelist > li{
     display: inline;
@@ -42,6 +33,7 @@ section {
     border-radius: 1.7em 0 1.7em 0;
     margin: 0 auto;
     box-shadow: 1px 1px 5px gray;
+    background-color: white;
 
     width: 75%;
 }

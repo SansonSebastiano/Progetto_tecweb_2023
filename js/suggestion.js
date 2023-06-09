@@ -6,7 +6,7 @@ $("#creatura").autocomplete({
             type: 'GET',
             dataType: 'json',
             success:function(data){
-                creature_names = $.map(data,function(value,key){
+                creature_names = $.map(data,function(value){
                     return{
                         id:value.nome,
                         label:value.nome

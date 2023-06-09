@@ -1,0 +1,56 @@
+main{
+    background-color: var(--color-semi-trans);
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 0;
+}
+
+#div-testo {
+    margin-bottom: 1em;;
+}
+.form-container{
+    padding: 0.5em;
+    border-radius: 0.8em;
+    background-color:  rgba(0, 85, 50, 0.8);
+    box-shadow: var(--box-shadow-light);
+}
+
+.title-wrapper, .form-input-wrapper{
+    background-color: var(--color1);
+    color: white;
+    border-radius: 0.8em;
+    padding: 1em;
+    box-shadow: var(--box-shadow-light);
+}
+
+#title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#btn-submit{
+    margin: auto;
+    display: block;
+    font-size: 1.5em;
+    padding: 0.8em;
+    border-radius: 1em;
+}
+
+textarea{
+    font-size: 1.2em;
+    margin:0;
+    border-radius: 0.5em;
+    resize:none;
+    height: 50em;
+    width: 100%;
+}
+
+.error{
+    color: red;
+    text-align: center;
+}

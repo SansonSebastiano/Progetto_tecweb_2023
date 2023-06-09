@@ -1,6 +1,8 @@
-<h2 class="outline">Esprimi il tuo parere sull'esistenza di <animal-name/></h2>
 <div id = "buttons">
-    <button id="btn-exist" type="button" class="btn-vote" onclick="vote('<animal-name/>', 'upvote');" <is-disabled/>>Vota ESISTE</button>
-    <button id="btn-non-exist" type="button" class="btn-vote" onclick="vote('<animal-name/>', 'downvote');" <is-disabled/>>Vota NON ESISTE</button>
+    <button id="btn-exist" type="button" class="btn-vote" tabindex="0" onclick="addVote('<animal-name/>', 'upvote');" <is-btn-add-disabled/>>Vota ESISTE</button>
+    <button id="btn-non-exist" type="button" class="btn-vote" tabindex="0" onclick="addVote('<animal-name/>', 'downvote');" <is-btn-add-disabled/>>Vota NON ESISTE</button>
 </div>
-<p id="msg-vote">Hai votato <vote-msg/> per questa creatura</p>
+
+<button id="btn-remove-vote" type="button" class="btn-rm-vote" tabindex="0" onclick="removeVote('<animal-name/>', '<vote-type/>');" <is-btn-remove-disabled/>>Rimuovi voto</button>
+<animal-vote-msg/>
+

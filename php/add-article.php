@@ -7,100 +7,97 @@
         session_start();
     }
 
-    $errorStrings = [
-        "titolo" => "",
-        "sottotitolo" => "",
-        "tag" => "",
-        "luogo" => "",
-        "data" => "",
-        "testo" => "",
-        "path" => "",
-        "creatura" => ""
+    $errorCodes = [
+        "titolo" => 0,
+        "sottotitolo" => 0,
+        "tag" => 0,
+        "luogo" => 0,
+        "testo" => 0,
+        "path" => 0,
+        "creatura" => 0,
+        "submit" => 0
     ];
+    $errorFlag = False;
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        $titolo = clearInput(filter_input(INPUT_POST,"titolo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $sottotitolo = clearInput(filter_input(INPUT_POST,"sottotitolo",FILTER_SANITIZE_SPECIAL_CHARS));
+        $titolo = clearInput($_POST['titolo']);
+        $sottotitolo = clearInput($_POST['sottotitolo']);
         $tag = clearInput($_POST['tag']);
-        $luogo = clearInput(filter_input(INPUT_POST,"luogo",FILTER_SANITIZE_SPECIAL_CHARS));
-        $testo = clearInput(filter_input(INPUT_POST,"testo",FILTER_SANITIZE_SPECIAL_CHARS));
+        $luogo = clearInput($_POST['luogo']);
+        $testo = clearInput($_POST['testo']);
         $autore = $_SESSION['id'];
         $path = clearInput($_POST['image-path']);
-        $creatura = clearInput(filter_input(INPUT_POST,"creatura",FILTER_SANITIZE_SPECIAL_CHARS));
+        $creatura = clearInput($_POST['creatura']);
         $featured = isset($_POST['featured']) ? 1 : 0;
 
-        $ok = true;
-
         if(strlen($titolo) == 0){
-            $errorStrings["titolo"] = "Inserire un titolo per l'articolo";
-            $ok = false;
+            $errorCodes["titolo"] = 1;
+            $errorFlag = True;
         }
         else if(!preg_match('/^[\wèàìòéùç\s]*$/', $titolo)){
-            $errorStrings["titolo"] = "Il titolo dell'articolo non può contenere caratteri speciali";
-            $ok = false;
+            $errorCodes["titolo"] = 2;
+            $errorFlag = True;
         }
 
         if(strlen($sottotitolo) == 0){
-            $errorStrings["sottotitolo"] = "Inserisci un sottotitolo";
-            $ok = false;
+            $errorCodes["sottotitolo"] = 1;
+            $errorFlag = True;
         }
 
         if (array_search($tag,['scoperta','new-entry','avvistamento','comunicazione','none'],true) === false){
-            $errorStrings["tag"] = "Inserisci un tag valido";
-            $ok = false;
+            $errorCodes["tag"] = 1;
+            $errorFlag = True;
         }
-    
 
-        if(strlen($testo) < 20 || strlen($testo) > 2000){
-            $errorStrings["testo"] = "Il testo dell'articolo deve essere lungo almeno 20 caratteri e non deve superare i 2000 caratteri";
-            $ok = false;
+        if(strlen($testo) < 20){
+            $errorCodes["testo"] = 1;
+            $errorFlag = True;
         }
 
         if (strlen($path) == 0){
-            $errorStrings["path"] = "Non è stata caricata nessuna immagine";
-            $page = str_replace("<img-status/>", "error", $page);
-            $ok = false;
-        }else{
-            $page = str_replace("<img-status/>", "success", $page);
+            $errorCodes["path"] = 1;
+            $errorFlag = True;
         }
 
-        if(!preg_match('/^[a-zA-Z_èàìòéùç\s]*$/', $creatura)){
-            $errorStrings["creatura"] = "Il nome dell'animale riferito dall'articolo non può contenere caratteri speciali";
-            $ok = false;
+        if(!preg_match('/^[a-zA-Zèàìòéùç\s]*$/', $creatura)){
+            $errorCodes["creatura"] = 1;
+            $errorFlag = True;
         }
 
-        if($ok){
+        $titolo = filter_var($titolo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $sottotitolo = filter_var($sottotitolo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $luogo = filter_var($luogo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $testo = filter_var($testo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
+        $creatura = filter_var($creatura, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if(!$errorFlag){
             if(strlen($creatura) > 0)
             {
                 $animal = "SELECT * FROM animale WHERE nome = '$creatura'";
                 $queryResult = mysqli_query($mysqli,$animal);
                 if($queryResult->num_rows == 0){
 
-                    $queryResult->free();
-                    $_SESSION["result"] = "<p class='error'>L'animale riferito non è stato trovato</p>";
+                    $errorCodes["submit"] = 3;
 
                 }else{   
-                    $queryResult->free();
                     $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura')";
                     $queryResult = mysqli_query($mysqli,$sql);
-
-                    $_SESSION["result"] = "<p class='success'>Articolo inserito con successo</p>";
+                    $errorCodes["submit"] = $queryResult ? 1 : 2;
                 }
             }
             else
             {
-                $queryResult->free();
                 $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);
-            }
 
-        }else{
-            $_SESSION["result"] = "<p class='error'>Errore nell'inserimento dell'articolo</p>";
+                $errorCodes["submit"] = $queryResult ? 1 : 2;
+            }
         }
 
         $mysqli->close();
 
-        $SESSION["error-strings"] = $errorStrings;
+        $_SESSION["error-codes"] = $errorCodes;
         header("Location: " . $_SESSION["prev_page"]);
     }

@@ -32,13 +32,13 @@
         padding: 6em;
         display: block;
         border-radius: 50%;
-        border: darkred 10px solid;
+        border: darkred 0.6em solid;
     }
     #exist-btn{
         padding: 6em;
         display: block;
         border-radius: 50%;
-        border: darkgreen 10px solid;
+        border: darkgreen 0.6em solid;
     }
 }
 
