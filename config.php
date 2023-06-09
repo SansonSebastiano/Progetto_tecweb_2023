@@ -1,6 +1,7 @@
 <?php
     // root path
     $root_server_side = __DIR__ . DIRECTORY_SEPARATOR;
+    $root_client_side = DIRECTORY_SEPARATOR;
     // php files
     $php_path = $root_server_side . "php" . DIRECTORY_SEPARATOR;
     // html files
@@ -8,7 +9,6 @@
     // modules files
     $modules_path = $html_path . "modules" . DIRECTORY_SEPARATOR;
 
-    $root_client_side = DIRECTORY_SEPARATOR . "fceccato" . DIRECTORY_SEPARATOR;
     // previous page (for 'prev_page' session variable):
     // index.php
     $index_ref = $root_client_side . "index.php";

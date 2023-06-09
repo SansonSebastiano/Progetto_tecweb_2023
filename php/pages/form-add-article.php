@@ -9,6 +9,8 @@
 
     $page = file_get_contents($html_path . "form-add-article.html");
 
+    include $php_path . "template-loader.php";
+
     if ($_SESSION['ruolo'] != 'admin' && $_SESSION['ruolo'] != 'writer') {
         header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
         exit();

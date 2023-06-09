@@ -20,6 +20,9 @@
     $animal_entry = file_get_contents($modules_path . "admin-animal-entry.html");
     $page = file_get_contents($html_path . "admin-animal-list.html");
 
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
@@ -33,7 +36,7 @@
 
     if (!$queryResult) {
         $mysqli->close();
-        header("Location: " . $html_path . "404.html");
+        header("Location: " . $php_path . "404.php");
         exit();
     }
 

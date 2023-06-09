@@ -12,8 +12,11 @@
 
     $page = file_get_contents($html_path . "animal.html");
 
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
     // IDENTIFICATION SECTION
-   if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
         $page = str_replace("<user-img/>", $icon_user_ref, $page);
     } else {
@@ -30,7 +33,7 @@
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
             $mysqli->close();
-            header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            header("Location: " . $php_path . "404.php");
             exit();
         }
 
@@ -38,7 +41,7 @@
 
         if(!$result){
             $mysqli->close();
-            header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            header("Location: " . $php_path . "404.php");
             exit();
         }
 
@@ -104,6 +107,8 @@
         // abilita la sezione voto se l'utente e' loggato
         if ($_SESSION['ruolo'] != 'guest') {
             $page = str_replace("<animal-voting-section/>", $voting_section, $page);
+        } else {
+            $page = str_replace("<animal-voting-section/>", "", $page);
         }
 
         // RELATED ARTICLES SECTION
@@ -111,7 +116,7 @@
         $queryResultThree = mysqli_query($mysqli, $queryThree);
 
         if(!$queryResultThree){
-            header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
+            header("Location: " .  $php_path . DIRECTORY_SEPARATOR . "404.php");
             exit();
         }
 

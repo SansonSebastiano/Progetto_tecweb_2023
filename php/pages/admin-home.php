@@ -17,6 +17,8 @@
 
     $page = file_get_contents($html_path . "admin-home.html");
 
+    include $php_path . "template-loader.php";
+
     $page = str_replace("<greet/>", "Ciao, ", $page);
     $page = str_replace("<user-img/>", $icon_user_ref, $page);
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);

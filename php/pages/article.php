@@ -13,8 +13,10 @@
 
     $page = file_get_contents($html_path . "article.html");
 
-    // IDENTIFICATION SECTION
-   if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
         $page = str_replace("<user-img/>", $icon_user_ref, $page);
     } else {
@@ -24,8 +26,6 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    //$_GET["article"] ritorna l'id dell articolo
-    //quindi sarà: http://localhost/php/pages/article.php?articolo=[id]
     if(isset($_GET["article"])){
         $articleId = clearInput($_GET["article"]);
         $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
@@ -33,15 +33,13 @@
         if(!$queryResult){
             $mysqli->close();
 
-            header("Location: " . $html_path . "404.html");
+            header("Location: " . $php_path . "404.php");
             exit();
         }
 
         $result = mysqli_fetch_assoc($queryResult);
         
         $queryResult->free_result();
-
-        //Mi ricavo le informazioni principali dell'articolo
 
         $articleTitle = $result["titolo"];
         $articleSubTitle = $result["descrizione"];
@@ -52,7 +50,6 @@
         $articleContent = $result["contenuto"];
         //$articleImageAlt = $result["alt"];
 
-        //Sostituisco i placeholder con i valori dell'articolo
         $page = str_replace("<article-id/>",$_GET["article"],$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-subtitle/>",$articleSubTitle,$page);
@@ -63,7 +60,6 @@
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
 
-        //Mi ricavo l'animale collegato all'articolo
         $query = 'SELECT nome_animale FROM articolo WHERE id = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
 
@@ -75,14 +71,12 @@
         } else {
             $mysqli->close();
 
-            header("Location: " . $html_path . "404.html");
+            header("Location: " . $php_path . "404.php");
             exit();
         }
 
-        //Sostituisco il placeholder con la lista di animali collegati
         $queryResult->free_result();
-        
-        // SEZIONE COMMENTI
+
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
@@ -100,7 +94,7 @@
         if (!$queryResult) {
             $mysqli->close();
 
-            header("Location: " . $html_path . "404.html");
+            header("Location: " . $php_path . "404.php");
             exit();
         }
 

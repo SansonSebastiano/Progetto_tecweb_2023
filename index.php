@@ -10,6 +10,8 @@
     $_SESSION["prev_page"] = $index_ref;
 
     $page = file_get_contents($html_path . "index.html");
+    $goUpPath = "./";
+    include $php_path . "template-loader.php";
     
     // IDENTIFICATION SECTION
     if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
