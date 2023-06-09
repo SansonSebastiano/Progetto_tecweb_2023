@@ -1,4 +1,4 @@
-/* ========================= MAIN+CONTAINER ========================= */
+
 
 #main-aside-wrapper {
     display: flex;
@@ -23,7 +23,7 @@ main h2 {
     font-size: 2em;
 }
 
-/* ========================= MAIN ARTICLE ========================= */
+
 
 #featured-items-wrapper {
     height: 30em;
@@ -102,7 +102,7 @@ main h2 {
     background-image: url(../images/icons/button-r.png);
 }
 
-/* ========================= ARTICLE GRID ========================= */
+
 
 #article-grid-div {
     display: grid;
@@ -142,7 +142,7 @@ main h2 {
     font-weight: bold;
 }
 
-/* ========================= ASIDE ========================= */
+
 
 aside {
     background-color: var(--color1);
@@ -191,7 +191,7 @@ aside figcaption {
 
 #btn-reserved {
     background-color: var(--color-reserved);
-    color: var(--visited-links);
+    color: var(--color-reserved-2);
     text-decoration: underline;
     text-transform: uppercase;
     font-weight: bold;

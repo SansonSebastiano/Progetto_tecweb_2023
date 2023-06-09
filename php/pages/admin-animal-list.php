@@ -10,7 +10,7 @@
 
     if ($_SESSION['ruolo'] != 'admin') {
         $mysqli->close();
-        header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        header("Location: " . $index_ref);
         exit();
     }
 
@@ -33,7 +33,7 @@
 
     if (!$queryResult) {
         $mysqli->close();
-        header("Location: " . $html_path . "404.html");
+        header("Location: " . $html_ref . "404.html");
         exit();
     }
 

@@ -11,7 +11,7 @@ header {
 #header-deco {
     border-radius: 0;
 }
-/** MAIN **/
+
 main{
     background-color: var(--color-semi-trans);
     padding: 1em 12.5%;

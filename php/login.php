@@ -8,9 +8,9 @@
     const WRITER_ROLE = "writer";
 
     include ".." . DIRECTORY_SEPARATOR . "config.php";
-    // import the connection script
+    
     include  'db-conn.php';
-    // import input cleaner script
+    
     include 'input-cleaner.php' ;
 
     if (session_status() === PHP_SESSION_NONE) {
@@ -25,23 +25,23 @@
     $resultString = "";
     if (isset($_POST['submit']) && array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
         
-        // set Location header
+        
         $location = "Location: " . $_SESSION["prev_page"];
-        // get the data from the form:
-        // username
+        
+        
         $username = clearInput($_POST['username']);
 
-        // password
+        
         $password = clearInput($_POST['password']);
                 
-        // create a query
+        
         $query = "SELECT * FROM `utente` WHERE `nome` = '$username' AND `password` = '$password'";
-        // execute the query
+        
         $result = $mysqli->query($query);
-        // check if the query was executed successfully and if the result is not empty
+        
         if ($result->num_rows == 0) {
                     
-            $resultString = "<p class='error' tabindex='0'>Username o password non corretti!</p>";
+            $resultString = "<p class='error' tabindex='0'><strong>Username o password non corretti!</strong></p>";
 
             $mysqli->close();
         } else {
@@ -62,9 +62,9 @@
                 }
             }
 
-            // free the result set
+            
             $result->free_result();
-            // close the connection
+            
             $mysqli->close();
 
             header($location);

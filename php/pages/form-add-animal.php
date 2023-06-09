@@ -10,7 +10,7 @@
     $page = file_get_contents($html_path . "form-add-animal.html");
 
     if ($_SESSION['ruolo'] != 'admin') {
-        header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        header("Location: " . $index_ref);
         exit();
     }
 

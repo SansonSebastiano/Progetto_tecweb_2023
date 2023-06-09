@@ -14,7 +14,7 @@ function addVote(voteType) {
         if (this.readyState == 4 && this.status == 200) {
             if(voteType == 'upvote'){
                 document.getElementById("exist-votes").innerHTML = this.responseText; 
-            } else {    // voteType = 'downvote'
+            } else {    
                 document.getElementById("non-exist-votes").innerHTML = this.responseText;
             }
             btnUpvote.disabled = true;

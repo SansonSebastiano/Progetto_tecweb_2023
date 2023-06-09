@@ -10,7 +10,7 @@
     $_SESSION["prev_page"] = $animal_chart_ref . "?order=" . $_GET["order"] . "&discovered=" . $_GET["discovered"];
 
     $page = file_get_contents($html_path . "animal-chart.html");
-   // IDENTIFICATION SECTION
+   
    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
         $page = str_replace("<user-img/>", $icon_user_ref, $page);
@@ -21,7 +21,7 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    // PAGE CONTENT
+    
     $animal_entry = file_get_contents($modules_path . "animal-chart-entry.html");
 
     $type_order = $_GET["order"];
@@ -49,7 +49,7 @@
 
     if (!$queryResult) {
         $mysqli->close();
-        header("Location: " . $html_path . "404.html");
+        header("Location: " . $html_ref . "404.html");
         exit();
     }
 

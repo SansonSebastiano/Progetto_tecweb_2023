@@ -8,7 +8,7 @@ main {
     font-weight: bold;
 }
 
-/* ============= SEARCH BOX ============= */
+
 
 #search-form {
     background-image: url("../images/icons/lens.png");
@@ -78,7 +78,7 @@ main {
     font-size: 1.2em;
 }
 
-/* ============= ARTICLE TABLE ============= */
+
 
 .article-table{
     width: 90%;

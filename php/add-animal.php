@@ -26,7 +26,7 @@
         $path = clearInput($_POST['image-path']);
 
 
-        //controllo che il nome non sia vuoto e che contenga solo lettere o spazi
+        
         if(strlen($nome) == 0){
             $errorCodes["nome"] = 1;
             $errorFlag = True;
@@ -36,36 +36,36 @@
             $errorFlag = True;
         }
         
-        //controllo che la descrizione sia lunga almeno 20 caratteri
+        
         if(strlen($descrizione) < 20){
             $errorCodes["descrizione"] = 1;
             $errorFlag = True;
         }
 
-        //controllo che lo status sia uno di quelli validi
+        
         if (array_search(ucfirst($status),["Scoperto","Avvistato","Ipotizzato"],true) === false){
             $errorCodes["status"] = 1;
             $errorFlag = True;        
         }
         
-        //controllo che la data non sia vuota e che sia nel formato corretto
+        
         if (strlen($dataScoperta) == 0){
             $errorCodes["data"] = 1;
             $errorFlag = True;   
         }
-        else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataScoperta)){ //se la data non è nel formato corretto (anno - mese - giorno)
+        else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataScoperta)){ 
             $errorCodes["data"] = 2;
             $errorFlag = True;   
         }
 
-        //controllo che sia stata caricata un immagine
+        
         if (strlen($path) == 0){
             $errorCodes["path"] = 1;
             $errorFlag = True; 
 
         }
         
-        //controllo che l'animale non sia già presente nel database
+        
         $sql = "SELECT * FROM animale WHERE LOWER(nome) = LOWER('$nome')";
         $query = mysqli_query($mysqli, $sql);
 
@@ -74,11 +74,11 @@
             $errorFlag = True; 
         }
         
-        //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
+        
         if(!$errorFlag){
             $nome = filter_var($nome, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $descrizione = filter_var($descrizione, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            //$path = filter_var($path, FILTER_SANITIZE_ENCODED);
+            
 
             $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path')";
 
