@@ -159,6 +159,7 @@ header div {
     background-image: url("../images/logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
     /*RENDI TESTO NON VISIBILE A SCHERMO*/
     overflow:hidden;
     white-space: nowrap;
