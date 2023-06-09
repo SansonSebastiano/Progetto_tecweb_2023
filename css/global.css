@@ -160,7 +160,8 @@ header div {
     background-image: url("../images/logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    
+    cursor: pointer;
+
     overflow:hidden;
     white-space: nowrap;
     text-indent: 100%;

@@ -1,3 +1,14 @@
 # Ignora i file di sistema Mac
 .DS_store
 config.php
+
+# Ignora i file di compilazione LaTeX
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls

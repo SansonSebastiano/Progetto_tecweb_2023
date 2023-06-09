@@ -66,25 +66,25 @@
                     <legend class="invisible">Aggiunta di un articolo</legend>
                     <div id="div-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo</label>
-                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="0" autocomplete="on" aria-label="Inserisci titolo articolo" required maxlength="255">
+                        <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="0" autocomplete="on" required maxlength="255">
                         <p id="invalid-title" class="error"><strong><error-title/></strong></p>
                     </div>
 
                     <div id="div-sottotitolo" class="form-input-wrapper">
                         <label class="info" for="sottotitolo">Sottotitolo</label>
-                        <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="0" autocomplete="on" aria-label="Inserisci sottotitolo articolo" required maxlength="255">
+                        <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="0" autocomplete="on" required maxlength="255">
                         <p id="invalid-subtitle" class="error"><strong><error-subtitle/></strong></p>
                     </div>
 
                     <div id="div-creatura" class="form-input-wrapper">
                         <label for="creatura" class="info">Creatura riferita nell'articolo (opzionale)</label>
-                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="0" aria-label="Inserisci nome creatura" maxlength="100">
+                        <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="0" maxlength="100">
                         <p id="invalid-creature" class="error"><strong><error-animal/></strong></p>
                     </div>
 
                     <div id="div-tag" class="form-input-wrapper">
                         <label class="info" for="tag">Tag dell'articolo</label>
-                        <select id="tag" name= "tag" aria-label="Seleziona un tag per l'articolo" tabindex="0" required>
+                        <select id="tag" name= "tag" tabindex="0" required>
                             <option value="scoperta">Scoperta</option>
                             <option value="new-entry"><span lang="en">New-Entry</span></option>
                             <option value="avvistamento">Avvistamento</option>
@@ -95,26 +95,26 @@
 
                     <div id="div-luogo" class="form-input-wrapper">
                         <label class="info" for="luogo">Luogo riferito nell'articolo (opzionale)</label>
-                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="0" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255">
+                        <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="0" autocomplete="country-name" maxlength="255">
                         <p id="invalid-place" class="error"><strong><error-place/></strong></p>
                     </div>
 
                     <div id="div-featured" class="form-input-wrapper">
-                        <input type="checkbox" name="featured" id="featured" tabindex="0" aria-label="Seleziona se inserire l'articolo in evidenza">
+                        <input type="checkbox" name="featured" id="featured" tabindex="0">
                         <label class="info" for="featured">&Egrave; un articolo in evidenza</label>
                     </div>
 
                     <div id="div-path" class="form-input-wrapper">
                         <label class="info" for="immagine">Immagine dell'articolo</label>
-                        <input id="immagine" type="file" accept="image/*" tabindex="0" aria-label="Seleziona immagine per l'articolo" required>
+                        <input id="immagine" type="file" accept="image/*" tabindex="0" required>
                         <input type="hidden" id="image-path" name="image-path">
-                        <button type="button" id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="10">Carica l'immagine</button>
+                        <button type="button" id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="0">Carica l'immagine</button>
                         <p id="loaded-photo" class="error"><strong><error-img/></strong></p>
                     </div>
 
                     <div id="div-testo" class="form-input-wrapper">
                         <label class="info" for="testo">Testo dell'articolo</label>
-                        <textarea id="testo" name= "testo" tabindex="0" autocomplete="off" placeholder="Inserisci del testo..." aria-label="Inserisci testo articolo" minlength="20" maxlength="2000" required></textarea>
+                        <textarea id="testo" name= "testo" tabindex="0" autocomplete="off" placeholder="Inserisci del testo..." minlength="20" maxlength="2000" required></textarea>
                         <p id="invalid-text" class="error"><strong><error-text/></strong></p>
                     </div>
 
