@@ -8,15 +8,19 @@
 
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="../../js/template-loader.js" ></script> 
-        </script> 
-        
-        <link rel="stylesheet" type="text/css" media="screen" href="../../css/global.css"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="../../css/index.css"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/global.css"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/media/index.css"/>
-        <link rel="stylesheet" type="text/css" media="print" href="../../css/special/print.css"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="../../css/special/mobile.css"/>
+        <script> 
+            $(function(){
+              $("#header").load("html/modules/header.html"); 
+              $("#footer").load("html/modules/footer.html");
+              $("#go-up-div").load("html/modules/go-up.html");
+            });
+        </script>          
+        <link rel="stylesheet" type="text/css" media="screen" href="css/global.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/index.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/special/media/global.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/special/media/index.css"/>
+        <link rel="stylesheet" type="text/css" media="print" href="css/special/print.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/special/mobile.css"/>
         <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 
         <title>
@@ -112,6 +116,6 @@
         </div>
 
         <footer id="footer"></footer>
-        <script text="text/javascript" src="../../js/carousel.js"></script>
+        <script text="text/javascript" src="js/carousel.js"></script>
     </body>
 </html>

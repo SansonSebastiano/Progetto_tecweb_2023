@@ -82,16 +82,13 @@
                     $errorCodes["submit"] = 3;
 
                 }else{   
-                    $queryResult->free();
                     $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura')";
                     $queryResult = mysqli_query($mysqli,$sql);
-
                     $errorCodes["submit"] = $queryResult ? 1 : 2;
                 }
             }
             else
             {
-                $queryResult->free();
                 $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL)";
                 $queryResult = mysqli_query($mysqli,$sql);
 

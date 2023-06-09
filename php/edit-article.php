@@ -31,7 +31,6 @@
 
             if($queryResult) {
 
-                $queryResult->free();
                 $mysqli->close();
                 
                 header("Location: ./pages/article.php?article=" . $_GET["article"]);
@@ -42,7 +41,6 @@
             }
         }
 
-        $queryResult->free();
         $mysqli->close();
 
         $_SESSION["error-codes"] = $errorCodes;

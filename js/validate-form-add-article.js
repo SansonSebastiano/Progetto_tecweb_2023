@@ -11,7 +11,7 @@ submitForm.addEventListener("submit", function(){
 
 titleInput.addEventListener("blur", function(){
     if(checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri")) {
-        checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere numeri o caratteri speciali")
+        checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali")
     }
 })
 subTitleInput.addEventListener("blur", function(){
@@ -19,7 +19,7 @@ subTitleInput.addEventListener("blur", function(){
 })
 
 animalInput.addEventListener("blur", function(){
-    checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere numeri o caratteri speciali")
+    checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/, "Il nome della creatura riferita dall'articolo non può contenere caratteri speciali")
 })
 
 textInput.addEventListener("blur", function(){
@@ -75,9 +75,9 @@ function isImageUploaded(){
 
 function validate() {
 
-    const titleBool = checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere numeri o caratteri speciali");
+    const titleBool = checkLength("titolo","invalid-title",1,255,"Inserire un titolo per l'articolo", "Il titolo dell'articolo non può essere più lungo di 255 caratteri") && checkValidation("titolo","invalid-title",/^[\wèàìòéùç\s]*$/,"Il titolo dell'articolo non può contenere caratteri speciali");
     const subtitleBool = checkLength("sottotitolo","invalid-subtitle",1,255,"Inserire un sottotitolo","Il sottotitolo dell'articolo non può essere più lungo di 255 caratteri");
-    const animalBool = checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere numeri o caratteri speciali");
+    const animalBool = checkValidation("creatura","invalid-creature",/^[a-zA-Zèàìòéùç\s]*$/,"Il nome della creatura riferita dall'articolo non può contenere caratteri speciali");
     const textBool = checkLength("testo","invalid-text",20,2000,"Il testo dell'articolo deve essere lungo almeno 20 caratteri", "Il testo dell'articolo non può essere più lungo di 2000 caratteri");
     const imageBool = isImageUploaded()
 

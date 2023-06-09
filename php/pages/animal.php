@@ -29,6 +29,7 @@
         $query = 'SELECT * FROM animale WHERE nome = "'. $animal . '";';
         $queryResult = mysqli_query($mysqli, $query);
         if(!$queryResult){
+            $mysqli->close();
             header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
@@ -36,11 +37,10 @@
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
+            $mysqli->close();
             header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "404.html");
             exit();
         }
-
-        $queryResult->free();
 
         $animalName = $result["nome"];
         $description = $result["descrizione"];
@@ -74,7 +74,7 @@
         $page = str_replace("<yes-vote/>",$yes,$page);
         $page = str_replace("<no-vote/>",$no,$page);
 
-        $queryResult->free();
+        $queryResult->free_result();
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
         
@@ -96,7 +96,7 @@
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
                 $voting_section = str_replace("<is-btn-remove-disabled/>", 'disabled', $voting_section);
             }
-            $queryResultTwo->free();
+            $queryResultTwo->free_result();
         } 
         
         $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
@@ -137,7 +137,7 @@
         }
         $page = str_replace("<related-articles/>",$relArticles,$page);
         
-        $queryResultThree->free();
+        $queryResultThree->free_result();
 
         $queryFour = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" AND tag = 3 ORDER BY data DESC;';
         $queryResultFour = mysqli_query($mysqli, $queryFour);
@@ -150,7 +150,7 @@
             $page = str_replace("<ultimo-avvistamento/>", "", $page);
         }
 
-        $queryResultFour->free();
+        $queryResultFour->free_result();
     }
 
     $mysqli->close();

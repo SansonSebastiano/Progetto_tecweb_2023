@@ -88,6 +88,7 @@
     // Rimuoviamo il placeholder <article-list/> e sostituiamo con la lista di articoli
     $page = str_replace("<article-list/>",$articleList,$page);
 
+    $queryResult->free_result();
     $mysqli->close();
     echo $page;
 ?>

@@ -39,7 +39,7 @@
 
         $result = mysqli_fetch_assoc($queryResult);
         
-        $queryResult->free();
+        $queryResult->free_result();
 
         //Mi ricavo le informazioni principali dell'articolo
 
@@ -80,7 +80,7 @@
         }
 
         //Sostituisco il placeholder con la lista di animali collegati
-        $queryResult->free();
+        $queryResult->free_result();
         
         // SEZIONE COMMENTI
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
@@ -134,7 +134,7 @@
             $commentList .= $comment;
         }
         $page = str_replace("<comment-list/>",$commentList,$page);
-        $queryResult->free();
+        $queryResult->free_result();
     }
     $mysqli->close();
     echo $page;

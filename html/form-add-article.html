@@ -19,8 +19,13 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <script src="../../js/template-loader.js"> </script>
-
+    <script> 
+        $(function(){
+          $("#header").load("../../html/modules/header.html"); 
+          $("#footer").load("../../html/modules/footer.html");
+          $("#go-up-div").load("../../html/modules/go-up.html");
+        });
+    </script>  
     <script src="../../js/validate-form-add-article.js" defer></script>
     <script type="module" src="../../js/upload-article.js" defer></script>
     <script src="../../js/suggestion.js" defer></script>
@@ -89,7 +94,7 @@
                     </div>
 
                     <div id="div-luogo" class="form-input-wrapper">
-                        <label class="info" for="luogo">Luogo riferito nell'articolo</label>
+                        <label class="info" for="luogo">Luogo riferito nell'articolo (opzionale)</label>
                         <input type="text" name= "luogo" id="luogo" placeholder="Luogo avvenimento" tabindex="0" autocomplete="country-name" aria-label="Inserisci luogo" maxlength="255">
                         <p id="invalid-place" class="error"><strong><error-place/></strong></p>
                     </div>
@@ -104,7 +109,7 @@
                         <input id="immagine" type="file" accept="image/*" tabindex="0" aria-label="Seleziona immagine per l'articolo" required>
                         <input type="hidden" id="image-path" name="image-path">
                         <button type="button" id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="10">Carica l'immagine</button>
-                        <p id="loaded-photo" class="<img-status/>"><strong><error-img/></strong></p>
+                        <p id="loaded-photo" class="error"><strong><error-img/></strong></p>
                     </div>
 
                     <div id="div-testo" class="form-input-wrapper">

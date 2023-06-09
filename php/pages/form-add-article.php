@@ -21,12 +21,12 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    $errTitolo = [0 => "", 1 => "Inserire un titolo per l'articolo", 2 => "Il titolo dell'articolo non può contenere numeri o caratteri speciali"];
+    $errTitolo = [0 => "", 1 => "Inserire un titolo per l'articolo", 2 => "Il titolo dell'articolo non può contenere caratteri speciali"];
     $errSub = [0 => "", 1 => "Inserisci un sottotitolo"];
     $errTag = [0 => "", 1 => "Inserisci un tag valido"];
     $errTesto =  [0 => "", 1 => "Il testo dell'articolo deve essere lungo almeno 20 caratteri"];
     $errImg = [0 => "", 1 => "Non è stata caricata alcuna immagine"];
-    $errAnimal = [0 => "", 1 => "Il nome dell'animale riferito dall'articolo non può contenere numeri o caratteri speciali"];
+    $errAnimal = [0 => "", 1 => "Il nome dell'animale riferito dall'articolo non può contenere caratteri speciali"];
     $errSubmit =   [0 => "",
                     1 => "<p class='success'><strong>Articolo inserito con successo</strong></p>", 
                     2 => "<p class='error'><strong>Errore nell'inserimento dell'articolo</strong></p>",

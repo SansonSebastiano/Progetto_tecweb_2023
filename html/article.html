@@ -18,8 +18,13 @@
 
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="../../js/template-loader.js"> </script>
-        
+        <script> 
+            $(function(){
+              $("#header").load("../../html/modules/header.html"); 
+              $("#footer").load("../../html/modules/footer.html");
+              $("#go-up-div").load("../../html/modules/go-up.html");
+            });
+        </script>          
 
         <title><article-title/> - eLusive</title>
         

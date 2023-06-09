@@ -60,14 +60,15 @@
                         $_SESSION["ruolo"] = USER_ROLE;
                         break;
                 }
-
-                header($location);
             }
 
             // free the result set
-            $result->free();
+            $result->free_result();
             // close the connection
             $mysqli->close();
+
+            header($location);
+            exit();
         }
     }
 

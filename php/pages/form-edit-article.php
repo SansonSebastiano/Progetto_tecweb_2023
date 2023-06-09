@@ -38,7 +38,7 @@
 
         $result = mysqli_fetch_assoc($queryResult);
         
-        $queryResult->free();
+        $queryResult->free_result();
 
         $articleTitle = $result["titolo"];
         $articleContent = $result["contenuto"];

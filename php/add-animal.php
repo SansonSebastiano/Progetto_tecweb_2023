@@ -73,8 +73,6 @@
             $errorCodes["submit"] = 3;
             $errorFlag = True; 
         }
-
-        $query->free();
         
         //se tutti i controlli sono andati a buon fine inserisco l'animale nel database
         if(!$errorFlag){
