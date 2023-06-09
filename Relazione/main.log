@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.25)  28 MAY 2023 18:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.25)  9 JUN 2023 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -255,7 +255,7 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box59
-) (./main.aux (./src/abstract.aux) (./src/adr.aux) (./src/organization.aux) (./src/design.aux) (./src/back-end.aux) (./src/front-end.aux) (./src/accessibility.aux) (./src/end.aux))
+) (./main.aux (./src/abstract.aux) (./src/adr.aux) (./src/design.aux) (./src/back-end.aux) (./src/front-end.aux) (./src/accessibility.aux) (./src/organization.aux) (./src/end.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -358,7 +358,7 @@ LaTeX Info: Redefining \nameref on input line 35.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<img/Logo_Università_Padova.svg.png, id=36, 1204.5pt x 1204.5pt>
+<img/Logo_Università_Padova.svg.png, id=56, 1204.5pt x 1204.5pt>
 File: img/Logo_Università_Padova.svg.png Graphic file (type png)
 <use img/Logo_Università_Padova.svg.png>
 Package pdftex.def Info: img/Logo_Università_Padova.svg.png  used on input line 56.
@@ -367,11 +367,11 @@ Package pdftex.def Info: img/Logo_Università_Padova.svg.png  used on input lin
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img/Logo_Università_Padova.svg.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 71.
+(Font)              <10.95> on input line 74.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 71.
+(Font)              <8> on input line 74.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 71.
+(Font)              <6> on input line 74.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -384,7 +384,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.85 \clearpage
+l.88 \clearpage
                 [1
 
 ] (./main.toc)
@@ -418,7 +418,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 \openout2 = `src/adr.aux'.
 
- (./src/adr.tex)
+ (./src/adr.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -430,10 +430,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-]
-\openout2 = `src/organization.aux'.
-
- (./src/organization.tex)
+])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -441,11 +438,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5
-
-
-
-]
+[5]
 \openout2 = `src/design.aux'.
 
  (./src/design.tex)
@@ -506,9 +499,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-\openout2 = `src/end.aux'.
+\openout2 = `src/organization.aux'.
 
- (./src/end.tex)
+ (./src/organization.tex)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -520,23 +513,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-] (./main.aux (./src/abstract.aux) (./src/adr.aux) (./src/organization.aux) (./src/design.aux) (./src/back-end.aux) (./src/front-end.aux) (./src/accessibility.aux) (./src/end.aux))
+]
+\openout2 = `src/end.aux'.
+
+ (./src/end.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[11
+
+
+
+] (./main.aux (./src/abstract.aux) (./src/adr.aux) (./src/design.aux) (./src/back-end.aux) (./src/front-end.aux) (./src/accessibility.aux) (./src/organization.aux) (./src/end.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 51C8D858CE7EF81757DB6AA5D56790DF;1058.
+(rerunfilecheck)             Checksum: CAE6D45BE9FA3B95B0FC9CF96EF7E108;1802.
  ) 
 Here is how much of TeX's memory you used:
- 11199 strings out of 478268
- 179715 string characters out of 5846346
- 495241 words of memory out of 5000000
- 29197 multiletter control sequences out of 15000+600000
- 473685 words of font info for 43 fonts, out of 8000000 for 9000
+ 11223 strings out of 478268
+ 180097 string characters out of 5846346
+ 499446 words of memory out of 5000000
+ 29214 multiletter control sequences out of 15000+600000
+ 474631 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,63p,295b,349s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on main.pdf (11 pages, 440672 bytes).
+ 60i,11n,63p,429b,394s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on main.pdf (12 pages, 468731 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 138 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 

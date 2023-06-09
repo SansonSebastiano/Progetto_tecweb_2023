@@ -1,3 +1,41 @@
 \section{Analisi dei Requisiti}
 \label{sec:analisi-dei-requisiti}
 
+Per il design del sito è stato necessario studiare il problema e definire le funzionalità opportune.\\
+Di seguito verranno elencati le tipologie di utenti a cui è rivolto con le relative funzionalità, si specifica che tali utenti verranno descritti rispettando l'ordine gerarchico dei permessi a loro assegnati, quelli con permessi più  elevati ereditano le funzionalità degli utenti con permessi inferiori.
+
+\subsection{Utenti}
+\label{subsec:utenti}
+
+\subsubsection{Utente non autenticato}
+Questa tipologia di utente non possiede un account, e può usufruire di tutte le seguenti funzionalità di lettura:
+\begin{itemize}
+    \item \textbf{Articoli}: possibilità consultare gli articoli presenti nel sito, il contenuto di ciascuno si può riferire ad una creatura in particolare;
+    \item \textbf{Creature}: possibilità di visualizzare le caratteristiche delle creature presenti nel sito;
+    \item \textbf{Lista degli articoli}: possibilità di effettuare una ricerca attraverso alcuni filtri;
+    \item \textbf{Lista delle creature}: elencate in ordine alfabetico;
+    \item \textbf{Classifica delle creature}: possibilità di visualizzare le creature ordinate secondo tre differenti criteri.
+\end{itemize}
+
+\subsubsection{Utente autenticato}
+Questa tipologia di utente possiede un account, e in aggiunta, può usufruire delle seguenti funzionalità:
+\begin{itemize}
+    \item \textbf{Login e Logout}: possibilità di accedere al sito tramite un form di login, che permette di accedere alle funzionalità riservate agli utenti che possiedono un account. Inoltre, è possibile effettuare il logout, che termina la sessione corrente;
+    \item \textbf{Votazione}: per ciascuna creatura è possibile esprimere un voto riguardante la sua esistenza, inoltre vi è la possibilità di retrocedere il voto precedentemente espresso, a causa di un errore di valutazione;
+    \item \textbf{Commenti}: per ciascun articolo vi è la possibilità di commentare il suo contenuto.
+\end{itemize}
+
+\subsubsection{Utente autore}
+Questa tipologia di utente, in aggiunta può usufruire della seguente funzionalità:
+\begin{itemize}
+    \item \textbf{Creazione di un articolo}: possibilità di creare un nuovo articolo, che può essere associato ad una creatura presente nel sito.
+\end{itemize}
+
+\subsubsection{Utente amministratore}
+Questa tipologia di utente, in aggiunta può usufruire delle seguenti funzionalità:
+\begin{itemize}
+    \item \textbf{Aggiunta di una creatura}: possibilità di aggiungere una nuova creatura al sito;
+    \item \textbf{Modifica di un articolo}: possibilità di modificare solamente il contenuto di un articolo;
+    \item \textbf{Rimozione di un articolo}: possibilità di rimuovere un articolo;
+    \item \textbf{Rimozione di una creatura}: possibilità di rimuovere una creatura;
+\end{itemize}
