@@ -64,19 +64,19 @@
                     <legend class="invisible">Aggiunta di una creatura</legend>
                     <div id = "div-name" class="form-input-wrapper">
                         <label class="info" for="name">Nome della creatura</label>
-                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="0" aria-label="Inserisci il nome della creatura" required maxlength="255"/>
+                        <input type="text" name="name" id="name" placeholder="Nome dell'animale" tabindex="0" required maxlength="255"/>
                         <p id="invalid-animal-name" class="error"><strong><error-name/></strong></p>
                     </div>
 
                     <div id = "div-date" class="form-input-wrapper">
                         <label class="info" for="date">Data di scoperta</label>
-                        <input type="date" name="date" id="date" tabindex="0" aria-label="Inserisci la data di scoperta della creatura" required/>
+                        <input type="date" name="date" id="date" tabindex="0" required/>
                         <p id="invalid-date" class="error"><strong><error-date/></strong></p>
                     </div>
 
                     <div id="div-status" class="form-input-wrapper">
                         <label class="info" for="status">Status creatura</label>
-                        <select id="status" name= "status" aria-label="seleziona lo status della creatura" tabindex="0" required>
+                        <select id="status" name= "status" tabindex="0" required>
                             <option value="scoperto">Scoperto</option>
                             <option value="ipotizzato">Ipotizzato</option>
                             <option value="avvistato">Avvistato</option>
@@ -86,15 +86,15 @@
 
                     <div id = "div-pic" class="form-input-wrapper">
                         <label class="info" for="image">Immagine della creatura</label>
-                        <input id="image" type="file" accept="image/*" aria-label="Seleziona una foto per la creatura" tabindex="0" required />
+                        <input id="image" type="file" accept="image/*" tabindex="0" required />
                         <input type="hidden" id="image-path" name="image-path" />
-                        <button type="button" id="btn-load" aria-label="Carica la foto della creatura" tabindex="7"></button>
+                        <button type="button" id="btn-load" aria-label="Carica la foto della creatura" tabindex="0"></button>
                         <p id="loaded-photo" class="error"><strong><error-img/></strong></p>
                     </div>
 
                     <div id="div-desc" class="form-input-wrapper">
                         <label class="info" for="description">Descrizione della creatura</label>
-                        <textarea name="description" id="description" placeholder="Inserisci del testo..." aria-label="Inserisci una descrizione" tabindex="0" autocomplete="off" required  minlength="20" maxlength="2000"></textarea>
+                        <textarea name="description" id="description" placeholder="Inserisci del testo..." tabindex="0" autocomplete="off" required  minlength="20" maxlength="2000"></textarea>
                         <p id="description-too-short" class="error"><strong><error-desc/></strong></p>
                     </div>
 
