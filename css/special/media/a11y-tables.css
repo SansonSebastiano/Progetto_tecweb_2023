@@ -1,0 +1,18 @@
+thead {
+    display: none;
+}
+
+tr, th, td {
+    display: block;
+    padding: 0;
+    white-space: normal;
+}
+
+th {
+    background-color: var(--color1);
+}
+
+th[data-title]::before, td[data-title]::before {
+    content: attr(data-title) ":\00a0";
+    font-weight: bold;
+}

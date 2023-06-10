@@ -1,7 +1,5 @@
 import { ref, articlesRef, uploadBytes, getDownloadURL} from './init-db.js';
 
-
-
 function uploadFile(e) {
     
     e.preventDefault();
@@ -42,7 +40,5 @@ function uploadFile(e) {
         status.classList.add("success")
     });
 }
-
-
 
 document.getElementById('btn-load').addEventListener('click', uploadFile);

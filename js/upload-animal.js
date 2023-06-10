@@ -44,6 +44,4 @@ function uploadFile(e) {
     });
 }
 
-
-
 document.getElementById('btn-load').addEventListener('click', uploadFile);
