@@ -6,9 +6,11 @@ if(isset($page)){
     $goUp = file_get_contents($modules_path . "go-up.html");
 
     if(isset($goUpPath)){
-        $goUp = str_replace("<go-up-path/>", $goUpPath, $goUp);
+        $goUp = str_replace("<path/>", $goUpPath, $goUp);
+        $goUp = str_replace("<path/>", $goUpPath, $header);
     }else{
-        $goUp = str_replace("<go-up-path/>", "./", $goUp);
+        $goUp = str_replace("<path/>", "./", $goUp);
+        $goUp = str_replace("<path/>", "./", $header);
     }
 
     $page = str_replace("<header/>", $header, $page);
