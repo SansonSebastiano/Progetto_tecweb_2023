@@ -12,7 +12,7 @@
     include $php_path . "template-loader.php";
 
     if ($_SESSION['ruolo'] != 'admin') {
-        header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        header("Location: " . $index_ref);
         exit();
     }
 

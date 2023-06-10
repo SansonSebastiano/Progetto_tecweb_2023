@@ -17,9 +17,10 @@ section {
 }
 
 .index{
-    background-color: var(--color2);
     padding: 1em;
     margin: 2em;
+    border: 0.5em solid var(--color2);
+    border-radius: 1em;
 }
 
 

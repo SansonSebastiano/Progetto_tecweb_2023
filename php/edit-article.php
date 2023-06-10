@@ -33,7 +33,7 @@
 
                 $mysqli->close();
                 
-                header("Location: ./pages/article.php?article=" . $_GET["article"]);
+                header("Location: " . $article_ref . "?article=" . $_GET["article"]);
                 exit();
             }
             else {

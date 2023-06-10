@@ -3,10 +3,10 @@
 
     $log_in_out = " ";
 
-    // logout
+    
     $logoutPath = $root_client_side . "php" . DIRECTORY_SEPARATOR . "logout.php";
     $logout_ref = "<a href=\"" . $logoutPath . "\" tabindex='0'>" . $icon_logout_ref . "</a>";
-    // login
+    
     $loginPath = $root_client_side . "php" . DIRECTORY_SEPARATOR . "login.php";
     $login_ref = "<a href=\"" . $loginPath . "\" tabindex='0'>Accedi</a>";
 
@@ -14,7 +14,7 @@
         session_start();
     }
 
-    // check user privileges
+    
     if (isset($_SESSION["ruolo"])) {
         $log_in_out = $_SESSION["ruolo"] == GUEST_ROLE ? $login_ref : $logout_ref;
     } else {

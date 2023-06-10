@@ -90,12 +90,12 @@ function validate() {
 
 const checkbox = document.getElementById("featured");
 
-// check if the checkbox is focused
+
 checkbox.addEventListener("focus", function() { 
-    // check if enter key is pressed
+    
     checkbox.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-            // check if the checkbox is checked
+            
             if (checkbox.checked) {
                 checkbox.checked = false;
                 checkbox.dispatchEvent(new Event("change"));
@@ -107,12 +107,12 @@ checkbox.addEventListener("focus", function() {
     });
 });
 
-// check if the checkbox is not focused
+
 checkbox.addEventListener("blur", function() {
     checkbox.setAttribute("aria-label", "Seleziona se inserire l'articolo in evidenza");                
 });
 
-// check if the checkbox is checked
+
 checkbox.addEventListener("change", function() {
     if (checkbox.checked) {
         checkbox.setAttribute("aria-label", "Articolo in evidenza selezionato");

@@ -22,7 +22,7 @@
         $id = $data[0];
         
         if ($idResult) {
-            // free the result set
+            
             $idResult->free_result();
         }
         $sql = "INSERT INTO `risposta` (`figlio`, `padre`) VALUES ('$id', '$commentoPadre')";
@@ -32,7 +32,7 @@
     
     if ($queryResult) {
         $mysqli->close();
-        header("Location: " . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "article.php?article=$article");
+        header("Location: " . $article_ref . "?article=$article");
         exit();
     }
     

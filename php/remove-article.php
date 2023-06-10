@@ -12,7 +12,7 @@
 
         if ($queryResult) {
             $mysqli->close();
-            header("Location:" . "." . DIRECTORY_SEPARATOR . "pages" . DIRECTORY_SEPARATOR . "admin-article-list.php" );
+            header("Location: " . $admin_page_article_list_ref);
             exit();
         }
     }

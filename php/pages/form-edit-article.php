@@ -13,7 +13,7 @@
     include $php_path . "template-loader.php";
 
     if ($_SESSION['ruolo'] != 'admin') {
-        header("Location: " . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "index.php ");
+        header("Location: " . $index_ref);
         exit();
     }
 
@@ -32,16 +32,14 @@
         $query = "SELECT * FROM articolo WHERE id = " . $articleId;
         $queryResult = mysqli_query($mysqli, $query);
 
-        if (!$queryResult) {
+        $result = mysqli_fetch_assoc($queryResult);
+
+        if (!$result) {
             $mysqli->close();
-            header("Location: " . $html_path . "404.html");
+            header("Location: " . $html_ref . "404.html");
             exit();
         }
-
-        $result = mysqli_fetch_assoc($queryResult);
         
-        $queryResult->free_result();
-
         $articleTitle = $result["titolo"];
         $articleContent = $result["contenuto"];
 
@@ -61,9 +59,12 @@
             $page = str_replace("<result/>","", $page);
             $page = str_replace("<error-text/>","", $page);
         }
+
+        $queryResult->free_result();
+
     } else {
         $mysqli->close();
-        header("Location: " . $html_path . "404.html");
+        header("Location: " . $html_ref . "404.html");
         exit();
     }
 

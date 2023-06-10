@@ -13,7 +13,7 @@ ul {
     padding-left: 0;
 }
 
-/* ========================= ARTICLE GRID ========================= */
+
 
 #article-grid-div {
     display: grid;
@@ -53,9 +53,9 @@ ul {
     font-weight: bold;
 }
 
-/* ============= SEARCH BOX ============= */
 
-/* da togliere width:75% per schermi piccoli */
+
+
 #search-form {
     background-image: url("../images/icons/lens.png");
     background-repeat: no-repeat;

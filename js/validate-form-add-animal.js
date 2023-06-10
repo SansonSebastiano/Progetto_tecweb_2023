@@ -53,8 +53,8 @@ function checkLength(input,output,minLength,maxLength,noValueText,tooLongText){
     return true
 }
 
-//Controlla se è stata caricata un'immagine su firebase
-//Il trucco è che se è stata caricata, il campo imagePath.value non è vuoto
+
+
 function isImageUploaded(){
     const status = document.getElementById("loaded-photo")
     const strong = status.getElementsByTagName("strong").item(0)
@@ -71,7 +71,7 @@ function isImageUploaded(){
     return true
 }
 
-//Funzione che viene chiamata quando si preme il pulsante di submit del form
+
 function validate() {
 
     const dateBool = checkLength("date","invalid-date",1,999,"Inserire una data","") && checkValidation("date","invalid-date",/\d{4}\-\d{2}\-\d{2}/,"La data non è nel formato corretto")

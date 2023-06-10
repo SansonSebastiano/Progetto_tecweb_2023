@@ -17,7 +17,7 @@ section {
 }
 
 
-/** SEZIONE INIZIALE **/
+
 
 #animal-description-flexbox {
     align-items: center;
@@ -50,7 +50,7 @@ section {
     text-shadow: 0.1em 0.1em 0.8em darkgoldenrod;
 }
 
-/** VOTAZIONI **/
+
 .vertical-flex{
     display: flex;
     gap: 1em;
@@ -157,8 +157,12 @@ section {
     border-radius: var(--image-radius-corner);
 }
 
-
-/** LISTA ARTICOLI CORRELATI **/
+#btn-remove-vote {
+    display: block;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 
 #related-articles-list{
     margin: auto;
@@ -167,7 +171,7 @@ section {
     align-items: stretch;
 }
 
-#related-articles-list > li:nth-child(even), #animal-stats tr:nth-child(even) {
+#animal-stats tr:nth-child(even) {
     background-color: var(--color2);
 }
 

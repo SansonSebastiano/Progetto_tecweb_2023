@@ -13,16 +13,16 @@
 
     if (isset($voteType) && !empty($voteType) && isset($animal) && !empty($animal)) {
         if ($voteType === "yes") {
-            // read
+            
             $readQuery = 'SELECT nome, YES FROM view_animale_voto WHERE nome = "'. $animal . '";';
             $readQueryResult = mysqli_query($mysqli, $readQuery);
             $result = mysqli_fetch_assoc($readQueryResult);
             $yes = $result['YES'];
 
-            // write
+            
             $writeQueryResult = mysqli_query($mysqli, $writeQuery);
 
-            // check if write is ok
+            
             if ($writeQueryResult) {
                 $yes = $yes - 1;
                 if ($yes <= 0) {
@@ -32,16 +32,16 @@
                 }
             }
         } else {
-            // read
+            
             $readQuery = 'SELECT nome, NO FROM view_animale_voto WHERE nome = "'. $animal . '";';
             $readQueryResult = mysqli_query($mysqli, $readQuery);
             $result = mysqli_fetch_assoc($readQueryResult);
             $no = $result['NO'];
 
-            // write
+            
             $writeQueryResult = mysqli_query($mysqli, $writeQuery);
 
-            // check if write is ok
+            
             if ($writeQueryResult) {
                 $no = $no - 1;
                 if ($no <= 0) {

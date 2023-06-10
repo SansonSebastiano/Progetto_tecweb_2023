@@ -26,7 +26,7 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    // ANIMAL SECTION
+    
     if($_GET["animale"]){
         $animal = clearInput($_GET["animale"]);
         $query = 'SELECT * FROM animale WHERE nome = "'. $animal . '";';
@@ -58,7 +58,7 @@
         $page = str_replace("<animal-image/>",$image,$page);
         //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
 
-        // VOTES SECTION
+        
         $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
         $result = mysqli_fetch_assoc($queryResult);
@@ -81,7 +81,7 @@
 
         $voting_section = file_get_contents($modules_path . "animal-voting-section.html");
         
-        // un utente può esprimere un solo voto per ciascun animale
+        
         if(isset($_SESSION["id"])){
             $queryTwo = 'SELECT * FROM voto WHERE animale = "'. $_GET["animale"] . '" AND utente = "' . $_SESSION["id"] . '";';
             $queryResultTwo = mysqli_query($mysqli, $queryTwo);
@@ -104,19 +104,19 @@
         
         $voting_section = str_replace("<animal-name/>", $_GET["animale"], $voting_section);
 
-        // abilita la sezione voto se l'utente e' loggato
+        
         if ($_SESSION['ruolo'] != 'guest') {
             $page = str_replace("<animal-voting-section/>", $voting_section, $page);
         } else {
             $page = str_replace("<animal-voting-section/>", "", $page);
         }
 
-        // RELATED ARTICLES SECTION
+        
         $queryThree = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data LIMIT 3;';
         $queryResultThree = mysqli_query($mysqli, $queryThree);
 
         if(!$queryResultThree){
-            header("Location: " .  $php_path . DIRECTORY_SEPARATOR . "404.php");
+            header("Location: " .  $php_path  . "404.php");
             exit();
         }
 

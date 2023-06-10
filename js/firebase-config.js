@@ -1,4 +1,4 @@
-// Your web app's Firebase configuration
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBqkVhesuEyMshcBRKRv53g5d-j5FsUN1M",
   authDomain: "elusive-f3c33.firebaseapp.com",

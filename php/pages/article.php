@@ -30,16 +30,16 @@
         $articleId = clearInput($_GET["article"]);
         $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
         $queryResult = mysqli_query($mysqli, $query);
-        if(!$queryResult){
+
+        $result = mysqli_fetch_assoc($queryResult);
+        if(!$result){
             $mysqli->close();
 
             header("Location: " . $php_path . "404.php");
             exit();
         }
-
-        $result = mysqli_fetch_assoc($queryResult);
         
-        $queryResult->free_result();
+        
 
         $articleTitle = $result["titolo"];
         $articleSubTitle = $result["descrizione"];
@@ -60,6 +60,9 @@
         $page = str_replace("<article-place/>",$articlePlace,$page);
         $page = str_replace("<article-content/>",$articleContent,$page);
 
+        $queryResult->free_result();
+
+        
         $query = 'SELECT nome_animale FROM articolo WHERE id = "'. $_GET["article"] . '";';
         $queryResult = mysqli_query($mysqli, $query);
 

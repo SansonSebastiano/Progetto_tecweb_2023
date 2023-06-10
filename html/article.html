@@ -36,7 +36,7 @@
         <nav id = "breadcrumb" aria-label="Ti trovi nella pagina dell'articolo">
             <img src="../../images/icons/home.png" alt="Home di eLusive"/>
             <p>
-                <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a> ●
+                <a href="../../index.php" tabindex="0"><span lang="en">Homepage</span></a>/ ●
                 <a href="article-list.php" tabindex="0">Articoli</a> ●
                 <article-title/>
             </p>
@@ -47,7 +47,7 @@
                 <article>
                     <h2 id="article-title"><article-title/></h2>
                     <h3 id = "subtitle"><article-subtitle/></h3>
-                    <img src = "<article-image/>" alt="<article-image-alt/>">
+                    <img src = "<article-image/>" alt="<article-image-alt/>"/>
                     <div id = "text-div1">
                         <aside>
                             <dl>
@@ -74,8 +74,8 @@
             <section id = "shoutbox-section">
                 <h2>Commenti</h2>
                 <form action="../add-comment.php" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="hidden-article" value="<article-id/>">
-                    <input type="hidden" name="hidden-bool" value="false">
+                    <input type="hidden" name="hidden-article" value="<article-id/>"/>
+                    <input type="hidden" name="hidden-bool" value="false"/>
                     <div id="new-reply" class = "div-reply <to-hide/>">
                         <textarea id="textcomment" name="text" tabindex="0"></textarea>
                         <button type="submit" class="btn-send" tabindex="0">Commenta</button>
