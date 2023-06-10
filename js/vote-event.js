@@ -1,10 +1,11 @@
 document.getElementById("btn-exist").addEventListener("click", function(){addVote("upvote")})
 document.getElementById("btn-non-exist").addEventListener("click", function(){addVote("downvote")})
+document.getElementById("btn-remove-vote").addEventListener("click", function(){removeVote()})
 
 function addVote(voteType) {
 
-    let matches = /animale=([^&#=]*)/.exec(window.location.search);
-    let animalName = matches[1];
+    const matches = /animale=([^&#=]*)/.exec(window.location.search);
+    const animalName = matches[1];
 
     let xmlhttp = new XMLHttpRequest();
     let btnUpvote = document.getElementById("btn-exist");
@@ -27,13 +28,17 @@ function addVote(voteType) {
     xmlhttp.send();
 }
 
-function removeVote(animal, voteType) {
+function removeVote() {
+    const matches = /animale=([^&#=]*)/.exec(window.location.search);
+    const animalName = matches[1];
+
+    const voteString = document.getElementById("msg-vote").innerHTML;
     let xmlhttp = new XMLHttpRequest();
     let btnRemoveVote = document.getElementById("btn-remove-vote");
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            if (voteType == 'yes') {
+            if (voteString.indexOf("<span class='green'>sì</span>") !== -1) {
                 document.getElementById("exist-votes").innerHTML = this.responseText;
             } else {
                 document.getElementById("non-exist-votes").innerHTML = this.responseText;
@@ -45,5 +50,5 @@ function removeVote(animal, voteType) {
     xmlhttp.open("POST", "../remove-vote.php", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     
-    xmlhttp.send("animale=" + animal + "&voteType=" + voteType);
+    xmlhttp.send("animale=" + animalName + "&voteType=" + voteType);
 }
