@@ -25,8 +25,6 @@
         $dataScoperta = clearInput($_POST['date']);
         $path = clearInput($_POST['image-path']);
 
-
-        
         if(strlen($nome) == 0){
             $errorCodes["nome"] = 1;
             $errorFlag = True;

@@ -97,6 +97,7 @@
             } else {
                 $voting_section = str_replace("<is-btn-add-disabled/>", '', $voting_section);
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
+                $voting_section = str_replace("<animal-vote-msg/>", '', $voting_section);
                 $voting_section = str_replace("<is-btn-remove-disabled/>", 'disabled', $voting_section);
             }
             $queryResultTwo->free_result();
