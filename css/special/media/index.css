@@ -1,11 +1,14 @@
-@media only screen and (max-width:900px) {
+@media only screen and (max-width:900px), (orientation:portrait){
     #main-aside-wrapper {
         flex-direction: column;
     }
 
     aside a {
-        float: none;
         text-align: center;
+    }
+
+    #link-list {
+        float: none;
     }
 
     aside ul {
@@ -23,7 +26,7 @@
     
 }
 
-@media only screen and (min-width:901px) {
+@media only screen and (min-width:901px) and (orientation:landscape) {
 
     #link-list {
         float: right;

@@ -23,8 +23,8 @@ function addVote(voteType) {
         }
     };
 
-    xmlhttp.open("POST", "../add-vote.php?animale=" + animalName + "&voteType=" + voteType, true);
-    xmlhttp.send();
+    xmlhttp.open("POST", "../add-vote.php", true);
+    xmlhttp.send("animale=" + animalName + "&voteType=" + voteType);
 }
 
 function removeVote(animal, voteType) {

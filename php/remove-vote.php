@@ -6,8 +6,8 @@
         session_start();
     }
 
-    $voteType = $_GET["voteType"];
-    $animal = $_GET["animale"];
+    $voteType = $_POST["voteType"];
+    $animal = $_POST["animale"];
 
     $writeQuery = 'DELETE FROM `voto` WHERE utente="' . $_SESSION["id"] . '" AND animale= "' . $animal . '";';
 
