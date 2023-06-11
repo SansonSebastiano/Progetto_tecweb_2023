@@ -92,7 +92,6 @@
 
     $entriesThree = "";
     while ($resultThree = mysqli_fetch_assoc($queryResultThree)) {
-
         $entryThree = $article;
         $entryThree = str_replace("<article-img/>", $resultThree["image_path"], $entryThree);
         $entryThree = str_replace("<article-img-alt/>", $resultThree["alt"], $entryThree);

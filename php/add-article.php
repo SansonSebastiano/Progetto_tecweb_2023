@@ -73,7 +73,7 @@
         $creatura = filter_var($creatura, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(!$errorFlag){
-            $alt = "Immagine per l'articolo: " . $titolo;
+            $alt = filter_var("Immagine per l'articolo: " . $titolo, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             if(strlen($creatura) > 0)
             {
@@ -84,14 +84,14 @@
                     $errorCodes["submit"] = 3;
 
                 }else{   
-                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura', '$alt')";
+                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura', '$alt');";
                     $queryResult = mysqli_query($mysqli,$sql);
                     $errorCodes["submit"] = $queryResult ? 1 : 2;
                 }
             }
             else
             {
-                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL, '$alt')";
+                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL, '$alt');";
                 $queryResult = mysqli_query($mysqli,$sql);
 
                 $errorCodes["submit"] = $queryResult ? 1 : 2;
