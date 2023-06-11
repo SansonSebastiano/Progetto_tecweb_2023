@@ -12,4 +12,4 @@
 \contentsline {section}{\numberline {5}Implementazione Front-end}{8}{section.5}%
 \contentsline {section}{\numberline {6}Accessibilità}{9}{section.6}%
 \contentsline {section}{\numberline {7}Suddivisione del lavoro}{10}{section.7}%
-\contentsline {section}{\numberline {8}Note finali}{11}{section.8}%
+\contentsline {section}{\numberline {8}Note finali}{12}{section.8}%
