@@ -64,6 +64,7 @@ main {
     border-style: inset;
     border-radius: 1em;
     padding-left: 1em;
+    background-color: var(--color3);
 }
 
 #input-by-cat {
@@ -72,6 +73,7 @@ main {
     text-align: center;
     border-radius: 1em;
     text-transform: uppercase;
+    background-color: var(--color4);
 }
 
 .larger {

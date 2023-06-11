@@ -50,13 +50,14 @@
         $image = $result["image_path"];
         $scoperta = $result["data_scoperta"];
         $status = $result["status"];
+        $animaleImageAlt = $result["alt"];
 
         $page = str_replace("<animal-name/>",$animalName,$page);
         $page = str_replace("<animal-description/>",$description,$page);
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
         $page = str_replace("<animal-image/>",$image,$page);
-        //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
+        $page = str_replace("<animal-image-alt/>",$animaleImageAlt,$page);
 
         
         $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
@@ -132,12 +133,13 @@
             $articleId = $articleResult["id"];
             $articleTag = $articleResult["tag"];
             $articleImg = $articleResult["image_path"];
+            $articleImgAlt = $articleResult["alt"];
             
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
             $article = str_replace("<article-tag/>",$articleTag,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
-            //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
+            $article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
             $relArticles .= $article;
         }

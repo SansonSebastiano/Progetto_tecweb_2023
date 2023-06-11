@@ -73,6 +73,8 @@
         $creatura = filter_var($creatura, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(!$errorFlag){
+            $alt = "Immagine per l'articolo: " . $titolo;
+
             if(strlen($creatura) > 0)
             {
                 $animal = "SELECT * FROM animale WHERE nome = '$creatura'";
@@ -82,14 +84,14 @@
                     $errorCodes["submit"] = 3;
 
                 }else{   
-                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura')";
+                    $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', '$creatura', '$alt')";
                     $queryResult = mysqli_query($mysqli,$sql);
                     $errorCodes["submit"] = $queryResult ? 1 : 2;
                 }
             }
             else
             {
-                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL)";
+                $sql = "INSERT INTO `articolo` (`autore`,`titolo`, `data`, `luogo`, `descrizione`,`contenuto`, `image_path`,`tag`,`featured`,`nome_animale`, `alt`) VALUES ('$autore', '$titolo', NOW(), '$luogo', '$sottotitolo', '$testo', '$path', '$tag', '$featured', NULL, '$alt')";
                 $queryResult = mysqli_query($mysqli,$sql);
 
                 $errorCodes["submit"] = $queryResult ? 1 : 2;

@@ -6,8 +6,8 @@
         session_start();
     }
 
-    $voteType = $_REQUEST["voteType"];
-    $animal = $_REQUEST["animale"];
+    $voteType = $_GET["voteType"];
+    $animal = $_GET["animale"];
 
     if (isset($voteType) && !empty($voteType) && isset($animal) && !empty($animal)) {
         if ($voteType === "upvote") {
