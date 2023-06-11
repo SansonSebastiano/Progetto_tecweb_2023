@@ -6,23 +6,26 @@
         session_start();
     }
 
-    $voteType = $_GET["voteType"];
-    $animal = $_GET["animale"];
+    $animal = $_REQUEST["animale"];
+    $selectVote = 'SELECT * FROM `voto` WHERE utente="' . $_SESSION["id"] . '" AND animale= "' . $animal . '";';
+
+    $selectQueryResult = mysqli_query($mysqli, $selectVote);
+    $result = mysqli_fetch_assoc($selectQueryResult);
+    
+    $voteType = $result['voto'];
 
     $writeQuery = 'DELETE FROM `voto` WHERE utente="' . $_SESSION["id"] . '" AND animale= "' . $animal . '";';
 
     if (isset($voteType) && !empty($voteType) && isset($animal) && !empty($animal)) {
-        if ($voteType === "yes") {
+        if ($voteType === "YES") {
             
             $readQuery = 'SELECT nome, YES FROM view_animale_voto WHERE nome = "'. $animal . '";';
             $readQueryResult = mysqli_query($mysqli, $readQuery);
             $result = mysqli_fetch_assoc($readQueryResult);
             $yes = $result['YES'];
 
-            
             $writeQueryResult = mysqli_query($mysqli, $writeQuery);
 
-            
             if ($writeQueryResult) {
                 $yes = $yes - 1;
                 if ($yes <= 0) {
@@ -38,10 +41,8 @@
             $result = mysqli_fetch_assoc($readQueryResult);
             $no = $result['NO'];
 
-            
             $writeQueryResult = mysqli_query($mysqli, $writeQuery);
 
-            
             if ($writeQueryResult) {
                 $no = $no - 1;
                 if ($no <= 0) {

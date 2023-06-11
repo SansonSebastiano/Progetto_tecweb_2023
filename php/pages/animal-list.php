@@ -13,8 +13,11 @@
     $animal_entry = file_get_contents($modules_path . "animal-entry.html");
     $page = file_get_contents($html_path . "animal-list.html");
 
-    
-   if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
+    // IDENTIFICATION SECTION
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
         $page = str_replace("<user-img/>", $icon_user_ref, $page);
     } else {
@@ -29,6 +32,12 @@
     $query = "SELECT nome,descrizione,status FROM animale WHERE nome REGEXP '^[^a-zA-Z]' ORDER BY nome ASC;";
     $queryResult = mysqli_query($mysqli, $query);
     $row = "";
+
+    if (!$queryResult) {
+        $mysqli->close();
+        header("Location: " . $php_path . "404.php");
+        exit();
+    }
 
     $navigator = "";
     $all_sections = "";

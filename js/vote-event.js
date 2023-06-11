@@ -1,7 +1,11 @@
-function addVote(animal, voteType) {
+document.getElementById("btn-exist").addEventListener("click", function(){addVote("upvote")})
+document.getElementById("btn-non-exist").addEventListener("click", function(){addVote("downvote")})
+document.getElementById("btn-remove-vote").addEventListener("click", function(){removeVote()})
 
-    //let matches = /animale=([^&#=]*)/.exec(window.location.search);
-    //let animalName = matches[1];
+function addVote(voteType) {
+
+    const matches = /animale=([^&#=]*)/.exec(window.location.search);
+    const animalName = matches[1];
 
     let xmlhttp = new XMLHttpRequest();
     let btnUpvote = document.getElementById("btn-exist");
@@ -20,17 +24,22 @@ function addVote(animal, voteType) {
         }
     };
 
-    xmlhttp.open("GET", "../add-vote.php?animale=" + animal + "&voteType=" + voteType, true);
+    xmlhttp.open("GET", "../add-vote.php?animale=" + animalName + "&voteType=" + voteType, true);
     xmlhttp.send();
 }
 
-function removeVote(animal, voteType) {
+function removeVote() {
+    const matches = /animale=([^&#=]*)/.exec(window.location.search);
+    const animalName = matches[1];
+
+    const voteString = document.getElementById("msg-vote");
     let xmlhttp = new XMLHttpRequest();
     let btnRemoveVote = document.getElementById("btn-remove-vote");
 
+    const voteType = voteString.getElementsByClassName("green").length > 0 ? "upvote" : "downvote";
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            if (voteType == 'yes') {
+            if (voteType == "upvote") {
                 document.getElementById("exist-votes").innerHTML = this.responseText;
             } else {
                 document.getElementById("non-exist-votes").innerHTML = this.responseText;
@@ -39,6 +48,6 @@ function removeVote(animal, voteType) {
             window.location.reload();
         }
     };
-    xmlhttp.open("GET", "../remove-vote.php?animale=" + animal + "&voteType=" + voteType, true);
+    xmlhttp.open("GET", "../remove-vote.php?animale=" + animalName, true);
     xmlhttp.send();
 }

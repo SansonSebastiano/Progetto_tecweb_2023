@@ -80,6 +80,7 @@ ul {
     position: relative;
 }
 
+
 #fieldset-warning {
     color: var(--color2);
     font-style: italic;
@@ -109,6 +110,7 @@ ul {
     border-style: inset;
     border-radius: 1em;
     padding-left: 1em;
+    background-color: var(--color3);
 }
 
 #input-by-cat {
@@ -117,6 +119,7 @@ ul {
     text-align: center;
     border-radius: 1em;
     text-transform: uppercase;
+    background-color: var(--color4);
 }
 
 .larger {

@@ -19,6 +19,8 @@
 
     $page = file_get_contents($html_path . "form-login.html");
 
+    $goUpPath = "../";
+    include $php_path . "template-loader.php";
     $username = "";
     $password = "";
     $resultString = "";

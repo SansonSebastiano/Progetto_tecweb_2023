@@ -12,8 +12,11 @@
 
     $page = file_get_contents($html_path . "animal.html");
 
-    
-   if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
+    // IDENTIFICATION SECTION
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
         $page = str_replace("<user-img/>", $icon_user_ref, $page);
     } else {
@@ -28,12 +31,17 @@
         $animal = clearInput($_GET["animale"]);
         $query = 'SELECT * FROM animale WHERE nome = "'. $animal . '";';
         $queryResult = mysqli_query($mysqli, $query);
+        if(!$queryResult){
+            $mysqli->close();
+            header("Location: " . $php_path . "404.php");
+            exit();
+        }
 
         $result = mysqli_fetch_assoc($queryResult);
 
         if(!$result){
             $mysqli->close();
-            header("Location: " . $html_ref . "404.html");
+            header("Location: " . $php_path . "404.php");
             exit();
         }
 
@@ -42,13 +50,14 @@
         $image = $result["image_path"];
         $scoperta = $result["data_scoperta"];
         $status = $result["status"];
+        $animaleImageAlt = $result["alt"];
 
         $page = str_replace("<animal-name/>",$animalName,$page);
         $page = str_replace("<animal-description/>",$description,$page);
         $page = str_replace("<data-scoperta/>",$scoperta,$page);
         $page = str_replace("<animal-status/>",ucfirst($status),$page);
         $page = str_replace("<animal-image/>",$image,$page);
-        //$page = str_replace("<animal-image-alt/>",$image_alt,$page);
+        $page = str_replace("<animal-image-alt/>",$animaleImageAlt,$page);
 
         
         $query = 'SELECT YES, NO FROM view_animale_voto WHERE nome = "'. $_GET["animale"] . '";';
@@ -89,6 +98,7 @@
             } else {
                 $voting_section = str_replace("<is-btn-add-disabled/>", '', $voting_section);
                 $voting_section = str_replace("<vote-msg/>", '', $voting_section);
+                $voting_section = str_replace("<animal-vote-msg/>", '', $voting_section);
                 $voting_section = str_replace("<is-btn-remove-disabled/>", 'disabled', $voting_section);
             }
             $queryResultTwo->free_result();
@@ -99,11 +109,18 @@
         
         if ($_SESSION['ruolo'] != 'guest') {
             $page = str_replace("<animal-voting-section/>", $voting_section, $page);
+        } else {
+            $page = str_replace("<animal-voting-section/>", "", $page);
         }
 
         
         $queryThree = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" ORDER BY data LIMIT 3;';
         $queryResultThree = mysqli_query($mysqli, $queryThree);
+
+        if(!$queryResultThree){
+            header("Location: " .  $php_path  . "404.php");
+            exit();
+        }
 
         $articleResult = mysqli_fetch_assoc($queryResultThree);
 
@@ -116,12 +133,13 @@
             $articleId = $articleResult["id"];
             $articleTag = $articleResult["tag"];
             $articleImg = $articleResult["image_path"];
+            $articleImgAlt = $articleResult["alt"];
             
             $article = str_replace("<article-title/>",$articleTitle,$article);
             $article = str_replace("<article-id/>",$articleId,$article);
             $article = str_replace("<article-tag/>",$articleTag,$article);
             $article = str_replace("<image-article/>",$articleImg,$article);
-            //$article = str_replace("<image-alt/>",$articleImgAlt,$article);
+            $article = str_replace("<image-alt/>",$articleImgAlt,$article);
             
             $relArticles .= $article;
         }
