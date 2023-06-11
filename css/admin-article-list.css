@@ -79,47 +79,10 @@ main {
 }
 
 
-
-.article-table{
+table{
     width: 90%;
-    background-color: white;
-    border-collapse: separate;
-    border-radius: 2.5em 0 2.5em 0;
-    margin: 0 auto;
-    box-shadow: 1px 1px 5px gray;
 }
 
-.article-table tbody tr:last-of-type td:last-of-type{
-    border-bottom-right-radius: 2.5em;
-}
-
-.article-table th:first-child{
-    width: 30%;
-    word-break: break-all;
-    padding: 1%;
-}
-
-.article-table th:last-child{
-    width: 25%;
-}
-
-.article-table thead th{
-    color: var(--color3);
-    background-color: var(--color1);
-}
-
-.article-table thead th:first-of-type{
-    border-top-left-radius: 2.5em;
-}
-
-.article-table tr:nth-child(even) *{
-    background-color: var(--color4);
-}
-
-.article-table td:first-child, .animal-table th:first-child {
-    border-left: none;
-}
-
-.article-table td:last-child, .animal-table th:last-child {
+td:last-child{
     text-align: center;
 }

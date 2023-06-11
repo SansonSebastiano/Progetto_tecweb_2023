@@ -1,18 +1,82 @@
-thead {
-    display: none;
+table{
+    border-radius: 1.7em 0 1.7em 0;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px gray;
 }
 
-tr, th, td {
-    display: block;
-    padding: 0;
-    white-space: normal;
+tbody tr:nth-child(odd) td{
+    background-color: var(--color3);
 }
 
-th {
-    background-color: var(--color1);
+tbody tr:nth-child(odd) th{
+    background-color: var(--color3);
 }
 
-th[data-title]::before, td[data-title]::before {
-    content: attr(data-title) ":\00a0";
-    font-weight: bold;
+tbody tr:nth-child(even) td{
+    background-color: var(--color4);
+}
+
+tbody tr:nth-child(even) th{
+    background-color: var(--color4);
+}
+
+thead th:first-of-type{
+    border-top-left-radius: 2.5em;
+}
+@media only screen and (max-width:900px) {
+
+    table, th, td {
+        border-radius: 0;
+    }
+
+    td {
+        text-align: center;
+        border-bottom: 1px solid var(--color4);
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr, th, td {
+        display: block;
+        padding: 0;
+        white-space: normal;
+    }
+
+    th {
+        background-color: var(--color1);
+        width: 100%;
+    }
+
+    tbody tr:nth-child(odd) th{
+        background-color: var(--color1);
+    }
+
+    tbody tr:nth-child(even) th{
+        background-color: var(--color1);
+    }
+
+    th[data-title]::before, td[data-title]::before {
+        content: attr(data-title) ":\00a0";
+        font-weight: bold;
+    }
+
+}
+
+@media only screen and (min-width:901px) {
+
+    thead th{
+        color: white;
+        background-color: var(--color1);
+    }
+
+    th:first-child{
+        width: 30%;
+        word-break: break-all;
+    }
+
+    tbody tr:last-of-type td:last-child {
+        border-radius: 0 0 2em 0;
+    }
 }
