@@ -21,7 +21,7 @@
 
     </head>
 
-    <body>
+    <body onload="loadPage();">
         <div id="identification">
             <greet/>
             <span id="username">
@@ -65,19 +65,19 @@
                         <th scope="colgroup" colspan="2" abbr="Nome">
                             Nome creatura
                             <div>
-                                <button id="btn-name-order" type="button" tabindex="0" >↑↓</button>
+                                <button id="btn-name-order" type="button" tabindex="0" aria-label="Classifica in ordine alfabetico">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
                             <img src="../../images/icons/thumb-up-2.png" alt="Voti che esprimono l'esistenza"/>
                             <div>
-                                <button id="btn-up-order" type="button" class="white"  tabindex="0">↑↓</button>
+                                <button id="btn-up-order" type="button" class="white"  tabindex="0" aria-label="Ordina in maniera decrescente">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" lang="en" class="vote">
                             <img src="../../images/icons/thumb-down-2.png" alt="Voti che esprimono l'inesistenza"/>
                             <div>
-                                <button id="btn-down-order" type="button" class="white"  tabindex="0">↑↓</button>
+                                <button id="btn-down-order" type="button" class="white"  tabindex="0" aria-label="Ordina in maniera crescente">↑↓</button>
                             </div>
                         </th>
                         <th scope="col" abbr="Status">Status attuale</th>
