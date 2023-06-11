@@ -51,7 +51,7 @@
             $errorCodes["data"] = 1;
             $errorFlag = True;   
         }
-        else if(!preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataScoperta)){ 
+        else if(!preg_match("/^\d{4}-\d{2}-\d{2}$/", $dataScoperta)){ 
             $errorCodes["data"] = 2;
             $errorFlag = True;   
         }

@@ -29,11 +29,11 @@
     $errTag = [0 => "", 1 => "Inserisci un tag valido"];
     $errTesto =  [0 => "", 1 => "Il testo dell'articolo deve essere lungo almeno 20 caratteri"];
     $errImg = [0 => "", 1 => "Non è stata caricata alcuna immagine"];
-    $errAnimal = [0 => "", 1 => "Il nome dell'animale riferito dall'articolo non può contenere caratteri speciali"];
+    $errAnimal = [0 => "", 1 => "Il nome della creatura riferita dall'articolo non può contenere caratteri speciali"];
     $errSubmit =   [0 => "",
                     1 => "<p class='success'><strong>Articolo inserito con successo</strong></p>", 
                     2 => "<p class='error'><strong>Errore nell'inserimento dell'articolo</strong></p>",
-                    3 => "<p class='error'><strong>L'animale riferito non è stato trovato</strong></p>"];
+                    3 => "<p class='error'><strong>La creatura riferito non è stato trovato</strong></p>"];
                     
     if(isset($_SESSION["error-codes"]))
     {

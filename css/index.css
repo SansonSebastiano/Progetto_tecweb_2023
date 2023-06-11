@@ -133,6 +133,10 @@ main h2 {
     width:inherit;
 }
 
+.article a:nth-child(2){
+    font-size: 1.2em;
+}
+
 .article * {
     margin-top: 0;
     margin-bottom: 0.5em;
@@ -168,10 +172,6 @@ aside ol {
 
 aside section {
     margin-bottom: 2em;
-}
-
-aside li {
-    font-weight: bold;
 }
 
 aside figure {

@@ -70,6 +70,7 @@ dt {
 #shoutbox {
     max-height: 60vh;
     overflow-y:scroll;
+    padding: 1em;
 }
 
 #shoutbox-section {

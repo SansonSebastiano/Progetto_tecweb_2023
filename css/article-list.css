@@ -44,6 +44,10 @@ ul {
     display:block;
 }
 
+.article a:nth-child(2){
+    font-size: 1.2em;
+}
+
 .article * {
     margin-top: 0;
     margin-bottom: 0.5em;
