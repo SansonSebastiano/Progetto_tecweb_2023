@@ -23,6 +23,7 @@ main{
                          'submit submit';
     border: 0;
     justify-content: center;
+    min-width: 0;
 }
 
 #div-titolo{ 

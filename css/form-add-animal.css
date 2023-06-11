@@ -19,6 +19,7 @@ main{
     grid-auto-columns: 1fr;
     border: 0;
     gap: 1em;
+    min-width: 0;
 }
 
 #div-name {

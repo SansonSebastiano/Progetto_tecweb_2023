@@ -331,6 +331,11 @@ input[type=text], input[type=password]
     cursor: text;
 }
 
+input[type=file]
+{
+    max-width: 100%;
+}
+
 * {
     line-height: 1.5em;
     letter-spacing: 0.12em;

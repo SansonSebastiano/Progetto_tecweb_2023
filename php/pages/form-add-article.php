@@ -33,7 +33,7 @@
     $errSubmit =   [0 => "",
                     1 => "<p class='success'><strong>Articolo inserito con successo</strong></p>", 
                     2 => "<p class='error'><strong>Errore nell'inserimento dell'articolo</strong></p>",
-                    3 => "<p class='error'><strong>La creatura riferito non è stato trovato</strong></p>"];
+                    3 => "<p class='error'><strong>La creatura riferita non è stato trovato</strong></p>"];
                     
     if(isset($_SESSION["error-codes"]))
     {

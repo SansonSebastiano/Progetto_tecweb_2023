@@ -51,7 +51,7 @@
 
     if (!$queryResult) {
         $mysqli->close();
-        header("Location: " . $php_path . "404.php");
+        header("Location: " . $html_ref . "404.html");
         exit();
     }
 

@@ -35,7 +35,7 @@
         if(!$result){
             $mysqli->close();
 
-            header("Location: " . $php_path . "404.php");
+            header("Location: " . $html_ref . "404.html");
             exit();
         }
         
@@ -46,7 +46,7 @@
         $articleTag = $result["tag"];
         $articleDate = $result["data"];
         $articleImage = $result["image_path"];
-        $articlePlace = $result["luogo"];
+        $articlePlace = $result["luogo"] . (strlen($result["luogo"]) > 0 ? "." : "");
         $articleContent = $result["contenuto"];
         $articleImageAlt = $result["alt"];
 
@@ -74,7 +74,7 @@
         } else {
             $mysqli->close();
 
-            header("Location: " . $php_path . "404.php");
+            header("Location: " . $html_ref . "404.html");
             exit();
         }
 
@@ -91,13 +91,13 @@
             $commentTemplate = str_replace("<to-hide/>", "", $commentTemplate);
         }
 
-        $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ;';
+        $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ORDER BY data DESC;';
         $queryResult = mysqli_query($mysqli, $query);
 
         if (!$queryResult) {
             $mysqli->close();
 
-            header("Location: " . $php_path . "404.php");
+            header("Location: " . $html_ref . "404.html");
             exit();
         }
 

@@ -32,7 +32,7 @@
     
     if ($queryResult) {
         $mysqli->close();
-        header("Location: " . $article_ref . "?article=$article");
+        header("Location: " . $article_ref . "?article=$article#shoutbox");
         exit();
     }
     
