@@ -328,11 +328,6 @@ input[type=text], input[type=password]
     cursor: text;
 }
 
-input[type=file]
-{
-    overflow: hidden;
-}
-
 * {
     line-height: 1.5em;
     letter-spacing: 0.12em;

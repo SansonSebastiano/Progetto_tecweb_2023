@@ -13,8 +13,10 @@
 
     $page = file_get_contents($html_path . "article.html");
 
-    
-   if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
+    if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] != "guest") {
         $page = str_replace("<greet/>", "Ciao, ", $page);
         $page = str_replace("<user-img/>", $icon_user_ref, $page);
     } else {
@@ -24,8 +26,6 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    
-    
     if(isset($_GET["article"])){
         $articleId = clearInput($_GET["article"]);
         $query = 'SELECT * FROM articolo WHERE id = "'. $articleId . '";';
@@ -34,7 +34,8 @@
         $result = mysqli_fetch_assoc($queryResult);
         if(!$result){
             $mysqli->close();
-            header("Location: " . $html_ref . "404.html");
+
+            header("Location: " . $php_path . "404.php");
             exit();
         }
         
@@ -49,7 +50,6 @@
         $articleContent = $result["contenuto"];
         $articleImageAlt = $result["alt"];
 
-        
         $page = str_replace("<article-id/>",$_GET["article"],$page);
         $page = str_replace("<article-title/>",$articleTitle,$page);
         $page = str_replace("<article-subtitle/>",$articleSubTitle,$page);
@@ -71,12 +71,15 @@
         if($queryResult){
             $result = mysqli_fetch_assoc($queryResult);
             $page = str_replace("<related-animal/>",$result["nome_animale"],$page);
+        } else {
+            $mysqli->close();
+
+            header("Location: " . $php_path . "404.php");
+            exit();
         }
 
-        
         $queryResult->free_result();
-        
-        
+
         $commentTemplate = file_get_contents($modules_path . "comment-template.html");
         $replyTemplate = file_get_contents($modules_path . "reply-template.html");
 
@@ -91,6 +94,12 @@
         $query = 'SELECT * FROM view_articolo_commento WHERE articolo = "'. $_GET["article"] . '" AND commento NOT IN (SELECT figlio FROM view_articolo_commento_risposta) ;';
         $queryResult = mysqli_query($mysqli, $query);
 
+        if (!$queryResult) {
+            $mysqli->close();
+
+            header("Location: " . $php_path . "404.php");
+            exit();
+        }
 
         $commentList = "";
         while($commentResult = mysqli_fetch_assoc($queryResult)){

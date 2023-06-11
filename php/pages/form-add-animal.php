@@ -9,6 +9,9 @@
 
     $page = file_get_contents($html_path . "form-add-animal.html");
 
+    $goUpPath = "../../";
+    include $php_path . "template-loader.php";
+
     if ($_SESSION['ruolo'] != 'admin') {
         header("Location: " . $index_ref);
         exit();
