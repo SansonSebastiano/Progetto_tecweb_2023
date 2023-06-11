@@ -65,7 +65,6 @@
 
         }
         
-        
         $sql = "SELECT * FROM animale WHERE LOWER(nome) = LOWER('$nome')";
         $query = mysqli_query($mysqli, $sql);
 
@@ -78,9 +77,9 @@
         if(!$errorFlag){
             $nome = filter_var($nome, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $descrizione = filter_var($descrizione, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $alt = "Immagine dell'animale: " . $nome;
             
-
-            $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path')";
+            $sql = "INSERT INTO `animale` (`nome`, `descrizione`, `status`, `data_scoperta`, `image_path`, `alt`) VALUES ('$nome', '$descrizione', '$status', '$dataScoperta', '$path', '$alt')";
 
             $query = mysqli_query($mysqli, $sql);
 

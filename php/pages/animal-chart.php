@@ -75,7 +75,7 @@
         $entry = str_replace("<yes-votes/>", $yes,$entry);
         $entry = str_replace("<no-votes/>", $no,$entry);
         $entry = str_replace("<animal-image/>", $result["image_path"],$entry);
-        $entry = str_replace("<animale-image-alt/>", $result["nome"],$entry);
+        $entry = str_replace("<animale-image-alt/>", $result["alt"],$entry);
         $entry = str_replace("<animal-status/>", $result["status"],$entry);
 
         $entries .= $entry;
