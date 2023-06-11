@@ -24,7 +24,7 @@ function addVote(voteType) {
         }
     };
 
-    xmlhttp.open("POST", "../add-vote.php?animale=" + animalName + "&voteType=" + voteType, true);
+    xmlhttp.open("GET", "../add-vote.php?animale=" + animalName + "&voteType=" + voteType, true);
     xmlhttp.send();
 }
 
@@ -32,13 +32,14 @@ function removeVote() {
     const matches = /animale=([^&#=]*)/.exec(window.location.search);
     const animalName = matches[1];
 
-    const voteString = document.getElementById("msg-vote").innerHTML;
+    const voteString = document.getElementById("msg-vote");
     let xmlhttp = new XMLHttpRequest();
     let btnRemoveVote = document.getElementById("btn-remove-vote");
 
+    const voteType = voteString.getElementsByClassName("green").length > 0 ? "upvote" : "downvote";
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            if (voteString.indexOf("<span class='green'>sì</span>") !== -1) {
+            if (voteType == "upvote") {
                 document.getElementById("exist-votes").innerHTML = this.responseText;
             } else {
                 document.getElementById("non-exist-votes").innerHTML = this.responseText;
@@ -47,8 +48,6 @@ function removeVote() {
             window.location.reload();
         }
     };
-    xmlhttp.open("POST", "../remove-vote.php", true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    
-    xmlhttp.send("animale=" + animalName + "&voteType=" + voteType);
+    xmlhttp.open("GET", "../remove-vote.php?animale=" + animalName, true);
+    xmlhttp.send();
 }
