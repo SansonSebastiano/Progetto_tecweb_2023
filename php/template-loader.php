@@ -7,10 +7,10 @@ if(isset($page)){
 
     if(isset($goUpPath)){
         $goUp = str_replace("<path/>", $goUpPath, $goUp);
-        $goUp = str_replace("<path/>", $goUpPath, $header);
+        $header = str_replace("<path/>", $goUpPath, $header);
     }else{
         $goUp = str_replace("<path/>", "./", $goUp);
-        $goUp = str_replace("<path/>", "./", $header);
+        $header = str_replace("<path/>", "./", $header);
     }
 
     $page = str_replace("<header/>", $header, $page);
