@@ -201,7 +201,8 @@ aside figcaption {
     box-shadow: var(--box-shadow-light);
     padding: 1em;
 
-    width: 100%;
+    width: auto;
+    font-size: 75%;
 }
 
 #clear {
