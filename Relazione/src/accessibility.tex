@@ -1,2 +1,95 @@
 \section{Accessibilità}
+\label{sec:accessibility}
 
+\subsection{Riferimenti normativi}
+\label{subsec:accessibility-norms}
+
+\begin{itemize}
+    \item \textbf{WCAG4All}: \url{https://web.math.unipd.it/accessibility/test.html}
+    \item \textbf{Standard WCAG 2.1}: \url{https://www.w3.org/Translations/WCAG21-it/}
+\end{itemize}
+
+\subsection{Strumenti utilizzati}
+\begin{itemize}
+    \item \textbf{WAVE}: \url{https://wave.webaim.org/}
+    \item \textbf{Total validator}: \url{https://www.totalvalidator.com/}
+    \item \textbf{Accessibility Insights for Web}: \url{https://accessibilityinsights.io/}
+    \item \textbf{Siteimprove A.C.}: \url{https://www.siteimprove.com/toolkit/accessibility-checker/}
+\end{itemize}
+
+\subsection{Verifica}
+\label{subsec:accessibility-verification}
+
+Per garantire il livello di accessibilità richiesto (livello AA di WCAG4All), sono stati effettuati alcuni test elencati in \ref{subsec:accessibility-norms}, i quali verrano discussi di seguito, i test di livello AAA non sono stati presi in considerazione.
+
+\subsubsection{HTML}
+\label{subsubsec:accessibility-html}
+
+Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
+\begin{itemize}
+    \item verifica dell'uso corretto degli elementi semantici di HTML5 per la definizione della struttura delle pagine;
+    \item verifica dell'uso corretto degli elementi semantici per dare enfasi al contenuto;
+    \item verifica della lingua utilizzata per ogni pagina;
+    \item verifica della presenza di ID duplicati sulla stessa pagina;
+\end{itemize}
+
+\subsubsection{CSS}
+\label{subsubsec:accessibility-css}
+
+Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
+\begin{itemize}
+    \item verifica che le immagini a scopo decorativo siano stati applicate via CSS;
+    \item verifica dell'implementazione di unità di misure relative;
+    \item verifica della scalabilità del layout del sito, sono stati implementati fogli di stile necessari per la visualizzazione del sito su dispositivi con schermi di dimensioni ridotte;
+\end{itemize}
+
+Inoltre sono stati implementati fogli di stile per la stampa delle pagine e si è verificato che in assenza di fogli di stile il sito sia comunque navigabile.
+
+\subsubsection{JavaScript}
+\label{subsubsec:accessibility-js}
+
+Attraverso \textit{JavaScript} sono stati implementati alcuni script per il comportamento del sito e per la validazione degli input lato client.
+
+\subsubsection{Immagini}
+\label{subsubsec:accessibility-images}
+
+Sono state verificate le seguenti proprietà delle immagini:
+\begin{itemize}
+    \item le immagini puramente decorative sono state implementate via \textit{CSS};
+    \item le immagini di contenuto invece sono state definite via \textit{HTML} e sono state fornite alternative testuali opportune;
+\end{itemize}
+
+\subsubsection{Link}
+\label{subsubsec:accessibility-links}
+
+\subsubsection{Colori}
+\label{subsubsec:accessibility-colors}
+
+\subsubsection{Form}
+\label{subsubsec:accessibility-forms}
+
+\subsubsection{Tabelle}
+\label{subsubsec:accessibility-tables}
+
+\subsubsection{Modalità di input}
+\label{subsubsec:accessibility-input}
+
+\subsubsection{Tastiera}
+\label{subsubsec:accessibility-keyboard}
+
+\subsubsection{Ruoli, stati e proprietà WAI ARIA}
+\label{subsubsec:accessibility-aria}
+
+Ruoli \textit{WAI ARIA} non sono stati necessari per la realizzazione del sito, in quanto sono risultati sufficienti gli elementi semantici di \textit{HTML5}. \\
+Dunque non sono stati implementati in maniera sostanziale neanche gli stati e le proprietà \textit{WAI ARIA}, eccetto per alcuni casi che verranno discussi di seguito:
+\begin{itemize}
+    \item \textbf{Breadcrumb}: è stato implementato un \textit{aria-label} per specificarne il funzionamento;
+    \item \textbf{Validazione input}: è stato implementato un \textit{aria-label} per esplicitare eventuali errori nell'inserimento degli input;
+    \item \textbf{Pulsanti}: è stato implementato un \textit{aria-label} nei pulsanti \textit{Submit}, di rimozione e modifica di contenuti per esplicitarne lo scopo;
+\end{itemize}
+
+\subsubsection{Aiuti alla navigazione}
+\label{subsubsec:accessibility-navigation}
+
+\subsubsection{Separazione tra struttura, contenuto e comportamento}
+\label{subsubsec:accessibility-separation}
