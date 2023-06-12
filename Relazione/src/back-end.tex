@@ -1,4 +1,5 @@
 \section{Implementazione Back-end}
+\label{sec:back-end}
 
 \subsection{PHP}
 Nella cartella \texttt{/php} sono presenti tutti i file php utilizzati per la gestione del back-end del sito.
@@ -12,11 +13,19 @@ Per quanto riguarda la pagina di login, il file \texttt{/php/login.php} si occup
 e di assegnare il ruolo corretto a seconda dell'utente, mentre il file \texttt{/php/logout.php} si occupa di chiudere la sessione corrente.
 
 Per gli articoli un utente può aggiungere un nuovo articolo, modificarne uno già esistente o eliminarlo:
-L'utente (che in questo caso può essere \textit{writer} o \textit{admin}) aggiunge un nuovo articolo tramite la form presente nella pagina di aggiunta articolo, che invia i dati tramite il metodo POST al file \texttt{add-article.php} che si occupa di inserire i dati nel database.
-Per modificare un articolo viene utilizzato il file \texttt{edit-article.php} che si occupa di aggiornare il testo di un articolo nel database.
-Per eliminare un articolo viene utilizzato il file \texttt{remove-article.php} che si occupa di eliminare l'articolo dal database.
+
+\begin{itemize}
+    \item L'utente (\textit{writer} o \textit{admin}) aggiunge un nuovo articolo tramite la form presente nella pagina di aggiunta articolo, che invia i dati tramite il metodo POST al file \texttt{add-article.php} che si occupa di inserire i dati nel database;
+    \item Per modificare un articolo viene utilizzato il file \texttt{edit-article.php} che si occupa di aggiornare il testo di un articolo nel database;
+    \item Per eliminare un articolo viene utilizzato il file \texttt{remove-article.php} che si occupa di eliminare l'articolo dal database.
+\end{itemize}
 
 Per gli animali solo gli amministratori possono aggiungere o eliminare animali:
+
+\begin{itemize}
+    \item Per aggiungere un animale al database si utilizza il file \texttt{add-animal.php} che si occupa di inserire i dati dell'animale nel database;
+    \item Per rimuovere un animale dal database si utilizza il file \texttt{remove-animal.php} che si occupa di eliminare l'animale dal database.
+\end{itemize}
 
 \subsection{Javascript}
 Per il salvataggio delle immagini dei animali da renderizzare nelle pagine, si è deciso di utilizzare un database Firebase, che viene inizializzato nel file \texttt{/js/init-db.js} utilizzando il file di configurazione \texttt{/js/Firebase-config.js}. 
