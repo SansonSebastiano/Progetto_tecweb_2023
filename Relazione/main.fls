@@ -696,6 +696,7 @@ INPUT ./src/accessibility.tex
 INPUT src/accessibility.tex
 INPUT ./src/accessibility.tex
 INPUT src/accessibility.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./src/organization.tex
 INPUT ./src/organization.tex
 INPUT ./src/organization.tex
@@ -706,7 +707,6 @@ INPUT ./src/organization.tex
 INPUT src/organization.tex
 INPUT ./src/organization.tex
 INPUT src/organization.tex
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./src/end.tex
 INPUT ./src/end.tex
 INPUT ./src/end.tex
