@@ -1,9 +1,31 @@
 \section{Implementazione Back-end}
 
 \subsection{PHP}
-PHP!
+Nella cartella \texttt{/php} sono presenti tutti i file php utilizzati per la gestione del back-end del sito.
 
+Il file \texttt{config.php} viene utilizzato dai file php per configurare i percorsi dei file necessari, all'interno di esso la variabile \texttt{\$root\_server\_side}
+serve per impostare la cartella radice del sito.
+
+Le pagine si connettono al database tramite il file \texttt{/php/db-conn.php} che contiene le credenziali di accesso al database
+
+Per quanto riguarda la pagina di login, il file \texttt{/php/login.php} si occupa di verificare che le credenziali di accesso al sito inserite siano corrette
+e di assegnare il ruolo corretto a seconda dell'utente, mentre il file \texttt{/php/logout.php} si occupa di chiudere la sessione corrente.
+
+Per gli articoli un utente può aggiungere un nuovo articolo, modificarne uno già esistente o eliminarlo:
+L'utente (che in questo caso può essere \textit{writer} o \textit{admin}) aggiunge un nuovo articolo tramite la form presente nella pagina di aggiunta articolo, che invia i dati tramite il metodo POST al file \texttt{add-article.php} che si occupa di inserire i dati nel database.
+Per modificare un articolo viene utilizzato il file \texttt{edit-article.php} che si occupa di aggiornare il testo di un articolo nel database.
+Per eliminare un articolo viene utilizzato il file \texttt{remove-article.php} che si occupa di eliminare l'articolo dal database.
+
+Per gli animali solo gli amministratori possono aggiungere o eliminare animali:
 
 \subsection{Javascript}
-jquery implementata per una minuscola funzionalità (per l'auto-suggestion)
-Firebase CloudStorage 
+Per il salvataggio delle immagini dei animali da renderizzare nelle pagine, si è deciso di utilizzare un database Firebase, che viene inizializzato nel file \texttt{/js/init-db.js} utilizzando il file di configurazione \texttt{/js/Firebase-config.js}. 
+Con questo database si possono aggiungere immagini di animali tramite lo script \texttt{/js/upload-animal.js}, che verranno salvate nella cartella \texttt{images/animals} di Firebase, mentre per aggiungere immagini di articoli 
+si utilizza lo script \texttt{/js/upload-article.js} che salva le immagini dei articoli nella cartella \texttt{images/articles}.
+
+Quando un utente effetua la votazione di un animale viene utilizzato la funzione \texttt{addVote} contenuta nello script \texttt{js/vote-event.js} che invia il voto al back-end per il salvataggio nel database tramite \texttt{/php/add-vote.php}.
+Sempre nello stesso script viene utilizzata la funzione \texttt{removeVote} che rimuove il voto dal database tramite \texttt{/php/remove-vote.php}.
+
+Lo script \texttt{/js/suggestion.js} viene utilizzato nella form di aggiunta articolo allo scopo di aiutare l'utente a selezionare l'animale riferito,
+infatti quando l'utente inizia a scrivere il nome dell'animale, lo script invia una richiesta al back-end tramite \texttt{/php/suggestion.php} che restituisce una lista di animali che viene visualizzata come suggerimento nella form.
+
