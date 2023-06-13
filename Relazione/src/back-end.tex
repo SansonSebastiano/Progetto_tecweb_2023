@@ -2,39 +2,93 @@
 \label{sec:back-end}
 
 \subsection{PHP}
+\label{subsec:php}
 Nella cartella \texttt{/php} sono presenti tutti i file php utilizzati per la gestione del back-end del sito.
 
 Il file \texttt{config.php} viene utilizzato dai file php per configurare i percorsi dei file necessari, all'interno di esso la variabile \texttt{\$root\_server\_side}
 serve per impostare la cartella radice del sito.
 
-Le pagine si connettono al database tramite il file \texttt{/php/db-conn.php} che contiene le credenziali di accesso al database
+\subsubsection{Pagine}
+Nella cartella \texttt{/php/pages} sono presenti tutti i file php che vengono richiamati dalle pagine del sito per ottenere i dati necessari alla loro visualizzazione:
+\begin{itemize}
+    \item \texttt{article.php}: pagina dell'articolo, tramite richiesta GET viene passato l'id dell'articolo da visualizzare e il file si occupa di ottenere i dati dell'articolo dal database, i commenti associati ad esso e di visualizzarli nella pagina;
+    \item \texttt{article-list.php}: pagina che visualizza tutti gli articoli, tramite richiesta GET si può specificare una stringa di ricerca e un tag utilizzati per filtrare i risultati, il file si occupa di ottenere gli articoli dal database e di visualizzarli nella pagina;
+    \item \texttt{animal.php}: pagina della creatura, tramite richiesta GET viene passato il nome della creatura da visualizzare e il file si occupa di ottenere i dati della creatura dal database, gli articoli correlati ad essa e di visualizzarli nella pagina;
+    \item \texttt{animal-list.php}: visualizza tutte le creature, il file si occupa di ottenere le creature dal database e di visualizzarle nella pagina;
+    \item \texttt{animal-chart.php}: visualizza la classifica creature, tramite richiesta GET si può ordinare per nome, esistenza e non esistenza e si può escludere o no le creature già scoperte, il file si occupa di ottenere le creature ordinate dal database e di visualizzarle nella pagina;
+    \item \texttt{form-add-animal.php}: visualizza la form per l'aggiunta di una creatura;
+    \item \texttt{form-add-article.php}: visualizza la form per l'aggiunta di un articolo;
+    \item \texttt{form-edit-article.php}: visualizza la form per la modifica di un articolo, tramite richiesta GET viene passato l'id dell'articolo da modificare, il file si occupa di ottenere i dati dell'articolo dal database e di visualizzare la form con il testo da modificare;
+    \item \texttt{admin-home.php}: visualizza la pagina di amministrazione;
+    \item \texttt{admin-animal-list.php}: simile a \texttt{animal-list.php} ma con la possibilità di eliminare le creature;
+    \item \texttt{admin-article-list.php}: simile a \texttt{article-list.php} ma con la possibilità di modificare o eliminare gli articoli;
+\end{itemize}
 
-Per quanto riguarda la pagina di login, il file \texttt{/php/login.php} si occupa di verificare che le credenziali di accesso al sito inserite siano corrette
+Per quanto riguarda la pagina di \textbf{login}, il file \texttt{/php/login.php} si occupa di verificare che le credenziali di accesso al sito inserite siano corrette
 e di assegnare il ruolo corretto a seconda dell'utente, mentre il file \texttt{/php/logout.php} si occupa di chiudere la sessione corrente.
 
-Per gli articoli un utente può aggiungere un nuovo articolo, modificarne uno già esistente o eliminarlo:
+\subsubsection{Interazione con il database}
+Le pagine si connettono al database tramite il file \texttt{/php/db-conn.php} che contiene le credenziali di accesso al database
 
+Per gli \textbf{articoli} un utente può aggiungere un nuovo articolo, modificarne uno già esistente o eliminarlo:
 \begin{itemize}
-    \item L'utente (\textit{writer} o \textit{admin}) aggiunge un nuovo articolo tramite la form presente nella pagina di aggiunta articolo, che invia i dati tramite il metodo POST al file \texttt{add-article.php} che si occupa di inserire i dati nel database;
-    \item Per modificare un articolo viene utilizzato il file \texttt{edit-article.php} che si occupa di aggiornare il testo di un articolo nel database;
-    \item Per eliminare un articolo viene utilizzato il file \texttt{remove-article.php} che si occupa di eliminare l'articolo dal database.
+    \item L'utente (\textit{writer} o \textit{admin}) aggiunge un nuovo articolo tramite la form presente nella pagina di aggiunta articolo, che invia i dati al file \texttt{add-article.php} che inserisce i dati nel database;
+    \item Per \textbf{modificare} un articolo viene utilizzato il file \texttt{edit-article.php} che si occupa di aggiornare il testo di un articolo nel database;
+    \item Per \textbf{eliminare} un articolo viene utilizzato il file \texttt{remove-article.php} che si occupa di eliminare l'articolo dal database.
 \end{itemize}
 
-Per gli animali solo gli amministratori possono aggiungere o eliminare animali:
+All'interno dei articoli, gli utenti registrati possono aggiungere commenti o rispondere a commenti di altri utenti,
+Per la creazione di un commento o di una risposta si usa il file \texttt{add-comment.php} che si occupa di inserire il commento nel database
+e, se è una risposta, gli associa l'eventuale commento padre.
+
+Per le \textbf{creature} solo gli amministratori possono aggiungere o eliminare creature:
 
 \begin{itemize}
-    \item Per aggiungere un animale al database si utilizza il file \texttt{add-animal.php} che si occupa di inserire i dati dell'animale nel database;
-    \item Per rimuovere un animale dal database si utilizza il file \texttt{remove-animal.php} che si occupa di eliminare l'animale dal database.
+    \item Per \textbf{aggiungere} i dati di una creatura al database si utilizza il file \texttt{add-animal.php};
+    \item Per \textbf{eliminare} una creatura dal database si utilizza il file \texttt{remove-animal.php};
 \end{itemize}
+
+\subsubsection{Controllo input lato server}
+Prima di inserire un \textbf{articolo}, il file \texttt{add-article.php} fa dei controlli sull'input ricevuto:
+\begin{enumerate}
+    \item Controlla che il \textbf{titolo} non sia vuoto e che non contenga caratteri speciali;
+    \item Controlla che il \textbf{sotto titolo} non sia vuoto;
+    \item Controlla che abbia ricevuto un \textbf{tag} valido;
+    \item Controlla che il \textbf{testo} contenga almeno 20 caratteri;
+    \item Controlla che un \textbf{immagine} sia stata caricata;
+    \item Se è stato compilato, controlla che la \textbf{creatura riferita} esista nel database.
+\end{enumerate}
+
+Per la modifica di un \textbf{articolo} il file \texttt{edit-article.php}  controlla solamente che il testo contenga almeno 20 caratteri.
+
+Prima di inserire una \textbf{creatura}, il file \texttt{add-animal.php} fa dei controlli sull'input ricevuto:
+\begin{enumerate}
+    \item Controlla che il \textbf{nome} non sia vuoto e che non contenga caratteri speciali;
+    \item Controlla che la \textbf{descrizione} contenga almeno 20 caratteri;
+    \item Controlla che abbia ricevuto uno \textbf{status} valido;
+    \item Controlla che la \textbf{data} non sia vuota e che sia nel formato ++\texttt{AAAA-MM-GG}++;
+    \item Controlla che un \textbf{immagine} sia stata caricata;
+    \item Infine controlla se la \textbf{creatura} non sia già presente nel database.
+\end{enumerate}
 
 \subsection{Javascript}
-Per il salvataggio delle immagini dei animali da renderizzare nelle pagine, si è deciso di utilizzare un database Firebase, che viene inizializzato nel file \texttt{/js/init-db.js} utilizzando il file di configurazione \texttt{/js/Firebase-config.js}. 
-Con questo database si possono aggiungere immagini di animali tramite lo script \texttt{/js/upload-animal.js}, che verranno salvate nella cartella \texttt{images/animals} di Firebase, mentre per aggiungere immagini di articoli 
+\label{subsec:javascript-back-end}
+\subsubsection{Librerie utilizzate}
+\begin{itemize}
+    \item \textbf{jQuery}: libreria utilizzata per semplificare la manipolazione del DOM e l'interazione con il back-end, utilizzata nello script \texttt{/js/suggestion.js};
+    \item \textbf{Firebase}: database NoSQL fornito da Google, utilizzato per il salvataggio delle immagini delle creature e di articoli.
+\end{itemize}
+
+\subsubsection{Immagini}
+Per il salvataggio delle immagini delle creature da renderizzare nelle pagine, si è deciso di utilizzare un database Firebase, che viene inizializzato nel file \texttt{/js/init-db.js} utilizzando il file di configurazione \texttt{/js/Firebase-config.js}. 
+Con questo database si possono aggiungere immagini di creature nella form di aggiunta creature tramite lo script \texttt{/js/upload-animal.js}, che verranno salvate nella cartella \texttt{images/animals} di Firebase, mentre per aggiungere immagini di articoli 
 si utilizza lo script \texttt{/js/upload-article.js} che salva le immagini dei articoli nella cartella \texttt{images/articles}.
 
-Quando un utente effetua la votazione di un animale viene utilizzato la funzione \texttt{addVote} contenuta nello script \texttt{js/vote-event.js} che invia il voto al back-end per il salvataggio nel database tramite \texttt{/php/add-vote.php}.
-Sempre nello stesso script viene utilizzata la funzione \texttt{removeVote} che rimuove il voto dal database tramite \texttt{/php/remove-vote.php}.
+\subsubsection{Voti}
+Quando un utente effetua la votazione di una creatura viene chiamata la funzione \texttt{addVote} contenuta nello script \texttt{js/vote-event.js} che invia il voto al back-end per il salvataggio nel database tramite \texttt{/php/add-vote.php}.
+Sempre nello stesso script, quando un utente vuole rimuovere un voto, viene chiamata la funzione \texttt{removeVote} che rimuove il voto dal database tramite \texttt{/php/remove-vote.php}.
 
-Lo script \texttt{/js/suggestion.js} viene utilizzato nella form di aggiunta articolo allo scopo di aiutare l'utente a selezionare l'animale riferito,
-infatti quando l'utente inizia a scrivere il nome dell'animale, lo script invia una richiesta al back-end tramite \texttt{/php/suggestion.php} che restituisce una lista di animali che viene visualizzata come suggerimento nella form.
+\subsubsection{Suggerimenti}
+Lo script \texttt{/js/suggestion.js} viene utilizzato nella form di aggiunta articolo allo scopo di aiutare l'utente a selezionare la creatura riferita dall'articolo,
+infatti quando l'utente inizia a scrivere il nome della creatura, lo script invia una richiesta al back-end tramite \texttt{/php/suggestion.php} che restituisce una lista di creature suggerite sotto il campo della creatura riferito.
 
