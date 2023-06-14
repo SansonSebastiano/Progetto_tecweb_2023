@@ -23,9 +23,9 @@
     $page = str_replace("<user/>", isset($_SESSION["username"]) ? $_SESSION["username"] : "", $page);
     $page = str_replace("<log-in-out/>", $log_in_out, $page);
 
-    $admin_section = "<button id=\"btn-reserved\" onclick=\"location.href='" . str_replace(DIRECTORY_SEPARATOR,"/",$admin_page_ref) . "'\" tabindex='0'>Sezione Amministratore</button>";
+    $admin_section = "<a id=\"btn-reserved\" href='" . str_replace(DIRECTORY_SEPARATOR,"/",$admin_page_ref) . "' tabindex='0'>Sezione Amministratore</a>";
 
-    $writer_section = "<button id=\"btn-reserved\" onclick=\"location.href='" . str_replace(DIRECTORY_SEPARATOR,"/",$faar_ref) . "'\" tabindex='0'>Scrivi un nuovo articolo</button>";
+    $writer_section = "<a id=\"btn-reserved\" href='" . str_replace(DIRECTORY_SEPARATOR,"/",$faar_ref) . "' tabindex='0'>Scrivi un nuovo articolo</a>";
 
     if (isset($_SESSION["ruolo"]) && $_SESSION["ruolo"] === "admin") {
         $page = str_replace("<admin-section/>", $admin_section, $page);

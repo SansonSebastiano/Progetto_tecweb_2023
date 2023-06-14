@@ -16,11 +16,16 @@ main {
     margin-bottom: 1em;
 }
 
-#container-buttons button {
+#container-buttons a {
     border-style:outset;
     font-size: 1.2em;
     text-transform: uppercase;
     margin-right: 0.2em;
+    padding: auto;
+    text-align: center;
+    color: black;
+    background-color: #e9e9ed;
+    text-decoration:none;
 }
 
 #div-with-checkbox {
