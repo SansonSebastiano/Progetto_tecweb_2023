@@ -146,7 +146,7 @@
         
         $queryResultThree->free_result();
 
-        $queryFour = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" AND tag = 3 ORDER BY data DESC;';
+        $queryFour = 'SELECT * FROM articolo WHERE nome_animale = "'. $_GET["animale"] . '" AND tag = 2 OR tag = 3 ORDER BY data DESC;';
         $queryResultFour = mysqli_query($mysqli, $queryFour);
         $articleResult = mysqli_fetch_assoc($queryResultFour);
         if ($queryResultFour->num_rows > 0) {

@@ -60,30 +60,30 @@
                     <div id="div-titolo" class="form-input-wrapper">
                         <label class="info" for="titolo">Titolo</label>
                         <input type="text" name= "titolo" id="titolo" placeholder="Titolo articolo" tabindex="0" autocomplete="on" required maxlength="255"/>
-                        <p id="invalid-title" class="error"><strong><error-title/></strong></p>
+                        <p id="invalid-title" class="error" role="alert"><strong><error-title/></strong></p>
                     </div>
 
                     <div id="div-sottotitolo" class="form-input-wrapper">
                         <label class="info" for="sottotitolo">Sottotitolo</label>
                         <input type="text" name="sottotitolo" id="sottotitolo" placeholder="Sottotitolo articolo" tabindex="0" autocomplete="on" required maxlength="255"/>
-                        <p id="invalid-subtitle" class="error"><strong><error-subtitle/></strong></p>
+                        <p id="invalid-subtitle" class="error" role="alert"><strong><error-subtitle/></strong></p>
                     </div>
 
                     <div id="div-creatura" class="form-input-wrapper">
                         <label for="creatura" class="info">Creatura riferita nell'articolo (opzionale)</label>
                         <input type="text" name= "creatura" id="creatura" placeholder="Nome creatura" tabindex="0" maxlength="100"/>
-                        <p id="invalid-creature" class="error"><strong><error-animal/></strong></p>
+                        <p id="invalid-creature" class="error" role="alert"><strong><error-animal/></strong></p>
                     </div>
 
                     <div id="div-tag" class="form-input-wrapper">
                         <label class="info" for="tag">Tag dell'articolo</label>
                         <select id="tag" name= "tag" tabindex="0" required>
                             <option value="scoperta">Scoperta</option>
-                            <option value="new-entry"><span lang="en">New-Entry</span></option>
+                            <option value="new-entry">New-Entry</option>
                             <option value="avvistamento">Avvistamento</option>
                             <option value="comunicazione">Comunicazione</option>
                         </select>
-                        <p id="invalid-tag" class="error"><strong><error-tag/></strong></p>
+                        <p id="invalid-tag" class="error" role="alert"><strong><error-tag/></strong></p>
                     </div>
 
                     <div id="div-luogo" class="form-input-wrapper">
@@ -101,13 +101,13 @@
                         <input id="immagine" type="file" accept="image/*" tabindex="0" required />
                         <input type="hidden" id="image-path" name="image-path"/>
                         <button type="button" id="btn-load" aria-label="Carica l'immagine per l'articolo" tabindex="0"></button>
-                        <p id="loaded-photo" class="error"><strong><error-img/></strong></p>
+                        <p id="loaded-photo" class="error" role="alert"><strong><error-img/></strong></p>
                     </div>
 
                     <div id="div-testo" class="form-input-wrapper">
                         <label class="info" for="testo">Testo dell'articolo</label>
                         <textarea id="testo" name= "testo" tabindex="0" autocomplete="off" placeholder="Inserisci del testo..." minlength="20" maxlength="2000" required></textarea>
-                        <p id="invalid-text" class="error"><strong><error-text/></strong></p>
+                        <p id="invalid-text" class="error" role="alert"><strong><error-text/></strong></p>
                     </div>
 
                     <input type="submit" id="btn-submit" aria-label="Pubblica l'articolo" value="" tabindex="0"/>

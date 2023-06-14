@@ -12,6 +12,7 @@ main {
     z-index: 1;
 }
 
+
 #last-update {
     font-style: italic;
     text-align: center;
@@ -23,7 +24,9 @@ main h2 {
     font-size: 2em;
 }
 
-
+#featured {
+    margin-bottom: 5em;
+}
 
 #featured-items-wrapper {
     height: 30em;
@@ -159,6 +162,10 @@ aside {
     flex: 2;
 }
 
+aside section {
+    margin-bottom: 2em;
+}
+
 aside a {
     display: block;
     margin-top: 2em;
@@ -170,9 +177,6 @@ aside ol {
     border-top: none;
 }
 
-aside section {
-    margin-bottom: 2em;
-}
 
 aside figure {
     margin: 0.5em;
@@ -201,7 +205,9 @@ aside figcaption {
     box-shadow: var(--box-shadow-light);
     padding: 1em;
 
-    width: 100%;
+    width: auto;
+    font-size: 75%;
+    text-align: center;
 }
 
 #clear {

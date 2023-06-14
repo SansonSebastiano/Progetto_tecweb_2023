@@ -36,17 +36,18 @@
     }
 
     if ($type_order == "uporder") {
-        $query .= 'ORDER BY YES DESC;';
+        $query .= 'ORDER BY YES DESC';
     } elseif ($type_order == "downorder") {
-        $query .= 'ORDER BY NO DESC;';
+        $query .= 'ORDER BY NO DESC';
     } else {
         if ($type_order == "animalorder_up") {
-            $query .= 'ORDER BY nome ASC;';
+            $query .= 'ORDER BY nome ASC';
         } else {
-            $query .= 'ORDER BY nome DESC;';
+            $query .= 'ORDER BY nome DESC';
         }
     }
 
+    $query = $query . ' LIMIT 10;';
     $queryResult = mysqli_query($mysqli, $query);
 
     if (!$queryResult) {

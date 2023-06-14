@@ -64,6 +64,7 @@
                             <p id ="text">
                                 <span id="location"><article-place/></span> <article-content/>
                             </p>
+                            <p><article-date/></p>
                             <p id ="reserved">Riproduzione riservata</p>
                         </div>
                 </div>
@@ -77,7 +78,7 @@
                     <input type="hidden" name="hidden-article" value="<article-id/>"/>
                     <input type="hidden" name="hidden-bool" value="false"/>
                     <div id="new-reply" class = "div-reply <to-hide/>">
-                        <textarea id="textcomment" name="text" tabindex="0"></textarea>
+                        <textarea id="textcomment" name="text" tabindex="0" aria-label="Area di inserimento commento"></textarea>
                         <button type="submit" class="btn-send" tabindex="0">Commenta</button>
                     </div>                                                        
                 </form>            
@@ -92,7 +93,7 @@
         
         <footer/>
 
+    <script src="../../js/comments.js"></script>
     </body>
-    <script src="../../js/comments.js"> </script>
 
 </html>
