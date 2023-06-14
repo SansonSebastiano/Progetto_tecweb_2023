@@ -20,17 +20,17 @@
 \subsection{Verifica}
 \label{subsec:accessibility-verification}
 
-Per garantire il livello di accessibilità richiesto (livello AA di WCAG4All), sono stati effettuati alcuni test elencati in \ref{subsec:accessibility-norms}, i quali verrano discussi di seguito, i test di livello AAA non sono stati presi in considerazione.
+Per garantire il livello di accessibilità richiesto, sono stati effettuati dei test opportuni elencati, i quali verrano elencati di seguito, si specifica che quasi la totalità dei test per garantire il livello AAA non sono stati presi in considerazione.
 
 \subsubsection{HTML}
 \label{subsubsec:accessibility-html}
 
 Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
 \begin{itemize}
-    \item verifica dell'uso corretto degli elementi semantici di HTML5 per la definizione della struttura delle pagine;
-    \item verifica dell'uso corretto degli elementi semantici per dare enfasi al contenuto;
-    \item verifica della lingua utilizzata per ogni pagina;
-    \item verifica della presenza di ID duplicati sulla stessa pagina;
+    \item uso corretto degli elementi semantici di HTML5 per la definizione della struttura delle pagine;
+    \item uso corretto degli elementi semantici per dare enfasi al contenuto;
+    \item lingua principale utilizzata per ogni pagina;
+    \item verifica della presenza di ID duplicati sulla stessa pagina.
 \end{itemize}
 
 \subsubsection{CSS}
@@ -38,9 +38,9 @@ Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti re
 
 Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
 \begin{itemize}
-    \item verifica che le immagini a scopo decorativo siano stati applicate via CSS;
-    \item verifica dell'implementazione di unità di misure relative;
-    \item verifica della scalabilità del layout del sito, sono stati implementati fogli di stile necessari per la visualizzazione del sito su dispositivi con schermi di dimensioni ridotte;
+    \item le immagini a scopo decorativo siano stati applicate via CSS;
+    \item implementazione di unità di misure relative;
+    \item scalabilità del layout del sito, sono stati implementati fogli di stile necessari per la visualizzazione del sito su dispositivi con schermi di dimensioni ridotte.
 \end{itemize}
 
 Inoltre sono stati implementati fogli di stile per la stampa delle pagine e si è verificato che in assenza di fogli di stile il sito sia comunque navigabile.
@@ -48,7 +48,8 @@ Inoltre sono stati implementati fogli di stile per la stampa delle pagine e si �
 \subsubsection{JavaScript}
 \label{subsubsec:accessibility-js}
 
-Attraverso \textit{JavaScript} sono stati implementati alcuni script per il comportamento del sito e per la validazione degli input lato client.
+Attraverso \textit{JavaScript} sono stati implementati alcuni script per il comportamento del sito e per la validazione degli input lato client. \\
+Inoltre, in seguito, si è verificato che non vi siano presenti cambi di contesto inaspettati.
 
 \subsubsection{Immagini}
 \label{subsubsec:accessibility-images}
@@ -56,26 +57,52 @@ Attraverso \textit{JavaScript} sono stati implementati alcuni script per il comp
 Sono state verificate le seguenti proprietà delle immagini:
 \begin{itemize}
     \item le immagini puramente decorative sono state implementate via \textit{CSS};
-    \item le immagini di contenuto invece sono state definite via \textit{HTML} e sono state fornite alternative testuali opportune;
+    \item le immagini di contenuto invece sono state definite via \textit{HTML} e sono state fornite alternative testuali.opportune.
 \end{itemize}
 
 \subsubsection{Link}
 \label{subsubsec:accessibility-links}
+Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
+\begin{itemize}
+    \item il colore non deve essere l'unico mezzo per identificare i link presenti nelle pagine;
+    \item ancora dei link opportuna per far comprendere lo scopo di ciascuno di essi;
+    \item comprendere la differenza tra link già visitati e non ancora visitati.
+\end{itemize}
 
 \subsubsection{Colori}
 \label{subsubsec:accessibility-colors}
+Sono state rispettate tutte le norme per garantire il contrasto (3:1) tra i colori di testo e lo sfondo, si è verificato, inoltre, che non siano l'unico mezzo per trasmettere informazioni. \\
+Tuttavia ci sono testi che non presentano il grado di contrasto richiesto, in quanto sono dotati di proprieta \textit{text-shadow} che fornisce un effetto di ombreggiatura al testo, per cui non è stato necessario intervenire.
 
 \subsubsection{Form}
 \label{subsubsec:accessibility-forms}
+Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
+\begin{itemize}
+    \item comprensibilità della form, ovvero quali sono i dati richiesti e se opzionali od obbligatori;
+    \item gli errori identificabili e comprensibili, anche attraverso l'uso di \textit{aria-role="alert"} per notificare all'utente, via screed reader, eventuali errori di compilazione;
+    \item presenza di attibuti di autocompletamento nei campi delle form;
+    \item compilabilitaq delle form anche senza l'uso del mouse.
+\end{itemize}
 
 \subsubsection{Tabelle}
 \label{subsubsec:accessibility-tables}
+Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
+\begin{itemize}
+    \item progettazione corretta della struttura delle tabelle;
+    \item presenza della \textit{caption} per descrivere lo scopo della tabella;
+    \item trasformazione elegante delle tabelle in caso di visualizzazione delle stesse in dimensioni ridotte.
+\end{itemize}
 
 \subsubsection{Modalità di input}
 \label{subsubsec:accessibility-input}
+Sono stati verificate che le operazioni possano essere svolte con un solo click per tutti i dispositivi di input supportati, ovvero mouse, tastiera e touch screen. \\
+Inoltre è stata implementata la possibilità di retrocedere dal voto espresso per una creatura, in seguito ad un click accidentale oppure ad un errore di valutazione dell'utente votante.
 
 \subsubsection{Tastiera}
 \label{subsubsec:accessibility-keyboard}
+Verifica della corretta implementazione dell'attributo \textit{tabindex} per la navigazione del sito attraverso la tastiera nell'ordine corretto, inoltre l'elemento attualmente selezionato viene evidenziato in maniera opportuna. \\
+È possibile usufruire di tutte le funzionalitàa offerte, servendosi dei controlli interattivi via tastiera, spostando il focus con il tasto \textit{TAB} e selezionando l'elemento desiderato con il tasto \textit{INVIO}. \\
+Infine si specifica che non sono state implementate scorciatoie da tastiera.
 
 \subsubsection{Ruoli, stati e proprietà WAI ARIA}
 \label{subsubsec:accessibility-aria}
@@ -85,11 +112,25 @@ Dunque non sono stati implementati in maniera sostanziale neanche gli stati e le
 \begin{itemize}
     \item \textbf{Breadcrumb}: è stato implementato un \textit{aria-label} per specificarne il funzionamento;
     \item \textbf{Validazione input}: è stato implementato un \textit{aria-label} per esplicitare eventuali errori nell'inserimento degli input;
-    \item \textbf{Pulsanti}: è stato implementato un \textit{aria-label} nei pulsanti \textit{Submit}, di rimozione e modifica di contenuti per esplicitarne lo scopo;
+    \item \textbf{Pulsanti}: è stato implementato un \textit{aria-label} nei pulsanti \textit{Submit}, di rimozione e modifica di contenuti per esplicitarne lo scopo.
 \end{itemize}
 
 \subsubsection{Aiuti alla navigazione}
 \label{subsubsec:accessibility-navigation}
+È stato implementato, nelle pagine del sito in cui è necessario uno \textit{scroll} per visualizzarne l'intero contenuto, un pulsante che permette di tornare in cima alla pagina.
+
+\subsubsection{Disorientamento}
+\label{subsubsec:accessibility-disorientation}
+Per evitare questo fenomeno, si sono verificate le seguenti proprietà:
+\begin{itemize}
+    \item il titolo rispetta la convenzione per cui deve essere dal particolare al generale;
+    \item gli elementi ricorrenti nel sito, sono sempre posizionati nello stesso modo;
+    \item presenza di una breadcrumb per fornire l'utente un orientamento all'interno del sito;
+    \item possibilità di tornare alla home page in qualsiasi momento, cliccando sul logo del sito;
+    \item possibilità di visualizzare il sito in modalità desktop e mobile, grazie all'implementazione di fogli di stile opportuni.
+\end{itemize}
 
 \subsubsection{Separazione tra struttura, contenuto e comportamento}
 \label{subsubsec:accessibility-separation}
+Per garantire la separazione tra struttura, contenuto e comportamento, si è fatto uso di fogli di stile esterni, in modo da poter modificare l'aspetto del sito senza dover intervenire sul codice \textit{HTML}. \\
+Analogamente, si sono impiegati script \textit{PHP} e \textit{JavaScript} esterni, rispettivamente per la gestione delle funzionalità lato server, templating delle pagine \textit{HTML} e per la gestione delle funzionalità lato client .
