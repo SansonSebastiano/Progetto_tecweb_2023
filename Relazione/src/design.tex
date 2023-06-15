@@ -4,17 +4,17 @@
 \subsubsection{Struttura delle cartelle}
 Il progetto segue la seguente sotto-struttura di cartelle:
 \begin{itemize}
-	\item \textbf{html}: cartella contenente la struttura delle varie pagine del sito oltre che una cartella \textbf{modules} la quale contiene alcuni specifici moduli che vanno caricati all'interno di tutte le pagine, come header e footer, o solo in alcune specifiche, come i commenti.
-	\item \textbf{css}: cartella contenente tutti i file che definiscono l'aspetto delle pagine del sito. In più ci sono i css per la visualizzazione mobile e per la stampa;
-	\item \textbf{php}: questa cartella è suddivisa in due categorie. I file php che servono a rendere dinamiche le varie pagine del sito, e quelli che servono per l'esecuzione di query di scrittura nel DB;
-	\item \textbf{js}: cartella contenente i file javascript, il quale ognuno si occupa di implementare una specifica funzionalità al sito;
+	\item \textbf{html}: cartella contenente la struttura delle varie pagine del sito e una cartella \textit{modules} contenente alcuni moduli che vanno caricati all'interno di tutte le pagine, come header e footer, o solo in alcune specifiche, come per i commenti.
+	\item \textbf{css}: cartella contenente tutti i file che definiscono l'aspetto delle pagine del sito, inoltre sono presenti i css per la visualizzazione mobile e per la stampa;
+	\item \textbf{php}: questa cartella raccoglie gli script necessari per l'esecuzione di query di scrittura nel DB e una sottocartella \textit{pages} che contiene i file per rendere dinamiche le pagine del sito;
+	\item \textbf{js}: cartella contenente i file javascript, il quale ognuno si occupa di implementare una specifica funzionalità nel sito;
 	\item \textbf{images}: cartella contenente icone, loghi o sfondi presenti nel sito; 
 	\item \textbf{config.php}: file di configurazione dei vari percorsi utilizzati nel sito;
 	\item \textbf{index.php}: file dell'homepage del sito.
 \end{itemize}
 \subsubsection{Approccio allo sviluppo}
-Per lo sviluppo del sito si sono infatti voluti separare al meglio struttura, aspetto e comportamento. Ogni pagina html ha infatti un suo corrispettivo foglio di stile e una pagina php associata, la quale serve ad importare la struttura della pagina e renderla dinamica. Eventualmente le pagine che fanno utilizzo di particolari funzionalità importano al loro interno i file javascript nelle quali sono scritte le funzioni che permettono di svolgere tali operazioni.\\
-Vi sono inoltre altre pagine php, non visibili all'utente, che sono utilizzate per creare connessioni con il database e svolgere le query di scrittura su esso. Questo tipo di pagine servono anche per lo svolgimento dei controlli back-end di validazione dell'input.
+Per lo sviluppo del sito si sono voluti separare al meglio struttura, aspetto e comportamento. Ogni pagina html ha infatti un suo corrispettivo foglio di stile e uno script php associato, il quale serve ad importare la struttura della pagina e renderla dinamica. Eventualmente le pagine che fanno utilizzo di particolari funzionalità importano al loro interno i file javascript nelle quali sono scritte le funzioni che permettono di svolgere tali operazioni.\\
+Vi sono inoltre altri script php, non visibili all'utente, che sono utilizzate per creare connessioni con il database e svolgere le query di scrittura su esso. Questo tipo di pagine servono anche per lo svolgimento dei controlli back-end di validazione dell'input.
 
 Durante lo sviluppo 
 
@@ -22,7 +22,7 @@ Durante lo sviluppo
 Il database è composto da un totale di 6 entità:
 \begin{itemize}
 	\item \textbf{Animale}: che contiene le informazioni di tutte le creature (scoperte, avvistate o ipotizzate) mostrate nel sito;
-	\item \textbf{Articolo}: che contiene le informazioni di gli articoli pubblicati. Un articolo può riferire un animale ma non necessariamente;
+	\item \textbf{Articolo}: che contiene le informazioni degli articoli pubblicati. Un articolo può riferire un animale ma non necessariamente;
 	\item \textbf{Utente}: che contiene i dati dei vari utenti registrati al sito, compreso il loro ruolo;
 	\item \textbf{Commento}: che contiene tutti i vari commenti presenti sotto agli articoli, con le informazioni sul dove si trovino e chi li abbia scritti;
 	\item \textbf{Risposta}: Entità che modella la relazione tra commento padre e figli;
