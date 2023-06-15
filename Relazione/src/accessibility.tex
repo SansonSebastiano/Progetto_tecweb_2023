@@ -72,14 +72,14 @@ Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti re
 \subsubsection{Colori}
 \label{subsubsec:accessibility-colors}
 Sono state rispettate tutte le norme per garantire il contrasto (3:1) tra i colori di testo e lo sfondo, si è verificato, inoltre, che non siano l'unico mezzo per trasmettere informazioni. \\
-Tuttavia ci sono testi che non presentano il grado di contrasto richiesto, in quanto sono dotati di proprieta \textit{text-shadow} che fornisce un effetto di ombreggiatura al testo, per cui non è stato necessario intervenire.
+Tuttavia ci sono testi che non presentano il grado di contrasto richiesto, in quanto sono dotati di proprieta \texttt{text-shadow} che fornisce un effetto di ombreggiatura al testo, per cui non è stato necessario intervenire.
 
 \subsubsection{Form}
 \label{subsubsec:accessibility-forms}
 Sono stati verificati, attraverso procedure manuali o automatiche, i seguenti requisiti:
 \begin{itemize}
     \item comprensibilità della form, ovvero quali sono i dati richiesti e se opzionali od obbligatori;
-    \item gli errori identificabili e comprensibili, anche attraverso l'uso di \textit{aria-role="alert"} per notificare all'utente, via screed reader, eventuali errori di compilazione;
+    \item gli errori identificabili e comprensibili, anche attraverso l'uso di \texttt{aria-role="alert"} per notificare all'utente, via screed reader, eventuali errori di compilazione;
     \item presenza di attibuti di autocompletamento nei campi delle form;
     \item compilabilitaq delle form anche senza l'uso del mouse.
 \end{itemize}
@@ -101,7 +101,7 @@ Inoltre è stata implementata la possibilità di retrocedere dal voto espresso p
 \subsubsection{Tastiera}
 \label{subsubsec:accessibility-keyboard}
 Verifica della corretta implementazione dell'attributo \textit{tabindex} per la navigazione del sito attraverso la tastiera nell'ordine corretto, inoltre l'elemento attualmente selezionato viene evidenziato in maniera opportuna. \\
-È possibile usufruire di tutte le funzionalitàa offerte, servendosi dei controlli interattivi via tastiera, spostando il focus con il tasto \textit{TAB} e selezionando l'elemento desiderato con il tasto \textit{INVIO}. \\
+È possibile usufruire di tutte le funzionalità offerte, servendosi dei controlli interattivi via tastiera, spostando il focus con il tasto \textit{TAB} e selezionando l'elemento desiderato con il tasto \textit{INVIO}. \\
 Infine si specifica che non sono state implementate scorciatoie da tastiera.
 
 \subsubsection{Ruoli, stati e proprietà WAI ARIA}
@@ -110,9 +110,9 @@ Infine si specifica che non sono state implementate scorciatoie da tastiera.
 Ruoli \textit{WAI ARIA} non sono stati necessari per la realizzazione del sito, in quanto sono risultati sufficienti gli elementi semantici di \textit{HTML5}. \\
 Dunque non sono stati implementati in maniera sostanziale neanche gli stati e le proprietà \textit{WAI ARIA}, eccetto per alcuni casi che verranno discussi di seguito:
 \begin{itemize}
-    \item \textbf{Breadcrumb}: è stato implementato un \textit{aria-label} per specificarne il funzionamento;
-    \item \textbf{Validazione input}: è stato implementato un \textit{aria-label} per esplicitare eventuali errori nell'inserimento degli input;
-    \item \textbf{Pulsanti}: è stato implementato un \textit{aria-label} nei pulsanti \textit{Submit}, di rimozione e modifica di contenuti per esplicitarne lo scopo.
+    \item \textbf{Breadcrumb}: è stato implementato un \texttt{aria-label} per specificarne il funzionamento;
+    \item \textbf{Validazione input}: è stato implementato un \texttt{aria-label} per esplicitare eventuali errori nell'inserimento degli input;
+    \item \textbf{Pulsanti}: è stato implementato un \texttt{aria-label} nei pulsanti \textit{Submit}, di rimozione e modifica di contenuti per esplicitarne lo scopo.
 \end{itemize}
 
 \subsubsection{Aiuti alla navigazione}

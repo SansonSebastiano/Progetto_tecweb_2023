@@ -1,1 +1,26 @@
 \section{Implementazione Front-end}
+\label{sec:front-end}
+
+\subsection{HTML}
+Si è cercato di adoperare nella costruzione del sito quanti più elementi HTML5 semantici, che veicolassero il significato dell'elemento, come \texttt{<aside>}, \texttt{<article>}, \texttt{<figcaption>}, \texttt{<dl>} e non solo. Tale adozione ha ridotto la necessità di specificare frequentemente valori dell'attributo ARIA “role” , al quale è noto che bisogna privilegiare l'uso di elementi HTML5 opportuni ove possibile.
+
+\subsection{CSS}
+Il sito è dotato di pagine che sovente fanno uso dei layout CSS Grid e Flex.
+A pressoché ogni pagina del sito è associato un foglio di stile dedicato, con rare eccezioni.
+Il file \texttt{css/global.css}, al contrario, contiene regole a cui devono sottostare elementi che si possono trovare in più pagine e ospita inoltre le variabili globali definite attraverso il selettore \texttt{:root}.
+Non vi sono regole racchiuse in blocchi \texttt{<style>} all'interno dei file HTML in quanto ciò avrebbe costituito una violazione della separazione fra presentazione e contenuto. \\
+In alcune regole CSS si fa uso del valore “sticky” della proprietà “position” per motivi non solamente estetici, bensì anche allo scopo di consentire che la barra di navigazione del sito (o “breadcrumb”) resti costantemente posizionata lungo il lato superiore dello schermo a seguito dello scorrimento verticale.
+
+\subsubsection{Accorgimenti per dimensioni differenti della viewport}
+Nella directory \texttt{css/special/media} sono presenti file che per numerose pagine ospitano al loro interno regole racchiuse in delle media query. Variazioni dall'aspetto di default iniziano a notarsi al raggiungimento dei “breakpoint” di larghezza della viewport di \textit{900px} e \textit{720px}. Tali variazioni consistono soprattutto nella riduzione del numero di colonne del sito fino ad avere un singolo “flusso” di elementi, la scomparsa di alcuni elementi che sovraccaricherebbero la finestra, la trasformazione accessibile di alcune tabelle (secondo l'idea di Aaron Gustafson, che fa scomparire la sezione \texttt{<thead>} e “appiattisce” la tabella rendendola non più bidimensionale). A tale proposito, il file \texttt{css/special/media/a11y-tables.css} viene importato da più di una pagina nel sito.
+
+\subsubsection{Accorgimenti per dispositivi mobili}
+Nel file \texttt{css/special/mobile.css} sono presenti regole all'interno di una media query che vincola la loro attuazione al soddisfacimento dell'orientazione “portrait” della viewport, ossia quando l'altezza della stessa risulta superiore alla larghezza. La \textit{ratio} è che le media query illustrate poc'anzi non sono state ritenute sufficienti per garantire accessibilità durante la navigazione da dispositivi mobili, in quanto oggi si hanno \textit{device} con una risoluzione paragonabile a quella di uno schermo per PC desktop. \\
+Alcune regole applicate replicano quelle della sezione precedente, altre vanno a rimuovere dallo schermo elementi che sarebbero d'intralcio.
+
+\subsubsection{Accorgimenti per stampa}
+Nel file \texttt{css/special/print.css} sono presenti accorgimenti che rimuovono elementi grafici del sito che non sono stati ritenuti di alcuna utilità al momento della stampa, come la sezione di identificazione dell'utente, la barra di navigazione, il \textit{footer} e i pulsanti. 
+
+
+
+Le proprietà \texttt{text-shadow} e \texttt{box-shadow} sono le uniche a non possedere un valore specificato in unità di misura relative (em o vw/vh)
