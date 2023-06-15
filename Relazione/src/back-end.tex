@@ -6,7 +6,8 @@
 Nella cartella \texttt{/php} sono presenti tutti i file php utilizzati per la gestione del back-end del sito.
 
 Il file \texttt{config.php} viene utilizzato dai file php per configurare i percorsi dei file necessari, all'interno di esso la variabile \texttt{\$root\_server\_side}
-serve per impostare la cartella radice del sito.
+serve per impostare la cartella radice del sito lato server. \\
+Inoltre è definita, per lo scopo analogo, anche una variabile \texttt{\$root\_client\_side}, che all'eventualità, deve essere modificata quando viene spostato fisicamente il sito.
 
 \subsubsection{Pagine}
 Nella cartella \texttt{/php/pages} sono presenti tutti i file php che vengono richiamati dalle pagine del sito per ottenere i dati necessari alla loro visualizzazione:
